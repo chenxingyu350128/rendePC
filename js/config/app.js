@@ -9,24 +9,24 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
         $stateProvider//首页
             .state('home',{
                 url: '/home',
-                params:{position:1},
+                params:{position:1,position0:1},
                 templateUrl: 'html/home.html',
                 controller: 'HomeCtrl',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/home.css',
-                        'js/controller/home.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/susBox/sus.js',
+                        'css/home.css',
+                        'js/controller/home.js',
                     ])
                 }
             })//找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?position',
+                url: '/workCtrl?position&position0',
                 params:{nav:2},
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
@@ -58,7 +58,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('personel',{
-                url: '/personel?position',
+                url: '/personel?position&position0',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -91,31 +91,31 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
-            .state('position-modify',{
-                url: '/position-modify',
-                templateUrl: 'html/position-modify.html',
-                controller: 'PositionModifyCtrl',
+            .state('position&position0-modify',{
+                url: '/position&position0-modify',
+                templateUrl: 'html/position&position0-modify.html',
+                controller: 'position&position0ModifyCtrl',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/position-modify.css',
+                        'css/position&position0-modify.css',
                         'css/work.css',
                         'css/workdetail.css',
                         'css/personel.css',
-                        'js/controller/position-modify.js'
+                        'js/controller/position&position0-modify.js'
                     ])
                 }
             })
-            .state('hunt-position',{
-                url: '/hunt-position',
-                templateUrl: 'html/hunt-position.html',
-                controller: 'HuntPositionCtrl',
+            .state('hunt-position&position0',{
+                url: '/hunt-position&position0',
+                templateUrl: 'html/hunt-position&position0.html',
+                controller: 'Huntposition&position0Ctrl',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/hunt-position.css',
+                        'css/hunt-position&position0.css',
                         'css/work.css',
-                        'js/controller/hunt-position.js'
+                        'js/controller/hunt-position&position0.js'
                     ])
                 }
             })
@@ -182,7 +182,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('enterprise',{
-                url: '/enterprise?position',
+                url: '/enterprise?position&position0',
                 params:{nav:4},
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
@@ -201,7 +201,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//仁德猎头
             .state('headHunt',{
-                url: '/headHunt?position',
+                url: '/headHunt?position&position0',
                 params:{nav:5},
                 templateUrl: 'html/headhunt.html',
                 controller: 'HeadhuntCtrl',
@@ -266,7 +266,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store?position',
+                url: '/store?position&position0',
                 params:{nav:6},
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
@@ -308,7 +308,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('proxy',{
-                url: '/proxy?position',
+                url: '/proxy?position&position0',
                 params:{nav:7},
                 templateUrl: 'html/proxy.html',
                 controller: 'proxyCtrl',
@@ -327,7 +327,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('WPInfo',{
-                url: '/wpInfo?position',
+                url: '/wpInfo?position&position0',
                 params:{nav:3},
                 templateUrl: 'html/workplace-news.html',
                 controller: 'wpInfo',
@@ -346,7 +346,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('GWorker',{
-                url: '/GWorker?position&type0',
+                url: '/GWorker?position&position0&type0',
                 templateUrl: 'html/GWorker.html',
                 controller: 'GWorkerCtrl',
                 controllerAs: 'vm',
@@ -364,7 +364,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('recruit',{
-                url: '/recruit?position&type',
+                url: '/recruit?position&position0&type',
                 templateUrl: 'html/recruit.html',
                 controller: 'recruitCtrl',
                 controllerAs: 'vm',
@@ -382,7 +382,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('jobFair',{
-                url: '/jobFair?position',
+                url: '/jobFair?position&position0',
                 templateUrl: 'html/jobFair.html',
                 controller: 'jobFairCtrl',
                 controllerAs: 'vm',
@@ -440,7 +440,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             // 专题招聘
             .state('special-zp',{
-                url: '/special-zp?position',
+                url: '/special-zp?position&position0',
                 templateUrl: 'html/special-zp.html',
                 controller: 'SpecialZp',
                 controllerAs: 'vm',

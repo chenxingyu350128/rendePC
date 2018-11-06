@@ -1,6 +1,7 @@
 angular.module('myApp')
     .controller('WorkCtrl',function ($http,$state) {
-
+        let vm=this;
+        vm.client=sessionStorage.getItem('client');
         //导航被选中高亮显示
         $(document).ready(function(){
             $('.work-position-l').eq(0).addClass('work-position-active').siblings().removeClass('work-position-active');

@@ -6,14 +6,22 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
         scope: {
         },
         link: function (scope) {
+            scope.client=1;
             console.log($stateParams);
             let navList=$('.nav').find('div');
             let idx=parseInt($stateParams['position']);
+            let idx0=parseInt($stateParams['position0']);
             if(idx){
                 navList.eq(idx-1).css({
                     'border-bottom':'5px solid #e11c19'
                 });
             }
+            if(idx0){
+                navList.eq(idx0-1).css({
+                    'border-bottom':'5px solid #31BEFF'
+                });
+            }
+            console.log(scope.client);
             scope.placeBtn=function(){
                 scope.changePlace=true;
             };
