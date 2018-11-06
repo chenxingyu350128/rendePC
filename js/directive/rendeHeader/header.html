@@ -1,0 +1,50 @@
+<div class="container-fluid" style="background: #fff">
+    <div class="container header">
+        <div class="row">
+            <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <img src="image/home/logo.png" alt="">
+                <span style="font-size: 16px; margin: 0 8px;">全国</span>
+                <span ng-click="placeBtn()" style="font-size: 12px; color: #c5c5c5">[切换城市]</span>
+            </div>
+            <div class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
+                <span class="loginIn" ng-click="signIn()">登录</span><span class="sign" ng-click="signUp()">注册</span>
+            </div>
+
+            <div class="nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="navItem" ui-sref="home({position: 1})">首页</div>
+                <div class="navItem" ui-sref="WorkCtrl({position: 2})">找工作</div>
+                <div class="navItem" ui-sref="enterprise({position: 3})">找企业</div>
+                <div class="navItem" ui-sref="personel({position: 4})">人才专区</div>
+                <div class="navItem" ui-sref="recruit({position: 5})">店铺招聘/招普工</div>
+                <div class="navItem" ui-sref="GWorker({position: 6})">普工简历</div>
+                <div class="navItem" ui-sref="headHunt({position: 7})">仁德猎头</div>
+                <div class="navItem" ui-sref="proxy({position: 8})">仁德人力代理</div>
+                <div class="navItem" ui-sref="special-zp({position: 9})">专题招聘会</div>
+                <div class="navItem" ui-sref="WPInfo({position: 10})">职场资讯</div>
+                <div class="navItem" ui-sref="store({position: 11})">积分商城</div>
+            </div>
+        </div>
+        <div ng-show="changePlace" class="row provinceChoose">
+            <img class="leftClick" ng-click="provinceMoreL()" src="image/home/leftTriangle.png" alt="">
+            <div class="province">
+                <div>
+                    <div>
+                        <span ng-click="chooseProvince($index)" ng-repeat="x in hole_country">{{x.provinceName}}</span>
+                    </div>
+                </div>
+            </div>
+            <img class="rightClick" ng-click="provinceMoreR()" src="image/home/rightTriangle.png" alt="">
+        </div>
+        <div ng-show="changePlace" class="row cityChoose">
+            <img class="leftClick" ng-click="cityMoreL()" src="image/home/leftTriangle.png" alt="">
+            <div class="cities">
+                <div>
+                    <div>
+                        <span class="cityGroup" ng-click="chooseCity($index)" ng-repeat="x in cities" repeat-finished>{{x.cityName}}</span>
+                    </div>
+                </div>
+            </div>
+            <img class="rightClick" ng-click="cityMoreR()" src="image/home/rightTriangle.png" alt="">
+        </div>
+    </div>
+</div>
