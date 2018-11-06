@@ -1,0 +1,96 @@
+<rende-header></rende-header>
+<common-search></common-search>
+<div class="container boxTitle top">
+    <div class="stick"></div>
+    <span class="redF">当前位置:</span>
+    <span>首页>职位列表>职位详情</span>
+</div>
+<div class="container main">
+    <div class="leftSide">
+        <div class="intro">
+            <div class="left">
+                <div class="ocp">保安</div>
+                <div class="abstract">孙先生/男/6年以上</div>
+                <div class="contact">
+                    <span class="contactMethod">联系电话: 15287365413</span>
+                    <span class="contactMethod"><span style="letter-spacing: .5em">联系人:</span> 陈星星</span>
+                </div>
+            </div>
+            <div class="right text-right">
+                <div class="updateAt">2018-08-13 更新</div>
+                <div class="viewCount">被浏览: 1次</div>
+                <div class="icons">
+                    <div class="rec">
+                        <img src="image/home/rec.png" alt="">
+                        <span class="grayF">推荐</span>
+                    </div>
+                    <div class="weChat">
+                        <img src="image/home/wechat.png" alt="">
+                        <span class="grayF">微信</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="demands">
+            <div class="boxTitle">
+                <div class="stick"></div>
+                <span class="redF">自我介绍</span>
+            </div>
+            <div class="demand">
+                <span>
+                   擅长安保工作，多年经验
+                </span>
+            </div>
+        </div>
+        <div class="edit">
+            <div class="boxTitle">
+                <div class="stick"></div>
+                <span class="redF">修改删除</span>
+            </div>
+            <div class="options">
+                <div class="button refresh">刷新</div>
+                <div class="button modify">修改</div>
+                <div class="button delete">删除</div>
+            </div>
+            <div class="desc">
+                <div class="redF">操作说明:</div>
+                <div class="grayF">刷新，修改，删除只有信息发布者可以操作，每刷新一次招聘信息就会自动排在最前面</div>
+            </div>
+        </div>
+        <div class="recommend">
+            <div class="boxTitle">
+                <div class="stick"></div>
+                <span class="redF">为你推荐</span>
+            </div>
+            <div class="ocp">
+                <div class="card" ng-repeat="x in vm.recData">
+                    <div class="ocpAndSalary">
+                        <span>{{x.ocp}}</span>
+                    </div>
+                    <!--<div class="desc">{{x.desc}}</div>-->
+                    <div class="tel">
+                        <span class="abstract grayF">张女士 | 女 | 1年以上</span>
+                        <span>联系电话:{{x.tel}}</span>
+                    </div>
+                    <div class="advantage">
+                        {{x.advantage}}
+                    </div>
+                    <div class="updateAt grayF">更新于{{x.updateAt}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rightSide">
+        <div class="boxTitle">
+            <div class="stick"></div>
+            <span class="redF">温馨提示</span>
+        </div>
+        <div class="notice">
+            为方便一些普工类企业(如饭店,店面,个体户等)发布招聘信息,特设定了无需注册,即可发布简短招聘的功能,在给大家提供了更多的信息的同时也存在的问题是,我们无法对这些发布者做核实. ★以下信息由企业或个体工商户自行提供，该企业或个体工商户负责信息内容的真实性、准确性和合法性。网站对此不承担任何保证或连带责任.
+        </div>
+        <div class="release">
+            发布普工简历
+        </div>
+    </div>
+</div>
+<rd-footer></rd-footer>

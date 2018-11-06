@@ -1,0 +1,449 @@
+<!--页眉-->
+<rende-header></rende-header>
+<common-search></common-search>
+<!--xuanze-->
+<div class="container enterNav">
+    <div class="row">
+        <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <!--基本资料-->
+            <div class="info">
+                <div class="avatar">
+                    <img src="image/home/resume_avatar.png" alt="">
+                </div>
+                <div class="fill1">
+                    <div class="real_name">张育文</div>
+                    <div>年龄: 22岁</div>
+                    <div>学历: 本科</div>
+                    <div>现居地: 福州仓山</div>
+                </div>
+                <div class="fill2">
+                    <div style="visibility: hidden;">从事行业: 人事/行政/高级管理</div>
+                    <div>工作经验: 两年</div>
+                    <div>联系电话: 本科</div>
+                    <div>联系邮箱: 218273824@qq.com</div>
+                </div>
+                <img ng-show="!vm.table1&&!vm.table2" ng-click="vm.edit1()" class="editIcon" src="image/home/editIcon.png" alt="">
+                <div ng-show="vm.table1" class="editTable">
+                    <form  class="table1" name="table1">
+                        <div>
+                            头像： <img src="image/home/resume_avatar.png" alt="">
+                            <label for="avatarEdit">
+                                <input style="display: none;" id="avatarEdit" type="file" required>
+                                 选择图片
+                            </label>
+                        </div>
+                        <div class="age">
+                            年龄: <input type="number" required>
+                        </div>
+                        <div class="edu">
+                            学历: <input type="text" required>
+                        </div>
+                        <div class="residence">
+                            现居地: <input type="text" required>
+                        </div>
+                        <div class="exp">
+                            工作经验: <input type="text" required>
+                        </div>
+                        <div class="mobile">
+                            联系电话: <input type="tel" required>
+                        </div>
+                        <div class="email">
+                            联系邮箱: <input type="email" required>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit1();vm.commit1()" ng-disabled="table1.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit1()" src="image/home/close.png" alt="">
+                    </form>
+               </div>
+            </div>
+            <!--求职意向-->
+            <div class="infoHeader">
+                <span>求职意向</span>
+            </div>
+            <div class="info">
+               <div class="fill1">
+                   <div>意向岗位：人事助理</div>
+                   <div>工作地点: 福建福州</div>
+                   <div>到岗时间: 随时到岗</div>
+                   <div>工作性质: 不限</div>
+               </div>
+               <div class="fill2">
+                   <div>从事行业: 人事/行政/高级管理</div>
+                   <div>期望薪资: ￥
+                       <span>5000</span>-
+                       <span>8000</span>
+                   </div>
+                   <div>求职状态: 已离职，寻求新工作</div>
+               </div>
+               <img ng-show="!vm.table2&&!vm.table1" ng-click="vm.edit2()" class="editIcon" src="image/home/editIcon.png" alt="">
+               <div ng-show="vm.table2" class="editTable">
+                    <form  class="table2" name="table2">
+                        <div class="aim">
+                            意向岗位: <input type="text" required>
+                        </div>
+                        <div class="place">
+                            工作地点: <input type="text" required>
+                        </div>
+                        <div class="reachTime">
+                            到岗时间: <input type="text" required>
+                        </div>
+                        <div class="charactor">
+                            工作性质: <input type="text" required>
+                        </div>
+                        <div class="industy">
+                            从事行业: <input type="text" required>
+                        </div>
+                        <div class="salary">
+                            期望薪资:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="status">
+                            求职状态: <input type="text" required>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit2();vm.commit2()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit2()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+           </div>
+            <!--工作经历-->
+            <div class="infoHeader">
+                <span>工作经历</span>
+            </div>
+            <div class="info jobExpShell">
+                <div class="jobExp">
+                    <div class="major">
+                        <div class="duration">
+                            <span>2018.03</span>-
+                            <span>2018.06</span>
+                        </div>
+                        <div class="compName">士大夫犯得上发为公司</div>
+                        <div class="ocp">销售经历</div>
+                        <div>
+                            <span class="modify">修改</span><span class="delete" ng-click="vm.delete()">删除</span>
+                        </div>
+                    </div>
+                    <div class="tails">
+                        春江潮水连海平，海上明月共潮生。
+                        滟滟随波千万里，何处春江无月明！
+                        江流宛转绕芳甸，月照花林皆似霰；
+                        空里流霜不觉飞，汀上白沙看不见。
+                        江天一色无纤尘，皎皎空中孤月轮。
+                        江畔何人初见月？江月何年初照人？
+                        人生代代无穷已，江月年年只相似。
+                        不知江月待何人，但见长江送流水。
+                        白云一片去悠悠，青枫浦上不胜愁。
+                        谁家今夜扁舟子？何处相思明月楼？
+                        可怜楼上月徘徊，应照离人妆镜台。
+                        玉户帘中卷不去，捣衣砧上拂还来。
+                        此时相望不相闻，愿逐月华流照君。
+                        鸿雁长飞光不度，鱼龙潜跃水成文。
+                        昨夜闲潭梦落花，可怜春半不还家。
+                        江水流春去欲尽，江潭落月复西斜。
+                        斜月沉沉藏海雾，碣石潇湘无限路。
+                        不知乘月几人归，落月摇情满江树。
+                    </div>
+                </div>
+                <div class="editTable">
+                    <form  class="table3" name="table3">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="compName">
+                            公司名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            任职岗位: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            具体工作:
+                            <textarea style="width: 100%;" name="details" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commit3()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <div class="info jobExpShell">
+                <div class="jobExp">
+                    <div class="major">
+                        <div class="duration">
+                            <span>2018.03</span>-
+                            <span>2018.06</span>
+                        </div>
+                        <div class="compName">士大夫犯得上发为公司</div>
+                        <div class="ocp">销售经历</div>
+                        <div>
+                            <span class="modify">修改</span><span class="delete" ng-click="vm.delete()">删除</span>
+                        </div>
+                    </div>
+                    <div class="tails">
+                        春江潮水连海平，海上明月共潮生。
+                        滟滟随波千万里，何处春江无月明！
+                        江流宛转绕芳甸，月照花林皆似霰；
+                        空里流霜不觉飞，汀上白沙看不见。
+                        江天一色无纤尘，皎皎空中孤月轮。
+                        江畔何人初见月？江月何年初照人？
+                        人生代代无穷已，江月年年只相似。
+                        不知江月待何人，但见长江送流水。
+                        白云一片去悠悠，青枫浦上不胜愁。
+                        谁家今夜扁舟子？何处相思明月楼？
+                        可怜楼上月徘徊，应照离人妆镜台。
+                        玉户帘中卷不去，捣衣砧上拂还来。
+                        此时相望不相闻，愿逐月华流照君。
+                        鸿雁长飞光不度，鱼龙潜跃水成文。
+                        昨夜闲潭梦落花，可怜春半不还家。
+                        江水流春去欲尽，江潭落月复西斜。
+                        斜月沉沉藏海雾，碣石潇湘无限路。
+                        不知乘月几人归，落月摇情满江树。
+                    </div>
+                </div>
+                <div class="editTable">
+                    <form  class="table3" name="table3">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="compName">
+                            公司名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            任职岗位: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            具体工作:
+                            <textarea style="width: 100%;" name="details" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commit3()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <div class="addExp">
+                <span> 添加工作经历</span>
+                <div style="display: none;" class="editTable">
+                    <form  class="table3" name="tableAdd">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="compName">
+                            公司名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            任职岗位: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            具体工作:
+                            <textarea style="width: 100%;" name="details" id="" cols="30" rows="10"></textarea>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commitAdd()" ng-disabled="tableAdd.$invalid" class="btn">提交</button>
+                        </div>
+                        <img src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <!--教育经历-->
+            <div class="infoHeader">
+                <span>教育经历</span>
+            </div>
+            <div class="info eduShell">
+                <div class="eduExp">
+                    <div class="major">
+                        <div class="duration">
+                            <span>2018.03</span>-
+                            <span>2018.06</span>
+                        </div>
+                        <div class="campName">士大夫犯得上发为公司</div>
+                        <div class="education">学历:本科</div>
+                        <div class="profession">专业: 英语专业</div>
+                    </div>
+                </div>
+                <div style="display: none;" class="editTable eduResume">
+                    <form  class="table3" name="table3">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="campName">
+                            学校名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            学历: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            专业: <input type="text" required>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commit3()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <div class="info eduShell">
+                <div class="eduExp">
+                    <div class="major">
+                        <div class="duration">
+                            <span>2018.03</span>-
+                            <span>2018.06</span>
+                        </div>
+                        <div class="campName">士大夫犯得上发为公司</div>
+                        <div class="education">学历:本科</div>
+                        <div class="profession">专业: 英语专业</div>
+                    </div>
+                </div>
+                <div style="display: none;" class="editTable eduResume">
+                    <form  class="table3" name="table3">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="campName">
+                            学校名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            学历: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            专业: <input type="text" required>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commit3()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <div class="addEdu">
+                <span> 添加教育经历</span>
+                <div style="display: none;" class="editTable">
+                    <form  class="table3" name="eduAdd">
+                        <div class="duration">
+                            起始时间:
+                            <div>
+                                <input type="text" required>
+                                <input type="text" required>
+                            </div>
+                        </div>
+                        <div class="campName">
+                            学校名称: <input type="text" required>
+                        </div>
+                        <div class="ocp">
+                            学历: <input type="text" required>
+                        </div>
+                        <div class="ocpDetail">
+                            专业: <input type="text" required>
+                        </div>
+                        <div class="commit text-center">
+                            <button ng-click="vm.edit3();vm.commit3()" ng-disabled="eduAdd.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+            <!--自我评价-->
+            <div class="infoHeader">
+                <span>自我评价</span>
+            </div>
+            <div class="info">
+                <div class="evaluation">
+                    但还是觉得获取文件读取威威金额话啊，说明，民主科学前几位哦亲我看，阿斯达克几位饿哦额仅为i大家看见地区欧文对大家
+                </div>
+                <img ng-show="!vm.evaluation" ng-click="vm.editEval()" class="editIcon" src="image/home/editIcon.png" alt="">
+                <div ng-show="vm.evaluation" class="editTable">
+                    <form  class="table2" name="table2">
+                        自我评价：
+                        <textarea style="width: 100%; margin-top: .25rem;" name="evaluation" id="eval" cols="30" rows="10"></textarea>
+                        <div class="commit text-center">
+                            <button ng-click="vm.editEval();vm.commitEval()" ng-disabled="table2.$invalid" class="btn">提交</button>
+                        </div>
+                        <img ng-click="vm.editEval()" src="image/home/close.png" alt="">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="recommend col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="RHshell fileUp">
+                <div class="rightHeader">
+                    <span>附件</span>
+                </div>
+            </div>
+            <div class="docName">
+                <div class="name">
+                    <img src="image/home/docIcon.png" alt="">文档名称速度快洒家打开
+                </div>
+                <label for="inputFile">
+                    <input style="display: none;" type="file" id="inputFile">
+                    <div>添加附件</div>
+                </label>
+                <span>支持 DOC、DOCX、PDF、JPG、PNG格式附件，文件大小不超过10M</span>
+            </div>
+        </div>
+        <div class="recommend col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="RHshell fileUp">
+                <div class="rightHeader">
+                    <span>推荐企业</span>
+                </div>
+            </div>
+            <div class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+            <div class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+            <div class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--底部-->
+<rd-footer></rd-footer>

@@ -1,0 +1,151 @@
+<div class="container-fluid signPage">
+    <img  ng-click="vm.homePage()" src="image/home/logo.png" alt="">
+    <div class="catchword">
+        <span ng-click="vm.homePage()">仁德直聘，给你最好的人才招聘!</span>
+    </div>
+    <div class="cards">
+        <div class="card">
+            工作性质:
+            <div class="jobType">
+                <span>全职</span>
+                <span>兼职</span>
+                <span>实习</span>
+            </div>
+            <div> 经验与学历:</div>
+            <div class="edu">
+                <div>
+                    <select style="text-align-last: center; text-align: center" name="exp" id="">
+                        <option value="">不限</option>
+                        <option value="">无经验</option>
+                        <option value="">1年以下</option>
+                        <option value="">1-3年</option>
+                        <option value="">3-5年</option>
+                    </select>
+                    <img src="image/home/arrow_down_red.png" alt="">
+                </div>
+                <div>
+                    <select style="text-align-last: center; text-align: center" name="edu" id="">
+                        <option style="text-align-last: center" value="">不限</option>
+                        <option value="">初中</option>
+                        <option value="">高中</option>
+                        <option value="">大专</option>
+                        <option value="">本科</option>
+                    </select>
+                    <img src="image/home/arrow_down_red.png" alt="">
+                </div>
+
+            </div>
+            <div> 薪资范围:</div>
+            <div class="salary">
+                <div>
+                    <select style="text-align-last: center; text-align: center" name="exp" id="">
+                        <option value="">面谈</option>
+                        <option value="">3000</option>
+                        <option value="">3500</option>
+                        <option value="">4000</option>
+                        <option value="">4500</option>
+                    </select>
+                    <img src="image/home/arrow_down_red.png" alt="">
+                </div>
+                <div>
+                    <select style="text-align-last: center; text-align: center" name="edu" id="">
+                        <option value="">面谈</option>
+                        <option value="">5000</option>
+                        <option value="">6000</option>
+                        <option value="">7000</option>
+                        <option value="">8000</option>
+                    </select>
+                    <img src="image/home/arrow_down_red.png" alt="">
+                </div>
+
+            </div>
+            <div>职位描述:</div>
+            <textarea class="desc" name="" id="" cols="30" rows="10" placeholder="请输入..."></textarea>
+            <div class="btns">
+                <div class="btn">上一步</div>
+                <div class="btn">下一步</div>
+            </div>
+        </div>
+        <div class="card">
+            <form name="myForm1">
+                <div class="text-center">
+                    <img src="image/home/default_Png.png" alt="">
+                </div>
+                <div>
+                    <div>公司名称</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>所属行业</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>人员规模</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>所在职位</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>常用邮箱</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div class="btns">
+                    <button class="btn" ng-disabled="myForm1.$invalid">下一步</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="card">
+            <div class="post">发布职位</div>
+            <form name="myForm2">
+                <div>
+                    <div>职位名称</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>职位类型</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>工作城市</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div>
+                    <div>工作地点</div>
+                    <input class="fill" type="text" required>
+                </div>
+                <div class="btns">
+                    <button class="btn">上一步</button>
+                    <button ng-click="vm.print()" class="btn" ng-disabled="myForm2.$invalid">完成</button>
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

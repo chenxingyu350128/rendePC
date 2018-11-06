@@ -1,0 +1,139 @@
+<div class="write-massage container">
+    <!--<img src="image/write-message-bc.jpg" alt="">-->
+        <div class="write-massage-logo">
+            <img src="image/write-message-logo.png" alt="">
+        </div>
+    <div class="write-massage-content">
+        <!--第一步：基本资料-->
+            <div class="write-massage-type"  ng-show="vm.type1" >
+                <div class="write-massage-box">
+                    <div class="type-menu">
+                        <div class="type-menu-head">点击上传图像</div>
+                        <div class="type-menu-list"><div class="list-select type-menu-list-l"></div> <div class="fl">基本资料</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l type-menu-list-c"></div><div class="fl">工作经历</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l type-menu-list-c"></div><div class="fl">期望职位</div></div>
+                    </div>
+                    <div class="write-type-message">
+                        <div>
+                            <span>姓名：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>性别：</span><br>
+                            <button class="write-type-message-btn sex-button">男</button><button class="sex-button write-type-message-btn">女</button>
+                        </div>
+                        <div>
+                            <span>出生年月：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>工作时间：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>求职状态：</span><br>
+                            <button class="statu-btn write-type-message-btn">随时到岗</button><button class="statu-btn write-type-message-btn">暂不考虑</button>
+                            <button class="statu-btn write-type-message-btn">考虑机会</button><button class="statu-btn write-type-message-btn">月内到岗</button>
+                        </div>
+                        <div>
+                            <span>学校名称：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>学历：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>专业名称：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>毕业时间：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <button class="next-type" style="background-color: red ;border: none;" ng-click="vm.toType2()">下一步</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--第二步：工作经历-->
+            <div class="write-massage-type" ng-show="vm.type2" >
+                <div class="write-massage-box">
+                    <div class="type-menu">
+                        <div class="type-s"></div>
+                        <div class="type-menu-list"><div class="list-select type-menu-list-l"></div> <div class="fl redF" >基本资料</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l list-select "></div><div class="fl redF">工作经历</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l type-menu-list-c"></div><div class="fl">期望职位</div></div>
+                    </div>
+                    <div class="write-type-message">
+                        <div>
+                            <span>公司名称：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>所在职位：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>工作技能：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>工作时间：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>工作内容：</span><br>
+                            <textarea></textarea>
+                       </div>
+                        <div>
+                            <button class="next-type" style="border: 1px solid red;margin-left: 0;background-color: white;color: red" ng-click="vm.toType1()">上一步</button>
+                            <button class="next-type" style="background-color: red ;border: none;margin-left: 0" ng-click="vm.toType3()">下一步</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--第三步：期望职位-->
+            <div class="write-massage-type " ng-show="vm.type3"  >
+                <div class="write-massage-box">
+                    <div class="type-menu">
+                        <div class="type-s"></div>
+                        <div class="type-menu-list"><div class="list-select type-menu-list-l"></div> <div class="fl redF" >基本资料</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l list-select "></div><div class="fl redF">工作经历</div></div>
+                        <div class="type-menu-list"><div class="type-menu-list-l list-select"></div><div class="fl redF">期望职位</div></div>
+                    </div>
+                    <div class="write-type-message">
+                        <div>
+                            <span>期望职位：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>期望薪资：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>期望工作行业：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>期望工作地点：</span><br>
+                            <input type="text">
+                        </div>
+                        <div>
+                            <span>个人优势：</span><br>
+                            <textarea></textarea>
+                       </div>
+                        <div>
+                            <button class="next-type" style="border: 1px solid red;margin-left: 0;background-color: white;color: red" ng-click="vm.toType2()">上一步</button>
+                            <button class="next-type" style="background-color: red ;border: none;margin-left: 0">完成</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+
+
+
+</div>

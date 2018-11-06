@@ -1,0 +1,48 @@
+<rende-header></rende-header>
+<common-search></common-search>
+<div class="container">
+    <div class="leftNav">
+        <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+            <span>企业列表</span>
+            <img src="image/home/threeSquare.png" alt="">
+        </div>
+        <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+            <span>名企招聘</span>
+            <img src="image/home/threeSquare.png" alt="">
+        </div>
+    </div>
+    <div class="hotOcp">
+        <span class="underNav">职位: </span>
+        <span ui-sref="recruit({type:1})" class="underNav hot {{vm.type==1?'checkedType':''}}">全部</span>
+        <span ui-sref="recruit({type:2})" class="underNav hot {{vm.type==2?'checkedType':''}}">餐饮</span>
+        <span ui-sref="recruit({type:3})" class="underNav hot {{vm.type==3?'checkedType':''}}">电子</span>
+        <span ui-sref="recruit({type:4})" class="underNav hot {{vm.type==4?'checkedType':''}}">保姆</span>
+        <span ui-sref="recruit({type:5})" class="underNav hot {{vm.type==5?'checkedType':''}}">货运</span>
+        <span ui-sref="recruit({type:6})" class="underNav hot {{vm.type==6?'checkedType':''}}">快递</span>
+        <select class="underNav select" name="kind" id="">
+            <option value="">更多</option>
+            <option value=""></option>
+            <option value=""></option>
+        </select>
+    </div>
+</div>
+<div class="container recruitment">
+    <div ng-repeat="x in vm.cardData" ui-sref="GWDetail" class="card">
+        <div class="salary">
+            <span>{{x.ocp}}</span>
+            <span class="redF">{{x.salary}}</span>
+        </div>
+        <div class="desc grayF">{{x.desc}}</div>
+        <div class="tel">{{x.tel}}</div>
+        <div class="address">
+            <span>{{x.address}}</span>
+            <span class="grayF pull-right">{{x.updateAt}}</span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="seeMore text-center">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+</div>
+<rd-footer></rd-footer>

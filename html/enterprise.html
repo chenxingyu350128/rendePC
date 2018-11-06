@@ -1,0 +1,332 @@
+<!--页眉-->
+<rende-header></rende-header>
+<!--搜索-->
+<common-search></common-search>
+<!--xuanze-->
+<div class="container checkBox">
+    <div>
+        <div class="row">
+            <span>职位:</span>
+            <div>
+                <span class="all">全部</span>
+            </div>        <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">222</span>
+            <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">444</span>
+            <span class="choice">555</span>
+            <span class="choice">666</span>
+            <select class="getMore" name="occupations" id="select1">
+                <option value="">全部</option>
+            </select>
+        </div>
+        <div class="row">
+            <span>职位:</span>
+            <div>
+                <span class="all">全部</span>
+            </div>        <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">222</span>
+            <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">444</span>
+            <span class="choice">555</span>
+            <span class="choice">666</span>
+            <select class="getMore" name="occupations" id="select2">
+                <option value="">全部</option>
+            </select>
+        </div>
+        <div class="row">
+            <span>职位:</span>
+            <div>
+                <span class="all">全部</span>
+            </div>        <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">222</span>
+            <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">444</span>
+            <span class="choice">555</span>
+            <span class="choice">666</span>
+            <select style="visibility: hidden" class="getMore" name="occupations" id="select3">
+                <option value="">全部</option>
+            </select>
+        </div>
+        <div class="row">
+            <span>职位:</span>
+            <div>
+                <span class="all">全部</span>
+            </div>
+            <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">222</span>
+            <span class="choice">公务员/翻译/其他</span>
+            <span class="choice">444</span>
+            <span class="choice">555</span>
+            <span class="choice">666</span>
+            <select style="visibility: hidden" class="getMore" name="occupations" id="select4">
+                <option value="">全部</option>
+            </select>
+        </div>
+    </div>
+</div>
+<div class="container enterNav">
+    <div class="row">
+        <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="leftNav">
+                <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+                    <span>企业列表</span>
+                    <img src="image/home/threeSquare.png" alt="">
+                </div>
+                <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+                    <span>名企招聘</span>
+                    <img src="image/home/threeSquare.png" alt="">
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">
+                                安全工程师或安全员
+                                <img src="image/home/vip.png" alt="">
+                            </div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="thi">
+                       <div class="line1">推荐职位</div>
+                       <div class="jobs">
+                           <span>市场经理</span>
+                           <span>市场经理</span>
+                           <span>市场经理</span>
+                           <span>市场经理</span>
+                           <span>市场经理</span>
+                           <span>查看更多</span>
+                       </div>
+                   </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <span class="companyName">
+                        博&nbsp;业<br>建&nbsp;设
+                        </span>
+                        <div class="sec">
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="seeMore text-center">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
+        </div>
+        <div class="recommend col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="RHshell">
+                <div class="rightHeader">
+                    <span>推荐企业</span>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation">
+                <div class="row1">
+                     <span class="companyName">
+                     博&nbsp;业<br>建&nbsp;设
+                     </span>
+                </div>
+                <div class="enterName text-center">
+                    福建博业建设集团有限公司福州分公司
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row"></div>
+</div>
+<rd-footer></rd-footer>
