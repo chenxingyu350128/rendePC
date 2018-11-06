@@ -2,9 +2,10 @@
 <rende-header></rende-header>
 <!--右悬浮栏-->
 <sus-box></sus-box>
-<div id="header_top" class="container-fluid topShell">
-    <div class="top container">
-        <!--<div class="row">-->
+<div ng-if="vm.client==2" class="clientShell">
+    <div id="header_top" class="container-fluid topShell">
+        <div class="top container">
+            <!--<div class="row">-->
             <div class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
                 <div ui-sref="WorkCtrl">
                     <img src="image/home/type1.png" alt="">
@@ -114,863 +115,864 @@
                 <img src="image/home/card_02.png" alt="">
                 <img src="image/home/card_03.png" alt="">
             </div>
-        <!--</div>-->
-    </div>
-</div>
-<!--企业招聘-->
-<div class="container title">
-    <div>
-        名企招聘
-    </div>
-</div>
-<div class="container content">
-    <div class="row companyCard">
-        <div ng-click="vm.enterpriseInfo()" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
-        </div>
-        <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-            <div class="company">
-                <div class="text-center">福建广电精准传媒有限公司</div>
-                <img src="image/home/gdcm.png" alt="">
-            </div>
-            <div class="detail">
-                <div class="camp">福州约克外语学校</div>
-                <div>咨询/法律/教育/科研</div>
-                <div>福建-福州&emsp;&emsp;10-50人</div>
-                <div class="btns">
-                    <button class="redBG">时长经理</button>
-                    <button class="whiteBG">分校校长</button>
-                </div>
-            </div>
+            <!--</div>-->
         </div>
     </div>
-</div>
-<div class="container seeMore text-center">
-    <img src="image/home/seeMore.png" alt="">
-</div>
-<!--赏金职位-->
-<div class="container title">
-    <div>赏金职位</div>
-</div>
-<div class="container content">
-    <div class="row wanted">
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+    <!--企业招聘-->
+    <div class="container title">
+        <div>
+            名企招聘
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row companyCard">
+            <div ng-click="vm.enterpriseInfo()" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州&emsp;仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州&emsp;仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州&emsp;仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州&emsp;仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州&emsp;仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="price">
-                    <span class="num">￥30.00</span>
-                    <span class="get">领赏</span>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
                 </div>
-                <div class="step">
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">投递简历</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥0.00</span><br>
-                        <span class="grayF">面试职位</span>
-                    </div>
-                    <div>
-                        <span class="redF">￥30.00</span><br>
-                        <span class="grayF">入职成功</span>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
-                <div class="ocDetail">
-                    <div>总经理助理</div>
-                    <div>
-                        <div>
-                            <span>￥3000-6000&emsp;|</span>
-                            <span>福州</span>
-                            <span>仓山区|</span>
-                            <span>不限经验|</span>
-                            <span>大专学历</span>
-                        </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
+                    </div>
+                </div>
+            </div>
+            <div class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company">
+                    <div class="text-center">福建广电精准传媒有限公司</div>
+                    <img src="image/home/gdcm.png" alt="">
+                </div>
+                <div class="detail">
+                    <div class="camp">福州约克外语学校</div>
+                    <div>咨询/法律/教育/科研</div>
+                    <div>福建-福州&emsp;&emsp;10-50人</div>
+                    <div class="btns">
+                        <button class="redBG">时长经理</button>
+                        <button class="whiteBG">分校校长</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container seeMore text-center">
-    <img src="image/home/seeMore.png" alt="">
-</div>
-<!--推荐职位-->
-<div class="container title">
-    <div>推荐职位</div>
-</div>
-<div class="container content">
-    <div class="row recommend">
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
+    <div class="container seeMore text-center">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+    <!--赏金职位-->
+    <div class="container title">
+        <div>赏金职位</div>
+    </div>
+    <div class="container content">
+        <div class="row wanted">
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州&emsp;仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州&emsp;仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州&emsp;仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州&emsp;仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州&emsp;仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="price">
+                        <span class="num">￥30.00</span>
+                        <span class="get">领赏</span>
+                    </div>
+                    <div class="step">
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">投递简历</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥0.00</span><br>
+                            <span class="grayF">面试职位</span>
+                        </div>
+                        <div>
+                            <span class="redF">￥30.00</span><br>
+                            <span class="grayF">入职成功</span>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>总经理助理</div>
+                        <div>
+                            <div>
+                                <span>￥3000-6000&emsp;|</span>
+                                <span>福州</span>
+                                <span>仓山区|</span>
+                                <span>不限经验|</span>
+                                <span>大专学历</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container seeMore text-center">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+    <!--推荐职位-->
+    <div class="container title">
+        <div>推荐职位</div>
+    </div>
+    <div class="container content">
+        <div class="row recommend">
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
                    <span class="companyName">
                        博&nbsp;业<br>建&nbsp;设
                    </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
                    <span class="companyName">
                        博&nbsp;业<br>建&nbsp;设
                    </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
                    <span class="companyName">
                        博&nbsp;业<br>建&nbsp;设
                    </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
+            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
                    <span class="companyName">
                        博&nbsp;业<br>建&nbsp;设
                    </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-            <div class="occupation">
-                <div class="row1">
+            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
                    <span class="companyName">
                        博&nbsp;业<br>建&nbsp;设
                    </span>
-                    <div>
-                        <div class="position">安全工程师或安全员</div>
-                        <div class="salary redF">￥3000-8000</div>
-                        <div class="demand grayF">
-                            <span>不限经验|</span>
-                            <span>大专学历|</span>
-                            <span>福建-福州</span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="ocDetail">
-                    <div>福建博业建设集团有限公司福州分公司</div>
-                    <div>
-                        <div class="grayF">
-                            <span>建筑/房地产|</span>
-                            <span>民营企业|</span>
-                            <span>10-50人|</span>
+            </div>
+            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                <div class="occupation">
+                    <div class="row1">
+                   <span class="companyName">
+                       博&nbsp;业<br>建&nbsp;设
+                   </span>
+                        <div>
+                            <div class="position">安全工程师或安全员</div>
+                            <div class="salary redF">￥3000-8000</div>
+                            <div class="demand grayF">
+                                <span>不限经验|</span>
+                                <span>大专学历|</span>
+                                <span>福建-福州</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ocDetail">
+                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>
+                            <div class="grayF">
+                                <span>建筑/房地产|</span>
+                                <span>民营企业|</span>
+                                <span>10-50人|</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container seeMore text-center">
-    <img src="image/home/seeMore.png" alt="">
-</div>
-<!--人才推荐-->
-<div class="container title">
-    <div>人才推荐</div>
-</div>
-<div class="container content">
-    <div class="row outstanding">
-        <div ng-click="vm.resume()" class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-            <div class="outstandings text-center">
-                <img src="image/home/out_avatar.png" alt="">
-                <span class="real_name">巫女士</span>
-                <span class="P_data">十年以上学历|大专学历</span>
-                <span class="job redF">外贸/进出口专员</span>
+    <div class="container seeMore text-center">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+    <!--人才推荐-->
+    <div class="container title">
+        <div>人才推荐</div>
+    </div>
+    <div class="container content">
+        <div class="row outstanding">
+            <div ng-click="vm.resume()" class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+                <div class="outstandings text-center">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <span class="real_name">巫女士</span>
+                    <span class="P_data">十年以上学历|大专学历</span>
+                    <span class="job redF">外贸/进出口专员</span>
+                </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-            <div class="outstandings text-center">
-                <img src="image/home/out_avatar.png" alt="">
-                <span class="real_name">巫女士</span>
-                <span class="P_data">十年以上学历|大专学历</span>
-                <span class="job redF">外贸/进出口专员</span>
+            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+                <div class="outstandings text-center">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <span class="real_name">巫女士</span>
+                    <span class="P_data">十年以上学历|大专学历</span>
+                    <span class="job redF">外贸/进出口专员</span>
+                </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-            <div class="outstandings text-center">
-                <img src="image/home/out_avatar.png" alt="">
-                <span class="real_name">巫女士</span>
-                <span class="P_data">十年以上学历|大专学历</span>
-                <span class="job redF">外贸/进出口专员</span>
+            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+                <div class="outstandings text-center">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <span class="real_name">巫女士</span>
+                    <span class="P_data">十年以上学历|大专学历</span>
+                    <span class="job redF">外贸/进出口专员</span>
+                </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-            <div class="outstandings text-center">
-                <img src="image/home/out_avatar.png" alt="">
-                <span class="real_name">巫女士</span>
-                <span class="P_data">十年以上学历|大专学历</span>
-                <span class="job redF">外贸/进出口专员</span>
+            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+                <div class="outstandings text-center">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <span class="real_name">巫女士</span>
+                    <span class="P_data">十年以上学历|大专学历</span>
+                    <span class="job redF">外贸/进出口专员</span>
+                </div>
             </div>
-        </div>
-        <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-            <div class="outstandings text-center">
-                <img src="image/home/out_avatar.png" alt="">
-                <span class="real_name">巫女士</span>
-                <span class="P_data">十年以上学历|大专学历</span>
-                <span class="job redF">外贸/进出口专员</span>
+            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+                <div class="outstandings text-center">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <span class="real_name">巫女士</span>
+                    <span class="P_data">十年以上学历|大专学历</span>
+                    <span class="job redF">外贸/进出口专员</span>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="container seeMore text-center">
-    <img src="image/home/next_icon.png" alt="">
-    <img src="image/home/seeMore.png" alt="">
-</div>
-<!--职场资讯-->
-<div class="container title">
-    <div>职场资讯</div>
-</div>
-<div class="container information">
-    <div class="row">
-        <div class="infoLeft col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <img src="image/home/information_left.png" alt="">
-            <div class="imgTitle">
-                这三类人群可以领失业保证金
+    <div class="container seeMore text-center">
+        <img src="image/home/next_icon.png" alt="">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+    <!--职场资讯-->
+    <div class="container title">
+        <div>职场资讯</div>
+    </div>
+    <div class="container information">
+        <div class="row">
+            <div class="infoLeft col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <img src="image/home/information_left.png" alt="">
+                <div class="imgTitle">
+                    这三类人群可以领失业保证金
+                </div>
             </div>
-        </div>
-        <div class="infoRight col-lg-3 col-md-12 col-sm-12 col-xs-12">
-            <div ui-sref="workplace-news" class="listHeader text-center">
-                <div class="listTitle">职场咨询</div>
-                <div class="list_disc">排忧解难，带你就业带你飞</div>
-                <div class="triangle"></div>
+            <div class="infoRight col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                <div ui-sref="workplace-news" class="listHeader text-center">
+                    <div class="listTitle">职场咨询</div>
+                    <div class="list_disc">排忧解难，带你就业带你飞</div>
+                    <div class="triangle"></div>
+                </div>
+                <ul class="articles">
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂姐姐同人图厄特人</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                </ul>
             </div>
-            <ul class="articles">
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂姐姐同人图厄特人</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-            </ul>
         </div>
     </div>
-</div>
-<div ui-sref="workplace-news" class="container seeMore text-center">
-    <img src="image/home/seeMore.png" alt="">
-</div>
-<!--友情链接-->
-<div class="container title">
-    <div>友情链接</div>
-</div>
-<div class="container links">
-    <span>百度</span>
-    <span>阿里</span>
-    <span>腾讯</span>
+    <div ui-sref="workplace-news" class="container seeMore text-center">
+        <img src="image/home/seeMore.png" alt="">
+    </div>
+    <!--友情链接-->
+    <div class="container title">
+        <div>友情链接</div>
+    </div>
+    <div class="container links">
+        <span>百度</span>
+        <span>阿里</span>
+        <span>腾讯</span>
+    </div>
 </div>
 <rd-footer></rd-footer>
