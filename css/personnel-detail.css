@@ -1,0 +1,73 @@
+.personnel-name{
+    font-family: 黑体;
+    font-size: 22px;
+}
+.personnel-intr{
+    width: 91%;
+    float: left;
+    margin-left: .3rem;
+    margin-top: .1rem;
+}
+.personnel-intr div{
+    margin: .1rem 0 .1rem 0rem;
+    width: 33%;
+    float: left;
+}
+.personnel-detail-intr span{
+    font-size: 16px;
+    display: inline-block;
+    margin-bottom: .2rem;
+}
+.personel-look-times{
+    font-size: 14px;
+    margin-bottom: 0;
+    margin-top: -0.3rem;
+}
+.mt{
+    margin-top: .2rem;
+}
+.personnel-detail-intention{
+    float: left;
+    width: 50%;
+    padding-left: 7%;
+}
+.personnel-detail-intention span{
+    margin: 5px 0 9px 0;
+    display: inline-block;
+    font-size: 16px;
+}
+.intention{
+    width: 100%;
+    display: inline-block;
+    padding: .2rem;
+    font-size: 18px;
+}
+.personnel-detail-exp{
+    float: left;
+    width: 20%;
+    padding-left: 8%;
+}
+.personnel-detail-exp2{
+    float: left;
+    width: 80%;
+    padding-left: 3%;
+}
+.exp-title{
+    font-size: 18px;
+    font-family: 黑体;
+    font-weight: 600;
+}
+.exp-title-work{
+    margin-left: 7%;
+}
+.work-exp-list{
+    margin: .05rem 0;
+    display: inline-block;
+    width: 100%;
+}
+.jy-exp{
+   margin-right: 1rem;
+}
+.self-pj{
+    margin-left:  8%;
+}

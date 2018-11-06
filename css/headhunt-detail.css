@@ -1,0 +1,92 @@
+@import url('../css/work.css');
+@import url('../css/workdetail.css');
+.headhunt-detail{
+    display: inline-block;
+    background-color: white;
+    padding: 0.1rem .2rem;
+    font-weight: 600;
+    font-size: 16px;
+    width: 100%;
+}
+
+.headhunt-detail-name span{
+    font-size: 18px;
+    font-weight: 600;
+}
+.headhunt-detail-name span{
+    font-size: .2rem;
+    font-family: 黑体;
+    font-weight: 600;
+}
+.headhunt-detail-name img{
+    float: right;
+    width: 0.25rem;
+}
+.headhunt-detail-name-intr {
+    float: left;
+    width: 90%;
+}
+.headhunt-detail-name-intr div {
+    margin: .1rem 0 .2rem .3rem;
+}
+.headhunt-detail-intr span {
+    color: black;
+    font-size: 16px;
+}
+.hunt-company{
+    margin: .2rem -1rem;
+}
+.hunt-company span:first-child{
+    font-size: 18px;
+    padding-top: .1rem;
+    display: inline-block;
+    margin-right: .5rem;
+    font-weight: 600;
+}
+.hunt-company span:last-child{
+    color: gray;
+    font-size: 15px;
+}
+.hunt-more{
+    width: 100%;
+}
+.count-img{
+    margin: .2rem .2rem .4rem .2rem;
+    font-size: 18px;
+    font-weight: 600;
+}
+.count-img div{
+    padding: .3rem 0 .1rem 0;
+}
+.count-img span{
+    color: red;
+}
+.count-img button{
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    float: right;
+    color: white;
+    text-align: center;
+    width: .8rem;
+}
+.modify-person-tj:hover{
+    background-color: rgb(252,232,233);
+}
+.hunt-person-tj{
+    padding: 0 .2rem;
+    border-bottom: 1px solid gainsboro;
+    display: inline-block;
+    width: 100%;
+}
+.hunt-person-tj div{
+    padding: .1rem 0;
+}
+.hunt-person-banner{
+    padding-bottom: .2rem;
+    border-bottom: 1px solid gainsboro;
+    width: 100%;
+}
+.hunt-person-tj:hover{
+    background-color: rgb(252,232,233);
+}

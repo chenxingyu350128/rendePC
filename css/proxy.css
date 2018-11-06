@@ -1,0 +1,65 @@
+@charset "UTF-8";
+/*浜哄姏璧勬簮*/
+@import url(../css/home.css);
+a:hover,
+a:active {
+  text-decoration: none; }
+
+.services {
+  display: flex;
+  padding: 0;
+  margin-bottom: 8px; }
+  .services .theCard {
+    width: calc((100% - 36px)/3); }
+
+.theCard + .theCard {
+  margin-left: 18px; }
+
+.cardTitle {
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  line-height: .63rem;
+  text-align: center; }
+
+.card1 {
+  background: linear-gradient(-9deg, #25c4be, #01c1dc); }
+
+.card2 {
+  background: linear-gradient(-9deg, #3d65dd, #2a94e6); }
+
+.card3 {
+  background: linear-gradient(-9deg, #725ae3, #b73be6); }
+
+.cardContent {
+  text-indent: 2em;
+  box-sizing: border-box;
+  height: 4.05rem;
+  padding: 31px 17px 0 11px;
+  font-size: 14px;
+  letter-spacing: .5em;
+  font-family: MicrosoftYaHei;
+  font-weight: 400;
+  line-height: .37rem;
+  background: #fff; }
+
+.contact {
+  font-size: 20px;
+  padding: .2rem .31rem .38rem;
+  margin-bottom: .22rem;
+  display: flex;
+  background: #fff; }
+  .contact > div {
+    display: flex;
+    align-items: center; }
+  .contact .mobile image {
+    width: .15rem;
+    height: .21rem; }
+  .contact .qq image {
+    width: .24rem;
+    height: .24rem; }
+
+.inIt + .inIt {
+  margin-left: 2.53rem; }
+
+/*# sourceMappingURL=proxy.css.map */

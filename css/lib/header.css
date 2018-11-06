@@ -1,0 +1,114 @@
+.header{
+    box-sizing: border-box;
+    padding-top: .1rem;
+    position: relative;
+    /*display: flex;*/
+    /*height: 1rem;*/
+    /*background: peachpuff;*/
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+}
+.header .provinceChoose{
+    z-index: 99;
+    position: absolute;
+    top: .9rem;
+    background: papayawhip;
+}
+.header .cityChoose{
+    z-index: 99;
+    position: absolute;
+    top: 1.6rem;
+    background: powderblue;
+}
+.cityChoose .province,
+.provinceChoose .province{
+    display: flex;
+    align-items: center;
+}
+.cityChoose .leftClick,
+.provinceChoose .leftClick{
+    position: absolute;
+    top: 25%;
+    left: 0;
+}
+.cityChoose .rightClick,
+.provinceChoose .rightClick{
+    position: absolute;
+    top: 25%;
+    right: 0;
+}
+.province>div,
+.cities>div{
+    overflow: hidden;
+    margin: 0 .15rem;
+}
+.province>div>div,
+.cities>div>div{
+    width: 100%;
+    padding: .15rem 0;
+    display: flex;
+    /*justify-content: space-around;*/
+    white-space: nowrap;
+    margin-left: -.15rem;
+    margin-right: -.15rem;
+}
+.province>div span,
+.cities>div span{
+    font-size: 18px;
+    padding: .1rem .15rem;
+}
+.logo>img{
+    width: 1.81rem;
+    height: .44rem;
+    /*position: relative;*/
+    /*top: .3rem;*/
+}
+.header .row{
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+.logo{
+    display: flex;
+    align-items: flex-end;
+}
+.nav{
+    line-height: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+.nav div{
+    float: left;
+    text-align: center;
+    height: 100%;
+    padding: 0 .1rem;
+    border-bottom: 5px solid #fff;
+    white-space: nowrap;
+    /*flex: 1;*/
+}
+/*.nav div:hover{*/
+    /*border-bottom: 3px solid #e11c19;*/
+/*}*/
+.header .btnGroup{
+    text-align: right;
+    padding-right: .8rem;
+    margin-top: .29rem;
+}
+.btnGroup span{
+    padding: .05rem .15rem;
+    color: #fff;
+}
+.btnGroup .loginIn{
+    background: #e21c19;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+}
+.btnGroup .sign{
+    background: #ff3000;
+    border-top-right-radius: .2rem;
+    border-bottom-right-radius: .2rem;
+}

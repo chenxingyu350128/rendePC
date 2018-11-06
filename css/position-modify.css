@@ -1,0 +1,50 @@
+.modify-position-name{
+    padding: .1rem 0
+}
+.modify-position-name span{
+    font-size:21px;
+    font-weight: 600;
+}
+.modify-position-name button{
+    margin: .2rem;
+}
+.bc{
+    background-color: white;
+}
+.position-statu{
+    margin-left: .5rem;
+}
+.look-jl{
+    margin-right: .3rem;
+    margin-top: .3rem;
+}
+.look-jl-br{
+    border-bottom: 1px solid gainsboro;
+}
+.position-time{
+    margin-left: -1rem;
+}
+.modify-person-tj{
+    padding: 0 .2rem;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    display: inline-block;
+    width: 100%;
+}
+.modify-person-tj div{
+    padding:  .2rem 0;
+}
+.tj-intr-f{
+    margin: 0 .1rem;
+    font-size: 23px;
+    font-family: 黑体;
+}
+.tj-intr-l{
+    color: red;
+    font-size: 16px;
+}
+.person-tj-img{
+    border: solid 1px red;
+    border-radius: .5rem;
+    width: .4rem;
+}

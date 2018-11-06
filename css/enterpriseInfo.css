@@ -1,0 +1,144 @@
+.position {
+  background: #fff;
+  padding: .1rem 0;
+  margin-bottom: .1rem; }
+  .position .position_left {
+    font-weight: 600;
+    border-left: 4px solid #f00;
+    padding-left: .17rem; }
+
+.jobs {
+  padding: 0 .15rem;
+  background: #fff;
+  margin-bottom: .1rem; }
+
+.enterDesc {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .41rem .28rem .4rem .35rem;
+  margin-bottom: .1rem;
+  background: #fff; }
+  .enterDesc .enterLeft {
+    display: flex;
+    align-content: center; }
+    .enterDesc .enterLeft > img {
+      margin-right: .3rem; }
+    .enterDesc .enterLeft .enterName {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: .31rem; }
+    .enterDesc .enterLeft .about {
+      font-size: 16px;
+      margin-bottom: .3rem; }
+    .enterDesc .enterLeft .happy {
+      display: flex;
+      margin-bottom: .44rem; }
+      .enterDesc .enterLeft .happy span {
+        margin-right: .05rem;
+        padding: 0 .15rem;
+        line-height: .3rem;
+        color: #fff;
+        background: #ee7775; }
+    .enterDesc .enterLeft .count {
+      display: flex;
+      justify-content: space-between; }
+      .enterDesc .enterLeft .count > div {
+        flex: 1;
+        padding-top: .05rem;
+        text-align: center;
+        border-right: 1px solid #e5e5e5; }
+        .enterDesc .enterLeft .count > div > div {
+          font-size: 24px;
+          font-weight: 600;
+          margin-bottom: .15rem;
+          color: #dd1c19; }
+      .enterDesc .enterLeft .count > div:last-child {
+        border-right: 0; }
+  .enterDesc .enterRight {
+    padding: 0 0.4rem 0 0.3rem; }
+    .enterDesc .enterRight > div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: .45rem;
+      border-bottom: 1px solid #e5e5e5; }
+      .enterDesc .enterRight > div .verify {
+        text-align: center;
+        font-size: 12px; }
+        .enterDesc .enterRight > div .verify img {
+          margin-bottom: .16rem; }
+        .enterDesc .enterRight > div .verify div {
+          margin: 0 .15rem; }
+    .enterDesc .enterRight button {
+      margin: .4rem auto 0;
+      width: 70%;
+      line-height: .5rem;
+      background: #f00;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600; }
+
+.contact {
+  padding: .3rem .45rem;
+  margin-bottom: .1rem;
+  background: #fff; }
+  .contact .email {
+    padding: .42rem 0; }
+  .contact > div {
+    display: flex;
+    align-items: center;
+    font-size: 18px; }
+    .contact > div .imgShell {
+      width: .16rem;
+      text-align: center;
+      margin-right: .15rem; }
+
+.intro {
+  padding: .25rem 0;
+  background: #fff; }
+  .intro span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #f00;
+    padding-left: .15rem;
+    border-left: 4px solid #f00; }
+
+.introduction {
+  background: #fff;
+  overflow: hidden; }
+  .introduction .text {
+    width: 90%;
+    margin: 0 auto .3rem; }
+
+.jobs .occupation {
+  background: #fff; }
+.jobs .row1 {
+  margin-bottom: 0; }
+.jobs .leftTwo {
+  display: flex;
+  align-items: center; }
+  .jobs .leftTwo img {
+    margin-right: .27rem; }
+.jobs .demand {
+  margin-top: .3rem; }
+.jobs .thi {
+  display: flex;
+  align-items: center; }
+  .jobs .thi .thi_L {
+    margin-right: 1.6rem; }
+  .jobs .thi .thi_R {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    .jobs .thi .thi_R span {
+      background: #f00;
+      color: #fff;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: .38rem;
+      padding: 0 .15rem; }
+    .jobs .thi .thi_R .update {
+      margin-top: .12rem; }
+
+/*# sourceMappingURL=enterpriseInfo.css.map */

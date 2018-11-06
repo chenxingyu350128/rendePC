@@ -1,0 +1,78 @@
+.shop-detail{
+    display: inline-block;
+    width: 100%;
+}
+.shop-detail-img {
+    float: left;
+    margin: .2rem;
+}
+.shop-intr{
+    float: left;
+    margin: .2rem;
+    border-left: 1px solid gainsboro;
+    padding: 0 .4rem;
+    width: 62%;
+}
+.shop-intr div{
+    margin-bottom: .2rem;
+    font-size: 20px;
+    color: black;
+}
+.shop-name{
+    font-weight: 600;
+    font-family: 黑体;
+    font-size: 22px;
+}
+.colorRed{
+    color: red;
+}
+.colorYellow{
+    color: #ff8823;
+}
+.shop-num{
+    border: 1px solid gray;
+    padding: 1px;
+}
+.shop-num button{
+    border: none;
+    background-color: white;
+    outline: 0px;
+}
+.shop-num input{
+    border-right: 1px solid gray;
+    border-left: 1px solid gray;
+    border-bottom: none;
+    border-top: none;
+    background-color: white;
+    width: .6rem;
+    padding: 1px .1rem;
+    text-align: center;
+}
+.dhsl{
+    width: 100%;
+    display: inline-block;
+}
+.shop-detail-intrimg{
+    width: 96%;
+    margin: .2rem;
+}
+.shop-detail-likeimg{
+    width: 35%;
+}
+.shop-detail-likeimg img{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.shop-detail-likeintr{
+    width: 65%;
+}
+.shop-detail-likeintr div:first-child{
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: .2rem;
+}
+.likeRed{
+    color: red;
+    font-size: .25rem;
+    font-weight: 600;
+}

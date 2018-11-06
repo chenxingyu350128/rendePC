@@ -1,0 +1,98 @@
+.new-body{
+    width: 100%;
+    margin: .1rem 0;
+}
+.news-detail{
+    width: 80%;
+    display: inline-block;
+}
+.hot-news{
+    width: 19%;
+    margin: 0 0.5%;
+    background-color: white;
+    padding-bottom: 1%;
+}
+.news-detail-title{
+    width: 100%;
+    display: inline-block;
+    padding: .1rem 0;
+    background-color: white;
+}
+.news-detail-title span{
+    border-left: 4px solid red;
+    padding: 0 .2rem;
+    font-weight: 600;
+    font-size: .25rem;
+    font-family: 黑体;
+}
+.news-detail-content {
+    width: 100%;
+    display: inline-block;
+    padding: .1rem .2rem;
+    margin-bottom: .1rem;
+    background-color: white;
+}
+.news-detail-auto span{
+    width: 100%;
+    font-size: 14px;
+}
+.news-detail-auto span:first-child{
+    margin-right: .4rem;
+}
+.news-detail-qy{
+    margin: .3rem 0;
+}
+.news-detail-img{
+    width: 100%;
+    margin-bottom: .3rem;
+}
+.news-detail-font{
+    margin-bottom: .3rem;
+}
+.news-detail-font span{
+    font-size: 19px;
+    font-family: 黑体;
+    font-weight: 600;
+    margin-bottom: .3rem;
+    display: inline-block;
+}
+.news-detail-font p{
+    line-height: 26px;
+    font-size: 16px;
+    margin-bottom: .2rem;
+}
+.next-new-top{
+    margin-top: .1rem;
+}
+.next-new-title{
+    font-size: .3rem;
+    margin: .2rem 0;
+    display: inline-block;
+    font-weight: 600;
+}
+.next-new-bottom{
+    margin-bottom: .1rem
+}
+.hot-new-title{
+    width: 100%;
+    padding: .1rem 0;
+}
+.hot-new-title span{
+    padding: 0 .2rem;
+    border-left: 4px solid red;
+    color: red;
+    font-weight: 600;
+    font-size: 20px;
+}
+.hot-news-content{
+    margin:0 .2rem;
+}
+.hot-news-content div:first-child{
+    font-size: 20px;
+    padding-top:.2rem ;
+}
+.hot-news-content div:last-child{
+    font-size: 14px;
+    padding:.2rem 0 ;
+    border-bottom: solid 1px gainsboro;
+}

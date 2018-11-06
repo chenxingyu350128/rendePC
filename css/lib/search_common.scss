@@ -1,0 +1,24 @@
+.search_common{
+  display: flex;
+  align-items: center;
+  margin-top: .2rem;
+  &>div{
+    margin-left: -.15rem;
+    width: 68.5%;
+    .searchBox{
+      line-height: .5rem;
+      margin-bottom: .27rem;
+      button{
+        color: #fff;
+        background: #f00;
+        padding: 0 .3rem;
+      }
+    }
+    .hot_search{
+      display: flex;
+      span{
+        margin-right: .25rem;
+      }
+    }
+  }
+}

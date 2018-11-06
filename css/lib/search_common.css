@@ -1,0 +1,20 @@
+.search_common {
+  display: flex;
+  align-items: center;
+  margin-top: .2rem; }
+  .search_common > div {
+    margin-left: -.15rem;
+    width: 68.5%; }
+    .search_common > div .searchBox {
+      line-height: .5rem;
+      margin-bottom: .27rem; }
+      .search_common > div .searchBox button {
+        color: #fff;
+        background: #f00;
+        padding: 0 .3rem; }
+    .search_common > div .hot_search {
+      display: flex; }
+      .search_common > div .hot_search span {
+        margin-right: .25rem; }
+
+/*# sourceMappingURL=search_common.css.map */

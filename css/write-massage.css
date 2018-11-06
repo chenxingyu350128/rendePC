@@ -1,0 +1,123 @@
+.write-massage{
+    width: 100%;
+    background-image:url(../image/write-message-bc.jpg) ;
+    display: inline-block;
+}
+.write-massage-logo{
+    float: left;
+    width: 30%;
+    padding: .3rem;
+}
+.write-massage-logo img{
+    float: left;
+    width: 3rem;
+    height: 1rem;
+}
+.write-massage-content{
+    float: left;
+    width: 70%;
+    padding-left: 0rem;
+    padding-top: .5rem;
+}
+.write-massage-type{
+    margin: .1rem .05rem 1rem 0;
+    background-color: white;
+    border-radius: 5px;
+    width: 60%;
+    float: left;
+}
+.type-menu{
+    padding: .3rem .1rem;
+    float: left;
+    width: 40%;
+}
+.type-menu-head{
+    width: 1rem;
+    height: 1rem;
+    background-color: gainsboro;
+    text-align: center;
+    border-radius: 1rem;
+    padding-top: 0.35rem;
+    margin-bottom: .3rem;
+}
+.type-menu-list{
+    margin-bottom: .3rem;
+    float: left;
+    width:100%;
+}
+.type-menu-list div{
+    margin-right: .2rem;
+    float: left;
+}
+.type-menu-list-l{
+    width: 0.15rem;
+    height: .15rem;
+    border-radius: 10px;
+}
+.type-menu-list-c{
+    border: 1px solid gray;
+}
+
+.list-select{
+    width: .15rem;
+    height: .15rem;
+    background-color: red;
+    color: white;
+}
+.write-type-message{
+    padding: 0 .2rem;
+    float: left;
+    width: 60%;
+    border-left: 1px solid gainsboro;
+}
+.write-type-message div{
+    margin-bottom: .2rem;
+}
+.write-type-message span{
+    margin-bottom: .1rem;
+    display: inline-block;
+}
+.write-type-message-btn{
+    background-color: white;
+    border: 1px solid gainsboro;
+}
+.write-type-message button{
+    width: 0.9rem;
+    margin-right: .1rem;
+    margin-bottom: .1rem;
+    padding: .05rem;
+    text-align: center;
+    outline: 0px;
+}
+.write-type-message button:hover{
+  border: #3667a2 1px solid;
+}
+.write-type-message-active{
+    color:white;
+    background-color: #3667a2;
+    border: none;
+}
+.write-type-message input{
+    outline: 0px;
+    padding: 0 .1rem;
+}
+.write-type-message textarea{
+    height: 1.5rem;
+    width: 2rem;
+}
+.next-type{
+    width: .3rem;
+    border: none;
+    color: white;
+    font-weight: 600;
+    margin-left: .9rem;
+}
+.write-massage-box{
+    margin: .5rem;
+}
+.type-s{
+    height: 1rem;
+}
+.hide{
+    display: none;
+}

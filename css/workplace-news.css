@@ -1,0 +1,53 @@
+@import "../css/work.css";
+.newsimg{
+    width: 100%;
+}
+.newscontent{
+    width: 100%;
+    display: inline-block;
+    background-color: whitesmoke;
+}
+.news{
+    width: 70%;
+    margin: -.3rem auto .1rem auto;
+    background-color: white;
+}
+.newslist{
+    width: 90%;
+    display: inline-block;
+    margin: .3rem .5rem;
+    padding-bottom: .3rem;
+    border-bottom: 1px solid gainsboro;
+}
+.newslist-content{
+    width: 100%;
+}
+.newslist-left{
+    width: 23%;
+}
+.newslist-left img{
+    width: 2rem;
+    height: 1.5rem;
+}
+.newslist-right{
+    width:77%;
+    padding: 0 0 0 .3rem;
+    line-height: 23px;
+}
+.news-hidden{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.news-title{
+    font-size: 17px;
+    font-family: 黑体;
+    font-weight: 600;
+    margin-bottom: .2rem;
+    height: .25rem;
+    color: black;
+}
+.news-content{
+    line-height: 26px;
+    height: 1rem;
+}

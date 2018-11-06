@@ -1,0 +1,165 @@
+@import url('../css/work.css');
+.hunt-part1{
+    display: inline-block;
+    width: 100%;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px 0px;
+    margin:10px ;
+}
+.hunt-title{
+    border-left: 5px red solid;
+}
+.hunt-title span{
+    margin-left: 15px;
+    font-weight: 600;
+    font-size: 18px;
+    color: red;
+}
+.hunt-list1{
+    margin: 1% 2%;
+    display: inline-block;
+    width: 46%;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    float: left;
+}
+.hunt-list1:hover{
+    border: 1px solid red;
+}
+.hunt-money{
+    background-color: red;
+    width: 50px;
+    height: 70px;
+}
+.hunt-list-right{
+    float: left;
+    margin: 0px 23px 0px 23px;
+    width: 78%;
+}
+.demand{
+    padding-top: 10px;
+}
+.hunt-btn{
+    background-color: red;
+    color: white;
+    text-align: center;
+    float: right;
+    padding: 6px 32px;
+    margin-top: -15px;
+    border: none;
+}
+.grayB{
+    font-size: 14px;
+    color: black;
+}
+.moreimg{
+    /*margin-right: -2.82rem;*/
+    margin-top: 15px;
+}
+.hunt-list2{
+    margin: 20px 13px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px #999;
+    width: 23%;
+    float: left;
+}
+.hunt-list2 div:last-child{
+    padding-bottom: 25px;
+}
+.hunt-list2-name{
+    color: white;
+    font-size: 18px;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+.hunt-part-bg1{
+    background-color: #ffe748;
+}
+.hunt-part-bg2{
+  background-color: #7ddbff;
+}
+.hunt-part-bg3{
+    background-color: rgb(167,247,178);
+}
+.hunt-part-bg4{
+    background-color: rgb(166,179,247);
+}
+.hunt-list2-money{
+    padding: 10px;
+    color: red;
+}
+.hunt-list2-money span:first-child{
+    font-size: 18px;
+}
+.hunt-list2-money span:last-child{
+    font-size: 13px;
+}
+.hunt-list2-intr{
+    padding: 10px;
+    font-size: 17px;
+}
+.hunt-list2:hover{
+    box-shadow: 2px 2px 8px red;
+}
+.hunt-list3{
+    border-radius: 5px;
+    box-shadow: 2px 2px 6px #999;
+    width: 21%;
+    float: left;
+    margin: 15px 20px;
+}
+.hunt-list3:hover{
+    border: 1px solid red;
+}
+.hunt-serve{
+    border-bottom: 1px solid gainsboro;
+    margin: 15px 18px;
+    float: left;
+    width: 85%;
+}
+.hunt-serve img{
+    float: left;
+    margin-bottom: 30px;
+    border-radius: 50px;
+    border: 1px solid red;
+    margin-left: 0.3rem;
+}
+.hunt-serve-content{
+    padding: 0 15px 10px 15px;
+    display: inline-block;
+}
+.hunt-serve-content div{
+    font-size: 14px;
+    padding-top: 13px;
+}
+.hunt-serve-content span{
+    color: red;
+}
+.hunt-serve-content button{
+    border: none;
+    background-color:rgb(226,28,25);
+    text-align: center;
+    margin: 5% 5%;
+    padding: 2% 0%;
+    width: 90%;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+}
+.font-hidden{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 257px;
+}
+.hunt-serve-name span{
+    margin: 7px 16px;
+    display: inline-block;
+}
+.hunt-serve-name span:first-child{
+    font-weight: bolder;
+    font-size: 20px;
+}
+
+

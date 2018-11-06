@@ -1,0 +1,24 @@
+.sidebar {
+  background: #fff;
+  min-height: 100vh;
+  ul,
+  li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .first-level{
+    line-height: .5rem;
+    font-size: 18px;
+    font-weight: 600;
+    color: #00f;
+    //background: plum;
+     .second-level{
+       padding-left: .3rem;
+       line-height: .5rem;
+       font-size: 18px;
+       color: #f0f;
+       //background: peru;
+     }
+  }
+}

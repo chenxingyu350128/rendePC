@@ -1,0 +1,126 @@
+@import "lib/footer.css";
+@import "lib/header.css";
+/*.nav div:nth-child(3){*/
+    /*border-bottom: 5px solid #e11c19;*/
+/*}*/
+.checkBox{
+    margin-bottom: .1rem;
+}
+.checkBox>div{
+    background: #fff;
+}
+.checkBox .row{
+    display: flex;
+    justify-content: space-between;
+    /*align-items: center;*/
+    padding: .34rem 0 .39rem;
+    font-size: 16px;
+}
+.checkBox .row>span{
+    /*min-width: 10vw;*/
+    text-align: center;
+}
+.checkBox .row:first-child{
+    min-width: 10vw;
+    text-align: left;
+}
+.checkBox .row>div{
+    /*min-width: 10vw;*/
+}
+.checkBox .row .all{
+    background: #f00;
+    color: #fff;
+    padding: .05rem .1rem;
+}
+.getMore{
+    padding: .05rem .1rem;
+    border: 1px solid #f00;
+}
+.leftNav{
+    background: #fff;
+}
+.leftNav>div{
+    display: inline;
+    align-items: center;
+    line-height: .5rem;
+    padding: .1rem .14rem;
+    font-size: 20px;
+    font-weight: 600;
+}
+.leftNav span{
+    margin-right: .14rem;
+}
+.enterNav .companyName{
+    border-radius: .1rem;
+}
+.enterNav .row1{
+    position: relative;
+    margin-bottom: 0;
+    justify-content: flex-start;
+}
+.enterNav .row1 .sec{
+    margin-left: .25rem;
+}
+.enterNav .occupation{
+    padding: .08rem;
+    background: #fff;
+}
+.leftTwo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.row1 .thi{
+    position: absolute;
+    width: 33%;
+    margin-left: 1.27rem;
+    right: 0;
+}
+.thi .line1{
+
+}
+.thi .jobs{
+    padding: 0 .1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.jobs span{
+    box-sizing: border-box;
+    margin-right: .1rem;
+    margin-top: .1rem;
+    padding: .07rem .05rem;
+    border: 1px solid #f00;
+    border-radius: .1rem;
+    font-size: 12px;
+}
+.checkedNav{
+    background: #f00;
+    color: #fff;
+}
+.RHshell{
+    padding: .1rem 0;
+    background: #fff;
+    margin-bottom: .05rem;
+}
+.rightHeader{
+    font-size: 20px;
+    font-weight: 600;
+    padding: 0 .15rem;
+    border-left: 3px solid #f00;
+}
+.recommend .companyName{
+    width: auto;
+    height: auto;
+    font-size: 50px;
+    text-align: center;
+    margin: .2rem auto .25rem;
+}
+.recommend .occupation{
+    border: none;
+    background: #fff;
+}
+.enterName{
+    background: #fff;
+    padding-bottom: .37rem;
+}

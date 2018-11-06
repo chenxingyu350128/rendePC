@@ -1,0 +1,46 @@
+/*底部*/
+footer{
+    background: #fff;
+}
+footer .row{
+    padding-top: .5rem;
+    padding-bottom: .4rem;
+    border-bottom: 1px dashed #b2b2b2;
+}
+footer .col-lg-2{
+    margin-bottom: .15rem;
+}
+footer ul,
+footer li{
+    list-style: none;
+    line-height: .55rem;
+}
+footer li:hover{
+    color: #f00;
+}
+footer li:first-child:hover{
+    color: #000;
+}
+.footerTitle{
+    font-size: 16px;
+    font-weight: 600;
+}
+.server img{
+    width: 1.19rem;
+    height: 1.04rem;
+}
+.hotLine{
+    margin: .36rem 0 .25rem;
+}
+.server .mobile{
+    font-size: 24px;
+    margin-bottom: .2rem;
+}
+.bottom{
+    padding: .3rem 0 .23rem;
+    background: #fff;
+    color: #8d8d8d;
+}
+.warn{
+    margin-bottom: .36rem;
+}

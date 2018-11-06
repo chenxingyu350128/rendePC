@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAQ,gCAAqB;AAC7B,kCAAmC;EACjC,aAAa,EAAE,MAAM;;AACvB,0BAA0B;EACxB,aAAa,EAAE,KAAK;;AAEtB,2BAA2B;EACzB,aAAa,EAAE,MAAM;;AAEvB,0BAA0B;EACxB,YAAY,EAAE,MAAM",
+"sources": ["GWResume.scss"],
+"names": [],
+"file": "GWResume.css"
+}

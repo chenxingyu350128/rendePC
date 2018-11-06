@@ -1,0 +1,288 @@
+@import url(../css/work.css);
+.workdetail-banner{
+    display: inline-block;
+    background-color: white;
+    padding: 0.1rem 0;
+    font-weight: 600;
+    font-family: 黑体;
+    font-size: 16px;
+    width: 100%;
+}
+.workdetail-banner span{
+    padding-left: 0.1rem;
+    color: red;
+    border-left: 4px solid red;
+}
+.workdetail-body{
+    width: 100%;
+    display: inline-block;
+    float: left;
+}
+.detail-left{
+    float: left;
+    width: 69%;
+    margin: 0.13rem 0.1rem 0.13rem 0;
+
+}
+.detail-right{
+    float: left;
+    width: 30%;
+    margin: 0.13rem 0 0.1rem 0;
+    background-color: white;
+    padding-bottom: .2rem;
+}
+.detail-position{
+    padding: 0.1rem;
+    background-color: white;
+}
+.detail-position-name{
+    padding: .1rem 0;
+}
+.detail-position-name span{
+    font-size:21px;
+    font-weight: 600;
+}
+.detail-position-name button{
+    border: none;
+    background-color: red;
+    color: white;
+    padding: 0.02rem .2rem;
+    float: right;
+    font-size: 17px;
+    margin-right: .1rem;
+}
+.detail-position-intr{
+    font-size: 16px;
+    padding: .1rem 0;
+}
+.detail-position-intr span{
+    padding: 0 .1rem;
+}
+.detail-position-intr span:first-child{
+    color: red;
+    padding-left: 0;
+}
+.detail-position-fuli{
+    font-size: 16px;
+    padding: .1rem 0;
+}
+.detail-position-fuli span{
+    margin-right:.1rem ;
+    color: white;
+    background-color: rgb(238,118,117);
+    padding: .1rem .2rem;
+}
+.detail-position-time{
+    padding: .1rem 0;
+    font-size: 15px;
+    color:gray;
+}
+.detail-position-time span:first-child{
+    margin-right: .3rem;
+}
+.detail-position-put{
+    padding: .1rem 0;
+}
+.detail-position-put-button{
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-weight: 600;
+    padding: .08rem 0.3rem;
+    border-radius: 5px;
+    outline: 0px;
+    background: -webkit-linear-gradient(left, rgb(254,48,1) , rgb(226,28,25)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgb(254,48,1) , rgb(226,28,25)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgb(254,48,1) , rgb(226,28,25)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25)); /* 标准的语法 */
+}
+.detail-position-finish-button{
+    color: red;
+    border: 1px solid red;
+    font-size: 20px;
+    font-weight: 600;
+    padding: .08rem 0.3rem;
+    outline: 0px;
+    background-color: white;
+    margin-left: .1rem;
+    border-radius: 5px;
+}
+.detail-position-put-r {
+    margin-top: .1rem;
+}
+.detail-position-put-r span{
+    color: gray;
+    font-size: 14px;
+    margin: 0 .2rem 0 .1rem;
+}
+.detail-position-put-r img{
+    width: 0.22rem;
+}
+.detail-position-hr{
+    margin: .1rem 0;
+    background-color: white;
+    display: inline-block;
+    width: 100%;
+}
+.position-hr-top{
+    padding: .1rem 0 0 0;
+}
+.position-hr-top span{
+    padding:0  .2rem ;
+    color: red;
+    font-size: 21px;
+    border-left: red 4px solid;
+}
+.position-hr-content{
+    margin: .2rem;
+    border-top:1px solid gainsboro ;
+}
+.position-hr-content div{
+    padding: .08rem 0;
+}
+.hr-content-f{
+    font-family: 黑体;
+    font-size: .25rem;
+    font-weight: 600;
+}
+.hr-content-s{
+    color: red;
+    font-size: 24px;
+}
+.hr-content-s button{
+    font-size: 18px;
+    border: none;
+    background-color: #8d8d8d;
+    color: white;
+    font-weight: 600;
+    padding: 0.02rem .3rem;
+    margin-left: .1rem;
+    outline: 0px;
+}
+.hr-content-t{
+    font-family: 黑体;
+    font-size: .18rem;
+    font-weight: 600;
+}
+.hr-content-map{
+    height: 300px;
+    border: 1px solid gainsboro;
+    width: 100%;
+    margin-bottom: .1rem;
+    display: inline-block;
+}
+.hr-content-describe{
+    font-size: 16px;
+    color: black;
+    display: inline-block;
+    margin: .2rem 0;
+    width: 100%;
+}
+.hr-content-describe p{
+    line-height: .4rem;
+    font-size: 16px;
+    /*font-family: 黑体;*/
+}
+.other-yq{
+    margin-top: .3rem;
+}
+.hr-content-other{
+    border-bottom: 1px solid gainsboro;
+    margin-bottom: .2rem;
+    display: inline-block;
+    width: 95%;
+}
+.detail-right-company{
+    width: 27%;
+    margin: .4rem auto;
+    padding: .2rem;
+    color: white;
+    font-family: 幼圆;
+    font-size: 25px;
+    background-color: #3c5392;
+    border-radius: 5px;
+    text-align: center;
+    letter-spacing: .1rem;
+}
+.detail-right-company-name{
+    font-size: .24rem;
+    text-align: center;
+    margin: 0 .4rem .3rem;
+}
+.company-intr{
+    width: 100%;
+}
+.company-intr li{
+    float: left;
+    list-style: none;
+    width: 50%;
+    padding: .1rem .4rem;
+}
+.company-intr li img{
+    width: .23rem;
+}
+.company-intr li span{
+    color: gray;
+}
+.company-work-manage{
+    padding: .1rem .1rem;
+    background-color: white;
+    float: right;
+    width: 30%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.company-work-manage li{
+    border-right: 1px solid gainsboro;
+    padding: .1rem;
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+.company-work-manage li:last-child{
+    border-right: none;
+}
+.company-work-manage span{
+    color: red;
+    font-size: 18px;
+}
+.detail-right-other{
+    margin: .2rem 0;
+    padding:.2rem 0 3rem 0;
+    background-color: white;
+    float: left;
+    width: 30%;
+}
+.detail-right-other-name{
+    background-color: white;
+    float: left;
+    font-weight: 600;
+    margin-bottom: .2rem;
+}
+.detail-right-other-name span{
+    padding: 0 .1rem;
+    color: red;
+    font-size: 21px;
+    border-left: red 4px solid;
+}
+.detail-right-other-name-intr{
+    font-size: 16px;
+    color: black;
+    display: inline-block;
+    margin: .1rem 0;
+    border-top: 1px solid gainsboro;
+    border-bottom: 1px solid gainsboro;
+    width: 100%;
+}
+.detail-right-other-name-intr div{
+    padding: .1rem .2rem;
+}
+.detail-right-other-name-intr div:first-child{
+    padding-top: 0.2rem;
+}
+.similar-position{
+    font-family: 黑体;
+    font-size: 21px;
+    font-weight: 600;
+}

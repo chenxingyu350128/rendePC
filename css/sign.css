@@ -1,0 +1,106 @@
+.signPage {
+  height: 100vh;
+  background: url("../image/home/large_BG.png");
+  -webkit-background-size: cover;
+  background-size: cover; }
+
+.signPage > img {
+  padding: .46rem 0 0 .43rem;
+  cursor: pointer; }
+
+.signPage .catchword {
+  display: block;
+  margin-top: .24rem;
+  letter-spacing: .5em;
+  color: #fff;
+  font-size: 16px;
+  padding-left: .43rem;
+  margin-bottom: .46rem; }
+  .signPage .catchword span {
+    cursor: pointer; }
+
+.signPage .main {
+  width: 3.46rem;
+  height: auto;
+  margin: 0 auto;
+  -webkit-border-radius: .15rem;
+  -moz-border-radius: .15rem;
+  border-radius: .15rem;
+  background: #fff; }
+  .signPage .main h3 {
+    font-size: 26px;
+    font-weight: 600;
+    color: #f00;
+    padding: .26rem 0 .21rem;
+    margin: 0; }
+  .signPage .main .tip1 {
+    font-size: 12px;
+    color: #d8d8d8;
+    margin-bottom: .38rem; }
+  .signPage .main .table {
+    width: 2.32rem;
+    margin: 0 auto; }
+    .signPage .main .table .pickers {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      .signPage .main .table .pickers span {
+        padding-bottom: .09rem;
+        color: #ddd;
+        border-bottom: 2px solid #b2b2b2; }
+      .signPage .main .table .pickers .navLogin:first-child,
+      .signPage .main .table .pickers .navSign:first-child {
+        color: #000;
+        border-bottom: 2px solid #f00; }
+
+.inputs label {
+  line-height: .3rem;
+  position: relative; }
+  .inputs label img {
+    position: absolute;
+    top: 50%;
+    left: .1rem;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%); }
+  .inputs label input {
+    width: 100%;
+    padding-left: .3rem; }
+  .inputs label span {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    -moz-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    -o-transform: translate(0, -50%);
+    transform: translate(0, -50%); }
+
+.label1 {
+  margin: .18rem 0 .37rem; }
+
+.label2 {
+  margin-bottom: .41rem; }
+
+.signBtn {
+  line-height: .42rem;
+  margin-bottom: .27rem;
+  font-size: 20px;
+  font-weight: 600;
+  color: #fff;
+  background: #f00;
+  cursor: pointer; }
+
+.deal {
+  margin-bottom: .25rem;
+  cursor: pointer; }
+  .deal span {
+    font-size: 10px; }
+
+.login {
+  padding-bottom: .5rem; }
+  .login span {
+    cursor: pointer; }
+
+/*# sourceMappingURL=sign.css.map */

@@ -1,0 +1,150 @@
+.boxTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: .1rem;
+  padding: .15rem 0 .2rem; }
+  .boxTitle .stick {
+    width: .04rem;
+    height: .2rem;
+    margin-right: .1rem;
+    background: #f00; }
+
+.top {
+  line-height: .36rem;
+  padding: 0; }
+
+.main {
+  overflow: hidden; }
+
+.leftSide {
+  width: calc((100% - 15px)*.75);
+  float: left; }
+  .leftSide > div {
+    background: #fff;
+    margin-bottom: .1rem; }
+    .leftSide > div .boxTitle {
+      font-size: 20px;
+      font-weight: 600; }
+  .leftSide .intro {
+    font-size: 20px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding: 19px 20px 28px 9px;
+    background: #fff;
+    margin-bottom: .1rem; }
+    .leftSide .intro .left .ocp {
+      margin-bottom: .3rem; }
+    .leftSide .intro .left .salary {
+      margin-bottom: .32rem; }
+    .leftSide .intro .left .endAt {
+      margin-bottom: .28rem; }
+    .leftSide .intro .left .address {
+      margin-bottom: .28rem; }
+    .leftSide .intro .left .contactMethod + .contactMethod {
+      margin-left: .67rem; }
+    .leftSide .intro .right {
+      font-size: 14px; }
+      .leftSide .intro .right .updateAt {
+        margin-bottom: .21rem; }
+      .leftSide .intro .right .viewCount {
+        margin-bottom: 1.38rem; }
+      .leftSide .intro .right .icons {
+        display: flex; }
+        .leftSide .intro .right .icons > div {
+          display: flex;
+          align-items: center; }
+          .leftSide .intro .right .icons > div img {
+            margin-right: .06rem; }
+        .leftSide .intro .right .icons .rec img {
+          width: .14rem;
+          height: .14rem; }
+        .leftSide .intro .right .icons .weChat {
+          margin-left: .22rem; }
+          .leftSide .intro .right .icons .weChat img {
+            width: .18rem;
+            height: .14rem; }
+  .leftSide .demands .demand {
+    margin: 0 .17rem;
+    padding: .28rem 0 .23rem;
+    border-top: 1px solid #e3e3e4; }
+    .leftSide .demands .demand span {
+      font-size: 16px;
+      text-indent: 2em;
+      padding: .28rem .16rem 0; }
+  .leftSide .edit .options {
+    padding: 0 .31rem;
+    display: flex; }
+    .leftSide .edit .options > div {
+      width: 1.58rem;
+      line-height: .49rem;
+      font-size: 20px;
+      font-weight: 600;
+      color: #fff;
+      border-radius: .25rem;
+      text-align: center; }
+    .leftSide .edit .options .button + .button {
+      margin-left: .22rem; }
+    .leftSide .edit .options .refresh {
+      background: linear-gradient(-9deg, #725ae3, #b73be6); }
+    .leftSide .edit .options .modify {
+      background: linear-gradient(-9deg, #48f7a2, #1db5cc); }
+    .leftSide .edit .options .delete {
+      background: linear-gradient(-9deg, #e35a5a, #e6943b); }
+  .leftSide .edit .desc {
+    padding: .3rem .16rem .18rem;
+    font-size: 16px; }
+  .leftSide .recommend {
+    background: none; }
+    .leftSide .recommend .boxTitle {
+      margin-bottom: 0;
+      background: #fff; }
+    .leftSide .recommend .ocp {
+      margin-top: .03rem;
+      display: flex; }
+      .leftSide .recommend .ocp .card {
+        padding: .31rem .27rem .31rem .27rem;
+        background: #fff;
+        width: calc((100% - .09rem)/2);
+        font-size: 16px; }
+        .leftSide .recommend .ocp .card:nth-child(odd) {
+          margin-right: .09rem; }
+        .leftSide .recommend .ocp .card .ocpAndSalary {
+          margin-bottom: .33rem;
+          font-size: 20px; }
+        .leftSide .recommend .ocp .card .desc {
+          color: #808080;
+          margin-bottom: .41rem;
+          max-width: 20em;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden; }
+        .leftSide .recommend .ocp .card .tel {
+          margin-bottom: .31rem; }
+        .leftSide .recommend .ocp .card .addressAndDate .grayF {
+          margin-left: .3rem; }
+
+.rightSide {
+  width: calc((100% - 15px)*.25);
+  margin-left: .15rem;
+  float: left;
+  padding: 0 .18rem .32rem .12rem;
+  background: #fff; }
+  .rightSide .redF {
+    font-size: 20px;
+    font-weight: 600; }
+  .rightSide .notice {
+    font-size: 16px;
+    color: #727272;
+    margin-bottom: .49rem; }
+  .rightSide .release {
+    line-height: .65rem;
+    width: 82.7%;
+    margin: 0 auto;
+    font-size: 20px;
+    color: #fff;
+    background: #E21C19;
+    border-radius: .1rem;
+    text-align: center; }
+
+/*# sourceMappingURL=GWDetail.css.map */

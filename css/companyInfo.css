@@ -1,0 +1,90 @@
+@import url(../css/sign.css);
+.cards {
+  display: flex;
+  justify-content: space-around;
+  align-items: center; }
+  .cards .card {
+    width: 4.6rem;
+    height: 6.25rem;
+    padding: .35rem .6rem;
+    background: #fff;
+    border-radius: .2rem;
+    position: relative; }
+    .cards .card .jobType {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: .35rem; }
+      .cards .card .jobType span {
+        padding: 0 .2rem;
+        line-height: .23rem; }
+        .cards .card .jobType span:hover {
+          border: 1px solid #f00; }
+    .cards .card .fill {
+      border: 1px solid #e3e7ed;
+      height: .23rem;
+      line-height: .23rem;
+      margin-top: .1rem;
+      margin-bottom: .2rem;
+      width: 100%; }
+    .cards .card .edu,
+    .cards .card .salary {
+      padding-bottom: .35rem;
+      margin: 0;
+      display: flex;
+      justify-content: space-between; }
+      .cards .card .edu div,
+      .cards .card .salary div {
+        position: relative;
+        width: 45%; }
+      .cards .card .edu select,
+      .cards .card .salary select {
+        width: 100%;
+        line-height: .23rem;
+        text-align: center;
+        font-size: 14px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none; }
+        .cards .card .edu select:hover,
+        .cards .card .salary select:hover {
+          border: 1px solid #f00; }
+      .cards .card .edu img,
+      .cards .card .salary img {
+        position: absolute;
+        top: 50%;
+        right: .1rem;
+        -webkit-transform: translate(0, -50%);
+        -moz-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+        -o-transform: translate(0, -50%);
+        transform: translate(0, -50%); }
+    .cards .card .desc {
+      width: 100%;
+      height: 2.1rem;
+      margin-bottom: .1rem; }
+    .cards .card .btns {
+      display: flex;
+      justify-content: space-evenly; }
+      .cards .card .btns .btn {
+        width: .87rem;
+        height: auto;
+        background: none;
+        line-height: .26rem;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        outline: none;
+        border: 1px solid #f00;
+        border-radius: 0; }
+        .cards .card .btns .btn:hover {
+          border: none;
+          color: #fff;
+          background: #f00; }
+    .cards .card .post {
+      font-size: 20px;
+      font-weight: 600;
+      position: relative;
+      left: -.25rem;
+      margin-bottom: .36rem; }
+
+/*# sourceMappingURL=companyInfo.css.map */

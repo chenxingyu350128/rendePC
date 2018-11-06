@@ -1,0 +1,67 @@
+/*人力资源*/
+@import "../css/home.css";
+a:hover,
+a:active{
+  text-decoration: none;
+}
+.services{
+  display: flex;
+  padding: 0;
+  margin-bottom: 8px;
+  .theCard{
+    width: calc((100% - 36px)/3);
+  }
+}
+.theCard+.theCard{
+  margin-left: 18px;
+}
+.cardTitle{
+  font-size: 18px;
+  color: #fff;
+  font-weight: 600;
+  line-height:.63rem;
+  text-align: center;
+}
+.card1{
+  background:linear-gradient(-9deg,rgba(37,196,190,1),rgba(1,193,220,1));
+}
+.card2{
+  background:linear-gradient(-9deg,rgba(61,101,221,1),rgba(42,148,230,1));
+}
+.card3{
+  background:linear-gradient(-9deg,rgba(114,90,227,1),rgba(183,59,230,1));
+}
+.cardContent{
+  text-indent: 2em;
+  box-sizing: border-box;
+  height: 4.05rem;
+  padding: 31px 17px 0 11px;
+  font-size:14px;
+  letter-spacing: .5em;
+  font-family:MicrosoftYaHei;
+  font-weight:400;
+  line-height:.37rem;
+  background: #fff;
+}
+.contact{
+  font-size: 20px;
+  padding: .2rem .31rem .38rem;
+  margin-bottom: .22rem;
+  display: flex;
+  background: #fff;
+  &>div{
+    display: flex;
+    align-items: center;
+  }
+  .mobile image{
+    width: .15rem;
+    height: .21rem;
+  }
+  .qq image{
+    width: .24rem;
+    height: .24rem;
+  }
+}
+.inIt+.inIt{
+  margin-left: 2.53rem;
+}

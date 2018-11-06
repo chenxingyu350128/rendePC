@@ -1,0 +1,182 @@
+/*专题招聘*/
+.topic-bg{
+    width:534px;
+    height:283px;
+    background:rgba(247,247,247,1);
+    margin: 20px;
+    box-shadow:0px 3px 18px 0px rgba(0, 0, 0, 0.68);
+}
+.topic{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.topic-title{
+    position: absolute;
+    top: 0;
+    z-index: 2;
+    margin: 63px 50px;
+}
+.first{
+    font-size:35px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+}
+.second{
+    font-size:46px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+}
+.third{
+    font-size:29px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+}
+
+/*专题详情*/
+.banner-img{
+    width: 98.5%;
+    height: 504px;
+    position: absolute;
+}
+.detail-banner{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    margin: 105px auto;
+    line-height: 1rem;
+}
+.banner1{
+    font-size:53px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+}
+.banner2{
+    font-size:73px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+
+}
+.banner3{
+    font-size:53px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(255,255,255,1);
+}
+.banner-top{
+    margin: 1.1rem auto 20px auto;
+    background-color: white;
+}
+.singup{
+    border-left: 4px red solid;
+    font-size: 20px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(226,28,25,1);
+    padding-left: 15px;
+    margin: 20px;
+}
+.prise-intr{
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    padding-left: .4rem;
+    text-indent: .5rem;
+}
+.wantto{
+    text-align: center;
+    margin: 54px auto 20px auto;
+}
+.wantto span{
+    width:140px;
+    height:20px;
+    font-size:20px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(226,28,25,1);
+}
+.wantto button{
+    width:159px;
+    height:41px;
+    background:rgba(226,28,25,1);
+    border-radius:4px;
+    font-size:20px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+    border: none;
+    margin-left: 20px;
+}
+.color-bc{
+    background-color: white;
+}
+.prise-zp{
+    margin-bottom: 10px;
+}
+.detali-list{
+    width: 24%;
+    flex-direction: row;
+    margin: 5px 11px 5px 0px;
+    background-color: white;
+    float: left;
+}
+.list-content{
+    padding: 20px 50px;
+    text-align: center;
+}
+.list-name{
+    font-size:20px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+}
+.list-content img{
+    width:140px;
+    height:140px;
+    margin: 10px auto;
+}
+.list-intr span{
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    margin-right: 10px;
+}
+.list-intr{
+    margin: 10px;
+}
+.last-intr{
+    border-bottom: 1px solid whitesmoke;
+    padding-bottom: 20px;
+}
+.list-button button{
+    width:77px;
+    height:25px;
+    opacity:0.9;
+    border-radius: 15px;
+    outline: 0px;
+}
+.list-button{
+    margin-top: 25px;
+}
+.color-red{
+    background:rgba(226,28,25,1);
+    border: none;
+    color: white;
+    margin-right: 10px;
+}
+.color-wt{
+    background:rgba(255,255,255,1);
+    border:1px solid rgba(226,28,25,1);
+}
+.down0{
+    margin-bottom: 80px;
+}
+.down1{
+    margin-bottom: 20px;
+}
