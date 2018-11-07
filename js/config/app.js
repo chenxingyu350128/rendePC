@@ -89,6 +89,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
                     ])
                 }
             })
@@ -478,8 +480,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //**********************************企业端****************
             .state('enterpriseHome',{
-                url: '/enterpriseHome',
-                params:{position0:1},
+                url: '/enterpriseHome?position0',
+                // params:{position0:1},
                 templateUrl: 'html/enterpriseHome.html',
                 controller: 'enterpriseHome',
                 controllerAs: 'vm',
@@ -487,6 +489,38 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/enterpriseHome.css',
                         'js/controller/enterpriseHome.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            .state('resumeManage',{
+                url: '/resumeManage?type0&type1&resumeType&position0',
+                templateUrl: 'html/resumeManage.html',
+                controller: 'resumeManage',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/resumeManage.css',
+                        'js/controller/resumeManage.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            .state('searchTalent',{
+                url: '/searchTalent?type0&type1&resumeType&position0',
+                templateUrl: 'html/searchTalent.html',
+                controller: 'searchTalent',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/searchTalent.css',
+                        'js/controller/searchTalent.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',

@@ -339,7 +339,7 @@ body{
     background: powderblue;
     box-shadow: 2px 2px 5px #999;
 }
-.position{
+.occupation .position{
     font-size: 18px;
 }
 .row1 .salary{

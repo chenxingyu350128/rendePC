@@ -9,14 +9,15 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=1;
+            scope.client=1;//2代表客户端1代表企业端
             console.log($stateParams);
+            console.log('scope.cliet=',scope.client);
             let navList0=$('.nav').find('.navItem0');
             let navList=$('.nav').find('.navItem');
             console.log(navList);
             console.log(navList0);
-            let idx=parseInt($stateParams['position']);
-            let idx0=parseInt($stateParams['position0']);
+            let idx=parseInt($stateParams['position'])||1;
+            let idx0=parseInt($stateParams['position0'])||1;
             if(idx){
                 console.log('idx');
                 navList.eq(idx-1).css({
@@ -33,7 +34,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             scope.placeBtn=function(){
                 scope.changePlace=true;
             };
-            console.log(idx);
             scope.hole_country=provinceAndCities;
             let prclickRight=0;
             let ctclickRight=0;
