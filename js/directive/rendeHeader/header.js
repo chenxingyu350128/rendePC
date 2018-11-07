@@ -9,7 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=2;
+            scope.client=1;
             console.log($stateParams);
             let navList0=$('.nav').find('.navItem0');
             let navList=$('.nav').find('.navItem');

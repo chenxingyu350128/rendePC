@@ -485,8 +485,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/special-zp.css',
-                        'js/controller/topic-detail.js',
+                        'css/enterpriseHome.css',
+                        'js/controller/enterpriseHome.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
@@ -494,6 +494,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
+
     });
 app.run(function($state){
     $state.go('home');
