@@ -1,3 +1,5 @@
+'use strict';
+
 app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCities){
     return {
         restrict: 'EA',

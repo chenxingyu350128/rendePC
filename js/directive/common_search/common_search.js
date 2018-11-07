@@ -1,3 +1,5 @@
+'use strict';
+
 app.directive('commonSearch',function ($http,$state,$stateParams) {
     return {
         restrict: 'EA',

@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('storeCtrl',function ($http,$state) {
         let vm=this;

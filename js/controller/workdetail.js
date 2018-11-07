@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('WorkDetail',function ($http,$state,$scope) {
         var vm = this;

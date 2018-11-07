@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('recruitCtrl',function ($http,$state,$stateParams) {
         let vm=this;

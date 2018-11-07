@@ -1,3 +1,5 @@
+'use strict';
+
 app.directive('rdFooter',function ($http,$state,$stateParams) {
     return {
         restrict: 'EA',

@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('PersonelCtrl',function ($http,$state) {
 

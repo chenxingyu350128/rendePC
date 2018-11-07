@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('WriteMassageCtrl',function ($http,$state) {
         var vm=this;

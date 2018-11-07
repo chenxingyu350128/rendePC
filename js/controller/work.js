@@ -1,3 +1,4 @@
+'use strict';
 angular.module('myApp')
     .controller('WorkCtrl',function ($http,$state) {
         let vm=this;

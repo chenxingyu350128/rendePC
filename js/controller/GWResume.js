@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('GWResume',function ($http,$state) {
         let vm=this;

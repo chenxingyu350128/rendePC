@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('HuntPositionCtrl',function ($http,$state) {
         //猎头职位导航被选中高亮显示

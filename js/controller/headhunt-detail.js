@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('HeadhuntDetailCtrl',function ($http,$state) {
         console.log(124)

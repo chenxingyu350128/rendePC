@@ -1,3 +1,5 @@
+'use strict';
+
 app.directive("sideBar",function () {
     return {
         restrict: "EA",

@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('myApp')
     .controller('resumeCtrl',function ($http,$state) {
         let vm=this;

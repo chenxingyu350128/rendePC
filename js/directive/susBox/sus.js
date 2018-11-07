@@ -1,3 +1,5 @@
+'use strict';
+
 app.directive('susBox',function ($http,$state,$stateParams) {
     return {
         restrict: 'EA',
