@@ -9,10 +9,12 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=1;
+            scope.client=2;
             console.log($stateParams);
-            let navList=$('.nav').find('div');
+            let navList0=$('.nav').find('.navItem0');
+            let navList=$('.nav').find('.navItem');
             console.log(navList);
+            console.log(navList0);
             let idx=parseInt($stateParams['position']);
             let idx0=parseInt($stateParams['position0']);
             if(idx){
@@ -23,8 +25,8 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             }
             if(idx0){
                 console.log('idx0');
-                navList.eq(idx0-1).css({
-                    'border-bottom':'5px solid #31BEFF'
+                navList0.eq(idx0-1).css({
+                    'border-bottom':'5px solid #31beef'
                 });
             }
             console.log(scope.client);
