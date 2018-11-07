@@ -9,7 +9,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
         $stateProvider//首页
             .state('home',{
                 url: '/home',
-                params:{position:1,position0:1},
+                params:{position:1},
                 templateUrl: 'html/home.html',
                 controller: 'HomeCtrl',
                 controllerAs: 'vm',
@@ -460,13 +460,30 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             // 专题招聘详情
             .state('topic-detail',{
                 url: '/topic-detail',
-                // params:{nav:3},
                 templateUrl: 'html/topic-detail.html',
                 controller: 'TopicDetail',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
                         'html/topic-detail.html',
+                        'css/special-zp.css',
+                        'js/controller/topic-detail.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            //**********************************企业端****************
+            .state('enterpriseHome',{
+                url: '/enterpriseHome',
+                params:{position0:1},
+                templateUrl: 'html/enterpriseHome.html',
+                controller: 'enterpriseHome',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
                         'css/special-zp.css',
                         'js/controller/topic-detail.js',
                         'css/lib/header.css',

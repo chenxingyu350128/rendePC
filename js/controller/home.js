@@ -1,7 +1,7 @@
 angular.module('myApp')
     .controller('HomeCtrl',function ($http,$state,$scope) {
         let vm=this;
-        vm.client=2;//1为企业端2为客户端
+
         // 设置描点不失效
         $('.toTop').on('click',function () {
            window.location.hash="#header_top";

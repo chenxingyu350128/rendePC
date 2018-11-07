@@ -4,19 +4,23 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
         replace: true,
         templateUrl: 'js/directive/rendeHeader/header.html',
         scope: {
+
         },
         link: function (scope) {
             scope.client=1;
             console.log($stateParams);
             let navList=$('.nav').find('div');
+            console.log(navList);
             let idx=parseInt($stateParams['position']);
             let idx0=parseInt($stateParams['position0']);
             if(idx){
+                console.log('idx');
                 navList.eq(idx-1).css({
                     'border-bottom':'5px solid #e11c19'
                 });
             }
             if(idx0){
+                console.log('idx0');
                 navList.eq(idx0-1).css({
                     'border-bottom':'5px solid #31BEFF'
                 });
