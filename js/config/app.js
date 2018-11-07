@@ -1,3 +1,4 @@
+'use strict';
 let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazyLoad'])
     .config(function($stateProvider,$urlRouterProvider){
         let _ocLazy = function (file) {
