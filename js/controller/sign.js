@@ -57,9 +57,4 @@ angular.module('myApp')
             vm.loginMethod=2;
         };
         // 登录hou
-        vm.identify='enterprise';
-        vm.identify='person';
-        if(){
-
-        }
     });
