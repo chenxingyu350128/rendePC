@@ -326,7 +326,7 @@ body{
 .row1>div{
     margin-left: .1rem;
 }
-.companyName{
+.occupation .companyName{
     box-sizing: border-box;
     width: 1.17rem;
     height: 1.17rem;
@@ -413,7 +413,7 @@ body{
     border-radius: 50%;
     margin: .58rem 0 .23rem 0;
 }
-.real_name{
+.outstandings .real_name{
     font-size: 20px;
     margin-bottom: .28rem;
     opacity: 1;

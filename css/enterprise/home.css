@@ -1,0 +1,150 @@
+.top-flex{
+    display: flex;
+    flex-direction: row;
+}
+.top-border{
+    border-right: 1px solid gainsboro;
+}
+.resume-num{
+    width: 50%;
+    text-align: center;
+    margin: 11px auto 30px auto;
+}
+.resume-num div:first-child{
+    font-size:63px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(49,190,255,1);
+    line-height:78px;
+    letter-spacing: 10px
+}
+.resume-num div:last-child{
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:20px;
+    letter-spacing: 10px
+}
+.enterprise-top {
+    padding: .1rem 0 0 0;
+}
+.enterprise-top span{
+    padding: 0 .2rem;
+    color: rgba(49,190,255,1);
+    font-size: 21px;
+    border-left: rgba(49,190,255,1) 4px solid;
+}
+.manage-list{
+    width: 100%;
+    float: left;
+}
+.manage-list:hover{
+    border: 1px solid rgba(49,190,255,1);
+}
+.money{
+    font-size: 24px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
+    color: rgba(255,0,0,1);
+    float: left;
+    margin-left: 21px;
+    margin-top: -5px;
+}
+.text-center{
+    text-align: center;
+}
+.talentlist{
+    text-align: center;
+    width: 23%;
+    float: left;
+    margin: 1%;
+}
+.position-content{
+    margin: .2rem;
+}
+.meeting{
+    width:129px;
+    height:26px;
+    background:white;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 0.15rem;
+    color: red;
+    font-size: 14px;
+    border: 1px solid rgba(226,28,25,1);
+}
+.meeting:hover{
+    background:linear-gradient(-45deg,rgba(255,48,0,1),rgba(226,28,25,1));
+    color: white;
+}
+.P_margin {
+    margin-bottom: .15rem;
+}
+.p_name {
+    font-size: 20px;
+    margin-bottom: .18rem;
+    opacity: 1;
+}
+.prise-message{
+    padding: 0 .2rem;
+}
+.prise-message div{
+    margin: 10px 0;
+}
+.prise-name{
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(1,1,1,1);
+    font-weight: 600;
+}
+.prise-intr{
+    font-size:16px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    opacity:0.6;
+}
+.prise-image{
+    padding: 0 .2rem;
+    display: flex;
+}
+.prisr-icon{
+    width:55px;
+    height:55px;
+}
+.icon2{
+    margin: 0 76px;
+}
+.message-icon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.message-tip{
+    font-size:12px;
+    font-family:MicrosoftYaHei;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+}
+.message-btn{
+    width:73px;
+    padding: 5px 0;
+    font-size:14px;
+    font-family:MicrosoftYaHei-Bold;
+    font-weight:bold;
+    color:rgba(116,116,116,1);
+    text-align: center;
+}
+.message-icon div{
+    margin-top: 20px;
+}
+.finsh_bc{
+    background:rgba(227,231,237,1);
+    color:rgba(116,116,116,1);
+}
+.up_bc{
+    background:linear-gradient(-45deg,rgba(255,48,0,1),rgba(226,28,25,1));
+    color: white;
+}

@@ -8,6 +8,10 @@
     /*justify-content: space-between;*/
     /*align-items: center;*/
 }
+.header1 .row{
+    display: flex;
+    align-items: center;
+}
 .header .provinceChoose{
     z-index: 99;
     position: absolute;
@@ -81,6 +85,9 @@
     font-size: 18px;
     font-weight: 600;
 }
+.nav1{
+    line-height: .86rem;
+}
 .nav div{
     float: left;
     text-align: center;
@@ -97,6 +104,24 @@
     text-align: right;
     padding-right: .8rem;
     margin-top: .29rem;
+}
+.header1 .btnGroup{
+    margin-top: 0;
+    text-align: left;
+}
+.signed{
+    text-align: left;
+}
+.signed span{
+    width: 10em;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: .1rem;
+    border-radius: 4px;
+    border: 1px solid #31BEFF;
+    text-align: left;
 }
 .btnGroup span{
     padding: .05rem .15rem;

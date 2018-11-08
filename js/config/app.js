@@ -482,13 +482,18 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             .state('enterpriseHome',{
                 url: '/enterpriseHome?position0',
                 // params:{position0:1},
-                templateUrl: 'html/enterpriseHome.html',
+                templateUrl: 'html/enterprise/home.html',
                 controller: 'enterpriseHome',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/enterpriseHome.css',
-                        'js/controller/enterpriseHome.js',
+                        'css/enterprise/home.css',
+                        'css/home.css',
+                        'js/controller/enterprise/home.js',
+                        'css/work.css',
+                        'css/personel.css',
+                        'css/workdetail.css',
+                        'css/position-modify.css',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
@@ -521,6 +526,60 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/searchTalent.css',
                         'js/controller/searchTalent.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            .state('accountManage',{
+                url: '/accountManage?type0&type1&navType&position0',
+                templateUrl: 'html/accountManage.html',
+                controller: 'accountManage',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/accountManage.css',
+                        'js/controller/accountManage.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            // 职位管理
+            .state('positionManage',{
+                url: '/positionManage?type0&type1&position0',
+                templateUrl: 'html/enterprise/positionManage.html',
+                controller: 'positionManageCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'js/controller/enterprise/positionManage.js',
+                        'css/enterprise/positionManage.css',
+                        'css/work.css',
+                        'css/home.css',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            // 发布职位
+            .state('releasePosition',{
+                url: '/releasePosition?type0&type1&pType&position0',
+                templateUrl: 'html/enterprise/releasePosition.html',
+                controller: 'releasePositionCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'js/controller/enterprise/releasePosition.js',
+                        'css/enterprise/releasePosition.css',
+                        'css/work.css',
+                        'css/home.css',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
