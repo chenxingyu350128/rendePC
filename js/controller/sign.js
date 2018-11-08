@@ -5,19 +5,8 @@ angular.module('myApp')
         console.log($stateParams);
         let vm=this;
         vm.loginMethod=1;
-        vm.signcard=$stateParams.sign;
-        vm.logincard=$stateParams.login;
-        vm.homePage=function(){
-            $state.go('home')
-        };
-        vm.login=function () {
-          vm.logincard=true;
-          vm.signcard=false;
-        };
-        vm.sign=function () {
-            vm.logincard=false;
-            vm.signcard=true;
-        };
+        vm.toSign=$stateParams.sign;
+        vm.toLogin=$stateParams.login;
         $(function () {
             vm.navSign=$('.navSign');
             for (let i=0;i<vm.navSign.length;i++){
@@ -56,5 +45,4 @@ angular.module('myApp')
         vm.msgLogin=function () {
             vm.loginMethod=2;
         };
-        // 登录hou
     });

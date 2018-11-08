@@ -1,10 +1,10 @@
 <div class="container-fluid signPage">
-    <img  ng-click="vm.homePage()" src="image/home/logo.png" alt="">
+    <img  ui-sref="home" src="image/home/logo.png" alt="">
     <div class="catchword">
-        <span ng-click="vm.homePage()">仁德直聘，给你最好的人才招聘!</span>
+        <span ui-sref="home">仁德直聘，给你最好的人才招聘!</span>
     </div>
     <div class="mainShell">
-        <div ng-show="vm.signcard" class="main text-center">
+        <div ng-if="vm.toSign" class="main text-center">
             <h3 class="text-center">注册仁德直聘</h3>
             <div class="tip1 text-center">使用手机号注册</div>
             <div class="table">
@@ -21,7 +21,7 @@
                     <label  class="label2" for="Ecode">
                         <img src="image/home/signIcon_gray.png" alt="">
                         <input id="Ecode" type="text" placeholder="验证码">
-                        <span>|&emsp;发送验证码</span>
+                        <span>| 发送验证码</span>
                     </label>
                 </div>
                 <div class="signBtn text-center">注册</div>
@@ -31,10 +31,10 @@
                 <span class="redF">用户协议及隐私政策</span>
             </div>
             <div class="login text-center">已有账号
-                <span class="redF" ng-click="vm.login()">直接登录</span>
+                <span class="redF" ui-sref="signPage({login:1})">直接登录</span>
             </div>
         </div>
-        <div ng-show="vm.logincard" class="main text-center">
+        <div ng-if="vm.toLogin" class="main text-center">
             <h3 class="text-center">登录仁德直聘</h3>
             <div style="visibility: hidden" class="tip1 text-center">使用手机号注册</div>
             <div class="table">
@@ -47,15 +47,15 @@
                         <img src="image/home/signIcon_gray.png" alt="">
                         <input id="Lmobile" type="text" placeholder="手机号">
                     </label>
-                    <label ng-if="vm.loginMethod==1" class="label2" for="LEcode">
+                    <label ng-if="vm.loginMethod==1" class="label2" for="Ecode2">
                         <img src="image/home/signIcon_gray.png" alt="">
-                        <input id="LEcode" type="text" placeholder="密码">
+                        <input id="Ecode2" type="text" placeholder="密码">
                         <!--<span>|&emsp;发送验证码</span>-->
                     </label>
                     <label ng-if="vm.loginMethod==2" class="label2" for="LEcode">
                         <img src="image/home/signIcon_gray.png" alt="">
                         <input id="LEcode" type="text" placeholder="验证码">
-                        <span>|&emsp;发送验证码</span>
+                        <span>| 发送验证码</span>
                     </label>
                 </div>
                 <div class="signBtn text-center">登录</div>
@@ -65,7 +65,7 @@
                     <img src="" alt="">
                     微信登录
                 </span>
-                <span class="redF" ng-click="vm.sign()">立即注册</span>
+                <span class="redF" ui-sref="signPage({sign:1})">立即注册</span>
             </div>
         </div>
     </div>

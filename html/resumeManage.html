@@ -52,7 +52,7 @@
     </div>
 </div>
 <div class="container main">
-    <div ng-if="vm.resumeType==0" ng-repeat="x in vm.cardData">
+    <div ng-show="vm.resumeType==0" ng-repeat="x in vm.cardData">
         <div class="lPart">
             <img ng-src="{{x.avatar}}" alt="">
             <div class="onLeft">
@@ -81,7 +81,7 @@
            </div>
        </div>
     </div>
-    <div ng-if="vm.resumeType==1" ng-repeat="x in vm.receivedData">
+    <div ng-show="vm.resumeType==1" ng-repeat="x in vm.receivedData">
         <div class="lPart">
             <img ng-src="{{x.avatar}}" alt="">
             <div class="onLeft">
@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-    <div ng-if="vm.resumeType==2" ng-repeat="x in vm.faceData">
+    <div ng-show="vm.resumeType==2" ng-repeat="x in vm.faceData">
         <div class="lPart face">
             <img ng-src="{{x.avatar}}" alt="">
             <div class="onLeft">

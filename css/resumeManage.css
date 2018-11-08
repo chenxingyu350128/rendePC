@@ -84,90 +84,68 @@
   color: #fff;
   background: #31BEFF; }
 
-input::t
 .main {
   background: #fff;
   margin-bottom: .25rem;
   padding: 0; }
-  input::t
   .main > div:hover {
     border: 1px solid #E21C19; }
-  input::t
   .main > div {
     font-size: 14px;
     color: #393939;
     padding: .26rem .22rem .36rem;
     display: flex;
-    align-items: flex-end;
     border: 1px solid #B5B5B5;
     margin-bottom: -1px;
     cursor: pointer; }
-    input::t
     .main > div .lPart {
       width: 40%;
       display: flex;
       align-items: center; }
-      input::t
       .main > div .lPart > img {
         width: 1.16rem;
         height: 1.16rem;
         border-radius: 50%;
         border: 1px solid #E21C19; }
-      input::t
       .main > div .lPart .onLeft {
         display: flex;
         align-items: flex-end; }
-        input::t
         .main > div .lPart .onLeft .left1 {
           margin-left: .3rem; }
-          input::t
           .main > div .lPart .onLeft .left1 .nameAndOcp {
             display: flex;
             align-items: flex-end; }
-            input::t
             .main > div .lPart .onLeft .left1 .nameAndOcp .name {
               font-size: 20px;
               font-weight: 600; }
-            input::t
             .main > div .lPart .onLeft .left1 .nameAndOcp img {
               width: .21rem;
               height: .2rem;
               margin-left: .08rem;
               margin-right: .17rem; }
-            input::t
             .main > div .lPart .onLeft .left1 .nameAndOcp .position {
               color: #E21C19;
               font-size: 24px; }
-          input::t
           .main > div .lPart .onLeft .left1 .intro {
             margin: .23rem 0 .21rem; }
-    input::t
     .main > div .face {
       border-right: 1px solid #c3c3c3; }
-    input::t
     .main > div .cPart {
       width: 40%; }
-      input::t
       .main > div .cPart .right1 span {
         padding-left: .42rem;
         margin-bottom: .21rem; }
-      input::t
       .main > div .cPart .right1 .right1Info {
         padding-left: .86rem; }
-        input::t
         .main > div .cPart .right1 .right1Info div {
           margin-top: .15rem; }
-      input::t
       .main > div .cPart .like {
         margin-bottom: .24rem; }
-    input::t
     .main > div .rPart {
       width: 20%;
       border-left: 1px solid #c3c3c3; }
-      input::t
       .main > div .rPart .updateAt {
         font-size: 12px; }
-      input::t
       .main > div .rPart .button {
         display: inline-block;
         line-height: .38rem;
@@ -176,7 +154,6 @@ input::t
         font-size: 18px;
         background: #E21C19;
         color: #fff; }
-      input::t
       .main > div .rPart div:nth-child(2) {
         margin: .13rem auto; }
 

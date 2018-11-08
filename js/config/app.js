@@ -549,6 +549,22 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
+            .state('superPosition',{
+                url: '/superPosition?type0&type1&navType&position0',
+                templateUrl: 'html/superPosition.html',
+                controller: 'superPosition',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/superPosition.css',
+                        'js/controller/superPosition.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
             // 职位管理
             .state('positionManage',{
                 url: '/positionManage?type0&type1&position0',

@@ -9,9 +9,9 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=2;//2代表客户端1代表企业端
+            scope.client=1;//2代表客户端1代表企业端
             scope.username='陈奕迅xiansheng';
-            scope.sign=true;//表示已经登陆
+            scope.sign=false;//表示已经登陆
             console.log($stateParams);
             console.log('scope.cliet=',scope.client);
             let navList0=$('.nav').find('.navItem0');
