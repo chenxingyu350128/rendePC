@@ -50,26 +50,26 @@
             </div>
         </div>
         <div ng-show="changePlace" class="row provinceChoose">
-            <img class="leftClick" ng-click="provinceMoreL()" src="image/home/leftTriangle.png" alt="">
             <div class="province">
                 <div>
                     <div>
+                        <img class="leftClick leftClick1" ng-click="provinceMoreL()" src="image/home/leftTriangle.png" alt="">
                         <span ng-click="chooseProvince($index)" ng-repeat="x in hole_country">{{x.provinceName}}</span>
+                        <img class="rightClick rightClick1" ng-click="provinceMoreR()" src="image/home/rightTriangle.png" alt="">
                     </div>
                 </div>
             </div>
-            <img class="rightClick" ng-click="provinceMoreR()" src="image/home/rightTriangle.png" alt="">
         </div>
-        <div ng-show="changePlace" class="row cityChoose">
-            <img class="leftClick" ng-click="cityMoreL()" src="image/home/leftTriangle.png" alt="">
+        <div draggable="true" ng-show="changePlace" class="row cityChoose">
             <div class="cities">
-                <div>
-                    <div>
-                        <span class="cityGroup" ng-click="chooseCity($index)" ng-repeat="x in cities" repeat-finished>{{x.cityName}}</span>
+                <div class="cxx">
+                    <div id="chooseCity">
+                        <img class="leftClick leftClick2" ng-click="cityMoreL()" src="image/home/leftTriangle.png" alt="">
+                        <span ng-click="chooseCity($index)" class="cityGroup"  ng-repeat="x in cities" repeat-finished>{{x.cityName}}</span>
+                        <img class="rightClick rightClick2" ng-click="cityMoreR()" src="image/home/rightTriangle.png" alt="">
                     </div>
                 </div>
             </div>
-            <img class="rightClick" ng-click="cityMoreR()" src="image/home/rightTriangle.png" alt="">
         </div>
     </div>
 </div>

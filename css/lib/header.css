@@ -1,3 +1,12 @@
+*{
+    scrollbar-3dlight-color:#fff;
+    scrollbar-highlight-color:#fff;
+    scrollbar-arrow-color:#fff;
+    scrollbar-shadow-color:#fff;
+    scrollbar-darkshadow-color:#fff;
+    scrollbar-base-color:#fff;
+    scrollbar-track-color:#fff;
+}
 .header{
     box-sizing: border-box;
     padding-top: .1rem;
@@ -16,13 +25,13 @@
     z-index: 99;
     position: absolute;
     top: .9rem;
-    background: papayawhip;
+    background: #fff;
 }
 .header .cityChoose{
     z-index: 99;
     position: absolute;
-    top: 1.6rem;
-    background: powderblue;
+    top: 1.7rem;
+    background: #fff;
 }
 .cityChoose .province,
 .provinceChoose .province{
@@ -43,8 +52,12 @@
 }
 .province>div,
 .cities>div{
-    overflow: hidden;
+    overflow-x: scroll;
     margin: 0 .15rem;
+}
+.province>div::-webkit-scrollbar,
+.cities>div::-webkit-scrollbar {
+    display: none;
 }
 .province>div>div,
 .cities>div>div{
@@ -109,7 +122,7 @@
     margin-top: 0;
     text-align: left;
 }
-.signed{
+.header1 .signed{
     text-align: left;
 }
 .signed span{

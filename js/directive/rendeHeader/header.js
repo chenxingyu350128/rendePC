@@ -9,7 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=1;//2代表客户端1代表企业端
+            scope.client=2;//2代表客户端1代表企业端
             scope.username='陈奕迅xiansheng';
             scope.sign=true;//表示已经登陆
             console.log($stateParams);
@@ -37,52 +37,55 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                 scope.changePlace=true;
             };
             scope.hole_country=provinceAndCities;
-            let prclickRight=0;
-            let ctclickRight=0;
-            scope.provinceMoreL=function(){
-                let currentMarginL=$('.province').css('marginLeft');
-                console.log(currentMarginL);
-                if(currentMarginL != "-1800px"){
-                    prclickRight++;
-                    let mL=-100*prclickRight;
-                    $('.province').css({
-                        'margin-left': mL+"px"
-                    });
+            // document.getElementById('chooseCity').onkeydown=function(e){
+            //     console.log(e)
+            // };
+
+            $(".rightClick1").on('click',function(){
+                let distant1= sessionStorage.getItem('distant1')||0;
+                if(distant1<2000){
+                    distant1=parseInt(distant1)+100;
                 }
-            };
-            scope.provinceMoreR=function(){
-                let MarginL=$('.province').css('marginLeft');
-                if(MarginL != "0px"){
-                    prclickRight--;
-                    let mL=-100*prclickRight;
-                    $('.province').css({
-                        'margin-left': mL+"px"
-                    });
+                else{
+                    distant1=2000;
                 }
-            };
-            //城市选择左右按钮
-            scope.cityMoreL=function(){
-                let MarginL=$(this).siblings().css('margin-left');
-                console.log(MarginL);
-                if(MarginL != "-1800px"){
-                    ctclickRight++;
-                    let mL=-100*ctclickRight;
-                    $('.cities').css({
-                        'margin-left': mL+"px"
-                    });
+                sessionStorage.setItem('distant1',distant1);
+                $(this).parent().parent().scrollLeft(distant1);
+                console.log(distant1)
+            });
+            $(".leftClick1").on('click',function(){
+                let distant1= sessionStorage.getItem('distant1')||0;
+                if(distant1>2000){
+                    distant1=parseInt(distant1)-100;
                 }
-            };
-            scope.cityMoreR=function(){
-                let currentMarginL=$(this).siblings().css('margin-left');
-                if(currentMarginL != "0px"){
-                    ctclickRight--;
-                    let mL=-100*ctclickRight;
-                    $('.cities').css({
-                        'margin-left': mL+"px"
-                    });
+                else{
+                    distant1=0;
                 }
-            };
-            // 默认province//选择province
+                sessionStorage.setItem('distant1',distant1);
+                $(this).parent().parent().scrollLeft(distant1);
+                console.log(distant1)
+            });
+            $(".rightClick2").on('click',function(){
+                let distant2= sessionStorage.getItem('distant2')||0;
+                distant2=parseInt(distant2)+100;
+                sessionStorage.setItem('distant2',distant2);
+                $(this).parent().parent().scrollLeft(distant2);
+                console.log($(this).parent().parent().css("width"));
+                console.log($(this).parent().parent().scrollLeft);
+                console.log(distant2)
+            });
+            $(".leftClick2").on('click',function(){
+                let distant2= sessionStorage.getItem('distant2')||0;
+                if(distant2>100){
+                    distant2=parseInt(distant2)-100;
+                }
+                else{
+                    distant2=0;
+                }
+                sessionStorage.setItem('distant2',distant2);
+                $(this).parent().parent().scrollLeft(distant2);
+                console.log(distant2)
+            });
             scope.cities=scope.hole_country[0].cities;
             scope.chooseProvince=function (idx) {
                 console.log(idx);
@@ -91,6 +94,9 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             };
             scope.chooseCity=function () {
                 scope.changePlace=false;
+                sessionStorage.removeItem('distant1');
+                sessionStorage.removeItem('distant2');
+                $(this).parent().scrollLeft(0);
             };
         }
     }
