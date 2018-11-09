@@ -9,8 +9,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
         $urlRouterProvider.when('/','/home');
         $stateProvider//首页
             .state('home',{
-                url: '/home',
-                params:{position:1},
+                url: '/home?position',
                 templateUrl: 'html/home.html',
                 controller: 'HomeCtrl',
                 controllerAs: 'vm',
@@ -27,8 +26,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?position&position0',
-                params:{nav:2},
+                url: '/workCtrl?position?jobType',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -186,7 +184,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             .state('enterprise',{
                 url: '/enterprise?position&position0',
-                params:{nav:4},
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',
@@ -205,7 +202,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })//仁德猎头
             .state('headHunt',{
                 url: '/headHunt?position&position0',
-                params:{nav:5},
                 templateUrl: 'html/headhunt.html',
                 controller: 'HeadhuntCtrl',
                 controllerAs: 'vm',
@@ -224,7 +220,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })//猎头详情
             .state('headhunt-detail',{
                 url: '/headHunt/detail',
-                params:{nav:0},
                 templateUrl: 'html/headhunt-detail.html',
                 controller: 'HeadhuntDetailCtrl',
                 controllerAs: 'vm',
@@ -243,7 +238,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })//企业详情
             .state('enterpriseInfo',{
                 url: '/enterprise/enterpriseInfo',
-                params:{nav:0},
                 templateUrl: 'html/enterpriseInfo.html',
                 controller: 'enterpriseInfo',
                 controllerAs: 'vm',
@@ -270,7 +264,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })//积分商城
             .state('store',{
                 url: '/store?position&position0',
-                params:{nav:6},
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -312,7 +305,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             .state('proxy',{
                 url: '/proxy?position&position0',
-                params:{nav:7},
                 templateUrl: 'html/proxy.html',
                 controller: 'proxyCtrl',
                 controllerAs: 'vm',
@@ -331,7 +323,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             .state('WPInfo',{
                 url: '/wpInfo?position&position0',
-                params:{nav:3},
                 templateUrl: 'html/workplace-news.html',
                 controller: 'wpInfo',
                 controllerAs: 'vm',

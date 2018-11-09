@@ -5,8 +5,8 @@ angular.module('myApp')
         console.log($stateParams);
         let vm=this;
         vm.loginMethod=1;
-        vm.toSign=$stateParams.sign;
-        vm.toLogin=$stateParams.login;
+        vm.toSign=parseInt($stateParams.sign);
+        vm.toLogin=parseInt($stateParams.login);
         $(function () {
             vm.navSign=$('.navSign');
             for (let i=0;i<vm.navSign.length;i++){

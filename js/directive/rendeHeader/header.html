@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background: #fff">
     <!--企业端-->
-    <div ng-show="client==1" class="container header header1">
+    <div ng-if="client==1" class="container header header1">
         <div class="row">
             <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <!--个人端-->
-    <div ng-show="client==2" class="container header">
+    <div ng-if="client==2" class="container header">
         <div class="row">
             <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
@@ -37,17 +37,19 @@
             </div>
 
             <div class="nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="navItem" ui-sref="home({position: 1})">首页</div>
-                <div class="navItem" ui-sref="WorkCtrl({position: 2})">找工作</div>
-                <div class="navItem" ui-sref="enterprise({position: 3})">找企业</div>
-                <div class="navItem" ui-sref="personel({position: 4})">人才专区</div>
-                <div class="navItem" ui-sref="recruit({position: 5})">店铺招聘/招普工</div>
-                <div class="navItem" ui-sref="GWorker({position: 6})">普工简历</div>
-                <div class="navItem" ui-sref="headHunt({position: 7})">仁德猎头</div>
-                <div class="navItem" ui-sref="proxy({position: 8})">仁德人力代理</div>
-                <div class="navItem" ui-sref="special-zp({position: 9})">专题招聘会</div>
-                <div class="navItem" ui-sref="WPInfo({position: 10})">职场资讯</div>
-                <div class="navItem" ui-sref="store({position: 11})">积分商城</div>
+                <div ng-repeat="x in homeMenu"
+                     class="navItem"
+                     ng-click="nav(x.id)">{{x.name}}</div>
+                <!--<div class="navItem" ui-sref="WorkCtrl({position: 2})">找工作</div>-->
+                <!--<div class="navItem" ui-sref="enterprise({position: 3})">找企业</div>-->
+                <!--<div class="navItem" ui-sref="personel({position: 4})">人才专区</div>-->
+                <!--<div class="navItem" ui-sref="recruit({position: 5})">店铺招聘/招普工</div>-->
+                <!--<div class="navItem" ui-sref="GWorker({position: 6})">普工简历</div>-->
+                <!--<div class="navItem" ui-sref="headHunt({position: 7})">仁德猎头</div>-->
+                <!--<div class="navItem" ui-sref="proxy({position: 8})">仁德人力代理</div>-->
+                <!--<div class="navItem" ui-sref="special-zp({position: 9})">专题招聘会</div>-->
+                <!--<div class="navItem" ui-sref="WPInfo({position: 10})">职场资讯</div>-->
+                <!--<div class="navItem" ui-sref="store({position: 11})">积分商城</div>-->
             </div>
         </div>
         <div ng-show="changePlace" class="row provinceChoose">

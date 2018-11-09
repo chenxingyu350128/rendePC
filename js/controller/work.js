@@ -1,7 +1,8 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state) {
+    .controller('WorkCtrl',function ($http,$state,$stateParams) {
         let vm=this;
+        console.log($stateParams);
         vm.client=sessionStorage.getItem('client');
         //导航被选中高亮显示
         $(document).ready(function(){

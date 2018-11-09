@@ -425,9 +425,9 @@ body{
     margin-bottom: .32rem;
 }
 /*职场资讯*/
-/*.information .row{*/
-/*display: flex;*/
-/*}*/
+.information .row{
+display: flex;
+}
 .information .row>div{
     padding: 0 .08rem;
 }

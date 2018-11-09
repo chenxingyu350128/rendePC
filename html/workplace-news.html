@@ -1,5 +1,6 @@
 <rende-header></rende-header>
 <!--职场资讯-->
+<div style="z-index: 9999"> {{vm.dataList}}</div>
 <div class="container">
     <img src="image/workplace-banner.png" alt="" class="newsimg">
     <div class="newscontent">
@@ -9,59 +10,14 @@
                     <div class=" newslist-left fl">
                         <img src="image/shopdetail4.png" alt="" >
                     </div>
-                    <div class=" newslist-right fl">
+                    <div class=" newslist-right fl" ng-repeat="x in vm.dataList">
                         <div class="news-title news-hidden">职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷</div>
-                        <div class="news-content"> 异地恋，顾名思义，即相隔两地的恋爱，人之三情中唯有异地恋维系最为艰难。随着时代的发展，越来越多的人因为
-                            求学和工作等各种原因而不得不“背井离乡”。因此势必造成爱侣的分离。
-                            于是也就有了新词语异地恋。一般异地恋是比较稳重，有着深厚的感情。因为维持异地恋需要忍受更多，
-                            当然也会收获更多。
+                        <div class="news-content" >
+                            {{x.content}}
                         </div>
                         <div class="fr grayF">2018-04-27</div>
                     </div>
                 </div >
-                <div class="newslist" ui-sref="new-detail">
-                    <div class=" newslist-left fl">
-                        <img src="image/shopdetail4.png" alt="" >
-                    </div>
-                    <div class=" newslist-right fl">
-                        <div class="news-title news-hidden">职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷</div>
-                        <div class="news-content"> 异地恋，顾名思义，即相隔两地的恋爱，人之三情中唯有异地恋维系最为艰难。随着时代的发展，越来越多的人因为
-                            求学和工作等各种原因而不得不“背井离乡”。因此势必造成爱侣的分离。
-                            于是也就有了新词语异地恋。一般异地恋是比较稳重，有着深厚的感情。因为维持异地恋需要忍受更多，
-                            当然也会收获更多。
-                        </div>
-                        <div class="fr grayF">2018-04-27</div>
-                    </div>
-                </div >
-                <div class="newslist" ui-sref="new-detail">
-                    <div class=" newslist-left fl">
-                        <img src="image/shopdetail4.png" alt="" >
-                    </div>
-                    <div class=" newslist-right fl">
-                        <div class="news-title news-hidden">职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷</div>
-                        <div class="news-content"> 异地恋，顾名思义，即相隔两地的恋爱，人之三情中唯有异地恋维系最为艰难。随着时代的发展，越来越多的人因为
-                            求学和工作等各种原因而不得不“背井离乡”。因此势必造成爱侣的分离。
-                            于是也就有了新词语异地恋。一般异地恋是比较稳重，有着深厚的感情。因为维持异地恋需要忍受更多，
-                            当然也会收获更多。
-                        </div>
-                        <div class="fr grayF">2018-04-27</div>
-                    </div>
-                </div >
-                <div class="newslist" ui-sref="new-detail">
-                    <div class=" newslist-left fl">
-                        <img src="image/shopdetail4.png" alt="" >
-                    </div>
-                    <div class=" newslist-right fl">
-                        <div class="news-title news-hidden">职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷职场青年感情状态报告：1/4年轻人正在精神异地，不想结婚因为穷</div>
-                        <div class="news-content"> 异地恋，顾名思义，即相隔两地的恋爱，人之三情中唯有异地恋维系最为艰难。随着时代的发展，越来越多的人因为
-                            求学和工作等各种原因而不得不“背井离乡”。因此势必造成爱侣的分离。
-                            于是也就有了新词语异地恋。一般异地恋是比较稳重，有着深厚的感情。因为维持异地恋需要忍受更多，
-                            当然也会收获更多。
-                        </div>
-                        <div class="fr grayF">2018-04-27</div>
-                    </div>
-                </div >
-
                 <div class="seeMore text-center workmore newslist-content">
                     <img src="image/home/seeMore.png" alt="">
                 </div>

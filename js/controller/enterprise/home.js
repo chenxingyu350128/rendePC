@@ -1,5 +1,5 @@
 'use strict';
 angular.module('myApp')
-    .controller('enterpriseHome',function ($http,$state) {
+    .controller('enterpriseHome',function ($http,$state,common) {
 
     });

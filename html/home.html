@@ -7,61 +7,9 @@
         <div class="top container">
             <!--<div class="row">-->
             <div class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
-                <div ui-sref="WorkCtrl">
+                <div ng-repeat="x in vm.jobType" ui-sref="WorkCtrl({jobType: {{$index}}})">
                     <img src="image/home/type1.png" alt="">
-                    公务员/翻译/其他
-                </div>
-                <div ui-sref="WorkCtrl">
-                    <img src="image/home/type1.png" alt="">
-                    贸易/百货
-                </div>
-                <div ui-sref="WorkCtrl">
-                    <img src="image/home/type1.png" alt="">
-                    机械/设备/技工
-                </div>
-                <div ui-sref="WorkCtrl">
-                    <img src="image/home/type1.png" alt="">
-                    通信/电子
-                </div>
-                <div ui-sref="WorkCtrl">
-                    <img src="image/home/type1.png" alt="">
-                    化工/讷讷感元
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    销售/客服/技术支持
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    生产/运营/物流/采购
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    生物/制药
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    建筑/房地产
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    人事/行政/高级管理
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    会计/金融/银行/保险
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    咨询/法律/教育/科研
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    服务业
-                </div>
-                <div>
-                    <img src="image/home/type1.png" alt="">
-                    计算机/互联网
+                    {{x}}
                 </div>
             </div>
             <div class="topDiv swiper col-md-6 col-lg-6 col-sm-9 col-xs-12">

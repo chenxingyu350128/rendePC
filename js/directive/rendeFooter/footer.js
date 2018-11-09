@@ -8,7 +8,6 @@ app.directive('rdFooter',function ($http,$state,$stateParams) {
         scope: {
         },
         link: function (scope) {
-            console.log(111)
         }
     }
 });
