@@ -7,7 +7,7 @@ angular.module('myApp')
         let url2='Boss/show_news';
         let url3='other/hot_search';
         let url4='Boss/show_banner';
-        let url5='user/show_company_recruit';
+        let url5='boss/show_company_recruit';
         let dataEmpty={};
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后
@@ -20,7 +20,7 @@ angular.module('myApp')
                 // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
             }
             else if(res.data.code===404){
-                modalBox.alert(res.msg)
+                modalBox.alert('home1')
             }
         });//资讯列表
         common.request(url2,dataEmpty).then(function callback(res){
@@ -30,7 +30,7 @@ angular.module('myApp')
                 // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
             }
             else if(res.data.code===404){
-                modalBox.alert(res.msg)
+                modalBox.alert('home2')
             }
         });//热门搜索
         common.request(url3,dataEmpty).then(function callback(res){
@@ -40,7 +40,7 @@ angular.module('myApp')
                 // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
             }
             else if(res.data.code===404){
-                modalBox.alert(res.msg)
+                modalBox.alert('home3')
             }
         });//banner轮播图
         common.request(url4,dataEmpty).then(function callback(res){
@@ -49,7 +49,8 @@ angular.module('myApp')
                 console.log(res.data.data);
             }
             else if(res.data.code===404){
-                modalBox.alert(res.msg)
+
+                modalBox.alert('home4')
             }
         });//名企招聘
         common.request(url5,dataEmpty).then(function callback(res){
@@ -58,7 +59,8 @@ angular.module('myApp')
                 console.log(res.data.data);
             }
             else if(res.data.code===404){
-                modalBox.alert(res.msg)
+                console.log(res);
+                modalBox.alert('home5')
             }
         });
 

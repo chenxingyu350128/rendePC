@@ -22,7 +22,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                     console.log(res.data.data);
                 }
                 else if(res.data.code===404){
-                    modalBox.alert(res.msg)
+                    modalBox.alert('header1')
                 }
             });
             // 企业端homeMenu
@@ -32,7 +32,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                     console.log(res.data.data);
                 }
                 else if(res.data.code===404){
-                    modalBox.alert(res.msg)
+                    modalBox.alert('header2')
                 }
             });
             console.log($stateParams);
