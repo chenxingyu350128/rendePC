@@ -1,19 +1,23 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state,$stateParams) {
+    .controller('WorkCtrl',function ($http,$state,$stateParams,common,modalBox) {
         let vm=this;
         console.log($stateParams);
-        vm.client=sessionStorage.getItem('client');
-        //导航被选中高亮显示
-        $(document).ready(function(){
-            $('.work-position-l').eq(0).addClass('work-position-active').siblings().removeClass('work-position-active');
-            $('.work-position-l').click(function(){
-                var i = $(this).index();
-                $('.work-position-l').eq(i).addClass('work-position-active').siblings().removeClass('work-position-active');
-            });
+        vm.keyword=$stateParams.find;
+        let url='Boss/find_job';
+        let data={find:vm.keyword};
+        common.request(url,data).then(function callback(res){
+            console.log(res);
+            if(res.data.code===200){
+                if(res.data.data.length){
+                    vm.searchResult=res.data.data;
+                }
+                else{
+                    modalBox.alert('该关键词无搜索结果，请重试')
+                }
+            }
+            else if(res.data.code===404){
+                modalBox.alert(res.msg)
+            }
         });
-        // let navList=$('.nav').find('div').eq(1);
-        // navList.css({
-        //     'border-bottom':'5px solid #e11c19'
-        // })
     });

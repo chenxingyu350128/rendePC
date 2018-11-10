@@ -22,15 +22,15 @@
                     </ol>
                     <!-- 轮播（Carousel）项目 -->
                     <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="image/home/swiper.png" alt="First slide">
+                        <div ng-repeat="x in vm.banner" class="item" on-finish-render-filters2>
+                            <img src="{{x.img}}" alt="First slide">
                         </div>
-                        <div class="item">
-                            <img src="image/home/swiper.png" alt="Second slide">
-                        </div>
-                        <div class="item">
-                            <img src="image/home/swiper.png" alt="Third slide">
-                        </div>
+                        <!--<div class="item">-->
+                            <!--<img src="image/home/swiper.png" alt="Second slide">-->
+                        <!--</div>-->
+                        <!--<div class="item">-->
+                            <!--<img src="image/home/swiper.png" alt="Third slide">-->
+                        <!--</div>-->
                     </div>
                     <!-- 轮播（Carousel）导航 -->
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -44,24 +44,18 @@
                 </div>
                 <div class="search">
                     <div class="searchBox">
-                        <input placeholder="搜索职位、公司或地点" type="text"><button>搜索</button>
+                        <input placeholder="搜索职位、公司或地点" type="text" ng-model="vm.keyword"><button ui-sref="WorkCtrl({find:'{{vm.keyword}}'})">搜索</button>
                     </div>
                     <div class="hot">
                         <span class="redF">热门搜索:</span>
-                        <span>实习生</span>
-                        <span>建筑设计</span>
-                        <span>电话销售</span>
-                        <span>司机</span>
-                        <span>预算员</span>
-                        <span>营销总监</span>
-                        <span>销售代表</span>
+                        <span ui-sref="WorkCtrl({find:'{{x.name}}',position:2})" ng-repeat="x in vm.hotSearch">{{x.name}}</span>
                     </div>
                 </div>
             </div>
             <div class="topDiv rightImg col-md-3 col-lg-3 col-sm-12 col-xs-12">
-                <img src="image/home/card_01.png" alt="">
-                <img src="image/home/card_02.png" alt="">
-                <img src="image/home/card_03.png" alt="">
+                <img ng-repeat="x in vm.banner" src="{{x.img}}" alt="">
+                <!--<img src="image/home/card_02.png" alt="">-->
+                <!--<img src="image/home/card_03.png" alt="">-->
             </div>
             <!--</div>-->
         </div>
@@ -899,13 +893,7 @@
                     <div class="triangle"></div>
                 </div>
                 <ul class="articles">
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂姐姐同人图厄特人</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
-                    <li class="article">的撒大苏打v，留个扣扣Sosa看懂</li>
+                    <li class="article" ui-sref="new-detail({id:{{x.id}}})" ng-repeat="x in vm.newsList">{{x.content}}</li>
                 </ul>
             </div>
         </div>

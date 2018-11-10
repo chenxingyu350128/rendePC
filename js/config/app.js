@@ -22,12 +22,11 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/susBox/sus.js',
                         'css/home.css',
                         'js/controller/home.js',
-                        'js/directive/forNg-repeatDom.js'
                     ])
                 }
             })//找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?position?jobType',
+                url: '/workCtrl?position&jobType&id&find',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -75,7 +74,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('workDetail',{
-                url: '/workDetail',
+                url: '/workDetail?id',
                 templateUrl: 'html/workdetail.html',
                 controller: 'WorkDetail',
                 controllerAs: 'vm',
@@ -168,7 +167,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('new-detail',{
-                url: '/new-detail',
+                url: '/new-detail?id',
                 templateUrl: 'html/new-detail.html',
                 controller: 'NewDetailCtrl',
                 controllerAs: 'vm',

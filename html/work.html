@@ -77,7 +77,7 @@
         </ul>
     </div>
        <!--推荐最新职位-->
-    <div class="work-position">
+    <div ng-if="!vm.searchResult" class="work-position">
         <ul>
             <li class="work-position-l">推荐职位</li>
             <li class="work-position-l">最新职位</li>
@@ -190,6 +190,41 @@
                <button class="position-btn">投个简历</button><br>
                 <div class="demand grayF workdemand">
                     <span>更新时间：2018-09-12</span>
+                </div>
+            </div>
+            <div class="position-hr"></div>
+        </div>
+        <div class="container seeMore text-center workmore">
+            <img src="image/home/seeMore.png" alt="">
+        </div>
+    </div>
+    <div ng-if="vm.searchResult" class="work-position">
+        <ul>
+            <li class="work-position-l">搜索结果</li>
+        </ul>
+        <div ui-sref="workDetail({id:{{x.id}}})" ng-repeat="x in vm.searchResult|limitTo:4" class="position-list" >
+            <img ng-src="{{x.img}}" class="position-name" >
+            <div ui-sref="workDetail" class="position-list-right">
+                <div class="positionname fl">{{x.job_type}}</div>
+                <div class="worksalary redF fl">￥{{x.pay}}</div><br>
+                <div class="demand grayF workdemand">
+                    <span>{{x.experience}}|</span>
+                    <span>{{x.education}}|</span>
+                    <span>{{x.area}}</span>
+                </div>
+            </div>
+            <div class="position-list-center">
+                <div class="positionname fl">{{x.name}}</div><br>
+                <div class="demand grayF workdemand">
+                    <span>{{x.c_type}}/</span>
+                    <span>{{x.nature}}|</span>
+                    <span>{{x.size}}</span>
+                </div>
+            </div>
+            <div class="position-list-right fr">
+                <button class="position-btn">投个简历</button><br>
+                <div class="demand grayF workdemand">
+                    <span>更新时间：{{x.time}}</span>
                 </div>
             </div>
             <div class="position-hr"></div>

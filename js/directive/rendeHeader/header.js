@@ -9,16 +9,27 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             onFinishRenderFilters : '&'
         },
         link: function (scope) {
-            scope.client=2;//2代表客户端1代表企业端
+            scope.client=0;//0代表客户端1代表企业端
             scope.username='陈奕迅xiansheng';
             scope.sign=false;//表示已经登陆
-            let url='network_menu';
+            let url0='boss/network_menu';
+            let url1='Boss/show_homemenu';
             let data={};
-            common.request(url,data).then(function callback(res){
+            //客户端homeMenu
+            common.request(url0,data).then(function callback(res){
                 if(res.data.code===200){
                     scope.homeMenu=res.data.data;
                     console.log(res.data.data);
-                    // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
+                }
+                else if(res.data.code===404){
+                    modalBox.alert(res.msg)
+                }
+            });
+            // 企业端homeMenu
+            common.request(url1,data).then(function callback(res){
+                if(res.data.code===200){
+                    scope.enterHome=res.data.data;
+                    console.log(res.data.data);
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.msg)
@@ -26,70 +37,83 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             });
             console.log($stateParams);
             //nav跳转
-            scope.nav=function(e){
+            scope.nav0=function(e){
                 console.log(e);
                 switch (e){
                     case 1:
-                        $state.go('home',{position:1});
+                        $state.go('home');
                         break;
                     case 2:
-                        $state.go('WorkCtrl',{position:2});
+                        $state.go('WorkCtrl');
                         break;
                     case 3:
-                        $state.go('enterprise',{position:3});
+                        $state.go('enterprise');
                         break;
                     case 4:
-                        $state.go('personel',{position:4});
+                        $state.go('personel');
                         break;
                     case 5:
-                        $state.go('recruit',{position:5});
+                        $state.go('recruit');
                         break;
                     case 6:
-                        $state.go('GWorker',{position:6});
+                        $state.go('GWorker');
                         break;
                     case 7:
-                        $state.go('headHunt',{position:7});
+                        $state.go('headHunt');
                         break;
                     case 8:
-                        $state.go('proxy',{position:8});
+                        $state.go('proxy');
                         break;
                     case 9:
-                        $state.go('special-zp',{position:9});
+                        $state.go('special-zp');
                         break;
                     case 10:
-                        $state.go('WPInfo',{position:10});
+                        $state.go('WPInfo');
                         break;
                     case 11:
-                        $state.go('store',{position:11});
+                        $state.go('store');
                         break;
                 }
-                // let navList0=$('.nav').find('.navItem0');
-
-                // let idx=parseInt($stateParams['position'])||1;
-                // let idx0=parseInt($stateParams['position0'])||1;
-                // if(idx0){
-                //     console.log('idx0');
-                //     navList0.eq(idx0-1).css({
-                //         'border-bottom':'5px solid #31beef'
-                //     });
-                // }
+                sessionStorage.setItem('mainNav',e)
             };
-            scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+            scope.nav1=function(e){
+                console.log(e);
+                switch (e){
+                    case 1:
+                        $state.go('enterpriseHome');
+                        break;
+                    case 2:
+                        $state.go('resumeManage');
+                        break;
+                    case 3:
+                        $state.go('positionManage');
+                        break;
+                    case 4:
+                        $state.go('searchTalent');
+                        break;
+                    case 5:
+                        $state.go('accountManage');
+                        break;
+                    case 6:
+                        $state.go('superPosition');
+                        break;
+                }
+                sessionStorage.setItem('mainNav1',e)
+            };
+            scope.$on('ngRepeatFinished', function () {
                 //下面是在render完成后执行的js
-                scope.idx=$stateParams.position||1;
-                let navList=$('.nav').find('.navItem');
-                console.log(navList);
-                console.log(scope.idx);
-                navList.eq(scope.idx-1).css({
+                scope.idx0=sessionStorage.getItem('mainNav')||1;
+                scope.idx1=sessionStorage.getItem('mainNav1')||1;
+                let navList0=$('.nav').find('.navItem');
+                let navList1=$('.nav').find('.navItem0');
+                navList0.eq(scope.idx0-1).css({
+                    'border-bottom':'5px solid #e11c19',
+                });
+                navList1.eq(scope.idx1-1).css({
                     'border-bottom':'5px solid #e11c19',
                 });
             });
-            // $(function () {
-            //     let navList=$('.nav').find('.navItem');
-            //     navList.eq(scope.idx-1).css({
-            //         'border-bottom':'5px solid #e11c19'
-            //     });
-            // });
+
             scope.placeBtn=function(){
                 scope.changePlace=true;
             };

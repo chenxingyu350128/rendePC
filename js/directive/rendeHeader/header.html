@@ -1,28 +1,6 @@
 <div class="container-fluid" style="background: #fff">
-    <!--企业端-->
-    <div ng-show="client==1" class="container header header1">
-        <div class="row">
-            <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
-                <img src="image/home/logo.png" alt="">
-            </div>
-            <div class="nav nav1 col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                <div class="navItem0" ui-sref="enterpriseHome({position0: 1})">首页</div>
-                <div class="navItem0" ui-sref="resumeManage({position0: 2})">简历管理</div>
-                <div class="navItem0" ui-sref="positionManage({position0: 3})">职位管理</div>
-                <div class="navItem0" ui-sref="searchTalent({position0: 4})">搜人才</div>
-                <div class="navItem0" ui-sref="accountManage({position0: 5})">账户管理</div>
-                <div class="navItem0" ui-sref="superPosition({position0: 6})">高端职位</div>
-            </div>
-            <div ng-if="!sign" class="btnGroup col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
-                <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
-            </div>
-            <div ng-if="sign" class="signed col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
-                <span>欢迎您！{{username}}</span>
-            </div>
-        </div>
-    </div>
     <!--个人端-->
-    <div ng-show="client==2" class="container header">
+    <div ng-show="client==0" class="container header">
         <div class="row">
             <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
@@ -39,20 +17,10 @@
             <div class="nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"
-                     ng-click="nav(x.id)"
+                     ng-click="nav0(x.id)"
                      on-finish-render-filters>
                     {{x.name}}
                 </div>
-                <!--<div class="navItem" ui-sref="WorkCtrl({position: 2})">找工作</div>-->
-                <!--<div class="navItem" ui-sref="enterprise({position: 3})">找企业</div>-->
-                <!--<div class="navItem" ui-sref="personel({position: 4})">人才专区</div>-->
-                <!--<div class="navItem" ui-sref="recruit({position: 5})">店铺招聘/招普工</div>-->
-                <!--<div class="navItem" ui-sref="GWorker({position: 6})">普工简历</div>-->
-                <!--<div class="navItem" ui-sref="headHunt({position: 7})">仁德猎头</div>-->
-                <!--<div class="navItem" ui-sref="proxy({position: 8})">仁德人力代理</div>-->
-                <!--<div class="navItem" ui-sref="special-zp({position: 9})">专题招聘会</div>-->
-                <!--<div class="navItem" ui-sref="WPInfo({position: 10})">职场资讯</div>-->
-                <!--<div class="navItem" ui-sref="store({position: 11})">积分商城</div>-->
             </div>
         </div>
         <div ng-show="changePlace" class="row provinceChoose">
@@ -75,6 +43,34 @@
                         <img class="rightClick rightClick2" ng-click="cityMoreR()" src="image/home/rightTriangle.png" alt="">
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+    <!--企业端-->
+    <div ng-show="client==1" class="container header header1">
+        <div class="row">
+            <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
+                <img src="image/home/logo.png" alt="">
+            </div>
+            <div class="nav nav1 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                <div ng-repeat="x in homeMenu"
+                     class="navItem0"
+                     ng-click="nav1(x.id)"
+                     on-finish-render-filters>
+                    {{x.name}}
+                </div>
+                <!--<div class="navItem0" ui-sref="enterpriseHome({position0: 1})">首页</div>-->
+                <!--<div class="navItem0" ui-sref="resumeManage({position0: 2})">简历管理</div>-->
+                <!--<div class="navItem0" ui-sref="positionManage({position0: 3})">职位管理</div>-->
+                <!--<div class="navItem0" ui-sref="searchTalent({position0: 4})">搜人才</div>-->
+                <!--<div class="navItem0" ui-sref="accountManage({position0: 5})">账户管理</div>-->
+                <!--<div class="navItem0" ui-sref="superPosition({position0: 6})">高端职位</div>-->
+            </div>
+            <div ng-if="!sign" class="btnGroup col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
+                <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
+            </div>
+            <div ng-if="sign" class="signed col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
+                <span>欢迎您！{{username}}</span>
             </div>
         </div>
     </div>

@@ -11,20 +11,16 @@
         <div class="detail-left">
             <div class="detail-position">
                 <div class="detail-position-name">
-                    <span>安全工程师或安全员</span>
+                    <span>{{vm.info.job_type}}</span>
                     <button>收藏</button>
                 </div>
                 <div class="detail-position-intr">
-                    <span>￥5000-8000</span> | <span>福建-福州-仓山区</span> | <span>不限经验</span> | <span>大专学历</span>
+                    <span>￥{{vm.info.pay}}</span> | <span>{{vm.info.address}}</span> | <span>{{vm.info.experience}}</span> | <span>{{vm.info.education}}</span>
                 </div>
                 <div class="detail-position-fuli ">
-                    <span>法定节假日</span>
-                    <span>休假制度</span>
-                    <span>奖励计划</span>
-                    <span>年终经验</span>
-                    <span>综合补贴</span>
+                    <span ng-repeat="x in vm.info.boonarr | limitTo:5">{{x}}</span>
                 </div>
-                <div class="detail-position-time"><span>2018-08-14 更新</span> <span>被浏览： 1 次</span></div>
+                <div class="detail-position-time"><span>{{vm.info.time}} 更新</span> <span>被浏览： {{vm.info.ask}} 次</span></div>
                 <div class="detail-position-put">
                     <button class="detail-position-put-button">投递简历</button>
                     <div class="detail-position-put-r fr">
@@ -59,13 +55,7 @@
                 <div class="position-hr-content">
                     <div class="hr-content-describe">
                         <p>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
-                            一，协助工程部队公司在建工程的安全管理，队施工现场出现的安全问题给与指出并纠正。<br>
+                           {{vm.info.position}}
                         </p>
                           <p class="other-yq">
                             <span>其他要求:</span><br>
