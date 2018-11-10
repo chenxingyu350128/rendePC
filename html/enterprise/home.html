@@ -13,11 +13,11 @@
         <div class="detail-left">
             <div class="detail-position top-flex">
                <div class="resume-num top-border">
-                   <div>99</div>
+                   <div>{{vm.cardData.length}}</div>
                    <div>收到的简历</div>
                </div>
                 <div class="resume-num">
-                    <div>99</div>
+                    <div>{{vm.faceData.length}}</div>
                     <div>邀请面试</div>
                 </div>
             </div>
@@ -25,33 +25,16 @@
             <div class="detail-position-hr">
                 <div class="enterprise-top">
                     <span > 求职人才</span>
-                    <div class="manage-list bc look-jl-br" >
+                    <div class="manage-list bc look-jl-br" ng-repeat="data in vm.cardData |limitTo:4">
                         <div class="position-list-right " style="margin-bottom: .2rem;">
-                            <div class="positionname fl">安全员工程师  </div>
+                            <div class="positionname fl">{{data.job_type}}</div>
                             <div class="money">￥3000-5000</div>
                             <br>
                             <div class=" grayF personnel-demo ">
-                                24岁| 2年以上经验|本科学历
+                                {{data.age}}岁| {{data.years }}年以上经验|{{data.education }}学历
                             </div>
                             <div class="personnel-demo grayF" style="margin-top: 0.22rem;">
-                                <div class="fl">更新时间：2018.10.21</div>
-                            </div>
-                        </div>
-                        <div class="look-jl">
-                            <button class="detail-position-finish-button fr">完成招聘</button>
-                            <button class="detail-position-put-button fr">查看简历</button>
-                        </div>
-                    </div>
-                    <div class="manage-list bc look-jl-br" >
-                        <div class="position-list-right " style="margin-bottom: .2rem;">
-                            <div class="positionname fl">安全员工程师  </div>
-                            <div class="money">￥3000-5000</div>
-                            <br>
-                            <div class=" grayF personnel-demo ">
-                                24岁| 2年以上经验|本科学历
-                            </div>
-                            <div class="personnel-demo grayF" style="margin-top: 0.22rem;">
-                                <div class="fl">更新时间：2018.10.21</div>
+                                <div class="fl">更新时间：{{data.time}}</div>
                             </div>
                         </div>
                         <div class="look-jl">

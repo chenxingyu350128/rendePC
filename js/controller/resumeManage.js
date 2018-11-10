@@ -3,12 +3,11 @@ angular.module('myApp')
     .controller('resumeManage',function ($http,$state,$stateParams,common,modalBox) {
         let vm=this;
         vm.resumeType=parseInt($stateParams.resumeType)||0;
-        console.log("【resumeType】",vm.resumeType)
         vm.params=$stateParams;
         var data={}
         vm.companyjob=companyjob;//邀请面试
         vm.cardDataList=cardDataList;
-        vm.interview='';
+        vm.interview="";
         cardDataList(vm.interview);
         // vm.value=$("#timeSelect option:selected"); //获取选中的项
         // console.log("下拉框的值",   vm.value);
@@ -35,14 +34,13 @@ angular.module('myApp')
         }
 
         function cardDataList(e){
-            console.log(e)
+            console.log(e);
             vm.interview=e;
             // 获取收到简历接口
             let url1 ='Boss/show_resumelist';
             var data1= {interview: vm.interview}
             common.request(url1,data1).then(function callback(res){
                 vm.cardData = res.data.data;
-                console.log("收到简历列表",vm.cardData)
             }),function errorCallback(response) {};
         }
 
@@ -66,6 +64,7 @@ angular.module('myApp')
         let url4 ='Boss/show_job_years';
         common.request(url4,data).then(function callback(res){
             vm.expbList = res.data.data;
+            console.log("show_job_years",   vm.expbList)
         }),function errorCallback(response) {
         };
         // 获取学历列表接口
@@ -77,13 +76,12 @@ angular.module('myApp')
 
         function companyjob(id){
             // 邀请面试按钮接口
-            console.log("【简历id：】",id)
             let url6 ='Boss/resume_interview';
             var data6={r_id:id}
             common.request(url6,data6).then(function callback(res){
                 console.log(res)
-                modalBox.confirm(vm.eduList);
                 vm.eduList = res.data.msg;
+                modalBox.confirm(vm.eduList);
             }),function errorCallback(response) {
             };
         }
