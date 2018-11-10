@@ -76,30 +76,30 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                 }
                 sessionStorage.setItem('mainNav',e)
             };
-            // scope.nav1=function(e){
-            //     console.log(e);
-            //     switch (e){
-            //         case 1:
-            //             $state.go('enterpriseHome');
-            //             break;
-            //         case 2:
-            //             $state.go('resumeManage');
-            //             break;
-            //         case 3:
-            //             $state.go('positionManage');
-            //             break;
-            //         case 4:
-            //             $state.go('searchTalent');
-            //             break;
-            //         case 5:
-            //             $state.go('accountManage');
-            //             break;
-            //         case 6:
-            //             $state.go('superPosition');
-            //             break;
-            //     }
-            //     sessionStorage.setItem('mainNav1',e)
-            // };
+            scope.nav1=function(e){
+                console.log(e);
+                switch (e){
+                    case 1:
+                        $state.go('enterpriseHome');
+                        break;
+                    case 2:
+                        $state.go('resumeManage');
+                        break;
+                    case 3:
+                        $state.go('positionManage');
+                        break;
+                    case 4:
+                        $state.go('searchTalent');
+                        break;
+                    case 5:
+                        $state.go('accountManage');
+                        break;
+                    case 6:
+                        $state.go('superPosition');
+                        break;
+                }
+                sessionStorage.setItem('mainNav1',e)
+            };
             scope.$on('ngRepeatFinished', function () {
                 //下面是在render完成后执行的js
                 scope.idx0=sessionStorage.getItem('mainNav')||1;
