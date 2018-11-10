@@ -84,57 +84,55 @@
     <div ng-if="vm.navType==2" class="tab3 tab">
         <div class="companyName whole">
             <span class="tip">公司名称:</span>
-            <input type="text">
+            <input type="text" ng-model="vm.name">
         </div>
         <div class="companyName whole">
             <span class="tip">公司行业:</span>
-            <input type="text">
+            <input type="text" ng-model="vm.job_type">
         </div>
         <div class="LOGO">
             <span class="tip">LOGO:</span>
-            <label for="logo">
-                <img src="" alt="">
-                <input id="logo" style="display: none" type="file" accept="image/gif, image/jpeg">
-            </label>
+            <!--<label for="logo">-->
+                <!--<img src="" alt="">-->
+                <!--<input id="logo" style="display: none" type="file" accept="image/gif, image/jpeg">-->
+            <!--</label>-->
+            <up-load img1="vm.img1"></up-load>
         </div>
         <div class="scale">
             <div class="quarterShell">
                 <span class="tip">公司性质:</span>
-                <input  class="twoQuarter" type="text">
+                <input ng-model="vm.nature"  class="twoQuarter" type="text">
             </div>
             <div class="quarterShell">
                 <span class="tip">公司规模:</span>
-                <input  class="twoQuarter" type="text">
+                <input ng-model="vm.size"  class="twoQuarter" type="text">
             </div>
 
         </div>
         <div class="address">
             <span class="tip">公司地址:</span>
-            <input class="address_s" type="text">
-            <input class="address_l" type="text">
+            <input class="address_s" ng-model="vm.area" type="text">
+            <input class="address_l" ng-model="vm.address" type="text">
         </div>
         <div class="postalCode">
-            <span class="tip">邮政编码:</span>
-            <input class="address_s" type="text">
+            <span class="tip">邮箱:</span>
+            <input class="address_s" ng-model="vm.mail" type="text">
         </div>
         <div class="intro">
             <span class="tip">公司介绍:</span>
-            <textarea id="" cols="30" rows="10"></textarea>
+            <textarea id="" cols="30" ng-model="vm.introduce" rows="10"></textarea>
         </div>
         <div class="official whole">
             <span class="tip">公司官网:</span>
-            <input  type="text">
+            <input ng-model="vm.network"  type="text">
         </div>
         <div class="license">
             <span class="tip">营业执照:</span>
-            <label for="license">
-                <img src="" alt="">
-                <input id="license" style="display: none" type="file" accept="image/gif, image/jpeg">
-            </label>
+            <up-loaded img2="vm.img2"></up-loaded>
         </div>
     </div>
     <div class="update text-center">
-        <img src="image/home/updateImg.png" alt="">
+        <img ng-click="vm.commit()" src="image/home/updateImg.png" alt="">
     </div>
 </div>
 <rd-footer></rd-footer>

@@ -55,8 +55,12 @@ angular.module('myApp')
         });//名企招聘
         common.request(url5,dataEmpty).then(function callback(res){
             if(res.data.code===200){
-                vm.famousEnter=res.data.data;
+
+                for(let i=0;i<res.data.data.length;i++){
+                    res.data.data[i].boonarr=JSON.parse(res.data.data[i].boonarr);
+                }
                 console.log(res.data.data);
+                vm.famousEnter=res.data.data;
             }
             else if(res.data.code===404){
                 console.log(res);

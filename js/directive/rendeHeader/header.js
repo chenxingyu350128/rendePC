@@ -13,7 +13,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             scope.username='陈奕迅xiansheng';
             scope.sign=false;//表示已经登陆
             let url0='boss/network_menu';
-            let url1='Boss/show_homemenu';
+            let url1='Boss/show_menu_two';
             let data={};
             //客户端homeMenu
             common.request(url0,data).then(function callback(res){

@@ -87,6 +87,14 @@ angular.module('myApp')
                     url: real_url,
                     data: postData,
                 })
+            },
+            upload: function(url,data){
+                let real_url='https://www.api.lendata.net/rd_api.php/index/'+url;
+                return $http({
+                    method: 'FILE',
+                    url: real_url,
+                    data: data,
+                })
             }
 
 
