@@ -1,6 +1,6 @@
 <div class="container-fluid" style="background: #fff">
     <!--企业端-->
-    <div ng-if="client==1" class="container header header1">
+    <div ng-show="client==1" class="container header header1">
         <div class="row">
             <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
@@ -22,7 +22,7 @@
         </div>
     </div>
     <!--个人端-->
-    <div ng-if="client==2" class="container header">
+    <div ng-show="client==2" class="container header">
         <div class="row">
             <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
@@ -39,7 +39,10 @@
             <div class="nav col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"
-                     ng-click="nav(x.id)">{{x.name}}</div>
+                     ng-click="nav(x.id)"
+                     on-finish-render-filters>
+                    {{x.name}}
+                </div>
                 <!--<div class="navItem" ui-sref="WorkCtrl({position: 2})">找工作</div>-->
                 <!--<div class="navItem" ui-sref="enterprise({position: 3})">找企业</div>-->
                 <!--<div class="navItem" ui-sref="personel({position: 4})">人才专区</div>-->

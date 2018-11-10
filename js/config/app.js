@@ -22,6 +22,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/susBox/sus.js',
                         'css/home.css',
                         'js/controller/home.js',
+                        'js/directive/forNg-repeatDom.js'
                     ])
                 }
             })//找工作

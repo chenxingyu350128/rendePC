@@ -15,6 +15,14 @@ angular.module('myApp')
                 modalBox.alert(res.msg)
             }
         });
+        // $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+        //     //下面是在table render完成后执行的js
+        //     console.log('可以吗？可以吗？')
+        // });
+        // $scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+        //     //下面是在table render完成后执行的js
+        //
+        // });
         // 设置描点不失效
         $('.toTop').on('click',function () {
            window.location.hash="#header_top";

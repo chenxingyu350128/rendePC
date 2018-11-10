@@ -6,7 +6,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
         replace: true,
         templateUrl: 'js/directive/rendeHeader/header.html',
         scope: {
-
+            onFinishRenderFilters : '&'
         },
         link: function (scope) {
             scope.client=2;//2代表客户端1代表企业端
@@ -74,14 +74,22 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                 //     });
                 // }
             };
-            $(function () {
+            scope.$on('ngRepeatFinished', function (ngRepeatFinishedEvent) {
+                //下面是在render完成后执行的js
+                scope.idx=$stateParams.position||1;
                 let navList=$('.nav').find('.navItem');
+                console.log(navList);
+                console.log(scope.idx);
                 navList.eq(scope.idx-1).css({
-                    'border-bottom':'5px solid #e11c19'
+                    'border-bottom':'5px solid #e11c19',
                 });
             });
-            scope.on
-
+            // $(function () {
+            //     let navList=$('.nav').find('.navItem');
+            //     navList.eq(scope.idx-1).css({
+            //         'border-bottom':'5px solid #e11c19'
+            //     });
+            // });
             scope.placeBtn=function(){
                 scope.changePlace=true;
             };
