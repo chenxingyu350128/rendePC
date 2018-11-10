@@ -3,22 +3,12 @@
 <div class="container">
     <div class="new-body">
         <div class="news-detail pull-left fl">
-            <div class="news-detail-title"><span>习近平在视察南部战区时强调 加快推进战区指挥能力建设 坚决完成担负的使命任务</span></div>
+            <div class="news-detail-title"><span>{{ vm.dataList.title}}</span></div>
             <div class="news-detail-content">
-                <div class="news-detail-auto"><span>干货文章</span> <span>苏澜  · 2018-09-09</span></div>
-                <div class="news-detail-qy">"在同一个公司呆多久跳槽最合适，这是老生长谈的话题。但是究竟多久跳槽一次才合适，让自己有所成长又不至于太变化无常呢？"</div>
-                <div><img src="image/workplace-banner.png" alt="" class="news-detail-img"></div>
+                <div class="news-detail-auto"><span>{{vm.dataList.types}}</span> <span>{{vm.dataList.fromuser}}  · {{vm.dataList.time}}</span></div>
+                <div><img src="{{vm.dataList.img}}" alt="" class="news-detail-img"></div>
                 <div class="news-detail-font">
-                    <span>跳槽频率意味着什么？</span><br>
-                    <p>习近平在视察南部战区时强调 加快推进战区指挥能力建设习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。</p>
-                </div>
-                <div class="news-detail-font">
-                    <span>跳槽频率意味着什么？</span><br>
-                    <p>习近平在视察南部战区时强调 加快推进战区指挥能力建设习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。</p>
-                </div>
-                <div class="news-detail-font">
-                    <span>跳槽频率意味着什么？</span><br>
-                    <p>习近平在视察南部战区时强调 加快推进战区指挥能力建设习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设，习近平在视察南部战区时强调 加快推进战区指挥能力建设。</p>
+                    {{vm.dataList.content}}
                 </div>
             </div>
             <div class="news-detail-content">
@@ -32,17 +22,9 @@
         <div class="hot-news pull-left fl">
             <div>
                 <div class="hot-new-title"><span>热门新闻</span></div>
-                <div class="hot-news-content">
-                    <div>洛阳 ： 办理失业保险业务实现 “就近跑一趟”</div>
-                    <div><span>新闻资讯</span><span class="fr">2018-03-08</span></div>
-                </div>
-                <div class="hot-news-content">
-                    <div>洛阳 ： 办理失业保险业务实现 “就近跑一趟”</div>
-                    <div><span>新闻资讯</span><span class="fr">2018-03-08</span></div>
-                </div>
-                <div class="hot-news-content">
-                    <div>洛阳 ： 办理失业保险业务实现 “就近跑一趟”</div>
-                    <div><span>新闻资讯</span><span class="fr">2018-03-08</span></div>
+                <div class="hot-news-content" ng-repeat="hotnew in vm.show_hot_news">
+                    <div>{{hotnew.title}}</div>
+                    <div><span>{{hotnew.types}}</span><span class="fr">{{hotnew.time}}</span></div>
                 </div>
             </div>
 

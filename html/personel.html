@@ -5,8 +5,8 @@
     <div class="work-search">
         <img src="image/work/searchBc.png" alt="">
         <div class="search-content">
-            <button>搜索</button>
             <input type="text" placeholder="搜索职位,公司或地点 ">
+            <button>搜索</button>
         </div>
         <div  class="hot-search">
             <ul>
@@ -26,15 +26,10 @@
         <ul>
             <li>职位:</li>
             <li><button class="work-list-allbtn">全部</button></li>
-            <li>公务员/翻译/其他</li>
-            <li>贸易/百货</li>
-            <li>机械/设备/技工</li>
-            <li>通信/电子</li>
-            <li>化工/能源</li>
-            <li>销售/客服/技术支持</li>
+            <li ng-repeat="type in vm.typeList |limitTo: 6">{{type}}</li>
             <li style=" float: right;">
-                <select name="" id="" style="border: 1px solid red;">
-                    <option value="1">更多</option>
+                <select class="moreOpt" name="" id="" style="border: 1px solid red;">
+                    <option value="1"  ng-repeat="type in vm.typeList">{{type}}</option>
                 </select>
             </li>
         </ul>
@@ -53,15 +48,10 @@
         <ul>
             <li>福利:</li>
             <li><button class="work-list-allbtn">全部</button></li>
-            <li>法定节假日</li>
-            <li>休假制度</li>
-            <li>奖励制度</li>
-            <li>年终奖金</li>
-            <li>综合补贴</li>
-            <li>五险一金</li>
+            <li ng-repeat="boonr in vm.show_boonList | limitTo:8">{{boonr.name}}</li>
             <li style=" float: right;">
-                <select name="" id="" style="border: 1px solid red;">
-                    <option value="1">更多</option>
+                <select class="moreOpt" name="" id="" style="border: 1px solid red;">
+                    <option value="1" ng-repeat="boonr in vm.show_boonList">{{boonr.name}}</option>
                 </select>
             </li>
         </ul>
@@ -71,6 +61,7 @@
             <li>
                 <select name="" id="">
                     <option value="1">公司行业</option>
+                    <option value="1"  ng-repeat="type in vm.typeList">{{type}}</option>
                 </select>
             </li>
             <li>
@@ -86,6 +77,8 @@
             <li>
                 <select name="" id="">
                     <option value="1">性别要求</option>
+                    <option value="1">男</option>
+                    <option value="1">女</option>
                 </select>
             </li>
             <li>
@@ -108,81 +101,29 @@
             <li class="personnel-select-li">身份验证</li>
             <li class="personnel-select-li">有作品</li>
         </ul>
-        <div class="position-list">
-          <img src="image/home/out_avatar.png" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
+        <div class="position-list" ng-repeat="data in vm.dataList">
+            <img src="image/home/out_avatar.png" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
             <div class="position-list-right">
-                <div class="positionname fl">张羽文</div>
+                <div class="positionname fl">{{data.name}}</div>
                 <br>
                 <div class=" grayF personnel-demo ">
-                    24岁| 2年以上经验|本科学历
+                    {{data.age}}| {{data.education}}工作经验|{{data.education}}学历
                 </div>
-                <div class="personnel-demo">期望地点：福建-福州</div>
+                <div class="personnel-demo">期望地点：{{data.job_address}}</div>
             </div>
             <div class="personel-list-center">
-                <div class=" fl grayF">期望职位：平面设计 包装设计 其他 排版设计 美术编辑</div><br>
+                <div class=" fl grayF">期望职位：{{data.want_job}}</div><br>
                 <div class=" grayF personnel-demo">
-                    <span>求职状态：在职，考虑更好的职位</span>
+                    <span>求职状态：{{data.job_type}}</span>
                 </div>
-                <div class="personnel-demo grayF ">TA想找<span class="personnel-active">平面设计</span>工作</div>
+                <div class="personnel-demo grayF ">TA想找<span class="personnel-active">{{data.want_job}}</span>工作</div>
             </div>
             <div class="position-list-right fr">
                 <div class="grayF">
-                    <span>更新时间：2018-09-12</span>
+                    <span>更新时间：{{data.time}}</span>
                 </div>
                 <br>
-                <button class="position-btn">投个简历</button><br>
-            </div>
-            <div class="position-hr"></div>
-        </div>
-        <div class="position-list">
-          <img src="image/home/out_avatar.png" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
-            <div class="position-list-right">
-                <div class="positionname fl">张羽文</div>
-                <br>
-                <div class=" grayF personnel-demo ">
-                    24岁| 2年以上经验|本科学历
-                </div>
-                <div class="personnel-demo">期望地点：福建-福州</div>
-            </div>
-            <div class="personel-list-center">
-                <div class=" fl grayF">期望职位：平面设计 包装设计 其他 排版设计 美术编辑</div><br>
-                <div class=" grayF personnel-demo">
-                    <span>求职状态：在职，考虑更好的职位</span>
-                </div>
-                <div class="personnel-demo grayF ">TA想找<span class="personnel-active">平面设计</span>工作</div>
-            </div>
-            <div class="position-list-right fr">
-                <div class="grayF">
-                    <span>更新时间：2018-09-12</span>
-                </div>
-                <br>
-                <button class="position-btn">投个简历</button><br>
-            </div>
-            <div class="position-hr"></div>
-        </div>
-        <div class="position-list">
-          <img src="image/home/out_avatar.png" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
-            <div class="position-list-right">
-                <div class="positionname fl">张羽文</div>
-                <br>
-                <div class=" grayF personnel-demo ">
-                    24岁| 2年以上经验|本科学历
-                </div>
-                <div class="personnel-demo">期望地点：福建-福州</div>
-            </div>
-            <div class="personel-list-center">
-                <div class=" fl grayF">期望职位：平面设计 包装设计 其他 排版设计 美术编辑</div><br>
-                <div class=" grayF personnel-demo">
-                    <span>求职状态：在职，考虑更好的职位</span>
-                </div>
-                <div class="personnel-demo grayF ">TA想找<span class="personnel-active">平面设计</span>工作</div>
-            </div>
-            <div class="position-list-right fr">
-                <div class="grayF">
-                    <span>更新时间：2018-09-12</span>
-                </div>
-                <br>
-                <button class="position-btn">投个简历</button><br>
+                <button class="position-btn">查看简历</button><br>
             </div>
             <div class="position-hr"></div>
         </div>

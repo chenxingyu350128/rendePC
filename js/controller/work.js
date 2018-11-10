@@ -5,8 +5,8 @@ angular.module('myApp')
         console.log($stateParams);
         vm.keyword=$stateParams.find;
         let url='Boss/find_job';
-        let data={find:vm.keyword};
-        common.request(url,data).then(function callback(res){
+        let data1={find:vm.keyword};
+        common.request(url,data1).then(function callback(res){
             console.log(res);
             if(res.data.code===200){
                 if(res.data.data.length){
@@ -20,4 +20,59 @@ angular.module('myApp')
                 modalBox.alert(res.msg)
             }
         });
+
+
+        let data={};
+        vm.a=1;
+        vm.type =type;
+        type(vm.a);
+        function type(e){
+            console.log(e);
+            vm.a=e;
+            console.log(vm.a)
+            if(e==1){
+                let url1='boss/find_job';
+                // 获取工作列表接口
+                common.request(url1,data).then(function callback(res){
+                    vm.dataList = res.data.data;
+                }),function errorCallback(response) {
+                };
+            }else if(e==2){
+                //获取最新职位
+                let url4 ='Boss/new_job';
+                common.request(url4,data).then(function callback(res){
+                    vm.dataList = res.data.data
+                }),function errorCallback(response) {
+                };
+            }
+        }
+
+        //热门搜索
+        // let url5 ='other/hot_search';
+        // var data={};
+        // common.request(url5,data).then(function callback(res){
+        //     vm.hot_search = res.data.data
+        //     console.log("热门搜索：",vm.hot_search)
+        //     scope.$eval(attr.repeatFinish)
+        // }),function errorCallback(response) {
+        // };
+
+
+        // 获取行业类型接口
+        let url2 ='Boss/show_jobtype_list';
+        common.request(url2,data).then(function callback(res){
+            vm.typeList = res.data.data
+        }),function errorCallback(response) {
+        };
+
+        // 获取福利待遇接口
+        let url3 ='Boss/show_boon';
+        common.request(url3,data).then(function callback(res){
+            vm.show_boonList = res.data.data
+        }),function errorCallback(response) {
+        };
+
+
+
+
     });

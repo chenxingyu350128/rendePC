@@ -13,4 +13,10 @@ angular.module('myApp')
                 modalBox.alert(res.msg)
             }
         });
+
+        // 获取专职招聘列表
+        let url1='boss/show_recruit_list';
+        common.request(url1,dataEmpty).then(function callback(res){
+            vm.dataList =res.data.data
+        });
     });

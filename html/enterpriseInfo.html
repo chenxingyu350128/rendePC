@@ -6,24 +6,19 @@
     首页>公司列表>公司详情
 </div>
 <div class="enterDesc container">
-    <!--<a ng-click="vm.companyInfo()">公司详情</a>-->
     <div ng-click="vm.companyInfo()" class="enterLeft">
-        <img src="image/home/enterLogo.png" alt="">
+        <img src="{{vm.dataList.img}}" alt="">
         <div>
-            <div class="enterName">福建博业建设集团有限公司福州分公司</div>
+            <div class="enterName">{{vm.dataList.name}}</div>
             <div class="about">
-                建筑/房地产&emsp;|&emsp;民营企业&emsp;|&emsp;10-50人&emsp;|&emsp;福建福州
+                {{vm.dataList.job_type}}&emsp;|&emsp;{{vm.dataList.nature}}&emsp;|&emsp;{{vm.dataList.size}}&emsp;|&emsp;{{vm.dataList.area}}
             </div>
             <div class="happy">
-                <span>法定节假日</span>
-                <span>休假制度</span>
-                <span>奖励计划</span>
-                <span>年终奖金</span>
-                <span>综合补贴</span>
+                <span ng-repeat="item in vm.boonarr">{{item}}</span>
             </div>
             <div class="count">
                 <div>
-                    <div class="number">2</div>
+                    <div class="number">{{vm.jobList.length}}</div>
                     <span>招聘岗位</span>
                 </div>
                 <div>
@@ -57,31 +52,31 @@
             </div>
         </div>
         <div>
-            <button>关注</button>
+            <button ng-click="vm.follow()" id="follow">{{vm.concernText}}</button>
         </div>
     </div>
 </div>
 <div class="contact container">
-    <div class="tel">
-        <div class="imgShell">
-            <img src="image/home/mobileIcon.png" alt="">
-        </div>
-        <span>联系电话</span>
-        <span class="inner">05912345678</span>
-    </div>
+    <!--<div class="tel">-->
+    <!--<div class="imgShell">-->
+    <!--<img src="image/home/mobileIcon.png" alt="">-->
+    <!--</div>-->
+    <!--<span>联系电话：</span>-->
+    <!--<span class="inner">{{vm.dataList.phone}}</span>-->
+    <!--</div>-->
     <div class="email">
         <div class="imgShell">
             <img src="image/home/emailIcon.png" alt="">
         </div>
-        <span>联系电话</span>
-        <span class="inner">05912345678</span>
+        <span>企业邮箱：</span>
+        <span class="inner">{{vm.dataList.mail}}</span>
     </div>
     <div class="address">
         <div class="imgShell">
             <img src="image/home/addressIcon.png" alt="">
         </div>
-        <span>联系电话</span>
-        <span class="inner">05912345678</span>
+        <span>企业地址：</span>
+        <span class="inner">{{vm.dataList.address}}</span>
     </div>
 </div>
 <div class="introduction container">
@@ -89,7 +84,7 @@
         <span>企业介绍</span>
     </div>
     <div class="text">
-        <img src="image/home/enter_intro.png" alt="">
+        {{vm.dataList.introduce}}
     </div>
     <div class="container seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
@@ -99,75 +94,37 @@
     <div class="intro">
         <span>招聘职位</span>
     </div>
-    <div class="occupation">
-        <div class="row row1">
+    <div class="occupation" ng-repeat="job in vm.jobList |limitTo:8">
+        <div class="row ">
             <div class="leftTwo">
-                <img src="image/home/jobCardImg.png" alt="">
+                <div style="height: 91px;width: 89px;border-radius: 5px;margin-right: 20px"><img src="{{job.img}}" alt="" style="width: 100%"></div>
                 <div class="sec">
                     <div>
-                        安全工程师或安全员
-                        <span class="salary redF">￥3000-8000</span>
+                        {{job.job_type}}
+                        <span class="salary redF">￥{{job.pay}}</span>
                     </div>
                     <div class="demand grayF">
-                        <span>不限经验|</span>
-                        <span>大专学历|</span>
-                        <span>福建-福州</span>
+                        <span>{{job.experience}}|</span>
+                        <span>{{job.education}}|</span>
+                        <span>{{job.address}}</span>
                     </div>
                 </div>
             </div>
             <div class="thi">
-                <div class="thi_L">
+                <div class="" style=" margin: 0 3rem;">
                     <div>
                         安全工程师或安全员
-                        <span class="salary redF">￥3000-8000</span>
                     </div>
                     <div class="demand grayF">
-                        <span>不限经验|</span>
-                        <span>大专学历|</span>
-                        <span>福建-福州</span>
+                        <span>{{job.nature}}</span>
+                        <span>|{{job.nature}}</span>
+                        <span>{{job.size}}</span>
                     </div>
                 </div>
                 <div class="thi_R">
                     <span>投个简历</span>
                     <div class="update">
-                        更新时间：2018-09-12
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="occupation">
-        <div class="row row row1">
-            <div class="leftTwo">
-                <img src="image/home/jobCardImg.png" alt="">
-                <div class="sec">
-                    <div>
-                        安全工程师或安全员
-                        <span class="salary redF">￥3000-8000</span>
-                    </div>
-                    <div class="demand grayF">
-                        <span>不限经验|</span>
-                        <span>大专学历|</span>
-                        <span>福建-福州</span>
-                    </div>
-                </div>
-            </div>
-            <div class="thi">
-                <div class="thi_L">
-                    <div>
-                        安全工程师或安全员
-                        <span class="salary redF">￥3000-8000</span>
-                    </div>
-                    <div class="demand grayF">
-                        <span>不限经验|</span>
-                        <span>大专学历|</span>
-                        <span>福建-福州</span>
-                    </div>
-                </div>
-                <div class="thi_R">
-                    <span>投个简历</span>
-                    <div class="update">
-                        更新时间：2018-09-12
+                        更新时间：{{job.time}}
                     </div>
                 </div>
             </div>

@@ -1,7 +1,38 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('PersonelCtrl',function ($http,$state) {
+    .controller('PersonelCtrl',function ($http,$state,common) {
+        var vm=this;
+        let url='boss/all_resume';
+        let data={};
+
+        // 获取人才简历列表接口
+        common.request(url,data).then(function callback(res){
+            vm.dataList = res.data.data
+            console.log(vm.dataList)
+        }),function errorCallback(response) {
+        };
+
+        // 获取行业类型接口
+        let url2 ='Boss/show_jobtype_list';
+        common.request(url2,data).then(function callback(res){
+            vm.typeList = res.data.data
+        }),function errorCallback(response) {
+        };
+
+        // 获取福利待遇接口
+        let url3 ='Boss/show_boon';
+        common.request(url3,data).then(function callback(res){
+            vm.show_boonList = res.data.data
+        }),function errorCallback(response) {
+        };
+
+        //获取公司规模接口
+        let url4='boss/show_job_size';
+        common.request(url4,data).then(function callback(res){
+            vm.sizeList = res.data.data
+        }),function errorCallback(response) {
+        };
 
         //找人才导航被选中高亮显示
         $(document).ready(function(){

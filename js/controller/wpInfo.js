@@ -2,12 +2,13 @@
 
 angular.module('myApp')
     .controller('wpInfo',function ($http,$state,common) {
-        let vm =this;
-        let url='show_news';
-        let data={name:'cxx',password:'123456'};
+        var vm =this;
+        let url='boss/show_news';
+        let data={};
         common.request(url,data).then(function callback(res){
-            console.log(res)
-        });
+            vm.dataList = res.data.data
+        }),function errorCallback(response) {
+        };
 
         // $http({
         //     method: 'POST',

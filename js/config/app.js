@@ -167,7 +167,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('new-detail',{
-                url: '/new-detail?id',
+                url: '/new-detail/:id',
                 templateUrl: 'html/new-detail.html',
                 controller: 'NewDetailCtrl',
                 controllerAs: 'vm',
@@ -237,7 +237,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//企业详情
             .state('enterpriseInfo',{
-                url: '/enterprise/enterpriseInfo',
+                url: '/enterprise/enterpriseInfo/:id',
                 templateUrl: 'html/enterpriseInfo.html',
                 controller: 'enterpriseInfo',
                 controllerAs: 'vm',

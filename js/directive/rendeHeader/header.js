@@ -6,7 +6,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
         replace: true,
         templateUrl: 'js/directive/rendeHeader/header.html',
         scope: {
-            onFinishRenderFilters : '&'
+
         },
         link: function (scope) {
             scope.client=0;//0代表客户端1代表企业端
