@@ -9,7 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
-            scope.client=0;//0代表客户端1代表企业端
+            scope.client=1;//0代表客户端1代表企业端
             scope.username='陈奕迅xiansheng';
             scope.sign=false;//表示已经登陆
             let url0='boss/network_menu';
@@ -19,7 +19,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             common.request(url0,data).then(function callback(res){
                 if(res.data.code===200){
                     scope.homeMenu=res.data.data;
-                    console.log(res.data.data);
                 }
                 else if(res.data.code===404){
                     modalBox.alert('header1')
@@ -29,16 +28,14 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             common.request(url1,data).then(function callback(res){
                 if(res.data.code===200){
                     scope.enterHome=res.data.data;
-                    console.log(res.data.data);
                 }
                 else if(res.data.code===404){
                     modalBox.alert('header2')
                 }
             });
-            console.log($stateParams);
+
             //nav跳转
             scope.nav0=function(e){
-                console.log(e);
                 switch (e){
                     case 1:
                         $state.go('home');
@@ -77,7 +74,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                 sessionStorage.setItem('mainNav',e)
             };
             scope.nav1=function(e){
-                console.log(e);
                 switch (e){
                     case 1:
                         $state.go('enterpriseHome');

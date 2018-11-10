@@ -82,7 +82,6 @@ angular.module('myApp')
                 postData['sign'] = that.sign(postData,appsecret);
                 // postData['uid'] = JSON.parse(sessionStorage.getItem('uid'));
                 // postData['token'] = JSON.parse(sessionStorage.getItem('token'));
-                console.log(postData);
                 return $http({
                     method: 'POST',
                     url: real_url,

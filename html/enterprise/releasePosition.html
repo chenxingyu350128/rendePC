@@ -7,7 +7,7 @@
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">职位名称：</span>
-                <input type="text" class="release-input">
+                <input type="text" class="release-input" ng-model="vm.addList.job_type" >
             </div>
             <div class="flex-row row-margin">
                 <span class="name-title">职位性质：</span>
@@ -35,34 +35,34 @@
                 </form>
 
             </div>
-            <div><input type="text" class="release-input" placeholder="请输入详细地址~"></div>
+            <div><input type="text" class="release-input" placeholder="请输入详细地址~" ng-model="vm.addList.detailadress"></div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title">薪资范围：</span>
-                <input type="text" class="salary-input"> -
-                <input type="text" class="salary-input">
+                <input type="text" class="salary-input"  ng-model="vm.addList.salfrom"> -
+                <input type="text" class="salary-input" ng-model="vm.addList.salto">
             </div>
             <div class="center-margin">
                 <span class="name-title ">学历要求：</span>
-                <input type="text" class="salary-input">
+                <input type="text" class="salary-input" ng-model="vm.addList.education">
             </div>
             <div>
                 <span class="name-title">工作年限：</span>
-                <input type="text" class="salary-input">
+                <input type="text" class="salary-input" ng-model="vm.addList.experience">
             </div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title ">职位描述：</span>
-                <textarea type="text" class="intr-textarea"></textarea>
+                <textarea type="text" class="intr-textarea" ng-model="vm.addList.position"></textarea>
             </div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title ">职位类别：</span>
                 <select type="text" class="type-select">
-                    <option value="" ng-repeat="item in vm.typelist">{{item}}</option>
+                    <option value="" ng-repeat="item in vm.typelist" ng-model="vm.addList.type">{{item}}</option>
                 </select>
 
             </div>
@@ -88,25 +88,25 @@
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">招聘人数：</span>
-                <input type="text" class="release-input">
+                <input type="text" class="release-input" ng-model="vm.addList.peoplenum">
             </div>
         </div>
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">发布时间：</span>
-                <input type="date" class="release-input">
+                <input type="date" class="release-input" ng-model="vm.addList.time">
             </div>
         </div>
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">转到简历：</span>
                 <span class="to-email">邮箱</span>
-                <input type="text" class="email-input">
+                <input type="text" class="email-input" ng-model="vm.addList.email">
             </div>
         </div>
     </div>
     <div class="release-btn">
-        <button class="release-ok">发布职位</button>
+        <button class="release-ok" ng-click="vm.addJob(vm.addList)">发布职位</button>
         <button class="release-reset">清空重置</button>
     </div>
 </div>
