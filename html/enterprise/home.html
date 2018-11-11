@@ -4,7 +4,7 @@
     <!--搜索-->
     <div class="work-search">
         <div class="search-content">
-            <input type="text" placeholder="关键词搜索简历 ">
+            <input type="text" placeholder="关键词搜索简历 " ng-model="mSearch">
             <button style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
         </div>
     </div>
@@ -25,7 +25,7 @@
             <div class="detail-position-hr">
                 <div class="enterprise-top">
                     <span > 求职人才</span>
-                    <div class="manage-list bc look-jl-br" ng-repeat="data in vm.cardData |limitTo:4">
+                    <div class="manage-list bc look-jl-br" ng-repeat="data in vm.cardData | filter:mSearch |limitTo:4">
                         <div class="position-list-right " style="margin-bottom: .2rem;">
                             <div class="positionname fl">{{data.job_type}}</div>
                             <div class="money">￥3000-5000</div>
@@ -53,42 +53,16 @@
             <div class="detail-position-hr">
                 <div class="enterprise-top"><span>查看其TA职位</span></div>
                 <div class="position-content">
-                    <div ng-click="" class="wantedBlock">
+                    <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4">
                         <div class="outstandings talentlist">
-                            <img src="image/home/out_avatar.png" alt="">
-                            <span class="p_name">巫女士</span>
-                            <span class="P_margin">十年以上学历|大专学历</span>
-                            <span class="P_margin redF">外贸/进出口专员</span>
-                            <button class="meeting">邀请面试</button>
+                            <img src="{{data.img}}" alt="" style="width: .82rem;height: .82rem;">
+                            <span class="p_name">{{data.name}}</span>
+                            <span class="P_margin">{{data.years}}工作经验|{{data.education}}学历</span>
+                            <span class="P_margin redF">{{data.want_job}}</span>
+                            <button class="meeting" ng-click="vm.companyjob(data.id)">邀请面试</button>
                         </div>
                     </div>
-                    <div ng-click="" class="wantedBlock">
-                        <div class="outstandings talentlist">
-                            <img src="image/home/out_avatar.png" alt="">
-                            <span class="p_name">巫女士</span>
-                            <span class="P_margin">十年以上学历|大专学历</span>
-                            <span class="P_margin redF">外贸/进出口专员</span>
-                            <button class="meeting">邀请面试</button>
-                        </div>
-                    </div>
-                    <div ng-click="" class="wantedBlock">
-                        <div class="outstandings talentlist">
-                            <img src="image/home/out_avatar.png" alt="">
-                            <span class="p_name">巫女士</span>
-                            <span class="P_margin">十年以上学历|大专学历</span>
-                            <span class="P_margin redF">外贸/进出口专员</span>
-                            <button class="meeting">邀请面试</button>
-                        </div>
-                    </div>
-                    <div ng-click="" class="wantedBlock">
-                        <div class="outstandings talentlist">
-                            <img src="image/home/out_avatar.png" alt="">
-                            <span class="p_name">巫女士</span>
-                            <span class="P_margin">十年以上学历|大专学历</span>
-                            <span class="P_margin redF">外贸/进出口专员</span>
-                            <button class="meeting">邀请面试</button>
-                        </div>
-                    </div>
+
 
                     <div class=" seeMore text-center workmore">
                         <img src="image/home/seeMore.png" alt="">
@@ -98,33 +72,33 @@
         </div>
 
         <div class="detail-right">
-            <div class="enterprise-top"><span>人才推荐</span></div>
+            <div class="enterprise-top"><span>公司信息</span></div>
             <div class="prise-message">
                 <div class="">
-                    <span class="prise-name">福建博业建设福州分公司</span>
+                    <span class="prise-name">{{vm.company.name}}</span>
                 </div>
                 <div class="prise-intr" >
-                    <span>建筑</span>| <span>房地产</span>
+                    <span>{{vm.company.job_type}}</span>
                 </div>
                 <div class="prise-intr">
-                    <span>民营企业</span>| <span>10-50人</span>| <span>福建福州</span>
+                    <span>{{vm.company.nature}}</span>| <span>{{vm.company.size}}</span>| <span>{{vm.company.area}}</span>
                 </div>
             </div>
             <div class="prise-image">
                 <div class="message-icon">
                     <img src="image/enterprise/icon1.jpg" alt="" class="prisr-icon">
                     <div class="message-tip">邮箱已验证</div>
-                    <div class="message-btn finsh_bc">验证邮箱</div>
+                    <div class="message-btn  {{vm.company.network=!null? 'finsh_bc':'up_bc'}}">验证邮箱</div>
                 </div>
-                <div class="message-icon icon2">
-                    <img src="image/enterprise/icon2.jpg" alt="" class="prisr-icon">
-                    <div class="message-tip">电话已验证</div>
-                    <div class="message-btn finsh_bc">验证电话</div>
-                </div>
+                <!--<div class="message-icon icon2">-->
+                    <!--<img src="image/enterprise/icon2.jpg" alt="" class="prisr-icon">-->
+                    <!--<div class="message-tip">电话已验证</div>-->
+                    <!--<div class="message-btn finsh_bc">验证电话</div>-->
+                <!--</div>-->
                 <div class="message-icon">
                     <img src="image/enterprise/icon3.jpg" alt="" class="prisr-icon">
                     <div class="message-tip">执照未验证</div>
-                    <div class="message-btn up_bc">上传执照</div>
+                    <div class="message-btn {{vm.company.usiness_license==null ? 'finsh_bc':'up_bc'}}">上传执照</div>
                 </div>
 
             </div>

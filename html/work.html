@@ -48,11 +48,13 @@
             <li>
                 <select name="" id="">
                     <option value="1">学历要求</option>
+                    <option value="" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
                 </select>
             </li>
             <li>
                 <select name="" id="">
-                    <option value="1">工作经验</option>
+                    <option value="" >工作经验</option>
+                    <option value="" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
                 </select>
             </li>
             <li>
@@ -65,6 +67,7 @@
             <li>
                 <select name="" id="">
                     <option value="1">到岗时间</option>
+                    <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
                 </select>
             </li>
         </ul>

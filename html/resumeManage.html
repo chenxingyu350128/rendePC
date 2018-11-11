@@ -1,13 +1,13 @@
 <rende-header></rende-header>
 <div class="container search_s">
-    <input class="input" placeholder="关键词搜索简历" type="text" ng-model="mSearch">
+    <input class="input" placeholder="关键词搜索简历" type="text" ng-model="mSearchmSearch">
     <span class="text-center">搜索</span>
 </div>
 <div class="container options">
     <div class="position">
         <span class="ocp ">职位:</span>
         <span ui-sref="resumeManage({type0:0})" class="opt0 ocp">全部</span>
-        <span ui-sref="resumeManage({type0:$index+1})" class="opt0 ocp" ng-repeat="type in vm.typeList|limitTo:7 ">{{type}}</span>
+        <span ui-sref="resumeManage({type0:$index+1})" class="opt0 ocp" ng-repeat="type in vm.typeList |limitTo:7 ">{{type}}</span>
         <select class="ocp">
             <option value="" ng-repeat="type in vm.typeList">{{type}}</option>
         </select>
@@ -36,7 +36,7 @@
 
         </select>
         <select class="ocp select">
-            <option value="" ng-repeat="come in vm.comeJobList">到岗时间</option>
+            <option value="" >到岗时间</option>
             <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
         </select>
     </div>
@@ -56,7 +56,7 @@
     </div>
 </div>
 <div class="container main">
-    <div ng-repeat="x in vm.cardData |filter:mSearch ">
+    <div ng-repeat="x in vm.cardData |filter:mSearch |limitTo:8" ng-if="vm.resumeType==0" >
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">
@@ -88,7 +88,7 @@
 
     </div>
 
-    <div ng-if="vm.resumeType==1" ng-repeat="x in vm.cardData">
+    <div ng-if="vm.resumeType==1" ng-repeat="x in vm.cardData|filter:mSearch |limitTo:8 ">
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">
@@ -119,7 +119,7 @@
 
     </div>
 
-    <div ng-if="vm.resumeType==2" ng-repeat="x in vm.cardData">
+    <div ng-if="vm.resumeType==2" ng-repeat="x in vm.cardData|filter:mSearch |limitTo:8">
         <div class="lPart face">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">

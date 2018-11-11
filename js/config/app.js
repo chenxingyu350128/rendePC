@@ -235,7 +235,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })//企业详情
+            })
+
+            //企业详情
             .state('enterpriseInfo',{
                 url: '/enterprise/enterpriseInfo',
                 templateUrl: 'html/enterpriseInfo.html',
