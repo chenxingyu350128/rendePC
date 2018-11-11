@@ -68,9 +68,9 @@ angular.module('myApp')
         //重置按钮
         function reset() {
             $("#addFrom").find('input[type=text],select,input[type=hidden]').each(function() {
-                       $(this).val('');
-                modalBox.confirm("内容已重置");
-                   });
+                $(this).val('');
+            });
+            modalBox.alert("内容已重置");
         }
 
     });

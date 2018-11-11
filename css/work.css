@@ -13,6 +13,7 @@
     float: left;
 }
 .search-content{
+    text-align: center;
 }
 .search-content input{
     padding: 0.9%;

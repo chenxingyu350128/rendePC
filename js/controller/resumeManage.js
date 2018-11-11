@@ -1,16 +1,15 @@
 'use strict';
 angular.module('myApp')
-    .controller('resumeManage',function ($http,$state,$stateParams,common,modalBox) {
+    .controller('resumeManage',function ($http,$state,$scope,$stateParams,common,modalBox) {
         let vm=this;
         vm.resumeType=parseInt($stateParams.resumeType)||0;
         vm.params=$stateParams;
         var data={}
         vm.companyjob=companyjob;//邀请面试
         vm.cardDataList=cardDataList;
-        vm.interview="";
-        cardDataList(vm.interview);
-        // vm.value=$("#timeSelect option:selected"); //获取选中的项
-        // console.log("下拉框的值",   vm.value);
+        // vm.interview="";
+        cardDataList();
+
 
         let opts0=$('.position').find('.opt0');
         let opts1=$('.demand').find('.opt1');
@@ -64,7 +63,7 @@ angular.module('myApp')
         let url4 ='Boss/show_job_years';
         common.request(url4,data).then(function callback(res){
             vm.expbList = res.data.data;
-            console.log("show_job_years",   vm.expbList)
+            // console.log("show_job_years",   vm.expbList)
         }),function errorCallback(response) {
         };
         // 获取学历列表接口
@@ -74,8 +73,8 @@ angular.module('myApp')
         }),function errorCallback(response) {
         };
 
+        // 邀请面试按钮接口
         function companyjob(id){
-            // 邀请面试按钮接口
             let url6 ='Boss/resume_interview';
             var data6={r_id:id}
             common.request(url6,data6).then(function callback(res){
@@ -88,150 +87,6 @@ angular.module('myApp')
 
 
 
-
-
-        // vm.cardData=[
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'true',
-        //         position: '平面设计',
-        //         intro: '24岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'false',
-        //         position: 'UI',
-        //         intro: '28岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'true',
-        //         position: '平面设计',
-        //         intro: '24岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'false',
-        //         position: '平面设计',
-        //         intro: '28岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        // ];
-        // vm.receivedData=[
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'true',
-        //         position: '平面设计',
-        //         intro: '24岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'false',
-        //         position: 'UI',
-        //         intro: '28岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'true',
-        //         position: '平面设计',
-        //         intro: '24岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        //     {
-        //         avatar:'image/home/defaultAvatar.png',
-        //         name:'曹德旺',
-        //         vipIf:'false',
-        //         position: '平面设计',
-        //         intro: '28岁  |  2年以上经验  |  本科学历',
-        //         place: '福建-福州',
-        //         like: '期望职位： 平面设计师 包装设计 其他 排版设计 美术编辑',
-        //         status: '在职，考虑更好的职位',
-        //         updateAt:'2018-11-03'
-        //     },
-        // ];
-        vm.faceData=[
-            {
-                avatar:'image/home/defaultAvatar.png',
-                name:'曹德旺',
-                vipIf:'true',
-                position: '平面设计',
-                intro: '24岁  |  2年以上经验  |  本科学历',
-                place: '福建-福州',
-                faceAt: '2018-11-11',
-                contact: '联系人:陈奕迅',
-                mobile:'13799772639',
-                updateAt:'2018-11-03'
-            },
-            {
-                avatar:'image/home/defaultAvatar.png',
-                name:'曹德旺',
-                vipIf:'false',
-                position: 'UI',
-                intro: '28岁  |  2年以上经验  |  本科学历',
-                place: '福建-福州',
-                faceAt: '2018-11-11',
-                contact: '联系人:陈奕迅',
-                mobile:'13799772639',
-                updateAt:'2018-11-03'
-            },
-            {
-                avatar:'image/home/defaultAvatar.png',
-                name:'曹德旺',
-                vipIf:'true',
-                position: '平面设计',
-                intro: '24岁  |  2年以上经验  |  本科学历',
-                place: '福建-福州',
-                faceAt: '2018-11-11',
-                contact: '联系人:陈奕迅',
-                mobile:'13799772639',
-                updateAt:'2018-11-03'
-            },
-            {
-                avatar:'image/home/defaultAvatar.png',
-                name:'曹德旺',
-                vipIf:'false',
-                position: '平面设计',
-                intro: '28岁  |  2年以上经验  |  本科学历',
-                place: '福建-福州',
-                faceAt: '2018-11-11',
-                contact: '联系人:陈奕迅',
-                mobile:'13799772639',
-                updateAt:'2018-11-03'
-            },
-        ];
     });
 
 

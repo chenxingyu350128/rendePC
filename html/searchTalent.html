@@ -7,33 +7,37 @@
     <div class="position">
         <span class="ocp ">职位:</span>
         <span ui-sref="resumeManage({type0:0})" class="opt0 ocp">全部</span>
-        <span ui-sref="resumeManage({type0:1})" class="opt0 ocp">公务员/翻译/其他</span>
-        <span ui-sref="resumeManage({type0:2})" class="opt0 ocp">贸易/百货</span>
-        <span ui-sref="resumeManage({type0:3})" class="opt0 ocp">机械/设备/技工</span>
-        <span ui-sref="resumeManage({type0:4})" class="opt0 ocp">通信/电子</span>
-        <span ui-sref="resumeManage({type0:5})" class="opt0 ocp">化工/能源</span>
-        <span ui-sref="resumeManage({type0:6})" class="opt0 ocp">销售/客服/技术支持</span>
+        <span ui-sref="resumeManage({type0:$index+1})" class="opt0 ocp" ng-repeat="type in vm.typeList |limitTo:7 ">{{type}}</span>
         <select class="ocp">
-            <option value="">更多</option>
+            <option value="" ng-repeat="type in vm.typeList">{{type}}</option>
         </select>
     </div>
     <div class="demand">
         <span class="ocp ">更多:</span>
         <span ui-sref="resumeManage({type1:0})" class="opt1 ocp">全部</span>
-        <select class="ocp select">
-            <option value="">投递时间</option>
+        <select class="ocp select" id="timeSelect">
+            <option value="0">投递时间</option>
+            <option value="1">近一个月投递</option>
+            <option value="2">三个月投递</option>
+            <option value="3">近半年投递</option>
         </select>
-        <select class="ocp select">
+        <select class="ocp select" id="education" ng-init="education=''" ng-model="education">
             <option value="">学历要求</option>
+            <option value="{{edu.id}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
         </select>
         <select class="ocp select">
             <option value="">工作经验</option>
+            <option value="" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
         </select>
         <select class="ocp select">
             <option value="">性别要求</option>
+            <option value="">男</option>
+            <option value="">女</option>
+
         </select>
         <select class="ocp select">
-            <option value="">到岗时间</option>
+            <option value="" >到岗时间</option>
+            <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
         </select>
     </div>
 </div>

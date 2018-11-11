@@ -41,7 +41,7 @@ angular.module('myApp')
             common.request(url6,data6).then(function callback(res){
                 console.log(res)
                 vm.eduList = res.data.msg;
-                modalBox.confirm(vm.eduList);
+                modalBox.alert(vm.eduList);
             }),function errorCallback(response) {
             };
         }
