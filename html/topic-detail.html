@@ -15,7 +15,7 @@
             </div>
             <div class="wantto">
                 <span>我是企业，我要</span>
-                <button>立即报名</button>
+                <button ui-sref="releasePosition">立即报名</button>
             </div>
         </div>
     </div>
@@ -26,89 +26,17 @@
     </div>
 </div>
 <div class="container down1">
-     <div class="detali-list">
+     <div class="detali-list" ng-repeat="data in vm.dataList">
          <div class="list-content">
-             <div class="list-name"><span>福州鞠春元食品有限公司</span></div>
-             <img src="image/topic/topiclogo.jpg" alt="">
+             <div class="list-name"><span>{{data.c_name}}</span></div>
+             <img src="{{data.img}}" alt="">
              <div class="list-intr">
-                 <span>福建-福州</span>
-                 <span>贸易百货</span>
+                 <span>{{data.area}}</span>
+                 <span>{{data.job_type}}</span>
              </div>
              <div class="list-intr last-intr">
-                 <span>民营企业</span>
-                 <span>50-200人</span>
-             </div>
-             <div class="list-button">
-                 <button class="color-red">市场经理</button>
-                 <button class="color-wt">分校校长</button>
-             </div>
-         </div>
-     </div>
-     <div class="detali-list">
-         <div class="list-content">
-             <div class="list-name"><span>福州鞠春元食品有限公司</span></div>
-             <img src="image/topic/topiclogo.jpg" alt="">
-             <div class="list-intr">
-                 <span>福建-福州</span>
-                 <span>贸易百货</span>
-             </div>
-             <div class="list-intr last-intr">
-                 <span>民营企业</span>
-                 <span>50-200人</span>
-             </div>
-             <div class="list-button">
-                 <button class="color-red">市场经理</button>
-                 <button class="color-wt">分校校长</button>
-             </div>
-         </div>
-     </div>
-     <div class="detali-list">
-         <div class="list-content">
-             <div class="list-name"><span>福州鞠春元食品有限公司</span></div>
-             <img src="image/topic/topiclogo.jpg" alt="">
-             <div class="list-intr">
-                 <span>福建-福州</span>
-                 <span>贸易百货</span>
-             </div>
-             <div class="list-intr last-intr">
-                 <span>民营企业</span>
-                 <span>50-200人</span>
-             </div>
-             <div class="list-button">
-                 <button class="color-red">市场经理</button>
-                 <button class="color-wt">分校校长</button>
-             </div>
-         </div>
-     </div>
-     <div class="detali-list">
-         <div class="list-content">
-             <div class="list-name"><span>福州鞠春元食品有限公司</span></div>
-             <img src="image/topic/topiclogo.jpg" alt="">
-             <div class="list-intr">
-                 <span>福建-福州</span>
-                 <span>贸易百货</span>
-             </div>
-             <div class="list-intr last-intr">
-                 <span>民营企业</span>
-                 <span>50-200人</span>
-             </div>
-             <div class="list-button">
-                 <button class="color-red">市场经理</button>
-                 <button class="color-wt">分校校长</button>
-             </div>
-         </div>
-     </div>
-     <div class="detali-list">
-         <div class="list-content">
-             <div class="list-name"><span>福州鞠春元食品有限公司</span></div>
-             <img src="image/topic/topiclogo.jpg" alt="">
-             <div class="list-intr">
-                 <span>福建-福州</span>
-                 <span>贸易百货</span>
-             </div>
-             <div class="list-intr last-intr">
-                 <span>民营企业</span>
-                 <span>50-200人</span>
+                 <span>{{data.nature}}</span>
+                 <span>{{data.size}}</span>
              </div>
              <div class="list-button">
                  <button class="color-red">市场经理</button>

@@ -26,6 +26,8 @@
     float: left;
     border: 1px solid red;
     border-radius: 50px;
+    width: 83px;
+    height: 83px;
 }
 .personnel-demo{
     margin: 15px 0;

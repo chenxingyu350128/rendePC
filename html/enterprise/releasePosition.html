@@ -43,11 +43,19 @@
             </div>
             <div class="center-margin">
                 <span class="name-title ">学历要求：</span>
-                <input type="text" class="salary-input" ng-model="vm.addList.education">
+                <select name="" id="education" class="salary-input" ng-model="vm.addList.education" ng-init="" >
+                    <option value="">请选择</option>
+                    <option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
+                </select>
+                <!--<input type="text" class="salary-input">-->
             </div>
             <div>
                 <span class="name-title">工作年限：</span>
-                <input type="number" class="salary-input" ng-model="vm.addList.experience">
+                <!--<input type="number" class="salary-input" ng-model="vm.addList.experience">-->
+                <select name="" id="experience" class="salary-input" ng-model="vm.addList.experience" ng-init="">
+                    <option value="">请选择</option>
+                    <option value="{{expr.years}}" ng-repeat="expr in vm.exprList">{{expr.years}}</option>
+                </select>
             </div>
         </div>
         <div class="flex-row row-margin">

@@ -15,7 +15,38 @@ angular.module('myApp')
         let url3 ='Boss/show_boon';
         var data3 ={}
         common.request(url3,data3).then(function callback(res){
-            vm.noSpotlist = res.data.data
+            if(res.data.code===200){
+                vm.noSpotlist = res.data.data
+            }
+            else if(res.data.code===201){
+                modalBox.alert('未注册，登录已过期');
+                $timeout(function(){
+                    $state.go('sign',{sign:1})
+                },1000)
+            } else if(res.data.code===404){
+                modalBox.alert(res.data.msg)
+            }
+        })
+
+
+        // 获取行业类型接口
+        let data={}
+        let typeurl ='Boss/show_jobtype_list';
+        common.request(typeurl,data).then(function callback(res){
+            vm.typeList = res.data.data;
+        }),function errorCallback(response) {
+        };
+
+        // 获取工作年限接口
+        let url2 ='Boss/show_job_years';
+        common.request(url2,data).then(function callback(res){
+            vm.exprList = res.data.data;
+        }),function errorCallback(response) {
+        };
+        // 获取学历列表接口
+        let url5 ='Boss/show_education_list';
+        common.request(url5,data).then(function callback(res){
+            vm.eduList = res.data.data;
         }),function errorCallback(response) {
         };
 
@@ -42,6 +73,7 @@ angular.module('myApp')
 
       //发布职位
         function addJob(e,f) {
+
             // 获取地址选择框的值
             vm.province=$("#province10 option:selected"); //获取选中的项
             vm.city=$("#city10 option:selected"); //获取选中的项
@@ -50,18 +82,17 @@ angular.module('myApp')
 
             e.address=vm.province.val()+ vm.city.val()+vm.district.val()+f.detailadress;
             e.boonarr=JSON.stringify(vm.spotlist);
-            e.pay=f.salfrom+'-'+f.salto;
             e.ask=e.experience;
             console.log(e);
 
             let url ='Boss/add_job';
             var data={address: e.address,boonarr:e.boonarr,job_type:e.job_type,
-                pay:e.pay,experience: e.experience,education:e.education,
+                start_money:f.salfrom,end_money:f.salto,experience: e.experience,education:e.education,
                 ask:e.ask,position: e.position,num:e.num}
                 common.request(url,data).then(function callback(res){
                 vm.res = res.data.msg;
                 console.log("发布列表",vm.res)
-                modalBox.confirm(vm.res);
+                    modalBox.alert(vm.res)
             }),function errorCallback(response) {};
         }
 

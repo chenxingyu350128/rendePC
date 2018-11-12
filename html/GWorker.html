@@ -14,27 +14,26 @@
     <div class="hotOcp">
         <span class="underNav">职位: </span>
         <span ui-sref="GWorker({type0:1})" class="underNav hot {{vm.type0==1?'checkedType':''}}">全部</span>
-        <span ui-sref="GWorker({type0:2})" class="underNav hot {{vm.type0==2?'checkedType':''}}">餐饮</span>
-        <span ui-sref="GWorker({type0:3})" class="underNav hot {{vm.type0==3?'checkedType':''}}">电子</span>
-        <span ui-sref="GWorker({type0:4})" class="underNav hot {{vm.type0==4?'checkedType':''}}">保姆</span>
-        <span ui-sref="GWorker({type0:5})" class="underNav hot {{vm.type0==5?'checkedType':''}}">货运</span>
-        <span ui-sref="GWorker({type0:6})" class="underNav hot {{vm.type0==6?'checkedType':''}}">快递</span>
-        <select class="underNav select" name="kind" id="">
+        <span ui-sref="GWorker({type0:2})" class="underNav hot {{vm.type0==2?'checkedType':''}}" ng-repeat="type in vm.typeList |limitTo:6">{{type}}</span>
+        <!--<span ui-sref="GWorker({type0:3})" class="underNav hot {{vm.type0==3?'checkedType':''}}">电子</span>-->
+        <!--<span ui-sref="GWorker({type0:4})" class="underNav hot {{vm.type0==4?'checkedType':''}}">保姆</span>-->
+        <!--<span ui-sref="GWorker({type0:5})" class="underNav hot {{vm.type0==5?'checkedType':''}}">货运</span>-->
+        <!--<span ui-sref="GWorker({type0:6})" class="underNav hot {{vm.type0==6?'checkedType':''}}">快递</span>-->
+        <select class="underNav select" name="kind" id="" ng-model="vm.selectType" ng-change="vm.change(vm.selectType)">
             <option value="">更多</option>
-            <option value=""></option>
-            <option value=""></option>
+            <option value="{{type}}"ng-repeat="type in vm.typeList ">{{type}}</option>
         </select>
     </div>
 </div>
 <div class="container recruitment">
-    <div ng-repeat="x in vm.cardData" ui-sref="GWResume" class="card">
+    <div ng-repeat="x in vm.dataList|filter:vm.selectType" ui-sref="GWResume" class="card">
         <div class="salary">
-            <span>{{x.ocp}}</span>
+            <span>{{x.title}}</span>
         </div>
-        <div class="desc grayF">{{x.desc}}</div>
+        <div class="desc grayF">{{x.job_type}} / {{x.name}} / {{x.sex}} / {{x.years}}工作经验</div>
         <div class="tel">
-            <span>{{x.tel}}</span>
-            <span class="grayF pull-right">{{x.updateAt}}</span>
+            <span>{{x.phone}} ({{x.name}})</span>
+            <span class="grayF pull-right">{{x.time}}</span>
         </div>
     </div>
 </div>

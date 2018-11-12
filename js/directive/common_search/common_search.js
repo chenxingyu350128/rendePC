@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('commonSearch',function ($http,$state,$stateParams) {
+app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout,modalBox) {
     return {
         restrict: 'EA',
         replace: true,
@@ -8,7 +8,15 @@ app.directive('commonSearch',function ($http,$state,$stateParams) {
         scope: {
         },
         link: function (scope) {
-
+            //热门搜索
+            let url5 ='other/hot_search';
+            var data={};
+            common.request(url5,data).then(function callback(res){
+                vm.hot_search = res.data.data
+                console.log("热门搜索：",vm.hot_search)
+                scope.$eval(attr.repeatFinish)
+            }),function errorCallback(response) {
+            };
         }
     }
 });

@@ -5,7 +5,7 @@
     <div class="newscontent">
         <div class="news">
             <div class=" newslist-content" >
-                <div class="newslist" ui-sref="new-detail({id:data.id})" ng-repeat="data in vm.dataList| limitTo : 4">
+                <div class="newslist" ui-sref="new-detail({id:data.id,index:$index+1})" ng-repeat="data in vm.dataList| limitTo : 4">
                     <div class=" newslist-left fl">
                         <img src="{{data.img}}" alt="" >
                     </div>

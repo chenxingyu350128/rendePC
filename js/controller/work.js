@@ -34,9 +34,18 @@ angular.module('myApp')
                 let url1='boss/find_job';
                 // 获取工作列表接口
                 common.request(url1,data).then(function callback(res){
-                    vm.dataList = res.data.data;
-                }),function errorCallback(response) {
-                };
+                    if(res.data.code===200){
+                        vm.dataList = res.data.data;
+                    }
+                    else if(res.data.code===201){
+                        modalBox.alert('未注册，登录已过期');
+                        $timeout(function(){
+                            $state.go('sign',{sign:1})
+                        },1000)
+                    } else if(res.data.code===404){
+                        modalBox.alert(res.data.msg)
+                    }
+                })
             }else if(e==2){
                 //获取最新职位
                 let url4 ='Boss/new_job';
@@ -47,15 +56,7 @@ angular.module('myApp')
             }
         }
 
-        //热门搜索
-        // let url5 ='other/hot_search';
-        // var data={};
-        // common.request(url5,data).then(function callback(res){
-        //     vm.hot_search = res.data.data
-        //     console.log("热门搜索：",vm.hot_search)
-        //     scope.$eval(attr.repeatFinish)
-        // }),function errorCallback(response) {
-        // };
+
 
 
         // 获取行业类型接口

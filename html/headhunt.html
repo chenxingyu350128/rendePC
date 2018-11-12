@@ -5,78 +5,21 @@
     <!--悬赏招聘-->
     <div class="hunt-part1">
         <div class="hunt-title"><span>悬赏招聘</span></div>
-        <div class="hunt-list1">
+        <div class="hunt-list1" ng-repeat="hunt in vm.huntData|limitTo :4">
             <div class="fl"><img src="image/work/huntmoney.png"></div>
             <div class="hunt-list-right">
-                <div class="positionname fl">安全工程师或安全员</div>
-                <div class="worksalary redF fl">￥3000-8000</div><br>
+                <div class="positionname fl">{{hunt.job_type}}</div>
+                <div class="worksalary redF fl">￥{{hunt.start_money}}-{{hunt.end_money}}</div><br>
                 <div class="demand grayB">
                     <span>杭州北角医学检验有限公司</span>
                 </div>
                 <div class="demand grayB">
-                    <span>不限经验|</span>
-                    <span>大专学历|</span>
-                    <span>福建-福州</span>
+                    <span>{{hunt.experience}}|</span>
+                    <span>{{hunt.education}}|</span>
+                    <span>{{hunt.address}}</span>
                 </div>
                 <div class="demand grayF ">
-                    <span>更新时间：2018-09-12</span>
-                    <button class="hunt-btn">立即推荐</button>
-                </div>
-            </div>
-        </div>
-        <div class="hunt-list1">
-            <div class="fl"><img src="image/work/huntmoney.png"></div>
-            <div class="hunt-list-right">
-                <div class="positionname fl">安全工程师或安全员</div>
-                <div class="worksalary redF fl">￥3000-8000</div><br>
-                <div class="demand grayB">
-                    <span>杭州北角医学检验有限公司</span>
-                </div>
-                <div class="demand grayB">
-                    <span>不限经验|</span>
-                    <span>大专学历|</span>
-                    <span>福建-福州</span>
-                </div>
-                <div class="demand grayF ">
-                    <span>更新时间：2018-09-12</span>
-                    <button class="hunt-btn">立即推荐</button>
-                </div>
-            </div>
-        </div>
-        <div class="hunt-list1">
-            <div class="fl"><img src="image/work/huntmoney.png"></div>
-            <div class="hunt-list-right">
-                <div class="positionname fl">安全工程师或安全员</div>
-                <div class="worksalary redF fl">￥3000-8000</div><br>
-                <div class="demand grayB">
-                    <span>杭州北角医学检验有限公司</span>
-                </div>
-                <div class="demand grayB">
-                    <span>不限经验|</span>
-                    <span>大专学历|</span>
-                    <span>福建-福州</span>
-                </div>
-                <div class="demand grayF ">
-                    <span>更新时间：2018-09-12</span>
-                    <button class="hunt-btn">立即推荐</button>
-                </div>
-            </div>
-        </div>
-        <div class="hunt-list1">
-            <div class="fl"><img src="image/work/huntmoney.png"></div>
-            <div class="hunt-list-right">
-                <div class="positionname fl">安全工程师或安全员</div>
-                <div class="worksalary redF fl">￥3000-8000</div><br>
-                <div class="demand grayB">
-                    <span>杭州北角医学检验有限公司</span>
-                </div>
-                <div class="demand grayB">
-                    <span>不限经验|</span>
-                    <span>大专学历|</span>
-                    <span>福建-福州</span>
-                </div>
-                <div class="demand grayF ">
-                    <span>更新时间：2018-09-12</span>
+                    <span>更新时间：{{hunt.time}}</span>
                     <button class="hunt-btn">立即推荐</button>
                 </div>
             </div>

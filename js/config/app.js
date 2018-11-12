@@ -135,7 +135,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('shop-detail',{
-                url: '/shop-detail',
+                url: '/shop-detail?id',
                 templateUrl: 'html/shop-detail.html',
                 controller: 'ShopDetailCtrl',
                 controllerAs: 'vm',
@@ -167,7 +167,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('new-detail',{
-                url: '/new-detail?id',
+                url: '/new-detail?id?index',
                 templateUrl: 'html/new-detail.html',
                 controller: 'NewDetailCtrl',
                 controllerAs: 'vm',

@@ -6,6 +6,10 @@
     float: left;
     margin: .2rem;
 }
+.shop-detail-img img{
+    width: 267px;
+    height: 270px;
+}
 .shop-intr{
     float: left;
     margin: .2rem;
@@ -47,6 +51,7 @@
     width: .6rem;
     padding: 1px .1rem;
     text-align: center;
+
 }
 .dhsl{
     width: 100%;

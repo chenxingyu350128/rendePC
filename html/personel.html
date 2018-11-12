@@ -67,11 +67,13 @@
             <li>
                 <select name="" id="">
                     <option value="1">学历要求</option>
+                    <option value="{{edu.id}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
                 </select>
             </li>
             <li>
                 <select name="" id="">
                     <option value="1">工作经验</option>
+                    <option value="" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
                 </select>
             </li>
             <li>
@@ -84,6 +86,7 @@
             <li>
                 <select name="" id="">
                     <option value="1">到岗时间</option>
+                    <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
                 </select>
             </li>
         </ul>
@@ -102,7 +105,7 @@
             <li class="personnel-select-li">有作品</li>
         </ul>
         <div class="position-list" ng-repeat="data in vm.dataList">
-            <img src="image/home/out_avatar.png" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
+            <img src="{{data.img}}" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
             <div class="position-list-right">
                 <div class="positionname fl">{{data.name}}</div>
                 <br>
