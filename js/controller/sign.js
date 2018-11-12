@@ -13,11 +13,14 @@ angular.module('myApp')
                 console.log(res);
                 if(res.data.code===200){
                     vm.success=res.data.data;
+                    vm.clientType=1;
                     sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
                     sessionStorage.setItem('token',JSON.stringify(vm.success.token));
-                }
-                else if(res.data.code===201){
-                    modalBox.alert('请先注册或登录')
+                   // if(vm.clientType===1){
+                   //     $state.go('enterpriseHome');
+                   //     sessionStorage.setItem('mainNav1','1');
+                   // }
+                    history.back();
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.msg)

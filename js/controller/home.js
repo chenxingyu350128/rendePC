@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('HomeCtrl',function ($http,$state,$scope,$stateParams,common,modalBox) {
+    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,common,modalBox) {
         let vm=this;
         let url1='Boss/show_jobtype_list';
         let url2='Boss/show_news';
@@ -14,20 +14,34 @@ angular.module('myApp')
            $('.carousel-inner div').eq(0).addClass('active');
         });
         // 工作类型
-        common.request(url1,dataEmpty).then(function callback(res){
-            if(res.data.code===200){
-                vm.jobType=res.data.data;
-                // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
-            }
-            else if(res.data.code===404){
-                modalBox.alert('home1')
-            }
-        });//资讯列表
+        if(!sessionStorage.getItem('jobType')){
+            common.request(url1,dataEmpty).then(function callback(res){
+                if(res.data.code===200){
+                    vm.jobType=res.data.data;
+                    sessionStorage.setItem('jobType',JSON.stringify(res.data.data))
+                }
+                else if(res.data.code===201){
+                    modalBox.alert('未注册或登录已过期');
+                    $timeout(function(){
+                        $state.go('sign',{sign:1})
+                    },1000)
+                }
+                else if(res.data.code===404){
+                    modalBox.alert('home1')
+                }
+            });//资讯列表
+        }
         common.request(url2,dataEmpty).then(function callback(res){
             if(res.data.code===200){
                 vm.newsList=res.data.data;
                 console.log(res.data.data);
                 // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
+            }
+            else if(res.data.code===201){
+                modalBox.alert('未注册，登录已过期')
+                $timeout(function(){
+                    $state.go('sign',{sign:1})
+                },1000)
             }
             else if(res.data.code===404){
                 modalBox.alert('home2')
@@ -39,6 +53,12 @@ angular.module('myApp')
                 console.log(res.data.data);
                 // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
             }
+            else if(res.data.code===201){
+                modalBox.alert('未注册，登录已过期')
+                $timeout(function(){
+                    $state.go('sign',{sign:1})
+                },1000)
+            }
             else if(res.data.code===404){
                 modalBox.alert('home3')
             }
@@ -48,19 +68,31 @@ angular.module('myApp')
                 vm.banner=res.data.data;
                 console.log(res.data.data);
             }
+            else if(res.data.code===201){
+                modalBox.alert('未注册，登录已过期');
+                $timeout(function(){
+                    $state.go('sign',{sign:1})
+                },1000)
+            }
             else if(res.data.code===404){
 
-                modalBox.alert('home4')
+                modalBox.alert(res.data.msg)
             }
         });//名企招聘
         common.request(url5,dataEmpty).then(function callback(res){
             if(res.data.code===200){
-
                 for(let i=0;i<res.data.data.length;i++){
                     res.data.data[i].boonarr=JSON.parse(res.data.data[i].boonarr);
                 }
                 console.log(res.data.data);
                 vm.famousEnter=res.data.data;
+            }
+            else if(res.data.code===201){
+                modalBox.alert('未注册，登录已过期');
+                $timeout(function(){
+                    $state.go('sign',{sign:1});
+                    sessionStorage.removeItem('token')
+                },1000)
             }
             else if(res.data.code===404){
                 console.log(res);

@@ -8,6 +8,7 @@ app.directive('commonSearch',function ($http,$state,$stateParams) {
         scope: {
         },
         link: function (scope) {
+
         }
     }
 });

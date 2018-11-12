@@ -16,24 +16,28 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             let url1='Boss/show_menu_two';
             let data={};
             //客户端homeMenu
-            common.request(url0,data).then(function callback(res){
-                if(res.data.code===200){
-                    scope.homeMenu=res.data.data;
-                }
-                else if(res.data.code===404){
-                    modalBox.alert('header1')
-                }
-            });
-            // 企业端homeMenu
-            common.request(url1,data).then(function callback(res){
-                if(res.data.code===200){
-                    scope.enterHome=res.data.data;
-                }
-                else if(res.data.code===404){
-                    modalBox.alert('header2')
-                }
-            });
+            if(!scope.homeMenu){
+                common.request(url0,data).then(function callback(res){
+                    if(res.data.code===200){
+                        scope.homeMenu=res.data.data;
+                    }
+                    else if(res.data.code===404){
+                        modalBox.alert('header1')
+                    }
+                });
+                // 企业端homeMenu
 
+            }
+            if(!scope.enterHome){
+                common.request(url1,data).then(function callback(res){
+                    if(res.data.code===200){
+                        scope.enterHome=res.data.data;
+                    }
+                    else if(res.data.code===404){
+                        modalBox.alert('header2')
+                    }
+                });
+            }
             //nav跳转
             scope.nav0=function(e){
                 switch (e){
@@ -106,7 +110,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                     'border-bottom':'5px solid #e11c19',
                 });
                 navList1.eq(scope.idx1-1).css({
-                    'border-bottom':'5px solid #e11c19',
+                    'border-bottom':'5px solid plum',
                 });
             });
 

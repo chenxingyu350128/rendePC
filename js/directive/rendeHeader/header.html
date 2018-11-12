@@ -56,8 +56,9 @@
                 <div ng-repeat="x in enterHome"
                      class="navItem0"
                      ng-click="nav1(x.id)"
+                     ng-bind="x.name"
                      on-finish-render-filters>
-                    {{x.name}}
+                    <!--{{x.name}}-->
                 </div>
                 <!--<div class="navItem0" ui-sref="enterpriseHome({position0: 1})">首页</div>-->
                 <!--<div class="navItem0" ui-sref="resumeManage({position0: 2})">简历管理</div>-->

@@ -1,11 +1,12 @@
 <rende-header></rende-header>
 <div class="container positionNow">我的位置：职位管理>发布职位</div>
+<div id="fine-uploader-gallery"></div>
 <div class="navTitle container">
     <div class="{{vm.navType==0?'checkedResume':''}}" ui-sref="accountManage({navType:0})">
         <span class="text-center">账户信息</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div class="{{vm.navType==1?'checkedResume':''}}" ui-sref="accountManage({navType:1})">
+    <div  class="{{vm.navType==1?'checkedResume':''}}" ui-sref="accountManage({navType:1})">
         <span class="text-center">账户安全</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
@@ -19,45 +20,86 @@
         <div class="name">
             <div class="half">
                 <span class="tip">登录名:</span>
-                <input type="text">
+                <input ng-model="vm.username" type="text">
             </div>
             <div class="half">
                 <span class="tip">姓名:</span>
-                <input type="text">
+                <input ng-model="vm.nickname" type="text">
             </div>
         </div>
         <div class="email whole">
             <span class="tip">邮箱:</span>
-            <input type="email">
+            <input ng-model="vm.firstMail" type="email">
         </div>
         <div class="avatar">
-            <span class="tip">登录名:</span>
-            <label for="file">
-                <img src="" alt="">
-                <input id="file" style="display: none" type="file" accept="image/gif, image/jpeg">
-            </label>
+            <span class="tip">头像:</span>
+            <div>
+                <label for="uploadImg">
+                    <input id="uploadImg"
+                           type="file"
+                           style="display: none;width: 0;height: 5px"
+                           ng-model="vm.avatar"
+                           accept="image/png,image/jpeg,image/gif"
+                           onchange="angular.element(this).scope().uploadImage(this)">
+                    <img  id="previewImg" ng-src="{{vm.avatar}}" >
+                </label>
+                <div>
+                    <div class="text-center">
+                        <table style="display: table" class="btn-block">
+                            <tr ng-if="vm.file0">
+                                <td>
+                                    <div class="progress" style="margin-bottom: 0!important;">
+                                        <div style="width:{{vm.progress}}%;background-color: #337ab7;border-radius: 3px;"
+                                             ng-bind="vm.progress+'%'"
+                                             class="progress-bar">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress==100"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.file0">
+                                <td>
+                                    <button class="btn btn-sm btn-success" ng-click="vm.upload()" ng-disabled="vm.progress">
+                                        <span class="glyphicon glyphicon-upload"></span>上传
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg()">
+                                        <span class="glyphicon glyphicon-trash"></span>删除
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+            <!--<label for="file">-->
+                <!--<img src="" alt="">-->
+                <!--<input id="file"   nv-file-select uploader="uploader" style="display: none" type="file" accept="image/gif, image/jpeg">-->
+            <!--</label>-->
         </div>
         <div class="mobile whole">
             <span class="tip">手机号:</span>
-            <input type="tel">
+            <input ng-model="vm.mobile" type="tel">
         </div>
         <div class="tel">
-            <span class="tip">座机:</span>
-            <input placeholder="区号" class="quarter" type="text">
-            <input placeholder="固定电话" class="twoQuarter" type="text">
-            <input placeholder="分机号" class="quarter" type="text">
+            <div class="half">
+                <span class="tip">座机:</span>
+                <input ng-model="vm.landLine" placeholder="输入格式：区号-座机号-分机号" type="text">
+            </div>
         </div>
         <div class="bold">个人资质认证:</div>
         <div class="real_name">
             <div class="half">
                 <span class="tip">姓名:</span>
-                <input type="tel">
+                <input ng-model="vm.real_name" type="text">
             </div>
         </div>
         <div class="IDCard">
             <div class="half">
                 <span class="tip">身份证号码:</span>
-                <input type="tel">
+                <input ng-model="vm.id_card" type="text">
             </div>
         </div>
     </div>
@@ -92,11 +134,46 @@
         </div>
         <div class="LOGO">
             <span class="tip">LOGO:</span>
-            <!--<label for="logo">-->
-                <!--<img src="" alt="">-->
-                <!--<input id="logo" style="display: none" type="file" accept="image/gif, image/jpeg">-->
-            <!--</label>-->
-            <up-load img1="vm.img1"></up-load>
+            <div>
+                <label for="uploadImg1">
+                    <input id="uploadImg1"
+                           type="file"
+                           style="visibility: hidden;width: 0;height: 5px"
+                           ng-model="vm.logo"
+                           accept="image/png,image/jpeg,image/gif"
+                           onchange="angular.element(this).scope().uploadImage1(this)">
+                    <img  id="previewImg1" ng-src="{{vm.logo}}" >
+                </label>
+                <div>
+                    <div class="text-center">
+                        <table style="display: table" class="btn-block">
+                            <tr ng-if="vm.file1">
+                                <td>
+                                    <div class="progress" style="margin-bottom: 0!important;">
+                                        <div style="width:{{vm.progress1}}%;background-color: #337ab7;border-radius: 3px;"
+                                             ng-bind="vm.progress1+'%'"
+                                             class="progress-bar">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress1==100"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.file1">
+                                <td>
+                                    <button class="btn btn-sm btn-success" ng-click="vm.upload1()" ng-disabled="vm.progress1">
+                                        <span class="glyphicon glyphicon-upload"></span>上传
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg1()">
+                                        <span class="glyphicon glyphicon-trash"></span>删除
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="scale">
             <div class="quarterShell">
@@ -128,7 +205,46 @@
         </div>
         <div class="license">
             <span class="tip">营业执照:</span>
-            <up-loaded img2="vm.img2"></up-loaded>
+            <div>
+                <label for="uploadImg2">
+                    <input id="uploadImg2"
+                           type="file"
+                           style="visibility: hidden;width: 0;height: 5px"
+                           ng-model="vm.license"
+                           accept="image/png,image/jpeg,image/gif"
+                           onchange="angular.element(this).scope().uploadImage2(this)">
+                    <img  id="previewImg2" ng-src="{{vm.license}}" >
+                </label>
+                <div>
+                    <div class="text-center">
+                        <table style="display: table" class="btn-block">
+                            <tr ng-if="vm.file2">
+                                <td>
+                                    <div class="progress" style="margin-bottom: 0!important;">
+                                        <div style="width:{{vm.progress2}}%;background-color: #337ab7;border-radius: 3px;"
+                                             ng-bind="vm.progress2+'%'"
+                                             class="progress-bar">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress2==100"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.file2">
+                                <td>
+                                    <button class="btn btn-sm btn-success" ng-click="vm.upload2()" ng-disabled="vm.progress2">
+                                        <span class="glyphicon glyphicon-upload"></span>上传
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg2()">
+                                        <span class="glyphicon glyphicon-trash"></span>删除
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="update text-center">

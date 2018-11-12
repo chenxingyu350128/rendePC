@@ -1,5 +1,5 @@
 'use strict';
-let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazyLoad'])
+let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazyLoad','angularFileUpload'])
     .config(function($stateProvider,$urlRouterProvider){
         let _ocLazy = function (file) {
             return ['$ocLazyLoad', function ($ocLazyLoad) {
@@ -543,7 +543,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('superPosition',{
-                url: '/superPosition?type0&type1&navType&position0',
+                url: '/superPosition?type0&type1&navType&position0&resumeType',
                 templateUrl: 'html/superPosition.html',
                 controller: 'superPosition',
                 controllerAs: 'vm',
