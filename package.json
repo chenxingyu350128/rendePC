@@ -1,0 +1,22 @@
+{
+  "name": "rendepc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenxingyu350128/rendePC.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenxingyu350128/rendePC/issues"
+  },
+  "homepage": "https://github.com/chenxingyu350128/rendePC#readme",
+  "dependencies": {
+    "fine-uploader": "^5.16.2"
+  }
+}
