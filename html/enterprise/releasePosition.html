@@ -8,7 +8,7 @@
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">职位名称：</span>
-                <input type="text" class="release-input" ng-model="vm.addList.job_type" >
+                <input type="text" class="release-input" ng-model="vm.addList.job_type" required="required">
             </div>
             <div class="flex-row row-margin"></div>
         </div>
@@ -19,7 +19,7 @@
                     <div id="distpicker5" style="display:flex;margin-right: 14px;">
                         <div class="form-group" style="margin-right: 10px;">
                             <label class="sr-only" for="province10">Province</label>
-                            <select class="form-control" id="province10"></select>
+                            <select class="form-control" id="province10" ></select>
                         </div>
                         <div class="form-group" style="margin-right: 10px;">
                             <label class="sr-only" for="city10">City</label>
@@ -33,13 +33,14 @@
                 </form>
 
             </div>
-            <div><input type="text" class="release-input" placeholder="请输入详细地址~" ng-model="vm.postList.detailadress"></div>
+            <div><input type="text" class="release-input" placeholder="请输入详细地址~" ng-model="vm.postList.detailadress" required="required"></div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title">薪资范围：</span>
-                <input type="number" class="salary-input"  ng-model="vm.postList.salfrom"> -
-                <input type="number" class="salary-input" ng-model="vm.postList.salto">
+                <input type="number" class="salary-input"  ng-model="vm.postList.salfrom" required="required" ng-blur="vm.test(vm.postList.salfrom)"> -
+                <input type="number" class="salary-input" ng-model="vm.postList.salto" required="required" ng-blur="vm.test(vm.postList.salto)">
+                <span>(月薪不能少于4位数)</span>
             </div>
             <div class="center-margin">
                 <span class="name-title ">学历要求：</span>
@@ -51,7 +52,6 @@
             </div>
             <div>
                 <span class="name-title">工作年限：</span>
-                <!--<input type="number" class="salary-input" ng-model="vm.addList.experience">-->
                 <select name="" id="experience" class="salary-input" ng-model="vm.addList.experience" ng-init="">
                     <option value="">请选择</option>
                     <option value="{{expr.years}}" ng-repeat="expr in vm.exprList">{{expr.years}}</option>
@@ -61,7 +61,7 @@
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title ">职位描述：</span>
-                <textarea type="text" class="intr-textarea" ng-model="vm.addList.position"></textarea>
+                <textarea type="text" class="intr-textarea" ng-model="vm.addList.position" required="required"></textarea>
             </div>
         </div>
         <div class="flex-row row-margin">
@@ -69,7 +69,7 @@
                 <span class="name-title ">公司亮点：</span>
             </div>
             <div class="light" ng-repeat="spot in vm.spotlist"  ng-click="vm.delete(this) ">
-                <span class="spot spot-bc">{{spot.name}}</span>
+                <span class="spot spot-bc">{{spot}}</span>
                 <span class="cancle">x</span>
             </div>
             <span ng-show="vm.spotlist.length==0" class="noselect">还未选择公司亮点~ 请选择下发公司亮点</span>

@@ -173,6 +173,7 @@
     width:150px;
     height:30px;
     margin: 15px;
+    outline: 0px;
 }
 .release-ok{
     background:linear-gradient(-45deg,rgba(255,48,0,1),rgba(226,28,25,1));

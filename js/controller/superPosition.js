@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('superPosition',function ($http,$state,$stateParams,common,modalBox) {
+    .controller('superPosition',function ($http,$state,$stateParams,common,modalBox,$timeout) {
         let vm=this;
         vm.mask=true;
         vm.resumeType=parseInt($stateParams.resumeType)||0;

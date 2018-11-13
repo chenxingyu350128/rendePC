@@ -6,8 +6,6 @@ angular.module('myApp')
         vm.addList={}
         vm.postList={}
         vm.spotlist=[];
-        vm.addJob=addJob; //发布职位
-        vm.reset =reset;
 
      ////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -56,12 +54,11 @@ angular.module('myApp')
              vm.item1= vm.spotlist.splice(index,1);
              vm.noSpotlist.push(vm.item1[0])
         };
-
         //添加公司亮点
         vm.add=function (e) {
             var index=e.$index;
             vm.item2= vm.noSpotlist.splice(index,1);
-            vm.spotlist.push(vm.item2[0])
+            vm.spotlist.push(vm.item2[0].name);
         }
         vm.type= function (e) {
             vm.addList.type=e.item.title
@@ -71,33 +68,44 @@ angular.module('myApp')
             });
         };
 
+        vm.test=function(a){
+            console.log('薪资：',a)
+            if(a<1000){
+                modalBox.alert("请输入四位数薪资")
+            }
+        }
       //发布职位
-        function addJob(e,f) {
-
+        vm.addJob=function(e,f) {
             // 获取地址选择框的值
             vm.province=$("#province10 option:selected"); //获取选中的项
             vm.city=$("#city10 option:selected"); //获取选中的项
             vm.district=$("#district10 option:selected"); //获取选中的项
-            vm.type=$("#type option:selected"); //获取选中的项
-
             e.address=vm.province.val()+ vm.city.val()+vm.district.val()+f.detailadress;
             e.boonarr=JSON.stringify(vm.spotlist);
             e.ask=e.experience;
-            console.log(e);
+            if(vm.province==undefined || vm.city===undefined|| vm.district==undefined){
+                modalBox.alert("请输入完整地址")
+            }else if(vm.spotlist.length==0){
+                modalBox.alert("请选择公司亮点")
+            }else if(e.education==""){
+                modalBox.alert("请选择学历要求")
+            }else if(e.experience==""){
+                modalBox.alert("请选择经验要求")
+            }else {
+                var data={address: e.address,boonarr:e.boonarr,job_type:e.job_type,
+                    start_money:f.salfrom,end_money:f.salto,experience: e.experience,education:e.education,
+                    ask:e.ask,position: e.position,num:e.num}
+                    common.request('Boss/add_job',data).then(function callback(res){
+                    vm.res = res.data.msg;
+                    console.log("发布列表",vm.res)
+                        modalBox.alert(vm.res)
+                })
+            }
 
-            let url ='Boss/add_job';
-            var data={address: e.address,boonarr:e.boonarr,job_type:e.job_type,
-                start_money:f.salfrom,end_money:f.salto,experience: e.experience,education:e.education,
-                ask:e.ask,position: e.position,num:e.num}
-                common.request(url,data).then(function callback(res){
-                vm.res = res.data.msg;
-                console.log("发布列表",vm.res)
-                    modalBox.alert(vm.res)
-            }),function errorCallback(response) {};
         }
 
         //重置按钮
-        function reset() {
+        vm.reset =function() {
             $("#addFrom").find('input[type=text],select,input[type=hidden]').each(function() {
                 $(this).val('');
             });

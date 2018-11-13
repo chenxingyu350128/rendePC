@@ -94,7 +94,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//岗位详情
             .state('workDetail',{
-                url: '/workDetail?id',
+                url: '/workDetail?id?index',
                 templateUrl: 'html/workdetail.html',
                 controller: 'WorkDetail',
                 controllerAs: 'vm',

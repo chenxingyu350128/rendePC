@@ -146,7 +146,14 @@
 }
 .position-list-right{
     float: left;
-    margin: 11px 23px 0px 23px;
+    /*margin: 11px 23px 0px 23px;*/
+    width: 33.3333%;
+}
+.noList{
+    text-align: center;
+    font-size: 18px;
+    margin: 20px auto;
+    display: inline-block;;
 }
 .positionname{
     font-size: 18px;
@@ -168,7 +175,8 @@
 }
 .position-list-center{
     float: left;
-    margin: 13px 23px 0px 13%;
+    /*margin: 13px 23px 0px 13%;*/
+    width: 33.3333%;
 }
 .position-btn{
     border: none;

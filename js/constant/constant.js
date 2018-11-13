@@ -9,5 +9,4 @@ angular.module('myApp')
     .constant('orderBy',[
         {name:"正序",value:0},
         {name:"倒序",value:1},
-        ])
-;
+        ]);
