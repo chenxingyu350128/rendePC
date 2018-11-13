@@ -2,7 +2,7 @@
 angular.module('myApp')
     .controller('WorkCtrl',function ($http,$state,$stateParams,common,modalBox) {
         let vm=this;
-        console.log($stateParams);
+        // console.log($stateParams);
         vm.keyword=$stateParams.find;
         let url='Boss/find_job';
         let data1={find:vm.keyword};

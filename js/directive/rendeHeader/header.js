@@ -9,6 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
 
         },
         link: function (scope) {
+
             scope.client=1;//0代表客户端1代表企业端
             scope.username='陈奕迅xiansheng';
             scope.sign=false;//表示已经登陆

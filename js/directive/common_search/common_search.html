@@ -7,13 +7,13 @@
         </div>
         <div class="hot_search">
             <span>热门搜索</span>
-            <span>实习生</span>
-            <span>建筑设计</span>
-            <span>电话销售</span>
-            <span>司机</span>
-            <span>预算员</span>
-            <span>营销总监</span>
-            <span>销售代表</span>
+            <span ng-repeat="data in vm.hot_search">{{data.name}}</span>
+            <!--<span>建筑设计</span>-->
+            <!--<span>电话销售</span>-->
+            <!--<span>司机</span>-->
+            <!--<span>预算员</span>-->
+            <!--<span>营销总监</span>-->
+            <!--<span>销售代表</span>-->
         </div>
     </div>
 </div>

@@ -17,7 +17,6 @@ angular.module('myApp')
                         if(callback){
                             callback();
                         }
-
                     }
                 });
             },

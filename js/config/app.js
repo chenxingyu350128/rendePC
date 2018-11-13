@@ -92,6 +92,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
+            // 职位修改
             .state('position&position0-modify',{
                 url: '/position&position0-modify',
                 templateUrl: 'html/position&position0-modify.html',

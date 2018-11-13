@@ -6,8 +6,12 @@ app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout
         replace: true,
         templateUrl: 'js/directive/common_search/common_search.html',
         scope: {
+
         },
         link: function (scope) {
+            var vm=this;
+            console.log(12243);
+
             //热门搜索
             let url5 ='other/hot_search';
             var data={};
@@ -15,8 +19,7 @@ app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout
                 vm.hot_search = res.data.data
                 console.log("热门搜索：",vm.hot_search)
                 scope.$eval(attr.repeatFinish)
-            }),function errorCallback(response) {
-            };
+            })
         }
     }
 });
