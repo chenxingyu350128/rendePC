@@ -483,47 +483,16 @@
     </div>
     <div class="container content">
         <div class="row outstanding">
-            <div ng-click="vm.resume()" class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
+            <div ng-repeat="x in vm.allResume|limitTo:5"
+                 ui-sref="personnel-detail"
+                 class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
                 <div class="outstandings text-center">
                     <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">巫女士</span>
+                    <span class="real_name">{{x.name}}</span>
                     <span class="P_data">十年以上学历|大专学历</span>
                     <span class="job redF">外贸/进出口专员</span>
                 </div>
             </div>
-            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                <div class="outstandings text-center">
-                    <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">巫女士</span>
-                    <span class="P_data">十年以上学历|大专学历</span>
-                    <span class="job redF">外贸/进出口专员</span>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                <div class="outstandings text-center">
-                    <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">巫女士</span>
-                    <span class="P_data">十年以上学历|大专学历</span>
-                    <span class="job redF">外贸/进出口专员</span>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                <div class="outstandings text-center">
-                    <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">巫女士</span>
-                    <span class="P_data">十年以上学历|大专学历</span>
-                    <span class="job redF">外贸/进出口专员</span>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
-                <div class="outstandings text-center">
-                    <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">巫女士</span>
-                    <span class="P_data">十年以上学历|大专学历</span>
-                    <span class="job redF">外贸/进出口专员</span>
-                </div>
-            </div>
-        </div>
     </div>
     <div class="container seeMore text-center">
         <img src="image/home/next_icon.png" alt="">

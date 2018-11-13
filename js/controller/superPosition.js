@@ -7,9 +7,9 @@ angular.module('myApp')
         vm.params=$stateParams;
         let data={};
         vm.companyjob=companyjob;//邀请面试
-        vm.cardDataList=cardDataList;
+        // vm.cardDataList=cardDataList;
         // vm.interview="";
-        cardDataList();
+        // cardDataList();
 
         let opts0=$('.position').find('.opt0');
         let opts1=$('.demand').find('.opt1');
@@ -33,53 +33,43 @@ angular.module('myApp')
         }
 
 
-        function cardDataList(e){
-            console.log(e);
-            vm.interview=e;
-            // 获取收到简历接口
-            let url1 ='Boss/show_resumelist';
-            var data1= {interview: vm.interview}
-            common.request(url1,data1).then(function callback(res){
-                vm.cardData = res.data.data;
-            }),function errorCallback(response) {};
-        }
+        // function cardDataList(e){
+        //     console.log(e);
+        //     vm.interview=e;
+        //
+        //
+        // }
+        // 获取收到简历接口
+        common.request('Boss/show_resumelist',data).then(function callback(res){
+            vm.cardData = res.data.data;
+        });
         // 获取行业类型接口
-        let url2 ='Boss/show_jobtype_list';
-        common.request(url2,data).then(function callback(res){
+        common.request('Boss/show_jobtype_list',data).then(function callback(res){
             vm.typeList = res.data.data;
-        }),function errorCallback(response) {
-        };
+        });
 
         // 获取到岗列表接口
-        let url3 ='Boss/come_job_list';
-        common.request(url3,data).then(function callback(res){
+        common.request('Boss/come_job_list',data).then(function callback(res){
             vm.comeJobList = res.data.data;
-        }),function errorCallback(response) {
-        };
+        });
 
         // 获取工作经验列表接口
-        let url4 ='Boss/show_job_years';
-        common.request(url4,data).then(function callback(res){
+        common.request('Boss/show_job_years',data).then(function callback(res){
             vm.expbList = res.data.data;
             // console.log("show_job_years",   vm.expbList)
-        }),function errorCallback(response) {
-        };
+        });
         // 获取学历列表接口
-        let url5 ='Boss/show_education_list';
-        common.request(url5,data).then(function callback(res){
+        common.request('Boss/show_education_list',data).then(function callback(res){
             vm.eduList = res.data.data;
-        }),function errorCallback(response) {
-        };
+        });
         // 邀请面试按钮接口
         function companyjob(id){
-            let url6 ='Boss/resume_interview';
-            var data6={r_id:id}
-            common.request(url6,data6).then(function callback(res){
+            var data6={r_id:id};
+            common.request('Boss/resume_interview',data6).then(function callback(res){
                 console.log(res)
                 vm.eduList = res.data.msg;
                 modalBox.confirm(vm.eduList);
-            }),function errorCallback(response) {
-            };
+            });
         }
         // vm.cardData=[
         //     {

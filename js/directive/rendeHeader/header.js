@@ -11,12 +11,12 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
         link: function (scope) {
 
             scope.client=1;//0代表客户端1代表企业端
-            scope.username='陈奕迅xiansheng';
+            scope.username='陈奕迅';
             scope.sign=false;//表示已经登陆
             let url0='boss/network_menu';
             let url1='Boss/show_menu_two';
             let data={};
-            //客户端homeMenu
+            //客户端homeMenu，企业端enterHome菜单栏
             if(!scope.homeMenu){
                 common.request(url0,data).then(function callback(res){
                     if(res.data.code===200){
@@ -39,7 +39,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                     }
                 });
             }
-            //nav跳转
+            //nav跳转效果
             scope.nav0=function(e){
                 switch (e){
                     case 1:
@@ -114,7 +114,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
                     'border-bottom':'5px solid plum',
                 });
             });
-
+            //地区选择
             scope.placeBtn=function(){
                 scope.changePlace=true;
             };

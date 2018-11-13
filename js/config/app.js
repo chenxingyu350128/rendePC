@@ -9,7 +9,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
         $urlRouterProvider.when('/','/home');
         $stateProvider//首页
             .state('home',{
-                url: '/home?position',
+                url: '/home',
                 templateUrl: 'html/home.html',
                 controller: 'HomeCtrl',
                 controllerAs: 'vm',
@@ -22,11 +22,31 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/susBox/sus.js',
                         'css/home.css',
                         'js/controller/home.js',
+                        'js/directive/repeatEnd2.js'
                     ])
                 }
-            })//找工作
+            })//简历详情页(个人增删改)
+            .state('resume',{
+                url: '/resume',
+                templateUrl: 'html/resume.html',
+                controller: 'resumeCtrl',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/resume.css',
+                        'js/controller/resume.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
+                    ])
+                }
+            })
+            //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?position&jobType&id&find',
+                url: '/workCtrl?jobType&id&find',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -42,7 +62,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })//职位详情
+            })//帮助页
             .state('help',{
                 url: '/help',
                 templateUrl: 'html/help.html',
@@ -55,9 +75,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/help.js'
                     ])
                 }
-            })
+            })//找人才
             .state('personel',{
-                url: '/personel?position&position0',
+                url: '/personel',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -72,7 +92,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
-            })
+            })//岗位详情
             .state('workDetail',{
                 url: '/workDetail?id',
                 templateUrl: 'html/workdetail.html',
@@ -93,24 +113,24 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             // 职位修改
-            .state('position&position0-modify',{
-                url: '/position&position0-modify',
-                templateUrl: 'html/position&position0-modify.html',
-                controller: 'position&position0ModifyCtrl',
+            .state('position-modify',{
+                url: '/position-modify',
+                templateUrl: 'html/position-modify.html',
+                controller: 'ModifyCtrl',
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
-                        'css/position&position0-modify.css',
+                        'css/position-modify.css',
                         'css/work.css',
                         'css/workdetail.css',
                         'css/personel.css',
-                        'js/controller/position&position0-modify.js'
+                        'js/controller/position-modify.js'
                     ])
                 }
             })
-            .state('hunt-position&position0',{
-                url: '/hunt-position&position0',
-                templateUrl: 'html/hunt-position&position0.html',
+            .state('hunt-position',{
+                url: '/hunt-position',
+                templateUrl: 'html/hunt-position.html',
                 controller: 'Huntposition&position0Ctrl',
                 controllerAs: 'vm',
                 resolve: {
@@ -120,9 +140,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/hunt-position&position0.js'
                     ])
                 }
-            })
+            })//人才详情
             .state('personnel-detail',{
-                url: '/personnel-detail',
+                url: '/personnel-detail?r_id&g_id',
                 templateUrl: 'html/personnel-detail.html',
                 controller: 'PersonnelDetailCtrl',
                 controllerAs: 'vm',
@@ -131,10 +151,16 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/personnel-detail.css',
                         'css/headhunt-detail.css',
                         'css/work.css',
-                        'js/controller/personnel-detail.js'
+                        'js/controller/personnel-detail.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
                     ])
                 }
-            })
+            })//商品详情
             .state('shop-detail',{
                 url: '/shop-detail?id',
                 templateUrl: 'html/shop-detail.html',
@@ -154,7 +180,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })
+            })//职场资讯列表
             .state('workplace-news',{
                 url: '/workplace-news',
                 templateUrl: 'html/workplace-news.html',
@@ -166,7 +192,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/workplace-news.js'
                     ])
                 }
-            })
+            })//职场资讯详情
             .state('new-detail',{
                 url: '/new-detail?id?index',
                 templateUrl: 'html/new-detail.html',
@@ -182,9 +208,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
-            })
+            })//找企业
             .state('enterprise',{
-                url: '/enterprise?position&position0',
+                url: '/enterprise',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',
@@ -202,7 +228,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//仁德猎头
             .state('headHunt',{
-                url: '/headHunt?position&position0',
+                url: '/headHunt',
                 templateUrl: 'html/headhunt.html',
                 controller: 'HeadhuntCtrl',
                 controllerAs: 'vm',
@@ -266,7 +292,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store?position&position0',
+                url: '/store',
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -305,9 +331,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/write-massage.js'
                     ])
                 }
-            })
+            })//仁德代理
             .state('proxy',{
-                url: '/proxy?position&position0',
+                url: '/proxy',
                 templateUrl: 'html/proxy.html',
                 controller: 'proxyCtrl',
                 controllerAs: 'vm',
@@ -323,9 +349,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
-            })
+            })//职场资讯
             .state('WPInfo',{
-                url: '/wpInfo?position&position0',
+                url: '/wpInfo',
                 templateUrl: 'html/workplace-news.html',
                 controller: 'wpInfo',
                 controllerAs: 'vm',
@@ -341,9 +367,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
-            })
+            })//普工
             .state('GWorker',{
-                url: '/GWorker?position&position0&type0',
+                url: '/GWorker?type0',
                 templateUrl: 'html/GWorker.html',
                 controller: 'GWorkerCtrl',
                 controllerAs: 'vm',
@@ -359,9 +385,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })
+            })//店铺/招普工
             .state('recruit',{
-                url: '/recruit?position&position0&type',
+                url: '/recruit?type',
                 templateUrl: 'html/recruit.html',
                 controller: 'recruitCtrl',
                 controllerAs: 'vm',
@@ -377,9 +403,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })
+            })//招聘会
             .state('jobFair',{
-                url: '/jobFair?position&position0',
+                url: '/jobFair',
                 templateUrl: 'html/jobFair.html',
                 controller: 'jobFairCtrl',
                 controllerAs: 'vm',
@@ -396,7 +422,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })
+            })//普工详情
             .state('GWDetail',{
                 url: '/GWDetail',
                 templateUrl: 'html/GWDetail.html',
@@ -437,7 +463,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             // 专题招聘
             .state('special-zp',{
-                url: '/special-zp?position&position0',
+                url: '/special-zp',
                 templateUrl: 'html/special-zp.html',
                 controller: 'SpecialZp',
                 controllerAs: 'vm',
@@ -508,6 +534,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/repeatEnd2.js'
                     ])
                 }
             })
@@ -544,7 +571,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('superPosition',{
-                url: '/superPosition?type0&type1&navType&position0&resumeType',
+                url: '/superPosition?type0&type1&navType&resumeType',
                 templateUrl: 'html/superPosition.html',
                 controller: 'superPosition',
                 controllerAs: 'vm',

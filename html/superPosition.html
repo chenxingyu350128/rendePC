@@ -59,30 +59,30 @@
     <div class="container main">
         <div ng-click="vm.ifSuper()" ng-if="vm.resumeType==0" ng-repeat="x in vm.cardData">
             <div class="lPart">
-                <img ng-src="{{x.avatar}}" alt="">
+                <img ng-src="{{x.img}}" alt="">
                 <div class="onLeft">
                     <div class="left1">
                         <div class="nameAndOcp">
                             <span class="name">{{x.name}}</span>
-                            <img ng-src="{{x.vipIf?'image/home/vipSign.png':''}}" alt="">
-                            <span class="position">{{x.position}}</span>
+                            <img style="visibility: hidden"  ng-src="{{x.vipIf?'image/home/vipSign.png':''}}" alt="">
+                            <span class="position">{{x.skill}}</span>
                         </div>
-                        <div class="intro">{{x.intro}}</div>
-                        <div class="place">{{x.place}}</div>
+                        <div class="intro">{{x.age}}|{{x.years}}|{{x.education}}</div>
+                        <div class="place">{{x.job_address}}</div>
                     </div>
                 </div>
             </div>
             <div class="cPart">
                 <div class="right1">
-                    <div class="like">{{x.like}}</div>
-                    <div class="status">{{x.status}}</div>
+                    <div class="like">{{x.want_job}}</div>
+                    <div class="status">{{x.job_type}}</div>
                 </div>
             </div>
             <div class="rPart">
                 <div class="onRight text-center">
-                    <div class="updateAt">更新时间:{{x.updateAt}}</div>
-                    <div class="button">查看简历</div>
-                    <div class="button">邀请面试</div>
+                    <div class="updateAt">更新时间:{{x.time}}</div>
+                    <div class="btn button {{x.look_type==1?'viewedResume':''}}" ng-disabled="x.look_type==1">查看简历</div>
+                    <div class="btn button {{x.status==2?'faced':''}}" ng-disabled="x.status==2">邀请面试</div>
                 </div>
             </div>
         </div>

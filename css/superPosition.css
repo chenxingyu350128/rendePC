@@ -49,4 +49,10 @@
     .tobeSuper .notice span {
       color: #fd7272; }
 
+.main > div .rPart .viewedResume {
+  background: #cacaca; }
+
+.main > div .rPart .faced {
+  background: #cacaca; }
+
 /*# sourceMappingURL=superPosition.css.map */

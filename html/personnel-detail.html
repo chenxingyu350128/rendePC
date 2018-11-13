@@ -1,25 +1,8 @@
+<rende-header></rende-header>
+<common-search></common-search>
 <!--人才详情-->
 <div class="work-body">
     <!--搜索-->
-    <div class="work-search">
-        <img src="image/work/searchBc.png" alt="">
-        <div class="search-content">
-            <button>搜索</button>
-            <input type="text" placeholder="搜索职位,公司或地点 ">
-        </div>
-        <div  class="hot-search">
-            <ul>
-                <li>热门搜索：</li>
-                <li>实习生</li>
-                <li>建筑设计</li>
-                <li>电话销售</li>
-                <li>司机</li>
-                <li>预算员</li>
-                <li>营销总监</li>
-                <li>销售代表</li>
-            </ul>
-        </div>
-    </div>
     <div class="workdetail-body">
         <div class="">
             <div class="">
@@ -28,19 +11,19 @@
                     <img src="image/home/out_avatar.png" alt="" class="personnel-img mt">
                     <div class="personnel-intr">
                             <div style="width: 100%">
-                                <span class="personnel-name">张雨文</span>
-                                <span class="fr grayF">更新时间：2018年10月16日</span><br>
+                                <span class="personnel-name">{{vm.x.name}}</span>
+                                <span class="fr grayF">更新时间：{{vm.x.time}}</span><br>
                             </div>
                         <div style="width: 100%;">
                             <div class="personnel-detail-intr">
-                                <span>年龄：22岁</span><br>
-                                <span>学历：本科</span><br>
-                                <span>现居地：福建仓山</span>
+                                <span>年龄：{{vm.x.age}}</span><br>
+                                <span>学历：{{vm.x.education}}</span><br>
+                                <span>现居地：{{vm.x.address}}</span>
                             </div>
                             <div class="personnel-detail-intr">
-                                <span>工作经验：2年</span><br>
-                                <span>联系邮箱：13435345@163.com</span><br>
-                                <span>联系电话：124354546</span>
+                                <span>工作经验：{{vm.x.years}}年</span><br>
+                                <span>联系邮箱：{{vm.x.email}}</span><br>
+                                <span>联系电话：{{vm.x.phone}}</span>
                             </div>
                             <div class="personnel-detail-intr">
                                 <span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：1次</span><br>
@@ -58,10 +41,10 @@
                 </div>
                 <div class="intention">
                     <div class="personnel-detail-intention">
-                        <span CLASS="grayF">意向岗位：</span> <span>人事助理</span><br>
-                        <span CLASS="grayF">工作地点：</span>  <span>福建福州</span><br>
-                        <span CLASS="grayF">到岗时间:</span>  <span>随时到岗</span><br>
-                        <span CLASS="grayF">工作性质:</span>  <span>不限</span>
+                        <span CLASS="grayF">意向岗位：</span> <span>{{vm.x.want_job}}</span><br>
+                        <span CLASS="grayF">工作地点：</span>  <span>{{vm.x.job_address}}</span><br>
+                        <span CLASS="grayF">到岗时间:</span>  <span>{{vm.x.job_type}}</span><br>
+                        <span CLASS="grayF">工作性质:</span>  <span>{{vm.x.nature}}</span>
                     </div>
                     <div class="personnel-detail-intention">
                        <span CLASS="grayF">从事行业：</span>  <span>人事/行政/高级管理</span><br>
@@ -137,9 +120,10 @@
                     <span > 自我评价</span>
                 </div>
                 <div class="intention">
-                  <p class="self-pj">暂无</p>
+                  <p class="self-pj">{{vm.x.recommend}}</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<rd-footer></rd-footer>

@@ -7,19 +7,31 @@
     <div class="position">
         <span class="ocp ">职位:</span>
         <span ui-sref="resumeManage({type0:0})" class="opt0 ocp">全部</span>
-        <span ui-sref="resumeManage({type0:$index+1})" class="opt0 ocp" ng-repeat="type in vm.typeList |limitTo:7 ">{{type}}</span>
-        <select class="ocp">
-            <option value="" ng-repeat="type in vm.typeList">{{type}}</option>
+        <span ui-sref="resumeManage({type0:$index+1})"
+              class="opt0 ocp"
+              ng-repeat="type in vm.typeList |limitTo:7"
+              on-finish-render-filters2>
+            {{type}}
+        </span>
+        <select class="ocp"
+                ng-model="vm.jobType"
+                ng-change="vm.jobFilter()"
+                ng-options="y for y in vm.typeList">
         </select>
     </div>
     <div class="demand">
         <span class="ocp ">更多:</span>
         <span ui-sref="resumeManage({type1:0})" class="opt1 ocp">全部</span>
-        <select class="ocp select" id="timeSelect">
-            <option value="0">投递时间</option>
-            <option value="1">近一个月投递</option>
-            <option value="2">三个月投递</option>
-            <option value="3">近半年投递</option>
+        <!--<select >-->
+            <!--<option value="">投递时间</option>-->
+            <!--<option value="1">正序</option>-->
+            <!--<option value="2">倒序</option>-->
+        <!--</select>-->
+        <select class="ocp select"
+                id="timeSelect"
+                ng-model="vm.select"
+                ng-change="vm.range(vm.select.value)"
+                ng-options="m.name for m in vm.orderBy">
         </select>
         <select class="ocp select" id="education" ng-init="education=''" ng-model="education">
             <option value="">学历要求</option>
@@ -55,8 +67,10 @@
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
 </div>
-<div class="container main">
-    <div ng-repeat="x in vm.cardData |filter:mSearch |filter:{education:education} |limitTo:8" ng-if="vm.resumeType==0" >
+<div class="container main_content">
+    <div ng-if="vm.resumeType==0"
+         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+         ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">
@@ -88,7 +102,9 @@
 
     </div>
 
-    <div ng-if="vm.resumeType==1" ng-repeat="x in vm.cardData|filter:mSearch |limitTo:8 ">
+    <div ng-if="vm.resumeType==1"
+         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+         ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">
@@ -112,14 +128,16 @@
         <div class="rPart">
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
-                <div class="button">查看简历</div>
+                <div ui-sref="" class="button">查看简历</div>
                 <div class="button" ng-click="vm.companyjob(x.r_id)">邀请面试</div>
             </div>
         </div>
 
     </div>
 
-    <div ng-if="vm.resumeType==2" ng-repeat="x in vm.cardData|filter:mSearch |limitTo:8">
+    <div ng-if="vm.resumeType==2"
+         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+         ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart face">
             <img ng-src="{{x.img}}" alt="">
             <div class="onLeft">
@@ -156,25 +174,6 @@
     </div>
 </div>
 <rd-footer></rd-footer>
-
-<script>
-    //获取下拉选择框选定的值
-//    var vm =this;
-//    vm.getSelect=getSelect;
-//    getSelect();
-//    function getSelect() {
-//        document.getElementById("#education").onchange = function () {
-//            //实时监听函数$scope.$apply
-////            vm.edu = $("#profitType").find("option:selected").val();
-////            console.log("选择学历类型：",vm.edu);
-//            console.log(1111)
-//        }
-//    }
-
-
-
-
-</script>
 
 
 
