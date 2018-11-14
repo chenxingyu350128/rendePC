@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,jobType,bannerImg,hotSearch,common,modalBox) {
+    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,boon,jobType,bannerImg,hotSearch,common,modalBox) {
         let vm=this;
         let dataEmpty={};
         $scope.$on('ngRepeatFinished2', function () {

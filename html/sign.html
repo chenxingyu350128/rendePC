@@ -16,7 +16,7 @@
                 <div class="inputs">
                     <label class="label1" for="mobile">
                         <img src="image/home/signIcon_gray.png" alt="">
-                        <input id="mobile" type="text" ng-model="vm.mobile" placeholder="手机号">
+                        <input id="mobile" type="text" ng-model="vm.phone" placeholder="手机号">
                     </label>
                     <label  class="label2" for="Ecode">
                         <img src="image/home/signIcon_gray.png" alt="">
@@ -45,7 +45,7 @@
                 <div class="inputs">
                     <label class="label1" for="Lmobile">
                         <img src="image/home/signIcon_gray.png" alt="">
-                        <input id="Lmobile" type="text" placeholder="手机号" value="13328942165">
+                        <input id="Lmobile" ng-model="vm.phone" type="text" placeholder="手机号" value="13328942165">
                     </label>
                     <label ng-if="vm.loginMethod==1" class="label2" for="Ecode2">
                         <img src="image/home/signIcon_gray.png" alt="">

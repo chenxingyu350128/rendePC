@@ -522,7 +522,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('resumeManage',{
-                url: '/resumeManage?type0&type1&resumeType&position0',
+                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx',
                 templateUrl: 'html/resumeManage.html',
                 controller: 'resumeManage',
                 controllerAs: 'vm',

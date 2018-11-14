@@ -6,8 +6,8 @@
 <div class="container options">
     <div class="position">
         <span class="ocp ">职位:</span>
-        <span ui-sref="resumeManage({type0:0})" class="opt0 ocp">全部</span>
-        <span ui-sref="resumeManage({type0:$index+1})"
+        <span ng-click="vm.jobTypeFilter('')" class="opt0 ocp">全部</span>
+        <span ng-click="vm.jobTypeFilter(type,$index+1)"
               class="opt0 ocp"
               ng-repeat="type in vm.typeList |limitTo:7"
               on-finish-render-filters2>
@@ -15,36 +15,46 @@
         </span>
         <select class="ocp"
                 ng-model="vm.jobType"
-                ng-change="vm.jobFilter()"
+                ng-change="vm.jobTypeFilter(vm.jobType)"
                 ng-options="y for y in vm.typeList">
+            <option value="">更多</option>
         </select>
     </div>
     <div class="demand">
         <span class="ocp ">更多:</span>
-        <span ui-sref="resumeManage({type1:0})" class="opt1 ocp">全部</span>
+        <span ng-click="vm.clearMatch()" class="opt1 ocp">全部</span>
         <select class="ocp select"
                 id="timeSelect"
                 ng-model="vm.select"
                 ng-change="vm.range(vm.select.value)"
                 ng-options="m.name for m in vm.orderBy">
         </select>
-        <select class="ocp select" id="education" ng-init="education=''" ng-model="education">
+        <select class="ocp select"
+                id="education"
+                ng-change="vm.eduFilter(vm.education)"
+                ng-model="vm.education">
             <option value="">学历要求</option>
-            <option value="{{edu.id}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
+            <option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
         </select>
-        <select class="ocp select">
+        <select ng-change="vm.expFilter(vm.exp)"
+                ng-model="vm.exp"
+                class="ocp select">
             <option value="">工作经验</option>
-            <option value="" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
+            <option value="{{exp.years}}" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
         </select>
-        <select class="ocp select">
+        <select class="ocp select"
+                ng-change="vm.sexFilter(vm.sex)"
+                ng-model="vm.sex">
             <option value="">性别要求</option>
-            <option value="">男</option>
-            <option value="">女</option>
+            <option value="男">男</option>
+            <option value="女">女</option>
 
         </select>
-        <select class="ocp select">
+        <select class="ocp select"
+                ng-change="vm.arrival(vm.come_job)"
+                ng-model="vm.come_job">
             <option value="" >到岗时间</option>
-            <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
+            <option value="{{come.name}}" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
         </select>
     </div>
 </div>
