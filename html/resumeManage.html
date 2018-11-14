@@ -22,7 +22,7 @@
     </div>
     <div class="demand">
         <span class="ocp ">更多:</span>
-        <span ng-click="vm.clearMatch()" class="opt1 ocp">全部</span>
+        <span ng-click="vm.clearMatch()" class="opt1 ocp allOptions">全部</span>
         <select class="ocp select"
                 id="timeSelect"
                 ng-model="vm.select"
@@ -59,22 +59,24 @@
     </div>
 </div>
 <div class="navTitle container">
-    <div class="{{vm.resumeType==0?'checkedResume':''}}" ui-sref="resumeManage({resumeType:0})">
+    <div class="{{vm.resumeType==0?'checkedResume':''}}"
+         ng-click="vm.tabSwitch(0)">
         <span class="text-center" ng-click="vm.cardDataList('')">全部</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div class="{{vm.resumeType==1?'checkedResume':''}}" ui-sref="resumeManage({resumeType:1})">
+    <div class="{{vm.resumeType==1?'checkedResume':''}}"
+         ng-click="vm.tabSwitch(1)">
         <span class="text-center" ng-click="vm.cardDataList('')">收到的投递</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div class="{{vm.resumeType==2?'checkedResume':''}}" ui-sref="resumeManage({resumeType:2})">
-        <span class="text-center" ng-click="vm.cardDataList(1)">邀请面试</span>
+    <div class="{{vm.resumeType==2?'checkedResume':''}}"
+         ng-click="vm.tabSwitch(2)">
+        <span class="text-center">邀请面试</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
 </div>
 <div class="container main_content">
     <div ng-if="vm.resumeType==0"
-         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
          ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
@@ -99,8 +101,11 @@
        <div class="rPart">
            <div class="onRight text-center">
                <div class="updateAt">更新时间:{{x.time}}</div>
-               <div class="button">查看简历</div>
-               <div class="button" ng-click="vm.companyjob(x.r_id)">邀请面试</div>
+               <div ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+                    class="button">
+                   查看简历
+               </div>
+               <div class="button" ng-click="vm.inviteFace(x.r_id)">邀请面试</div>
            </div>
        </div>
 
@@ -108,7 +113,6 @@
     </div>
 
     <div ng-if="vm.resumeType==1"
-         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
          ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart">
             <img ng-src="{{x.img}}" alt="">
@@ -133,15 +137,15 @@
         <div class="rPart">
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
-                <div ui-sref="" class="button">查看简历</div>
-                <div class="button" ng-click="vm.companyjob(x.r_id)">邀请面试</div>
+                <div ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+                     class="button">查看简历</div>
+                <div class="button" ng-click="vm.inviteFace(x.r_id)">邀请面试</div>
             </div>
         </div>
 
     </div>
 
     <div ng-if="vm.resumeType==2"
-         ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
          ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
         <div class="lPart face">
             <img ng-src="{{x.img}}" alt="">

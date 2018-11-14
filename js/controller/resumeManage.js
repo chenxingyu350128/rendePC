@@ -1,12 +1,13 @@
 'use strict';
 angular.module('myApp')
-    .controller('resumeManage',function ($http,$state,$scope,$stateParams,orderBy,eduList,expList,arrival,jobType,common,modalBox) {
+    .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,orderBy,eduList,expList,arrival,jobType,common,modalBox) {
         let vm=this;
         let data={};
-        vm.resumeType=parseInt($stateParams.resumeType)||0;
+        //选择tab(收到的投递，全部，邀请面试)
         vm.params=$stateParams;
         console.log($stateParams);
         // 将页面上的数据绑定到$stateParams
+        vm.resumeType=parseInt(vm.params.resumeType)||0;
         vm.education=vm.params.education;
         vm.exp=vm.params.years;
         vm.sex=vm.params.sex;
@@ -17,7 +18,26 @@ angular.module('myApp')
             sex: vm.params.sex,
             education: vm.params.education,
             years: vm.params.years,
-            idx: vm.params.idx
+            idx: vm.params.idx,
+            interview: vm.params.interview,
+            resumeType: vm.resumeType
+        };
+        vm.postData={
+            job_type: vm.params.job_type,
+            come_job: vm.params.come_job,
+            sex: vm.params.sex,
+            education: vm.params.education,
+            years: vm.params.years,
+            interview: vm.params.interview
+        };
+        //tabSwitch
+        vm.tabSwitch=function(e){
+           if(e===2){
+               vm.postData['interview']=vm.filterData['interview']='hello';
+           }
+            vm.filterData['resumeType']=e;
+           console.log('数值：',vm.filterData);
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };
         //正序倒序排列
         vm.orderBy=orderBy;
@@ -58,13 +78,8 @@ angular.module('myApp')
                     'color': '#fff',
                     'background':'#31BEFF'
                 });
-                // for(let i=0;i<opts0.length;i++){
-                //     if(idx-1===i){
-                //
-                //     }
-                // }
                 //选择行业
-                vm.filterData['job_type']=e;
+                vm.postData['job_type']=vm.filterData['job_type']=e;
                 vm.filterData['idx']=idx;
                 console.log(vm.filterData);
                 $state.go('resumeManage',vm.filterData,{reload:true});
@@ -73,29 +88,40 @@ angular.module('myApp')
         //学历筛选
         vm.eduFilter=function(e){
             console.log(e);
-            vm.filterData['education']=e;
+            vm.postData['education']=vm.filterData['education']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };//工作经验筛选
         vm.expFilter=function(e){
             console.log(e);
-            vm.filterData['years']=e;
+            vm.postData['years']=vm.filterData['years']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };//性别筛选
         vm.sexFilter=function(e){
             console.log(e);
-            vm.filterData['sex']=e;
+            vm.postData['sex']=vm.filterData['sex']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };//到岗时间筛选
         vm.arrival=function(e){
             console.log(e);
-            vm.filterData['come_job']=e;
+            vm.postData['come_job']=vm.filterData['come_job']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
-        // 获取简历接口
-        common.request('Boss/show_resumelist',vm.filterData).then(function callback(res) {
-            vm.cardData = res.data.data;
-            console.log(res);
-            console.log(vm.cardData)
+        // 获取简历接口(全部简历/收到的简历)
+        common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
+            if(res.data.code===200){
+                vm.cardData = res.data.data;
+                console.log(res);
+            }else if(res.data.code===201){
+                modalBox.alert(res.data.msg,function(){
+                    $timeout(function(){
+                        $state.go('signPage',{login:1})
+                    },300)
+                });
+            }
+            else{
+                modalBox.alert(res.data.msg)
+            }
+
         });
 //**************************获取各个列表************************
         // 获取行业类型接口
@@ -141,17 +167,31 @@ angular.module('myApp')
                 come_job: '',
                 sex: '',
                 education: '',
-                years: ''
+                years: '',
+                idx: '',
+                interview: ''
             };
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
         // 邀请面试按钮接口
-        vm.companyjob=function(id){
-            let url6 ='Boss/resume_interview';
-            var data6={r_id:id};
-            common.request(url6,data6).then(function callback(res){
-                vm.eduList = res.data.msg;
-                modalBox.confirm(vm.eduList);
+        vm.inviteFace=function(id){
+            let data={r_id:id};
+            common.request('Boss/resume_interview',data).then(function callback(res){
+                console.log(res);
+                if(res.data.code===200){
+                    modalBox.alert(res.data.msg);
+                }
+                else if(res.data.code===201){
+                    modalBox.alert(res.data.msg,function(){
+                        $timeout(function(){
+                            $state.go('signPage',{login:1})
+                        },300)
+                    });
+                }
+                else{
+                    modalBox.alert(res.data.msg)
+                }
+
             });
         }
     });

@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCities,common){
+app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome){
     return {
         restrict: 'EA',
         replace: true,
@@ -17,27 +17,47 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,provinceAndCitie
             let url1='Boss/show_menu_two';
             let data={};
             //客户端homeMenu，企业端enterHome菜单栏
-            if(!scope.homeMenu){
+            if(!homeMenu){
+                console.log('请求获取homeMenu');
                 common.request(url0,data).then(function callback(res){
                     if(res.data.code===200){
                         scope.homeMenu=res.data.data;
+                        sessionStorage.setItem('homeMenu',JSON.stringify(scope.homeMenu));
                     }
-                    else if(res.data.code===404){
-                        modalBox.alert('header1')
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
                     }
                 });
-                // 企业端homeMenu
-
-            }
-            if(!scope.enterHome){
+            }else{
+                scope.homeMenu=homeMenu;
+            } // 企业端homeMenu
+            if(!enterHome){
+                console.log('请求获取homeMenu');
                 common.request(url1,data).then(function callback(res){
                     if(res.data.code===200){
                         scope.enterHome=res.data.data;
+                        sessionStorage.setItem('enterHome',JSON.stringify(scope.enterHome));
                     }
-                    else if(res.data.code===404){
-                        modalBox.alert('header2')
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
                     }
                 });
+            }else{
+                scope.enterHome=enterHome;
             }
             //nav跳转效果
             scope.nav0=function(e){
