@@ -7,6 +7,7 @@ angular.module('myApp')
         let index=$stateParams.index;
         console.log(index)
         vm.cinfo=cinfo;
+        vm.others=others;
 
         // 查看岗位信息
         common.request("boss/look_job",data).then(function callback(res){
@@ -15,6 +16,7 @@ angular.module('myApp')
                 console.log(vm.info);
                 cinfo(vm.info.c_id);
                 like(vm.info.job_type);
+                others(vm.info.id)
             }
             else if(res.data.code===201){
                 modalBox.alert('未注册，登录已过期');
@@ -32,32 +34,60 @@ angular.module('myApp')
         });
 
         // 查看该公司的其他职位
-        common.request("Boss/company_job_list",data).then(function callback(res){
-            vm.others=res.data.data;
-            for(var i=0;i<vm.others.length;i++){
-            if(i==index){
-                vm.other=vm.others[i]
+        function others(id){
+            common.request("Boss/company_job_list",data).then(function callback(res){
+                vm.others=res.data.data;
+                for(var i=0;i<vm.others.length;i++){
+                    if(vm.others[i].id==id){
+                      // console.log("查看该公司的其他职位",vm.others[i])
+                        vm.others.splice(i,1)
+                    }
                 }
-            }
-        });
+                console.log("查看该公司的其他职位",vm.others)
+            });
+        }
+
 
         //查看相似职位列表
         function like(type){
             common.request("Boss/resemble_job",{job_type:type}).then(function callback(res){
                 vm.like=res.data.data;
-                console.log("查看相似职位列表:", vm.like)
+                // console.log("查看相似职位列表:", vm.like)
             });
         }
-
 
         //查看公司信息
         function cinfo(id){
             common.request("Boss/look_company",{c_id:id}).then(function callback(res){
                 vm.cinfo=res.data.data;
-                console.log("【获取公司信息】：",vm.cinfo)
+                // console.log("【获取公司信息】：",vm.cinfo)
             });
         }
 
+        // 收藏岗位
+        vm.collect=function(id){
+            common.request("user/like_job",{j_id:id}).then(function callback(res){
+                console.log("【收藏岗位信息】：",   res.data.msg)
+                if(  res.data.msg=="收藏成功"){
+                    modalBox.alert( res.data.msg)
+                    $('#collect').text( "已收藏")
+                }else if(res.data.msg=="已经取消收藏该职位"){
+                    modalBox.alert( res.data.msg)
+                    $('#collect').text( "收藏")
+                }
+            });
+        }
+
+        //投递简历
+        vm.throwResume=function(id){
+            common.request("user/throw_resume",{j_id:id}).then(function callback(res){
+                if(  res.data.code==200){
+                    modalBox.alert( res.data.msg)
+                    $('#throwResume').text( "已投递");
+                    // $("#throwResume").attr({"disabled":"disabled"});
+                }
+            });
+        }
 
 
         vm.shownum =shownum;

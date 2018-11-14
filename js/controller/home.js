@@ -26,8 +26,9 @@ angular.module('myApp')
                 }
             });
         }else{
-            vm.jobType=jobType;
-        }//资讯列表
+            vm.jobType = jobType;
+        }
+        //资讯列表
         common.request('Boss/show_news',dataEmpty).then(function callback(res){
             if(res.data.code===200){
                 vm.newsList=res.data.data;
@@ -43,7 +44,9 @@ angular.module('myApp')
             else if(res.data.code===404){
                 modalBox.alert('home2')
             }
-        });//热门搜索
+        });
+
+        //热门搜索
         if(!hotSearch){
             common.request('other/hot_search',dataEmpty).then(function callback(res){
                 if(res.data.code===200){
@@ -63,6 +66,7 @@ angular.module('myApp')
         }else{
             vm.hotSearch=hotSearch;
         }
+
         //banner轮播图
         if(!bannerImg){
             common.request('Boss/show_banner',dataEmpty).then(function callback(res){
@@ -83,14 +87,15 @@ angular.module('myApp')
         }else{
             vm.banner=bannerImg;
         }
+
         //福利待遇列表
         if(!boon){
-            common.request('Boss/show_banner',dataEmpty).then(function callback(res){
+            common.request('Boss/show_boon',dataEmpty).then(function callback(res){
                 if(res.data.code===200){
                     vm.boon=res.data.data;
                     sessionStorage.setItem('boon',JSON.stringify(vm.boon));
                 }
-                else if(resvm.boon.data.code===201){
+                else if(res.data.code===201){
                     modalBox.alert('未注册，登录已过期');
                     $timeout(function(){
                         $state.go('sign',{sign:1})

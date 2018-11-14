@@ -6,61 +6,9 @@
     <div class="top container">
         <!--<div class="row">-->
         <div class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
-            <div ui-sref="WorkCtrl">
-                <img src="image/home/type1.png" alt="">
-                公务员/翻译/其他
-            </div>
-            <div ui-sref="WorkCtrl">
-                <img src="image/home/type1.png" alt="">
-                贸易/百货
-            </div>
-            <div ui-sref="WorkCtrl">
-                <img src="image/home/type1.png" alt="">
-                机械/设备/技工
-            </div>
-            <div ui-sref="WorkCtrl">
-                <img src="image/home/type1.png" alt="">
-                通信/电子
-            </div>
-            <div ui-sref="WorkCtrl">
-                <img src="image/home/type1.png" alt="">
-                化工/讷讷感元
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                销售/客服/技术支持
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                生产/运营/物流/采购
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                生物/制药
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                建筑/房地产
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                人事/行政/高级管理
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                会计/金融/银行/保险
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                咨询/法律/教育/科研
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                服务业
-            </div>
-            <div>
-                <img src="image/home/type1.png" alt="">
-                计算机/互联网
+            <div ui-sref="WorkCtrl({jobType: {{$index}}})" ng-repeat="jobType in vm.jobType">
+                <img src="image/home/type1.png" alt="" >
+                {{jobType}}
             </div>
         </div>
         <div class="topDiv swiper col-md-6 col-lg-6 col-sm-9 col-xs-12">
@@ -73,15 +21,10 @@
                 </ol>
                 <!-- 轮播（Carousel）项目 -->
                 <div class="carousel-inner">
-                    <div class="item active">
-                        <img src="image/home/swiper.png" alt="First slide">
+                    <div ng-repeat="x in vm.banner" class="item" on-finish-render-filters2>
+                        <img src="{{x.img}}" alt="First slide">
                     </div>
-                    <div class="item">
-                        <img src="image/home/swiper.png" alt="Second slide">
-                    </div>
-                    <div class="item">
-                        <img src="image/home/swiper.png" alt="Third slide">
-                    </div>
+
                 </div>
                 <!-- 轮播（Carousel）导航 -->
                 <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -95,24 +38,16 @@
             </div>
             <div class="search">
                 <div class="searchBox">
-                    <input placeholder="搜索职位、公司或地点" type="text"><button>搜索</button>
+                    <input placeholder="搜索职位、公司或地点" type="text" ng-model="vm.keyword"><button ui-sref="WorkCtrl({find:'{{vm.keyword}}'})">搜索</button>
                 </div>
                 <div class="hot">
                     <span class="redF">热门搜索:</span>
-                    <span>实习生</span>
-                    <span>建筑设计</span>
-                    <span>电话销售</span>
-                    <span>司机</span>
-                    <span>预算员</span>
-                    <span>营销总监</span>
-                    <span>销售代表</span>
+                    <span ui-sref="WorkCtrl({find:'{{x.name}}',position:2})" ng-repeat="x in vm.hotSearch">{{x.name}}</span>
                 </div>
             </div>
         </div>
         <div class="topDiv rightImg col-md-3 col-lg-3 col-sm-12 col-xs-12">
-            <img src="image/home/card_01.png" alt="">
-            <img src="image/home/card_02.png" alt="">
-            <img src="image/home/card_03.png" alt="">
+            <img ng-repeat="x in vm.banner" src="{{x.img}}" alt="">
         </div>
         <!--</div>-->
     </div>

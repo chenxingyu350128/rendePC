@@ -200,6 +200,9 @@ body{
     margin-bottom: .32rem;
     margin-top: .23rem;
 }
+.company img{
+    height: 0.47rem
+}
 .detail{
     visibility: hidden;
     position: absolute;

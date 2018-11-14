@@ -17,9 +17,8 @@
         <span ui-sref="resumeManage({type1:0})" class="opt1 ocp">全部</span>
         <select class="ocp select" id="timeSelect">
             <option value="0">投递时间</option>
-            <option value="1">近一个月投递</option>
-            <option value="2">三个月投递</option>
-            <option value="3">近半年投递</option>
+            <option value="1">正序</option>
+            <option value="2">倒序</option>
         </select>
         <select class="ocp select" id="education" ng-init="education=''" ng-model="education">
             <option value="">学历要求</option>
@@ -42,16 +41,16 @@
     </div>
 </div>
 <div class="navTitle container">
-    <div class="{{vm.resumeType==0?'checkedResume':''}}" ui-sref="resumeManage({resumeType:0})">
-        <span class="text-center">全部</span>
+    <div class="{{vm.resumeType==0?'checkedResume':''}}" ui-sref="searchTalent({resumeType:0})">
+        <span class="text-center"   ng-click="vm.cardDataList('')">全部</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div class="{{vm.resumeType==1?'checkedResume':''}}" ui-sref="resumeManage({resumeType:1})">
-        <span class="text-center">收到的投递</span>
+    <div class="{{vm.resumeType==1?'checkedResume':''}}" ui-sref="searchTalent({resumeType:1})">
+        <span class="text-center"  ng-click="vm.cardDataList('')">收到的投递</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div class="{{vm.resumeType==2?'checkedResume':''}}" ui-sref="resumeManage({resumeType:2})">
-        <span class="text-center">邀请面试</span>
+    <div class="{{vm.resumeType==2?'checkedResume':''}}" ui-sref="searchTalent({resumeType:2})">
+        <span class="text-center"  ng-click="vm.cardDataList(1)">邀请面试</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
 </div>

@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('recruitCtrl',function ($http,$state,$stateParams,common,modalBox,$timeout) {
+    .controller('recruitCtrl',function ($http,$state,$stateParams,common,modalBox,$timeout,jobType) {
         let vm=this;
         vm.nav=1;
         vm.type=$stateParams.type||1;
+        vm.typeList = jobType;
         // console.log(vm.type);
         let url='boss/show_work';
         vm.pickNav=pickNav;
@@ -54,13 +55,5 @@ angular.module('myApp')
 
 
 
-        // 获取行业类型接口
-        var data ={};
-        let url2 ='Boss/show_jobtype_list';
-        common.request(url2,data).then(function callback(res){
-            vm.typeList = res.data.data;
-            // console.log('行业类型回调数据：',vm.typeList)
-        }),function errorCallback(response) {
-        };
 
     });

@@ -32,9 +32,8 @@ angular.module('myApp')
             console.log(e);
             vm.interview=e;
             // 获取收到简历接口
-            let url1 ='Boss/show_resumelist';
             var data1= {interview: vm.interview}
-            common.request(url1,data1).then(function callback(res){
+            common.request('Boss/show_resumelist',data1).then(function callback(res){
                 vm.cardData = res.data.data;
             }),function errorCallback(response) {};
         }

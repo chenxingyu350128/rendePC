@@ -72,6 +72,7 @@
           margin: 0 .15rem; }
     .enterDesc .enterRight button {
       margin: .4rem auto 0;
+      border: none;
       width: 70%;
       line-height: .5rem;
       background: #f00;

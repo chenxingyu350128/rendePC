@@ -72,7 +72,13 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/help.css',
                         'css/work.css',
-                        'js/controller/help.js'
+                        'js/controller/help.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
                     ])
                 }
             })//找人才
@@ -94,7 +100,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//岗位详情
             .state('workDetail',{
-                url: '/workDetail?id?index',
+                url: '/workDetail?id',
                 templateUrl: 'html/workdetail.html',
                 controller: 'WorkDetail',
                 controllerAs: 'vm',
@@ -266,7 +272,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
 
             //企业详情
             .state('enterpriseInfo',{
-                url: '/enterprise/enterpriseInfo',
+                url: '/enterprise/enterpriseInfo?id',
                 templateUrl: 'html/enterpriseInfo.html',
                 controller: 'enterpriseInfo',
                 controllerAs: 'vm',
@@ -424,7 +430,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//普工详情
             .state('GWDetail',{
-                url: '/GWDetail',
+                url: '/GWDetail?id',
                 templateUrl: 'html/GWDetail.html',
                 controller: 'GWDetail',
                 controllerAs: 'vm',
@@ -443,7 +449,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('GWResume',{//普工简历详情
-                url: '/GWResume',
+                url: '/GWResume?id',
                 templateUrl: 'html/GWResume.html',
                 controller: 'GWResume',
                 controllerAs: 'vm',

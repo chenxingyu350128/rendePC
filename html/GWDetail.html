@@ -9,18 +9,18 @@
     <div class="leftSide">
         <div class="intro">
             <div class="left">
-                <div class="ocp">服务员，收银员，洗碗工，配菜员</div>
-                <div class="salary redF">￥2800-3800</div>
-                <div class="endAt grayF">截至日期: 2019-08-29</div>
-                <div class="address">地址: 东泰禾广场商业街</div>
+                <div class="ocp">{{vm.workDetail.title}}</div>
+                <div class="salary redF">{{vm.workDetail.money}}</div>
+                <div class="endAt grayF">截至日期:{{vm.workDetail.end_time}}</div>
+                <div class="address">地址: {{vm.workDetail.address}}</div>
                 <div class="contact">
-                    <span class="contactMethod">联系电话: 15287365413</span>
-                    <span class="contactMethod">联系人: 陈星星</span>
+                    <span class="contactMethod">联系电话: {{vm.workDetail.phone}}</span>
+                    <span class="contactMethod">联系人: {{vm.workDetail.name}}</span>
                 </div>
             </div>
             <div class="right text-right">
-                <div class="updateAt">2018-08-13 更新</div>
-                <div class="viewCount">被浏览: 1次</div>
+                <div class="updateAt">{{vm.workDetail.time}} 更新</div>
+                <div class="viewCount">被浏览: {{vm.workDetail.look}}次</div>
                 <div class="icons">
                     <div class="rec">
                         <img src="image/home/rec.png" alt="">
@@ -40,8 +40,7 @@
             </div>
             <div class="demand">
                 <span>
-                    服务员：2800-3000；收银员：3000-3200元；洗碗工：3000-3200元；配菜员：3400-3800元，煮饭
-                员：3400-3800元。
+                   {{vm.workDetail.content}}
                 </span>
             </div>
         </div>
@@ -51,9 +50,9 @@
                 <span class="redF">修改删除</span>
             </div>
             <div class="options">
-                <div class="button refresh">刷新</div>
-                <div class="button modify">修改</div>
-                <div class="button delete">删除</div>
+                <div class="button refresh" ui-sref="GWDetail(vm.workDetail.id)">刷新</div>
+                <!--<div class="button modify">修改</div>-->
+                <div class="button delete" ng-click="vm.delect(vm.workDetail.id)">删除</div>
             </div>
             <div class="desc">
                 <div class="redF">操作说明:</div>

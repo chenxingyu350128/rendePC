@@ -147,7 +147,8 @@
 .position-list-right{
     float: left;
     /*margin: 11px 23px 0px 23px;*/
-    width: 33.3333%;
+    width: 30.3333%;
+    margin-left: 15px;
 }
 .noList{
     text-align: center;
@@ -172,12 +173,16 @@
 .workdemand{
     padding-top: .18rem;
     display: inline-block;
+    width: 100%;
 }
 .position-list-center{
     float: left;
     /*margin: 13px 23px 0px 13%;*/
-    width: 33.3333%;
+    width: 28.3333%
 }
+.clogo-img{
+    width: 100%;
+    height: 92px;}
 .position-btn{
     border: none;
     background-color: red;
