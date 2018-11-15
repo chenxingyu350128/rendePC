@@ -108,17 +108,17 @@ angular.module('myApp')
                         if(res.data.code===200){
                             console.log(res.data.data);
                             vm.types = res.data.data;
-                            vm.typeList=[];
+                            vm.devJobType=[];
                             vm.innerType=[];
                             for(let i=0;i<vm.types.length;i++){
                                 if(vm.types[i].fid===0){
-                                    vm.typeList.push(vm.types[i])
+                                    vm.devJobType.push(vm.types[i])
                                 }
                             }
                             vm.eazyMainType=[];
-                            for(let i=0;i<vm.typeList.length;i++){
+                            for(let i=0;i<vm.devJobType.length;i++){
                                 vm.innerType[i]=[];
-                                vm.eazyMainType[i]=vm.typeList[i].name;
+                                vm.eazyMainType[i]=vm.devJobType[i].name;
                             }
                             console.log(vm.innerType);
                             vm.childTypes=vm.types.slice(vm.typeList.length);
@@ -133,7 +133,7 @@ angular.module('myApp')
                             console.log(vm.typeList);
                             console.log(vm.innerType);
                             sessionStorage.setItem('jobType',JSON.stringify(vm.eazyMainType));
-                            sessionStorage.setItem('devJobType',JSON.stringify(vm.typeList));
+                            sessionStorage.setItem('devJobType',JSON.stringify(vm.devJobType));
                             sessionStorage.setItem('innerType',JSON.stringify(vm.innerType));
                         }
                         else if(res.data.code===201){
@@ -149,8 +149,9 @@ angular.module('myApp')
                     });
                 }
                 else{
-                    vm.typeList=jobType;
+                    vm.devJobType=devJobType;
                     vm.innerType=innerType;
+                    vm.eazyMainType=jobType;
                     console.log(vm.typeList.length)
                 }
                 //热门搜索
@@ -332,8 +333,8 @@ angular.module('myApp')
                     vm.sizeList=sizeList;
                 }
                 return {
-                    jobType: vm.devJobType,
-                    devJobType: vm.typeList,
+                    jobType: vm.eazyMainType,
+                    devJobType: vm.devJobType,
                     innerType: vm.innerType,
                     arrival: vm.comeJobList,
                     eduList: vm.eduList,
