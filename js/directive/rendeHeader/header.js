@@ -133,7 +133,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     'border-bottom':'5px solid #e11c19',
                 });
                 navList1.eq(scope.idx1-1).css({
-                    'border-bottom':'5px solid plum',
+                    'border-bottom':'5px solid #e11c19',
                 });
             });
             //地区选择
