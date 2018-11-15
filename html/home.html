@@ -6,10 +6,15 @@
     <div id="header_top" class="container-fluid topShell">
         <div class="top container">
             <!--<div class="row">-->
-            <div class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
-                <div ng-repeat="x in vm.jobType" ui-sref="WorkCtrl({jobType: {{$index}}})">
+            <div  ng-mouseleave="vm.mouseLeave()" class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
+                <div ng-repeat="x in vm.jobType"
+                     ng-mouseenter="vm.mouseEnter(x.id)"
+                     ui-sref="WorkCtrl({jobType: {{$index}}})">
                     <img src="image/home/type1.png" alt="">
-                    {{x}}
+                    {{x.name}}
+                </div>
+                <div ng-if="vm.showCates" class="typeDetails" ng-style="{'top':'calc(' + vm.cateIdx*33.75+'px)'}">
+                    <span class="category" ng-repeat="x in vm.typeDetail" ng-click="vm.category(x.id)">{{x.name}}</span>
                 </div>
             </div>
             <div class="topDiv swiper col-md-6 col-lg-6 col-sm-9 col-xs-12">

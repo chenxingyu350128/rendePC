@@ -10,7 +10,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
         },
         link: function (scope) {
 
-            scope.client=1;//0代表客户端1代表企业端
+            scope.client=0;//0代表客户端1代表企业端
             scope.username='陈奕迅';
             scope.signIf=JSON.parse(sessionStorage.getItem('signSuccess'));
             let url0='boss/network_menu';

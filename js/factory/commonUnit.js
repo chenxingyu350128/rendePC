@@ -79,8 +79,6 @@ angular.module('myApp')
                 postData['data'] = JSON.stringify(data);
                 postData['timestrap'] = Date.parse(new Date()) / 1000;
                 postData['sign'] = that.sign(postData,appsecret);
-                // postData['uid'] = JSON.parse(sessionStorage.getItem('uid'));
-                // postData['token'] = JSON.parse(sessionStorage.getItem('token'));
                 return $http({
                     method: 'POST',
                     url: real_url,
@@ -99,17 +97,44 @@ angular.module('myApp')
 
         }
     })
-    .factory('listsRequest',function($http,$state,$timeout,common,modalBox,jobType,arrival,expList,eduList,natureList,sizeList){
+    .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,bannerImg,boon,hotSearch){
         return {
             lists: function(){
                 // 获取行业类型接口
                 let vm=this;
                 let data={};
-                if(!jobType){
+                if(!jobType||!innerType){
                     common.request('Boss/show_jobtype_list',data).then(function callback(res){
                         if(res.data.code===200){
-                            vm.typeList = res.data.data;
-                            sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
+                            console.log(res.data.data);
+                            vm.types = res.data.data;
+                            vm.typeList=[];
+                            vm.innerType=[];
+                            for(let i=0;i<vm.types.length;i++){
+                                if(vm.types[i].fid===0){
+                                    vm.typeList.push(vm.types[i])
+                                }
+                            }
+                            vm.eazyMainType=[];
+                            for(let i=0;i<vm.typeList.length;i++){
+                                vm.innerType[i]=[];
+                                vm.eazyMainType[i]=vm.typeList[i].name;
+                            }
+                            console.log(vm.innerType);
+                            vm.childTypes=vm.types.slice(vm.typeList.length);
+                            console.log(vm.childTypes);
+                            for(let i=0;i<vm.childTypes.length;i++){
+                                for(let j=1;j<vm.typeList.length+1;j++){
+                                    if(vm.childTypes[i].fid===j){
+                                        vm.innerType[j-1].push(vm.childTypes[i])
+                                    }
+                                }
+                            }
+                            console.log(vm.typeList);
+                            console.log(vm.innerType);
+                            sessionStorage.setItem('jobType',JSON.stringify(vm.eazyMainType));
+                            sessionStorage.setItem('devJobType',JSON.stringify(vm.typeList));
+                            sessionStorage.setItem('innerType',JSON.stringify(vm.innerType));
                         }
                         else if(res.data.code===201){
                             modalBox.alert(res.data.msg,function(){
@@ -125,6 +150,74 @@ angular.module('myApp')
                 }
                 else{
                     vm.typeList=jobType;
+                    vm.innerType=innerType;
+                    console.log(vm.typeList.length)
+                }
+                //热门搜索
+                if(!hotSearch){
+                    common.request('other/hot_search',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.hotSearch=res.data.data;
+                            sessionStorage.setItem('hotSearch',JSON.stringify(res.data.data))
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert('未注册或登录已过期',function(){
+                                sessionStorage.removeItem('signSuccess');
+                                $timeout(function(){
+                                    $state.go('signPage',{sign:1})
+                                },300)
+                            });
+                        }
+                        else if(res.data.code===404){
+                            modalBox.alert(res.data.msg)
+                        }
+                    });
+                }else{
+                    vm.hotSearch=hotSearch;
+                }
+                //banner轮播图
+                if(!bannerImg){
+                    common.request('Boss/show_banner',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.banner=res.data.data;
+                            sessionStorage.setItem('bannerImg',JSON.stringify(vm.banner));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert('未注册或登录已过期',function(){
+                                sessionStorage.removeItem('signSuccess');
+                                $timeout(function(){
+                                    $state.go('signPage',{sign:1})
+                                },300)
+                            });
+                        }
+                        else if(res.data.code===404){
+                            modalBox.alert(res.data.msg)
+                        }
+                    });
+                }else{
+                    vm.banner=bannerImg;
+                }
+                //福利待遇列表
+                if(!boon){
+                    common.request('Boss/show_banner',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.boon=res.data.data;
+                            sessionStorage.setItem('boon',JSON.stringify(vm.boon));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert('未注册或登录已过期',function(){
+                                sessionStorage.removeItem('signSuccess');
+                                $timeout(function(){
+                                    $state.go('signPage',{sign:1})
+                                },300)
+                            });
+                        }
+                        else if(res.data.code===404){
+                            modalBox.alert(res.data.msg)
+                        }
+                    });
+                }else{
+                    vm.boon=boon;
                 }
                 // 获取到岗列表接口
                 if(!arrival){
@@ -239,12 +332,17 @@ angular.module('myApp')
                     vm.sizeList=sizeList;
                 }
                 return {
-                    jobType: vm.typeList,
+                    jobType: vm.devJobType,
+                    devJobType: vm.typeList,
+                    innerType: vm.innerType,
                     arrival: vm.comeJobList,
                     eduList: vm.eduList,
                     expList: vm.expbList,
                     natureList: vm.natureList,
-                    sizeList: vm.sizeList
+                    sizeList: vm.sizeList,
+                    bannerList: vm.banner,
+                    boonList: vm.boon,
+                    hotSearch: vm.hotSearch,
                 };
             }
         }

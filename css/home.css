@@ -65,6 +65,24 @@ body{
     justify-content: space-between;
     padding: 0;
 }
+.topDiv{
+    position: relative;
+}
+.top .topDiv .typeDetails{
+    z-index: 999;
+    width: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 100%;
+    padding-left: .1rem;
+    background: #fff;
+}
+.typeDetails .category{
+    padding: .1rem;
+    margin: .1rem;
+    color:#9fa3b0;
+}
 .topDiv+.topDiv{
     margin-left: .15rem;
 }
