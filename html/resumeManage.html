@@ -40,7 +40,7 @@
                 ng-model="vm.exp"
                 class="ocp select">
             <option value="">工作经验</option>
-            <option value="{{exp.years}}" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
+            <option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>
         </select>
         <select class="ocp select"
                 ng-change="vm.sexFilter(vm.sex)"

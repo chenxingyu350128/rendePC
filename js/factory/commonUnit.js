@@ -98,5 +98,54 @@ angular.module('myApp')
 
 
         }
+    })
+    .factory('listsRequest',function($http,jobType,arrival,expList,eduList){
+        return {
+            lists: function(){
+                // 获取行业类型接口
+                let vm=this;
+                if(!jobType){
+                    common.request('Boss/show_jobtype_list',data).then(function callback(res){
+                        vm.typeList = res.data.data;
+                        sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
+                    });
+                }else{
+                    vm.typeList=jobType;
+                }
+                // 获取到岗列表接口
+                if(!arrival){
+                    common.request('Boss/come_job_list',data).then(function callback(res){
+                        vm.comeJobList = res.data.data;
+                        sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
+                    });
+                }else{
+                    vm.comeJobList=arrival
+                }
+                // 获取工作经验列表接口
+                if(!expList){
+                    common.request('Boss/show_job_years',data).then(function callback(res){
+                        vm.expbList = res.data.data;
+                        sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
+                    })
+                }else{
+                    vm.expbList=expList;
+                }
+                // 获取学历列表接口
+                if(!eduList){
+                    common.request('Boss/show_education_list',data).then(function callback(res){
+                        vm.eduList = res.data.data;
+                        sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
+                    });
+                }else{
+                    vm.eduList=eduList;
+                }
+                return {
+                    jobType: vm.typeList,
+                    arrival: vm.comeJobList,
+                    eduList: vm.eduList,
+                    expList: vm.expbList
+                };
+            }
+        }
     });
   

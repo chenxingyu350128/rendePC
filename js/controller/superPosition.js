@@ -146,11 +146,11 @@ angular.module('myApp')
         // 获取工作经验列表接口
         if(!expList){
             common.request('Boss/show_job_years',data).then(function callback(res){
-                vm.expbList = res.data.data;
+                vm.expList = res.data.data;
                 sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
             })
         }else{
-            vm.expbList=expList;
+            vm.expList=expList;
         }
         // 获取学历列表接口
         if(!eduList){

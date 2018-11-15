@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,orderBy,eduList,expList,arrival,jobType,common,modalBox) {
+    .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,orderBy,eduList,expList,arrival,jobType,common,modalBox) {
         let vm=this;
         let data={};
         //选择tab(收到的投递，全部，邀请面试)
@@ -124,42 +124,11 @@ angular.module('myApp')
 
         });
 //**************************获取各个列表************************
-        // 获取行业类型接口
-        if(!jobType){
-            common.request('Boss/show_jobtype_list',data).then(function callback(res){
-                vm.typeList = res.data.data;
-                sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
-            });
-        }else{
-            vm.typeList=jobType;
-        }
-        // 获取到岗列表接口
-        if(!arrival){
-            common.request('Boss/come_job_list',data).then(function callback(res){
-                vm.comeJobList = res.data.data;
-                sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
-            });
-        }else{
-            vm.comeJobList=arrival
-        }
-        // 获取工作经验列表接口
-        if(!expList){
-            common.request('Boss/show_job_years',data).then(function callback(res){
-                vm.expbList = res.data.data;
-                sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
-            })
-        }else{
-            vm.expbList=expList;
-        }
-        // 获取学历列表接口
-        if(!eduList){
-            common.request('Boss/show_education_list',data).then(function callback(res){
-                vm.eduList = res.data.data;
-                sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
-            });
-        }else{
-            vm.eduList=eduList;
-        }
+     vm.lists=listsRequest.lists();
+     vm.typeList=vm.lists.jobType;
+     vm.comeJobList=vm.lists.arrival;
+     vm.expList=vm.lists.expList;
+     vm.eduList=vm.lists.eduList;
        //清空行业选项
         vm.clearMatch=function(){
             vm.filterData={
