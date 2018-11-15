@@ -129,9 +129,11 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                 scope.idx1=sessionStorage.getItem('mainNav1')||1;
                 let navList0=$('.nav').find('.navItem');
                 let navList1=$('.nav').find('.navItem0');
+                //个人端
                 navList0.eq(scope.idx0-1).css({
                     'border-bottom':'5px solid #fff',
                 });
+                // 企业端
                 navList1.eq(scope.idx1-1).css({
                     'border-bottom':'5px solid #e11c19',
                 });
