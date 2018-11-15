@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state,$stateParams,common,modalBox) {
+    .controller('WorkCtrl',function ($http,$state,$stateParams,$timeout,common,modalBox) {
         let vm=this;
         // console.log($stateParams);
         vm.keyword=$stateParams.find;

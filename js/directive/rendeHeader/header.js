@@ -10,7 +10,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
         },
         link: function (scope) {
 
-            scope.client=1;//0代表客户端1代表企业端
+            scope.client=0;//0代表客户端1代表企业端
             scope.username='陈奕迅';
             scope.signIf=JSON.parse(sessionStorage.getItem('signSuccess'));
             let url0='boss/network_menu';
@@ -130,7 +130,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                 let navList0=$('.nav').find('.navItem');
                 let navList1=$('.nav').find('.navItem0');
                 navList0.eq(scope.idx0-1).css({
-                    'border-bottom':'5px solid #e11c19',
+                    'border-bottom':'5px solid #fff',
                 });
                 navList1.eq(scope.idx1-1).css({
                     'border-bottom':'5px solid #e11c19',
