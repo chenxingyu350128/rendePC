@@ -1,8 +1,7 @@
 'use strict';
 angular.module('myApp')
-    .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,orderBy,eduList,expList,arrival,jobType,common,modalBox) {
+    .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,orderBy,common,modalBox) {
         let vm=this;
-        let data={};
         //选择tab(收到的投递，全部，邀请面试)
         vm.params=$stateParams;
         console.log($stateParams);
@@ -34,9 +33,10 @@ angular.module('myApp')
         vm.tabSwitch=function(e){
            if(e===2){
                vm.postData['interview']=vm.filterData['interview']='hello';
+           }else{
+               vm.postData['interview']=vm.filterData['interview']='';
            }
             vm.filterData['resumeType']=e;
-           console.log('数值：',vm.filterData);
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
         //正序倒序排列

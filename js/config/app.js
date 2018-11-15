@@ -539,7 +539,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('searchTalent',{
-                url: '/searchTalent?type0&type1&resumeType&position0',
+                url: '/searchTalent?resumeType&job_type&come_job&sex&education&years&idx&interview',
                 templateUrl: 'html/searchTalent.html',
                 controller: 'searchTalent',
                 controllerAs: 'vm',
@@ -571,7 +571,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('superPosition',{
-                url: '/superPosition?type0&type1&navType&resumeType',
+                url: '/superPosition?resumeType&job_type&come_job&sex&education&years&idx&interview',
                 templateUrl: 'html/superPosition.html',
                 controller: 'superPosition',
                 controllerAs: 'vm',

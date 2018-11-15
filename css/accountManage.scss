@@ -35,7 +35,8 @@
   padding: .33rem 1.71rem .47rem .27rem;
   background: #fff;
   margin-bottom: .2rem;
-  input{
+  input,
+  select{
     height: .34rem;
     line-height: .34rem;
     border-radius: 4px;
@@ -133,6 +134,7 @@
       textarea{
         width: 8.97rem;
         height: 2.51rem;
+        padding: .1rem;
       }
     }
   }

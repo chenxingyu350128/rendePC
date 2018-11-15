@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('releasePositionCtrl',function ($http,$state,$stateParams,common,modalBox) {
+    .controller('releasePositionCtrl',function ($http,$state,$timeout,$stateParams,common,modalBox) {
         var vm = this;
         vm.pType=$stateParams.pType||0;
         vm.addList={}

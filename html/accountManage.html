@@ -1,31 +1,173 @@
 <rende-header></rende-header>
-<div class="container positionNow">我的位置：职位管理>发布职位</div>
+<div class="container positionNow">我的位置：账户管理>{{vm.positionNow}}</div>
 <div id="fine-uploader-gallery"></div>
 <div class="navTitle container">
     <div class="{{vm.navType==0?'checkedResume':''}}" ui-sref="accountManage({navType:0})">
+        <span class="text-center">公司信息</span>
+        <img src="image/home/arrowBottom_white.png" alt="">
+    </div>
+    <div class="{{vm.navType==1?'checkedResume':''}}" ui-sref="accountManage({navType:1})">
         <span class="text-center">账户信息</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
-    <div  class="{{vm.navType==1?'checkedResume':''}}" ui-sref="accountManage({navType:1})">
+    <div  class="{{vm.navType==2?'checkedResume':''}}" ui-sref="accountManage({navType:2})">
         <span class="text-center">账户安全</span>
-        <img src="image/home/arrowBottom_white.png" alt="">
-    </div>
-    <div class="{{vm.navType==2?'checkedResume':''}}" ui-sref="accountManage({navType:2})">
-        <span class="text-center">公司信息</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
 </div>
 <div class="accountInfo container">
-    <div ng-if="vm.navType==0"  class="tab1 tab">
+    <div ng-show="vm.navType==0" class="tab3 tab">
+        <div class="companyName whole">
+            <span class="tip">公司名称:</span>
+            <input type="text" ng-model="vm.name">
+        </div>
+        <div class="companyName whole">
+            <span class="tip">公司行业:</span>
+            <select name="jobType"
+                    id="jobType"
+                    ng-model="vm.jobType"
+                    ng-options="x for x in vm.typeList">
+            </select>
+            <!--<input type="text" ng-model="vm.job_type">-->
+        </div>
+        <div class="LOGO">
+            <span class="tip">LOGO:</span>
+            <div>
+                <label for="uploadImg1">
+                    <input id="uploadImg1"
+                           type="file"
+                           style="visibility: hidden;width: 0;height: 5px"
+                           ng-model="vm.logo"
+                           accept="image/png,image/jpeg,image/gif"
+                           onchange="angular.element(this).scope().uploadImage1(this)">
+                    <img  id="previewImg1" ng-src="{{vm.logo}}" >
+                </label>
+                <div>
+                    <div class="text-center">
+                        <table style="display: table" class="btn-block">
+                            <tr ng-if="vm.file1">
+                                <td>
+                                    <div class="progress" style="margin-bottom: 0!important;">
+                                        <div style="width:{{vm.progress1}}%;background-color: #337ab7;border-radius: 3px;"
+                                             ng-bind="vm.progress1+'%'"
+                                             class="progress-bar">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress1==100"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.file1">
+                                <td>
+                                    <button class="btn btn-sm btn-success" ng-click="vm.upload1()" ng-disabled="vm.progress1">
+                                        <span class="glyphicon glyphicon-upload"></span>上传
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg1()">
+                                        <span class="glyphicon glyphicon-trash"></span>删除
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scale">
+            <div class="quarterShell">
+                <span class="tip">公司性质:</span>
+                <select name="nature" 
+                        ng-model="vm.nature"
+                        ng-options="x.name as x.name for x in vm.natureList"
+                        id="nature">
+                    <option value="" selected hidden>--请选择--</option>
+                </select>
+                <!--<input   class="twoQuarter" type="text">-->
+            </div>
+            <div class="quarterShell">
+                <span class="tip">公司规模:</span>
+                <select name="size"
+                        ng-model="vm.size"
+                        ng-init="vm.size='10人以下'"
+                        ng-options="x.name as x.name for x in vm.sizeList"
+                        id="size">
+                    <option value="" selected hidden>--请选择--</option>
+                </select>
+                <!--<input ng-model="vm.size"  class="twoQuarter" type="text">-->
+            </div>
+
+        </div>
+        <div class="address">
+            <span class="tip">公司地址:</span>
+            <input class="address_s" ng-model="vm.area" type="text">
+            <input class="address_l" ng-model="vm.address" type="text">
+        </div>
+        <div class="postalCode">
+            <span class="tip">邮箱:</span>
+            <input class="address_s" ng-model="vm.mail" type="text">
+        </div>
+        <div class="intro">
+            <span class="tip">公司介绍:</span>
+            <textarea id="" cols="30" ng-model="vm.introduce" rows="10"></textarea>
+        </div>
+        <div class="official whole">
+            <span class="tip">公司官网:</span>
+            <input ng-model="vm.network"  type="text">
+        </div>
+        <div class="license">
+            <span class="tip">营业执照:</span>
+            <div>
+                <label for="uploadImg2">
+                    <input id="uploadImg2"
+                           type="file"
+                           style="visibility: hidden;width: 0;height: 5px"
+                           ng-model="vm.license"
+                           accept="image/png,image/jpeg,image/gif"
+                           onchange="angular.element(this).scope().uploadImage2(this)">
+                    <img  id="previewImg2" ng-src="{{vm.license}}" >
+                </label>
+                <div>
+                    <div class="text-center">
+                        <table style="display: table" class="btn-block">
+                            <tr ng-if="vm.file2">
+                                <td>
+                                    <div class="progress" style="margin-bottom: 0!important;">
+                                        <div style="width:{{vm.progress2}}%;background-color: #337ab7;border-radius: 3px;"
+                                             ng-bind="vm.progress2+'%'"
+                                             class="progress-bar">
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress2==100"></span>
+                                </td>
+                            </tr>
+                            <tr ng-if="vm.file2">
+                                <td>
+                                    <button class="btn btn-sm btn-success" ng-click="vm.upload2()" ng-disabled="vm.progress2">
+                                        <span class="glyphicon glyphicon-upload"></span>上传
+                                    </button>
+                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg2()">
+                                        <span class="glyphicon glyphicon-trash"></span>删除
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-show="vm.navType==1"  class="tab1 tab">
         <div class="name">
             <div class="half">
                 <span class="tip">登录名:</span>
                 <input ng-model="vm.username" type="text">
             </div>
-            <div class="half">
-                <span class="tip">姓名:</span>
-                <input ng-model="vm.nickname" type="text">
-            </div>
+            <!--<div class="half">-->
+                <!--<span class="tip">姓名:</span>-->
+                <!--<input ng-model="vm.nickname" type="text">-->
+            <!--</div>-->
         </div>
         <div class="email whole">
             <span class="tip">邮箱:</span>
@@ -103,7 +245,7 @@
             </div>
         </div>
     </div>
-    <div ng-if="vm.navType==1" class="tab2 tab">
+    <div ng-if="vm.navType==2" class="tab2 tab">
         <div class="oldPWD">
             <div class="half">
                 <span class="tip">原始密码:</span>
@@ -120,130 +262,6 @@
             <div class="half">
                 <span class="tip">确认密码:</span>
                 <input type="text">
-            </div>
-        </div>
-    </div>
-    <div ng-if="vm.navType==2" class="tab3 tab">
-        <div class="companyName whole">
-            <span class="tip">公司名称:</span>
-            <input type="text" ng-model="vm.name">
-        </div>
-        <div class="companyName whole">
-            <span class="tip">公司行业:</span>
-            <input type="text" ng-model="vm.job_type">
-        </div>
-        <div class="LOGO">
-            <span class="tip">LOGO:</span>
-            <div>
-                <label for="uploadImg1">
-                    <input id="uploadImg1"
-                           type="file"
-                           style="visibility: hidden;width: 0;height: 5px"
-                           ng-model="vm.logo"
-                           accept="image/png,image/jpeg,image/gif"
-                           onchange="angular.element(this).scope().uploadImage1(this)">
-                    <img  id="previewImg1" ng-src="{{vm.logo}}" >
-                </label>
-                <div>
-                    <div class="text-center">
-                        <table style="display: table" class="btn-block">
-                            <tr ng-if="vm.file1">
-                                <td>
-                                    <div class="progress" style="margin-bottom: 0!important;">
-                                        <div style="width:{{vm.progress1}}%;background-color: #337ab7;border-radius: 3px;"
-                                             ng-bind="vm.progress1+'%'"
-                                             class="progress-bar">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress1==100"></span>
-                                </td>
-                            </tr>
-                            <tr ng-if="vm.file1">
-                                <td>
-                                    <button class="btn btn-sm btn-success" ng-click="vm.upload1()" ng-disabled="vm.progress1">
-                                        <span class="glyphicon glyphicon-upload"></span>上传
-                                    </button>
-                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg1()">
-                                        <span class="glyphicon glyphicon-trash"></span>删除
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="scale">
-            <div class="quarterShell">
-                <span class="tip">公司性质:</span>
-                <input ng-model="vm.nature"  class="twoQuarter" type="text">
-            </div>
-            <div class="quarterShell">
-                <span class="tip">公司规模:</span>
-                <input ng-model="vm.size"  class="twoQuarter" type="text">
-            </div>
-
-        </div>
-        <div class="address">
-            <span class="tip">公司地址:</span>
-            <input class="address_s" ng-model="vm.area" type="text">
-            <input class="address_l" ng-model="vm.address" type="text">
-        </div>
-        <div class="postalCode">
-            <span class="tip">邮箱:</span>
-            <input class="address_s" ng-model="vm.mail" type="text">
-        </div>
-        <div class="intro">
-            <span class="tip">公司介绍:</span>
-            <textarea id="" cols="30" ng-model="vm.introduce" rows="10"></textarea>
-        </div>
-        <div class="official whole">
-            <span class="tip">公司官网:</span>
-            <input ng-model="vm.network"  type="text">
-        </div>
-        <div class="license">
-            <span class="tip">营业执照:</span>
-            <div>
-                <label for="uploadImg2">
-                    <input id="uploadImg2"
-                           type="file"
-                           style="visibility: hidden;width: 0;height: 5px"
-                           ng-model="vm.license"
-                           accept="image/png,image/jpeg,image/gif"
-                           onchange="angular.element(this).scope().uploadImage2(this)">
-                    <img  id="previewImg2" ng-src="{{vm.license}}" >
-                </label>
-                <div>
-                    <div class="text-center">
-                        <table style="display: table" class="btn-block">
-                            <tr ng-if="vm.file2">
-                                <td>
-                                    <div class="progress" style="margin-bottom: 0!important;">
-                                        <div style="width:{{vm.progress2}}%;background-color: #337ab7;border-radius: 3px;"
-                                             ng-bind="vm.progress2+'%'"
-                                             class="progress-bar">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>
-                                    <span class="glyphicon glyphicon-ok" ng-show="vm.progress2==100"></span>
-                                </td>
-                            </tr>
-                            <tr ng-if="vm.file2">
-                                <td>
-                                    <button class="btn btn-sm btn-success" ng-click="vm.upload2()" ng-disabled="vm.progress2">
-                                        <span class="glyphicon glyphicon-upload"></span>上传
-                                    </button>
-                                    <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg2()">
-                                        <span class="glyphicon glyphicon-trash"></span>删除
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

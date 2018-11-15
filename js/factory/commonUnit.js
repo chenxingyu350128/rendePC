@@ -20,7 +20,7 @@ angular.module('myApp')
                     }
                 });
             },
-            confirm: function (message, callback,cancel) {
+            confirm: function (message,callback,cancel) {
                 bootbox.confirm({
                     message: "<div style='text-align: center !important;color: #03A9F4'>" + message + "</div>",
                     title: "提示",
@@ -99,24 +99,50 @@ angular.module('myApp')
 
         }
     })
-    .factory('listsRequest',function($http,jobType,arrival,expList,eduList){
+    .factory('listsRequest',function($http,$state,$timeout,common,modalBox,jobType,arrival,expList,eduList,natureList,sizeList){
         return {
             lists: function(){
                 // 获取行业类型接口
                 let vm=this;
+                let data={};
                 if(!jobType){
                     common.request('Boss/show_jobtype_list',data).then(function callback(res){
-                        vm.typeList = res.data.data;
-                        sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
+                        if(res.data.code===200){
+                            vm.typeList = res.data.data;
+                            sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
                     });
-                }else{
+                }
+                else{
                     vm.typeList=jobType;
                 }
                 // 获取到岗列表接口
                 if(!arrival){
                     common.request('Boss/come_job_list',data).then(function callback(res){
-                        vm.comeJobList = res.data.data;
-                        sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
+                        if(res.data.code===200){
+                            vm.comeJobList = res.data.data;
+                            sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
                     });
                 }else{
                     vm.comeJobList=arrival
@@ -124,26 +150,101 @@ angular.module('myApp')
                 // 获取工作经验列表接口
                 if(!expList){
                     common.request('Boss/show_job_years',data).then(function callback(res){
-                        vm.expbList = res.data.data;
-                        sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
+                        if(res.data.code===200){
+                            vm.expbList = res.data.data;
+                            sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
+
+
                     })
-                }else{
+                }
+                else{
                     vm.expbList=expList;
                 }
                 // 获取学历列表接口
                 if(!eduList){
                     common.request('Boss/show_education_list',data).then(function callback(res){
-                        vm.eduList = res.data.data;
-                        sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
+                        if(res.data.code===200){
+                            vm.eduList = res.data.data;
+                            sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
+
                     });
-                }else{
+                }
+                else{
                     vm.eduList=eduList;
+                }//公司性质列表
+                if(!natureList){
+                    common.request('Boss/show_nature',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.natureList = res.data.data;
+                            sessionStorage.setItem('natureList',JSON.stringify(vm.natureList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
+
+                    });
+                }
+                else{
+                    vm.natureList=natureList;
+                }//公司规模
+                if(!sizeList){
+                    common.request('Boss/show_job_size',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.sizeList = res.data.data;
+                            sessionStorage.setItem('sizeList',JSON.stringify(vm.sizeList));
+                        }
+                        else if(res.data.code===201){
+                            modalBox.alert(res.data.msg,function(){
+                                $timeout(function(){
+                                    $state.go('signPage',{login:1})
+                                },300)
+                            });
+                        }
+                        else{
+                            modalBox.alert(res.data.msg)
+                        }
+
+                    });
+                }
+                else{
+                    vm.sizeList=sizeList;
                 }
                 return {
                     jobType: vm.typeList,
                     arrival: vm.comeJobList,
                     eduList: vm.eduList,
-                    expList: vm.expbList
+                    expList: vm.expbList,
+                    natureList: vm.natureList,
+                    sizeList: vm.sizeList
                 };
             }
         }

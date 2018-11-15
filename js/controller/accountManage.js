@@ -1,8 +1,19 @@
 'use strict';
 angular.module('myApp')
-    .controller('accountManage',function ($scope,$http,$state,$sce,$stateParams,$timeout,FileUploader,common,modalBox) {
+    .controller('accountManage',function ($scope,$http,$state,$sce,$stateParams,$timeout,listsRequest,FileUploader,common,modalBox) {
         let vm=this;
         vm.navType=parseInt($stateParams.navType)||0;
+        switch (vm.navType){
+            case 0:
+                vm.positionNow='公司信息';
+                break;
+            case 1:
+                vm.positionNow='账户信息';
+                break;
+            case 2:
+                vm.positionNow='账户安全';
+                break;
+        }
         // 图片选取
         $scope.uploadImage=function(e){
             $scope.$apply(function(){
@@ -124,9 +135,80 @@ angular.module('myApp')
             vm.progress2=0;
             vm.license='';
         };
+        //获取通用列表数据
+        vm.lists=listsRequest.lists();
+        console.log(vm.lists);
+        vm.typeList=vm.lists.jobType;
+        vm.jobType=vm.typeList[0];
+        vm.natureList=vm.lists.natureList;
+        vm.nature=vm.natureList[2].name;
+        vm.sizeList=vm.lists.sizeList;
+        vm.size=vm.sizeList[2].name;
+        console.log(typeof (vm.size));
+        console.log(vm.size);
         //获取公司资料
         let emptyData={};
         if(vm.navType===0){
+            common.request('Boss/show_company',emptyData).then(function back(res){
+                if(res.data.code===200){
+                    let x=res.data.data;
+                    vm.name=x.name;
+                    vm.jobType=x.job_type;
+                    vm.nature=x.nature;
+                    vm.size=x.size;
+                    vm.address=x.address;
+                    vm.area=x.area;
+                    vm.mail=x.mail;
+                    vm.network=x.network;
+                    vm.introduce=x.introduce;
+                    vm.logo=x.img;
+                    vm.license=x.usiness_license;
+                }
+                else if(res.data.code===201){
+                    modalBox.alert(res.data.msg,function(){
+                        $timeout(function(){
+                            $state.go('signPage',{login:1})
+                        },300)
+                    });
+                }
+            });
+            // 提交修改
+            vm.commit=function(){
+                let url='Boss/change_add_company';
+                let data={
+                    name:vm.name,
+                    job_type:vm.jobType,
+                    nature: vm.nature,
+                    size: vm.size,
+                    address: vm.address,
+                    area: vm.area,
+                    mail: vm.mail,
+                    network: vm.network,
+                    introduce:vm.introduce,
+                    img: vm.logo,
+                    usiness_license: vm.license,
+                };
+                common.request(url,data).then(function callback(res){
+                    if(res.data.code===200){
+                        modalBox.alert('修改成功')
+                    }
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            sessionStorage.removeItem('signSuccess');
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
+                    }
+                    console.log(res)
+                })
+            };
+        }
+
+        if(vm.navType===1){
             //查看信息
             let data={network:'www.baidu.com'};
             common.request('user/get_userinfo',data).then(function back(res){
@@ -165,13 +247,15 @@ angular.module('myApp')
                 };
                 common.request('Boss/add_change_userinfo',data).then(function callback(res){
                     if(res.data.code===200){
-                        console.log(res)
+                        modalBox.alert('修改成功')
                     }
-                   else if(res.data.code===201){
-                        modalBox.alert('未注册，登录已过期')
-                        $timeout(function(){
-                            $state.go('sign',{sign:1})
-                        },1000)
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            sessionStorage.removeItem('signSuccess');
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
                     }
                     else{
                         modalBox.alert(res.data.msg)
@@ -179,51 +263,6 @@ angular.module('myApp')
                 })
             };
 
-        }
-        if(vm.navType===2){
-            common.request('Boss/show_company',emptyData).then(function back(res){
-                if(res.data.code===200){
-                    let x=res.data.data;
-                    vm.name=x.name;
-                    vm.job_type=x.job_type;
-                    vm.nature=x.nature;
-                    vm.size=x.size;
-                    vm.address=x.address;
-                    vm.area=x.area;
-                    vm.mail=x.mail;
-                    vm.network=x.network;
-                    vm.introduce=x.introduce;
-                    vm.logo=x.img;
-                    vm.license=x.usiness_license;
-                }
-                else if(res.data.code===201){
-                    modalBox.alert(res.data.msg,function(){
-                        $timeout(function(){
-                            $state.go('signPage',{login:1})
-                        },300)
-                    });
-                }
-            });
-            // 提交修改
-            vm.commit=function(){
-                let url='Boss/change_add_company';
-                let data={
-                    name:vm.name,
-                    job_type:vm.job_type,
-                    nature: vm.nature,
-                    size: vm.size,
-                    address: vm.address,
-                    area: vm.area,
-                    mail: vm.mail,
-                    network: vm.network,
-                    introduce:vm.introduce,
-                    img: vm.logo,
-                    usiness_license: vm.license,
-                };
-                common.request(url,data).then(function callback(res){
-                    console.log(res)
-                })
-            };
         }
 
     });

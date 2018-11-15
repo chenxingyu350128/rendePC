@@ -8,6 +8,8 @@ angular.module('myApp')
     .constant('expList',JSON.parse(sessionStorage.getItem('expList')))
     .constant('eduList',JSON.parse(sessionStorage.getItem('eduList')))
     .constant('bannerImg',JSON.parse(sessionStorage.getItem('bannerImg')))
+    .constant('natureList',JSON.parse(sessionStorage.getItem('natureList')))
+    .constant('sizeList',JSON.parse(sessionStorage.getItem('sizeList')))
     .constant('orderBy',[
         {name:"排列顺序",value:2},
         {name:"正序",value:0},
