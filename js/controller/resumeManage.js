@@ -180,6 +180,9 @@ angular.module('myApp')
                 console.log(res);
                 if(res.data.code===200){
                     modalBox.alert(res.data.msg);
+                    $timeout(function(){
+                        $state.go('resumeManage',vm.filterData,{reload:true})
+                    },300)
                 }
                 else if(res.data.code===201){
                     modalBox.alert(res.data.msg,function(){

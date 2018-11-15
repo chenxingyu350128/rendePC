@@ -12,7 +12,7 @@
             <div class="detail-position">
                 <div class="detail-position-name">
                     <span>{{vm.info.job_type}}</span>
-                    <button ng-click="vm.collect(vm.info.id)" id="collect">收藏</button>
+                    <button>收藏</button>
                 </div>
                 <div class="detail-position-intr">
                     <span>￥{{vm.info.start_money}}-{{vm.info.end_money}}</span> | <span>{{vm.info.c_address}}</span> | <span>{{vm.info.experience}}工作经验</span> | <span>{{vm.info.education}}学历</span>
@@ -26,7 +26,7 @@
                     <span class="span-r">被收藏： {{vm.browse.likejob}} 次</span>
                 </div>
                 <div class="detail-position-put">
-                    <button class="detail-position-put-button" ng-click="vm.throwResume(vm.info.id)" id="throwResume">投递简历</button>
+                    <button class="detail-position-put-button">投递简历</button>
                     <div class="detail-position-put-r fr">
                         <img src="image/home/server.png" alt="">
                         <span>推荐</span>
@@ -67,6 +67,7 @@
                             <p>
                               {{vm.info.introduce}}
                             </p>
+
                         </p>
                     </div>
                 </div>
@@ -83,15 +84,15 @@
             <!--其他职位-->
             <div class="detail-position-hr">
                 <div class="position-hr-top"><span>该公司的其TA职位</span></div>
-                <div class="position-hr-content hr-content-other"  ng-repeat="item in vm.others |limitTo:1"  >
+                <div class="position-hr-content hr-content-other"  ui-sref="workDetail({id:vm.other.id})" >
                     <div class="hr-content-describe">
                         <div class="">
-                            <span>{{ item.job_type}}</span>
-                            <button class="detail-position-put-button fr" ng-click="vm.throwResume(item.id)">投递简历</button>
+                            <span>{{ vm.other.job_type}}</span>
+                            <button class="detail-position-put-button fr">投递简历</button>
                         </div>
-                        <div class="detail-position-intr" ui-sref="workDetail({id:item.id})">
-                            <span>{{ item.area}}</span> | <span>薪水： {{ item.start_money}}-{{item.end_money}}</span>
-                            | <span>学历： {{item.education}}</span> | <span>经验 ：{{item.experience}}</span>
+                        <div class="detail-position-intr">
+                            <span>{{ vm.other.area}}</span> | <span>薪水： {{ vm.other.start_money}}-{{ vm.other.end_money}}</span>
+                            | <span>学历： {{ vm.other.education}}</span> | <span>经验 ：{{ vm.other.experience}}</span>
                         </div>
                     </div>
                 </div>
@@ -99,8 +100,8 @@
         </div>
 
         <div ui-sref="companyInfo" class="detail-right">
-            <div class="detail-right-company ">
-             <img src="{{vm.cinfo.img}}" class="clogo-img">
+            <div class="detail-right-company">
+             <img src="{{vm.cinfo.img}}">
             </div>
             <div class="detail-right-company-name">{{  vm.cinfo.name}}</div>
             <ul class="company-intr">
@@ -130,7 +131,7 @@
 
         <div class="detail-right-other">
             <div class="detail-right-other-name"><span>相似职位推荐</span></div>
-                <div class="detail-right-other-name-intr" ng-repeat="item in  vm.like |limitTo:3"  ui-sref="workDetail({id:item.id})">
+                <div class="detail-right-other-name-intr" ng-repeat="item in  vm.like |limitTo:3">
                     <div class="">
                         <span class="similar-position">{{item.job_type}}</span>
                     </div>

@@ -10,6 +10,8 @@ angular.module('myApp')
             common.request('reg/reg',data).then(function callback(res){
                 console.log(res);
                 if(res.data.code===200){
+                    vm.signSuccess=true;
+                    sessionStorage.setItem('signSuccess',JSON.stringify(vm.signSuccess=true));
                     vm.success=res.data.data;
                     vm.clientType=1;
                     sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));

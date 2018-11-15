@@ -9,17 +9,16 @@
     <div class="leftSide">
         <div class="intro">
             <div class="left">
-                <div class="ocp">{{vm.workDetail.title}}</div>
-                <div class="salary redF">{{vm.workDetail.money}}</div>
-                <div class="endAt grayF">截至日期:{{vm.workDetail.end_time}}</div>
+                <div class="ocp">保安</div>
+                <div class="abstract">孙先生/男/6年以上</div>
                 <div class="contact">
-                    <span class="contactMethod">联系电话: {{vm.workDetail.phone}}</span>
-                    <span class="contactMethod">联系人: {{vm.workDetail.name}}</span>
+                    <span class="contactMethod">联系电话: 15287365413</span>
+                    <span class="contactMethod"><span style="letter-spacing: .5em">联系人:</span> 陈星星</span>
                 </div>
             </div>
             <div class="right text-right">
-                <div class="updateAt">{{vm.workDetail.time}} 更新</div>
-                <div class="viewCount">被浏览: {{vm.workDetail.look}}次</div>
+                <div class="updateAt">2018-08-13 更新</div>
+                <div class="viewCount">被浏览: 1次</div>
                 <div class="icons">
                     <div class="rec">
                         <img src="image/home/rec.png" alt="">
@@ -39,7 +38,7 @@
             </div>
             <div class="demand">
                 <span>
-                  {{vm.workDetail.content}}
+                   擅长安保工作，多年经验
                 </span>
             </div>
         </div>
@@ -49,9 +48,9 @@
                 <span class="redF">修改删除</span>
             </div>
             <div class="options">
-                <div class="button refresh" ui-sref="GWResume(vm.workDetail.id)">刷新</div>
-                <!--<div class="button modify">修改</div>-->
-                <div class="button delete" ng-click="vm.delect(vm.workDetail.id)">删除</div>
+                <div class="button refresh">刷新</div>
+                <div class="button modify">修改</div>
+                <div class="button delete">删除</div>
             </div>
             <div class="desc">
                 <div class="redF">操作说明:</div>

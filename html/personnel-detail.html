@@ -18,11 +18,11 @@
                             <div class="personnel-detail-intr">
                                 <span>年龄：{{vm.x.age}}</span><br>
                                 <span>学历：{{vm.x.education}}</span><br>
-                                <span>现居地：{{vm.x.address}}</span>
+                                <span>现居地：{{vm.x.address||"暂无"}}</span>
                             </div>
                             <div class="personnel-detail-intr">
                                 <span>工作经验：{{vm.x.years}}年</span><br>
-                                <span>联系邮箱：{{vm.x.email}}</span><br>
+                                <span>联系邮箱：{{vm.x.email||"暂无"}}</span><br>
                                 <span>联系电话：{{vm.x.phone}}</span>
                             </div>
                             <div class="personnel-detail-intr">
@@ -43,13 +43,14 @@
                     <div class="personnel-detail-intention">
                         <span CLASS="grayF">意向岗位：</span> <span>{{vm.x.want_job}}</span><br>
                         <span CLASS="grayF">工作地点：</span>  <span>{{vm.x.job_address}}</span><br>
-                        <span CLASS="grayF">到岗时间:</span>  <span>{{vm.x.job_type}}</span><br>
-                        <span CLASS="grayF">工作性质:</span>  <span>{{vm.x.nature}}</span>
+                        <span ng-if="vm.x.status" CLASS="grayF">到岗时间:</span>  <span>{{vm.x.job_type}}</span><br>
+
                     </div>
                     <div class="personnel-detail-intention">
-                       <span CLASS="grayF">从事行业：</span>  <span>人事/行政/高级管理</span><br>
-                       <span CLASS="grayF">期望薪资：</span>  <span>￥5000-8000</span><br>
-                        <span CLASS="grayF">求职状态：</span>  <span>已离职，寻求薪工作</span>
+                        <span CLASS="grayF">工作性质:</span>  <span>{{vm.x.nature}}</span><br>
+                       <span CLASS="grayF">从事行业：</span>  <span>{{vm.x.want_job}}</span><br>
+                       <!--<span CLASS="grayF">期望薪资：</span>  <span>￥5000-8000</span><br>-->
+                        <span CLASS="grayF">求职状态：</span>  <span>{{vm.x.status?"已离职，找工作中":"已就职"}}</span>
                     </div>
                 </div>
             </div>

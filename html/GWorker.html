@@ -15,6 +15,10 @@
         <span class="underNav">职位: </span>
         <span ui-sref="GWorker({type0:1})" class="underNav hot {{vm.type0==1?'checkedType':''}}">全部</span>
         <span ui-sref="GWorker({type0:2})" class="underNav hot {{vm.type0==2?'checkedType':''}}" ng-repeat="type in vm.typeList |limitTo:6">{{type}}</span>
+        <!--<span ui-sref="GWorker({type0:3})" class="underNav hot {{vm.type0==3?'checkedType':''}}">电子</span>-->
+        <!--<span ui-sref="GWorker({type0:4})" class="underNav hot {{vm.type0==4?'checkedType':''}}">保姆</span>-->
+        <!--<span ui-sref="GWorker({type0:5})" class="underNav hot {{vm.type0==5?'checkedType':''}}">货运</span>-->
+        <!--<span ui-sref="GWorker({type0:6})" class="underNav hot {{vm.type0==6?'checkedType':''}}">快递</span>-->
         <select class="underNav select" name="kind" id="" ng-model="vm.selectType" ng-change="vm.change(vm.selectType)">
             <option value="">更多</option>
             <option value="{{type}}"ng-repeat="type in vm.typeList ">{{type}}</option>
@@ -22,7 +26,7 @@
     </div>
 </div>
 <div class="container recruitment">
-    <div ng-repeat="x in vm.dataList|filter:vm.selectType" ui-sref="GWResume({id:x.id})" class="card" >
+    <div ng-repeat="x in vm.dataList|filter:vm.selectType" ui-sref="GWResume" class="card">
         <div class="salary">
             <span>{{x.title}}</span>
         </div>

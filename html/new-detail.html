@@ -11,7 +11,7 @@
                     {{vm.dataList.content}}
                 </div>
             </div>
-            <div class="news-detail-content" ui-sref="new-detail({id: vm.nextnew.id,index:$index+1})">
+            <div class="news-detail-content">
                 <span class="next-new-top">下一篇</span><br>
                 <span class="next-new-title">{{  vm.nextnew.title}}</span><br>
                 <div class="news-detail-auto next-new-bottom"><span>{{  vm.nextnew.types}}</span> <span>{{  vm.nextnew.fromuser}}  ·{{  vm.nextnew.time}}</span></div>
@@ -22,7 +22,7 @@
         <div class="hot-news pull-left fl">
             <div>
                 <div class="hot-new-title"><span>热门新闻</span></div>
-                <div class="hot-news-content" ng-repeat="hotnew in vm.show_hot_news"  ui-sref="new-detail({id:hotnew.id,index:$index+1})">
+                <div class="hot-news-content" ng-repeat="hotnew in vm.show_hot_news">
                     <div>{{hotnew.title}}</div>
                     <div><span>{{hotnew.types}}</span><span class="fr">{{hotnew.time}}</span></div>
                 </div>

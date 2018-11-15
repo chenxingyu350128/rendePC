@@ -131,7 +131,9 @@
     .main_content > div .face {
       border-right: 1px solid #c3c3c3; }
     .main_content > div .cPart {
-      width: 40%; }
+      width: 40%;
+      padding-left: 100px;
+      border-left: 1px solid #ccc; }
       .main_content > div .cPart .right1 span {
         padding-left: .42rem;
         margin-bottom: .21rem; }
@@ -156,5 +158,11 @@
         color: #fff; }
       .main_content > div .rPart div:nth-child(2) {
         margin: .13rem auto; }
+
+.main > div .rPart .viewedResume {
+  background: #cacaca; }
+
+.main > div .rPart .faced {
+  background: #cacaca; }
 
 /*# sourceMappingURL=resumeManage.css.map */

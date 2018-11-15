@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state,$stateParams,common,modalBox,jobType,arrival,expList,eduList,boon) {
+    .controller('WorkCtrl',function ($http,$state,$stateParams,common,modalBox) {
         let vm=this;
         // console.log($stateParams);
         vm.keyword=$stateParams.find;
@@ -51,26 +51,47 @@ angular.module('myApp')
                 let url4 ='Boss/new_job';
                 common.request(url4,data).then(function callback(res){
                     vm.dataList = res.data.data
-                })
+                }),function errorCallback(response) {
+                };
             }
         }
 
+
+
+
         // 获取行业类型接口
-        vm.typeList= jobType
-        vm.comeJobList = arrival;
-        vm.expbList = expList;
-        vm.eduList =eduList;
-        vm.show_boonList = boon;
-        console.log(vm.show_boonList)
+        let url2 ='Boss/show_jobtype_list';
+        common.request(url2,data).then(function callback(res){
+            vm.typeList = res.data.data
+        }),function errorCallback(response) {
+        };
 
-        // // 获取福利待遇接口
-        // let url3 ='Boss/show_boon';
-        // common.request(url3,data).then(function callback(res){
-        //     vm.show_boonList = res.data.data
-        //     console.log(vm.show_boonList)
-        // }),function errorCallback(response) {
-        // };
+        // 获取福利待遇接口
+        let url3 ='Boss/show_boon';
+        common.request(url3,data).then(function callback(res){
+            vm.show_boonList = res.data.data
+        }),function errorCallback(response) {
+        };
+        // 获取到岗列表接口
+        let url4 ='Boss/come_job_list';
+        common.request(url4,data).then(function callback(res){
+            vm.comeJobList = res.data.data;
+        }),function errorCallback(response) {
+        };
 
+        // 获取工作经验列表接口
+        let url5 ='Boss/show_job_years';
+        common.request(url5,data).then(function callback(res){
+            vm.expbList = res.data.data;
+            console.log("show_job_years",   vm.expbList)
+        }),function errorCallback(response) {
+        };
+        // 获取学历列表接口
+        let url6 ='Boss/show_education_list';
+        common.request(url6,data).then(function callback(res){
+            vm.eduList = res.data.data;
+        }),function errorCallback(response) {
+        };
 
 
         //导航被选中高亮显示

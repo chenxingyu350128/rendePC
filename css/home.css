@@ -187,6 +187,7 @@ body{
     margin-right: -1px;
 }
 .company{
+    overflow: hidden;
     padding: 1px;
     display: flex;
     flex-direction: column-reverse;
@@ -196,13 +197,14 @@ body{
     position: relative;
     cursor: pointer;
 }
-.company div{
-    margin-bottom: .32rem;
-    margin-top: .23rem;
-}
 .company img{
-    height: 0.47rem
+    width: 100%;
+    height: calc(100% - .204rem);
 }
+/*.company div{*/
+    /*margin-bottom: .32rem;*/
+    /*margin-top: .23rem;*/
+/*}*/
 .detail{
     visibility: hidden;
     position: absolute;

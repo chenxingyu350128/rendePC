@@ -16,37 +16,37 @@ angular.module('myApp')
                     sessionStorage.setItem('jobType',JSON.stringify(res.data.data))
                 }
                 else if(res.data.code===201){
-                    modalBox.alert('未注册或登录已过期');
-                    $timeout(function(){
-                        $state.go('sign',{sign:1})
-                    },1000)
+                    modalBox.alert('未注册或登录已过期',function(){
+                        sessionStorage.removeItem('signSuccess');
+                        $timeout(function(){
+                            $state.go('signPage',{sign:1})
+                        },300)
+                    });
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.data.msg)
                 }
             });
         }else{
-            vm.jobType = jobType;
-        }
-        //资讯列表
+            vm.jobType=jobType;
+        }//资讯列表
         common.request('Boss/show_news',dataEmpty).then(function callback(res){
             if(res.data.code===200){
                 vm.newsList=res.data.data;
                 console.log(res.data.data);
-                // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
             }
             else if(res.data.code===201){
-                modalBox.alert('未注册，登录已过期')
-                $timeout(function(){
-                    $state.go('sign',{sign:1})
-                },1000)
+                modalBox.alert('未注册或登录已过期',function(){
+                    sessionStorage.removeItem('signSuccess');
+                    $timeout(function(){
+                        $state.go('signPage',{sign:1})
+                    },300)
+                });
             }
             else if(res.data.code===404){
-                modalBox.alert('home2')
+                modalBox.alert(res.data.msg)
             }
-        });
-
-        //热门搜索
+        });//热门搜索
         if(!hotSearch){
             common.request('other/hot_search',dataEmpty).then(function callback(res){
                 if(res.data.code===200){
@@ -54,10 +54,12 @@ angular.module('myApp')
                     sessionStorage.setItem('hotSearch',JSON.stringify(res.data.data))
                 }
                 else if(res.data.code===201){
-                    modalBox.alert('未注册或登录已过期');
-                    $timeout(function(){
-                        $state.go('sign',{sign:1})
-                    },1000)
+                    modalBox.alert('未注册或登录已过期',function(){
+                        sessionStorage.removeItem('signSuccess');
+                        $timeout(function(){
+                            $state.go('signPage',{sign:1})
+                        },300)
+                    });
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.data.msg)
@@ -66,7 +68,6 @@ angular.module('myApp')
         }else{
             vm.hotSearch=hotSearch;
         }
-
         //banner轮播图
         if(!bannerImg){
             common.request('Boss/show_banner',dataEmpty).then(function callback(res){
@@ -75,10 +76,12 @@ angular.module('myApp')
                     sessionStorage.setItem('bannerImg',JSON.stringify(vm.banner));
                 }
                 else if(res.data.code===201){
-                    modalBox.alert('未注册，登录已过期');
-                    $timeout(function(){
-                        $state.go('sign',{sign:1})
-                    },1000)
+                    modalBox.alert('未注册或登录已过期',function(){
+                        sessionStorage.removeItem('signSuccess');
+                        $timeout(function(){
+                            $state.go('signPage',{sign:1})
+                        },300)
+                    });
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.data.msg)
@@ -87,19 +90,20 @@ angular.module('myApp')
         }else{
             vm.banner=bannerImg;
         }
-
         //福利待遇列表
         if(!boon){
-            common.request('Boss/show_boon',dataEmpty).then(function callback(res){
+            common.request('Boss/show_banner',dataEmpty).then(function callback(res){
                 if(res.data.code===200){
                     vm.boon=res.data.data;
                     sessionStorage.setItem('boon',JSON.stringify(vm.boon));
                 }
                 else if(res.data.code===201){
-                    modalBox.alert('未注册，登录已过期');
-                    $timeout(function(){
-                        $state.go('sign',{sign:1})
-                    },1000)
+                    modalBox.alert('未注册或登录已过期',function(){
+                        sessionStorage.removeItem('signSuccess');
+                        $timeout(function(){
+                            $state.go('signPage',{sign:1})
+                        },300)
+                    });
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.data.msg)
@@ -118,14 +122,15 @@ angular.module('myApp')
                 vm.famousEnter=res.data.data;
             }
             else if(res.data.code===201){
-                modalBox.alert('未注册/登录已过期');
-                $timeout(function(){
-                    $state.go('sign',{sign:1});
-                    sessionStorage.removeItem('token')
-                },1000)
+                modalBox.alert('未注册或登录已过期',function(){
+                    sessionStorage.removeItem('signSuccess');
+                    $timeout(function(){
+                        $state.go('signPage',{sign:1})
+                    },300)
+                });
             }
             else if(res.data.code===404){
-                modalBox.alert('home5')
+                modalBox.alert(res.data.msg)
             }
         });
         //人才推荐-所有的简历
@@ -134,15 +139,15 @@ angular.module('myApp')
                 vm.allResume=res.data.data;
             }
             else if(res.data.code===201){
-                modalBox.alert('未注册/登录已过期');
-                $timeout(function(){
-                    $state.go('sign',{sign:1});
-                    sessionStorage.removeItem('token')
-                },1000)
+                modalBox.alert('未注册或登录已过期',function(){
+                    sessionStorage.removeItem('signSuccess');
+                    $timeout(function(){
+                        $state.go('signPage',{sign:1})
+                    },300)
+                });
             }
             else if(res.data.code===404){
-                console.log(res);
-                modalBox.alert('home5')
+                modalBox.alert(res.data.msg)
             }
         });
         // 设置描点不失效

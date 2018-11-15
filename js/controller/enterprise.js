@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('enterprise',function ($http,$state,common,modalBox,jobType) {
+    .controller('enterprise',function ($http,$state,common,modalBox) {
         let vm=this;
         vm.nav=1;
         var data={};
@@ -38,24 +38,18 @@ angular.module('myApp')
         };
 
         // 获取行业类型接口
-        vm.typeList = jobType;
+        let url2 ='Boss/show_jobtype_list';
+        common.request(url2,data).then(function callback(res){
+            vm.typeList = res.data.data
+        }),function errorCallback(response) {
+        };
 
         // 获取福利待遇接口
         let url3 ='Boss/show_boon';
         common.request(url3,data).then(function callback(res){
-            if(res.data.code===200){
-                vm.show_boonList = res.data.data
-            }
-            else if(res.data.code===201){
-                modalBox.alert('未注册或登录已过期');
-                $timeout(function(){
-                    $state.go('sign',{sign:1})
-                },1000)
-            }
-            else if(res.data.code===404){
-                modalBox.alert(res.data.msg)
-            }
-        })
+            vm.show_boonList = res.data.data
+        }),function errorCallback(response) {
+        };
 
         //获取公司规模接口
         let url4='boss/show_job_size';

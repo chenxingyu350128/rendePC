@@ -12,7 +12,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
 
             scope.client=1;//0代表客户端1代表企业端
             scope.username='陈奕迅';
-            scope.sign=false;//表示已经登陆
+            scope.signIf=JSON.parse(sessionStorage.getItem('signSuccess'));
             let url0='boss/network_menu';
             let url1='Boss/show_menu_two';
             let data={};
@@ -26,6 +26,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     }
                     else if(res.data.code===201){
                         modalBox.alert(res.data.msg,function(){
+                            sessionStorage.removeItem('signSuccess');
                             $timeout(function(){
                                 $state.go('signPage',{login:1})
                             },300)
@@ -47,6 +48,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     }
                     else if(res.data.code===201){
                         modalBox.alert(res.data.msg,function(){
+                            sessionStorage.removeItem('signSuccess');
                             $timeout(function(){
                                 $state.go('signPage',{login:1})
                             },300)
