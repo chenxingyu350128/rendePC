@@ -121,10 +121,10 @@ angular.module('myApp')
                                 vm.eazyMainType[i]=vm.devJobType[i].name;
                             }
                             console.log(vm.innerType);
-                            vm.childTypes=vm.types.slice(vm.typeList.length);
+                            vm.childTypes=vm.types.slice(vm.devJobType.length);
                             console.log(vm.childTypes);
                             for(let i=0;i<vm.childTypes.length;i++){
-                                for(let j=1;j<vm.typeList.length+1;j++){
+                                for(let j=1;j<vm.devJobType.length+1;j++){
                                     if(vm.childTypes[i].fid===j){
                                         vm.innerType[j-1].push(vm.childTypes[i])
                                     }
@@ -152,7 +152,6 @@ angular.module('myApp')
                     vm.devJobType=devJobType;
                     vm.innerType=innerType;
                     vm.eazyMainType=jobType;
-                    console.log(vm.typeList.length)
                 }
                 //热门搜索
                 if(!hotSearch){
@@ -200,7 +199,7 @@ angular.module('myApp')
                 }
                 //福利待遇列表
                 if(!boon){
-                    common.request('Boss/show_banner',data).then(function callback(res){
+                    common.request('Boss/show_boon',data).then(function callback(res){
                         if(res.data.code===200){
                             vm.boon=res.data.data;
                             sessionStorage.setItem('boon',JSON.stringify(vm.boon));

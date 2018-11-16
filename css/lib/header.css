@@ -136,6 +136,7 @@
 }
 .header1 .signed{
     text-align: left;
+    position: relative;
 }
 .signed span{
     width: 10em;
@@ -150,6 +151,7 @@
     background: #ac4c66;
     color: #fff;
 }
+.signed
 .btnGroup span{
     padding: .05rem .15rem;
     color: #fff;

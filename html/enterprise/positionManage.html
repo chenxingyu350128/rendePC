@@ -16,8 +16,8 @@
     <!--职位管理-->
     <div class="work-position">
         <ul>
-            <li class="work-position-l" ng-click="vm.positionList(1)">正在招聘</li>
-            <li class="work-position-l" ng-click="vm.positionList(2)">完成招聘</li>
+            <li class="work-position-l" ui-sref="positionManage({nav:0})">正在招聘</li>
+            <li class="work-position-l" ui-sref="positionManage({nav:1})">完成招聘</li>
         </ul>
         <div class="manage-list border-bottom" ng-repeat="list in vm.position">
             <div ui-sref="workDetail({id:list.id})" class="position-list-right flex-column">
@@ -51,7 +51,7 @@
             </div>
             <div style="width: 33.3333%;float: right;">
                 <div class=" fr flex-row">
-                    <button class="manage-btn white-bc">修改职位</button>
+                    <button ng-click="vm.modify(list.id,$index)" class="manage-btn white-bc">修改职位</button>
                     <button class="manage-btn red-bc">完成招聘</button>
                 </div>
                 <div class=" fr flex-row">

@@ -47,10 +47,6 @@
         padding-bottom: .09rem;
         color: #ddd;
         border-bottom: 2px solid #b2b2b2; }
-      .signPage .main .table .pickers .navLogin:first-child,
-      .signPage .main .table .pickers .navSign:first-child {
-        color: #000;
-        border-bottom: 2px solid #f00; }
 
 .inputs label {
   line-height: .3rem;

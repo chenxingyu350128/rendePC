@@ -71,22 +71,29 @@ body{
 .top .topDiv .typeDetails{
     z-index: 999;
     width: 8rem;
-    display: flex;
-    flex-wrap: wrap;
     position: absolute;
     left: 100%;
-    padding-left: .1rem;
+    height: 100%;
+    padding: .3rem;
     background: #fff;
 }
 .typeDetails .category{
+    display: inline-block;
     padding: .1rem;
     margin: .1rem;
-    color:#9fa3b0;
+    color:#000;
+    background: #e3e7ed;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.typeDetails .category:hover{
+    background: plum;
+    color: #fff;
 }
 .topDiv+.topDiv{
     margin-left: .15rem;
 }
-.top .type{
+.top .types{
     width: calc(25% - .1rem);
     flex: 1;
     flex-direction: column;
@@ -105,20 +112,20 @@ body{
     height: 1.6rem;
     box-shadow: 1px 1px 3px #ccc;
 }
-.type{
+.types{
     padding-left: 0;
 }
-.type div{
+.types .type{
     flex: 1;
     display: flex;
     align-items: center;
     padding-left: .15rem;
     cursor: pointer;
 }
-.type div:nth-of-type(odd){
+.types div:nth-of-type(odd){
     background: #190e63;
 }
-.type div:nth-of-type(even){
+.types div:nth-of-type(even){
     background: #261b6c;
 }
 .swiper {
@@ -247,6 +254,11 @@ body{
 }
 .camp{
     font-size: 14px;
+    max-width: 8em;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0 auto;
 }
 .btns button{
     /*width: .77rem;*/

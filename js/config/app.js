@@ -308,7 +308,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//登录/注册页
             .state('signPage',{
-                url: '/signPage?sign&login',
+                url: '/signPage?sign&login&clientId&method',
                 templateUrl: 'html/sign.html',
                 controller: 'signCtrl',
                 controllerAs: 'vm',
@@ -588,7 +588,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             // 职位管理
             .state('positionManage',{
-                url: '/positionManage?type0&type1&position0',
+                url: '/positionManage?type0&type1&nav',
                 templateUrl: 'html/enterprise/positionManage.html',
                 controller: 'positionManageCtrl',
                 controllerAs: 'vm',
@@ -607,7 +607,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             // 发布职位
             .state('releasePosition',{
-                url: '/releasePosition?type0&type1&pType&position0',
+                url: '/releasePosition?type0&type1&pType&index&j_id',
                 templateUrl: 'html/enterprise/releasePosition.html',
                 controller: 'releasePositionCtrl',
                 controllerAs: 'vm',

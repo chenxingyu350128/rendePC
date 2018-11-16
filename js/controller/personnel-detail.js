@@ -14,8 +14,8 @@ angular.module('myApp')
         common.request('Boss/look_resume',data).then(function(res){
             if(res.data.code===200){
                 //数据格式不对，暂时保留
-                // res.data.data.allshool=JSON.parse(res.data.data.allshool);
-                // res.data.data.work_history=JSON.parse(res.data.data.work_history);
+                res.data.data.allshool=JSON.parse(res.data.data.allshool);
+                res.data.data.work_history=JSON.parse(res.data.data.work_history);
                 vm.x=res.data.data;
                 console.log(vm.x)
             }

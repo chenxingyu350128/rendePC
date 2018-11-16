@@ -12,7 +12,10 @@
                     <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
                 </div>
                 <div ng-if="signIf" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
-                    <span>欢迎您！{{username}}</span>
+                    <span ng-click="showExit()">欢迎您！{{username}}</span>
+                    <div ng-if="showEx" class="loginInfo">
+                        <span ng-click="exit()">退出登录</span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,4 +1,6 @@
 angular.module('myApp')
+    .constant('token',JSON.parse(sessionStorage.getItem('token')))
+    .constant('uid',JSON.parse(sessionStorage.getItem('uid')))
     .constant('homeMenu',JSON.parse(sessionStorage.getItem('homeMenu')))
     .constant('enterHome',JSON.parse(sessionStorage.getItem('enterHome')))
     .constant('jobType',JSON.parse(sessionStorage.getItem('jobType')))

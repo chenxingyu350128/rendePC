@@ -6,14 +6,15 @@
     <div id="header_top" class="container-fluid topShell">
         <div class="top container">
             <!--<div class="row">-->
-            <div  ng-mouseleave="vm.mouseLeave()" class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 type">
+            <div  ng-mouseleave="vm.mouseLeave()" class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 types">
                 <div ng-repeat="x in vm.jobType"
                      ng-mouseenter="vm.mouseEnter(x.id)"
-                     ui-sref="WorkCtrl({jobType: {{$index}}})">
+                     ui-sref="WorkCtrl({jobType: {{$index}}})"
+                     class="type">
                     <img src="image/home/type1.png" alt="">
                     {{x.name}}
                 </div>
-                <div ng-if="vm.showCates" class="typeDetails" ng-style="{'top':'calc(' + vm.cateIdx*33.75+'px)'}">
+                <div ng-if="vm.showCates" class="typeDetails">
                     <span class="category" ng-repeat="x in vm.typeDetail" ng-click="vm.category(x.id)">{{x.name}}</span>
                 </div>
             </div>
@@ -30,12 +31,6 @@
                         <div ng-repeat="x in vm.banner" class="item" on-finish-render-filters2>
                             <img src="{{x.img}}" alt="First slide">
                         </div>
-                        <!--<div class="item">-->
-                            <!--<img src="image/home/swiper.png" alt="Second slide">-->
-                        <!--</div>-->
-                        <!--<div class="item">-->
-                            <!--<img src="image/home/swiper.png" alt="Third slide">-->
-                        <!--</div>-->
                     </div>
                     <!-- 轮播（Carousel）导航 -->
                     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
@@ -59,8 +54,6 @@
             </div>
             <div class="topDiv rightImg col-md-3 col-lg-3 col-sm-12 col-xs-12">
                 <img ng-repeat="x in vm.banner" src="{{x.img}}" alt="">
-                <!--<img src="image/home/card_02.png" alt="">-->
-                <!--<img src="image/home/card_03.png" alt="">-->
             </div>
             <!--</div>-->
         </div>

@@ -4,19 +4,40 @@ angular.module('myApp')
     .controller('signCtrl',function ($http,$state,$stateParams,common,modalBox) {
         console.log($stateParams);
         let vm=this;
+        vm.clientId=parseInt($stateParams.clientId)||1;
+        vm.method=parseInt($stateParams.method)||1;
+        let nav=$('.navSign');
+        let methods=$('.navLogin');
+        nav.eq(vm.clientId-1).css({
+            'border-bottom':'2px solid #f00',
+            'color': '#000',
+            'font-weight': '600'
+        });
+        methods.eq(vm.method-1).css({
+            'border-bottom':'2px solid #f00',
+            'color': '#000',
+            'font-weight': '600'
+        });
         vm.phone='13799772639';
         vm.getECode=function(){
-            let data={phone:vm.phone};
+            let data={phone:vm.phone,typeid:vm.clientId};
             common.request('reg/reg',data).then(function callback(res){
                 console.log(res);
                 if(res.data.code===200){
                     vm.signSuccess=true;
-                    sessionStorage.setItem('signSuccess',JSON.stringify(vm.signSuccess=true));
                     vm.success=res.data.data;
-                    vm.clientType=1;
                     sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
                     sessionStorage.setItem('token',JSON.stringify(vm.success.token));
-                    history.back();
+                    sessionStorage.setItem('client',vm.success.typeid);
+                    switch(parseInt(vm.success.typeid)){
+                        case 1:
+                        case 2:
+                            $state.go('home');
+                            break;
+                        case 3:
+                            $state.go('enterpriseHome');
+                            break;
+                    }
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.msg)

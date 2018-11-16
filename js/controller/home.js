@@ -11,7 +11,7 @@ angular.module('myApp')
         // 各种用到的通用列表
         vm.lists=listsRequest.lists();
         console.log(vm.lists);
-        vm.jobType=vm.lists.jobType;
+        vm.jobType=vm.lists.devJobType;
         console.log(vm.jobType);
         vm.innerType=vm.lists.innerType;
         vm.hotSearch=vm.lists.hotSearch;

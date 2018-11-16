@@ -9,17 +9,31 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
 
         },
         link: function (scope) {
-
-            scope.client=0;//0代表客户端1代表企业端
+            scope.cclient=parseInt(sessionStorage.getItem('client'));
+            switch(scope.cclient){
+                case 1:
+                case 2:
+                    scope.client=0;
+                    break;
+                case 3:
+                    scope.client=1;
+            }
+            //0代表客户端1代表企业端
             scope.username='陈奕迅';
-            scope.signIf=JSON.parse(sessionStorage.getItem('signSuccess'));
-            let url0='boss/network_menu';
-            let url1='Boss/show_menu_two';
+            scope.showEx=false;
+            scope.signIf=sessionStorage.getItem('client');
+            scope.showExit=function(){
+                scope.showEx=!scope.showEx;
+            };
+            scope.exit=function(){
+                sessionStorage.removeItem('client');
+                $state.go('signPage',{login:1});
+            };
             let data={};
             //客户端homeMenu，企业端enterHome菜单栏
             if(!homeMenu){
                 console.log('请求获取homeMenu');
-                common.request(url0,data).then(function callback(res){
+                common.request('boss/network_menu',data).then(function callback(res){
                     if(res.data.code===200){
                         scope.homeMenu=res.data.data;
                         sessionStorage.setItem('homeMenu',JSON.stringify(scope.homeMenu));
@@ -41,7 +55,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
             } // 企业端homeMenu
             if(!enterHome){
                 console.log('请求获取homeMenu');
-                common.request(url1,data).then(function callback(res){
+                common.request('Boss/show_menu_two',data).then(function callback(res){
                     if(res.data.code===200){
                         scope.enterHome=res.data.data;
                         sessionStorage.setItem('enterHome',JSON.stringify(scope.enterHome));
