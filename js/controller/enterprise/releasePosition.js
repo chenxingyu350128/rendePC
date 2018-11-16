@@ -69,7 +69,6 @@ angular.module('myApp')
                 end_money:vm.salto,
                 experience: vm.experience,
                 education:vm.education,
-                // years:e.ask,
                 position: vm.position,
                 num:vm.num
             };
