@@ -9,18 +9,18 @@
     <div class="leftSide">
         <div class="intro">
             <div class="left">
-                <div class="ocp">服务员，收银员，洗碗工，配菜员</div>
-                <div class="salary redF">￥2800-3800</div>
-                <div class="endAt grayF">截至日期: 2019-08-29</div>
-                <div class="address">地址: 东泰禾广场商业街</div>
+                <div class="ocp">{{vm.workDetail.title}}</div>
+                <div class="salary redF">{{vm.workDetail.money}}</div>
+                <div class="endAt grayF">截至日期:{{vm.workDetail.end_time}}</div>
+                <div class="address">地址: {{vm.workDetail.address}}</div>
                 <div class="contact">
-                    <span class="contactMethod">联系电话: 15287365413</span>
-                    <span class="contactMethod">联系人: 陈星星</span>
+                    <span class="">联系电话: {{vm.workDetail.phone}}</span>
+                    <span class="contactMethod">联系人: {{vm.workDetail.name}}</span>
                 </div>
             </div>
             <div class="right text-right">
-                <div class="updateAt">2018-08-13 更新</div>
-                <div class="viewCount">被浏览: 1次</div>
+                <div class="updateAt">{{vm.workDetail.time}} 更新</div>
+                <div class="viewCount">被浏览: {{vm.workDetail.look}}次</div>
                 <div class="icons">
                     <div class="rec">
                         <img src="image/home/rec.png" alt="">
@@ -40,42 +40,41 @@
             </div>
             <div class="demand">
                 <span>
-                    服务员：2800-3000；收银员：3000-3200元；洗碗工：3000-3200元；配菜员：3400-3800元，煮饭
-                员：3400-3800元。
+                   {{vm.workDetail.content}}
                 </span>
             </div>
         </div>
-        <div class="edit">
-            <div class="boxTitle">
-                <div class="stick"></div>
-                <span class="redF">修改删除</span>
-            </div>
-            <div class="options">
-                <div class="button refresh">刷新</div>
-                <div class="button modify">修改</div>
-                <div class="button delete">删除</div>
-            </div>
-            <div class="desc">
-                <div class="redF">操作说明:</div>
-                <div class="grayF">刷新，修改，删除只有信息发布者可以操作，每刷新一次招聘信息就会自动排在最前面</div>
-            </div>
-        </div>
+        <!--<div class="edit">-->
+            <!--<div class="boxTitle">-->
+                <!--<div class="stick"></div>-->
+                <!--<span class="redF">修改删除</span>-->
+            <!--</div>-->
+            <!--<div class="options">-->
+                <!--<div class="button refresh" ng-click="vm.updata()">刷新</div>-->
+                <!--&lt;!&ndash;<div class="button modify">修改</div>&ndash;&gt;-->
+                <!--<div class="button delete" ng-click="vm.delect(vm.workDetail.id)">删除</div>-->
+            <!--</div>-->
+            <!--<div class="desc">-->
+                <!--<div class="redF">操作说明:</div>-->
+                <!--<div class="grayF">刷新，修改，删除只有信息发布者可以操作，每刷新一次招聘信息就会自动排在最前面</div>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="recommend">
             <div class="boxTitle">
                 <div class="stick"></div>
                 <span class="redF">为你推荐</span>
             </div>
             <div class="ocp">
-                <div class="card" ng-repeat="x in vm.recData">
+                <div class="card" ng-repeat="x in vm.recommend" ui-sref="GWDetail({id:x.id})" >
                     <div class="ocpAndSalary">
-                        <span>{{x.ocp}}</span>
-                        <span class="redF">{{x.salary}}</span>
+                        <span>{{x.title}}</span>
+                        <span class="redF">{{x.money}}</span>
                     </div>
-                    <div class="desc">{{x.desc}}</div>
-                    <div class="tel">联系电话:{{x.tel}}</div>
+                    <div class="desc">{{x.content}}</div>
+                    <div class="tel">联系电话:{{x.phone}}</div>
                     <div class="addressAndDate">
                         <span>联系地址:{{x.address}}</span>
-                        <span class="grayF">更新于{{x.updateAt}}</span>
+                        <span class="grayF">更新于{{x.time}}</span>
                     </div>
                 </div>
             </div>

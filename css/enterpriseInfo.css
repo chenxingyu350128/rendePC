@@ -11,7 +11,10 @@
   padding: 0 .15rem;
   background: #fff;
   margin-bottom: .1rem; }
-
+.jobs span:hover{
+  background-color: red;
+  color: white;
+}
 .enterDesc {
   display: flex;
   justify-content: space-between;
@@ -33,7 +36,7 @@
       margin-bottom: .3rem; }
     .enterDesc .enterLeft .happy {
       display: flex;
-      margin-bottom: .44rem; }
+      margin-bottom: .3rem; }
       .enterDesc .enterLeft .happy span {
         margin-right: .05rem;
         padding: 0 .15rem;
@@ -56,13 +59,18 @@
       .enterDesc .enterLeft .count > div:last-child {
         border-right: 0; }
   .enterDesc .enterRight {
-    padding: 0 0.4rem 0 0.3rem; }
+    padding: 0 0.4rem 0 0.3rem;
+    border-left: 1px solid gainsboro;
+    width: 23%;
+    margin-left: 100px;}
+  .enterDesc .enterRight > div:first-child{
+    border-bottom: 1px solid #e5e5e5; }
     .enterDesc .enterRight > div {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: .45rem;
-      border-bottom: 1px solid #e5e5e5; }
+      padding-bottom: .45rem;}
+
       .enterDesc .enterRight > div .verify {
         text-align: center;
         font-size: 12px; }
@@ -74,10 +82,12 @@
       margin: .4rem auto 0;
       width: 70%;
       line-height: .5rem;
+      outline: 0px;
       background: #f00;
       color: #fff;
       font-size: 20px;
-      font-weight: 600; }
+      font-weight: 600;
+      border: none}
 
 .contact {
   padding: .3rem .45rem;
@@ -117,14 +127,17 @@
   margin-bottom: 0; }
 .jobs .leftTwo {
   display: flex;
-  align-items: center; }
+  align-items: center;
+ width: 50%}
   .jobs .leftTwo img {
-    margin-right: .27rem; }
+    margin: 0 .27rem; }
 .jobs .demand {
   margin-top: .3rem; }
 .jobs .thi {
   display: flex;
-  align-items: center; }
+  align-items: center;
+  width: 50%;
+  justify-content: space-between;}
   .jobs .thi .thi_L {
     margin-right: 1.6rem; }
   .jobs .thi .thi_R {

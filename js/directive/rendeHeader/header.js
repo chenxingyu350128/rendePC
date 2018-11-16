@@ -10,6 +10,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
         },
         link: function (scope) {
             scope.cclient=parseInt(sessionStorage.getItem('client'));
+            scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
             switch(scope.cclient){
                 case 1:
                 case 2:

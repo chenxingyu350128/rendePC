@@ -6,8 +6,8 @@
     首页>公司列表>公司详情
 </div>
 <div class="enterDesc container">
-    <div ng-click="vm.companyInfo()" class="enterLeft">
-        <img src="{{vm.dataList.img}}" alt="">
+    <div ng-click="vm.companyInfo()" class="enterLeft" style="margin-right: 1.5rem;">
+        <img src="{{vm.dataList.img}}" alt="" style="width: 2.5rem;height: 2.5rem;">
         <div>
             <div class="enterName">{{vm.dataList.name}}</div>
             <div class="about">
@@ -42,17 +42,18 @@
                 <img src="image/home/mailVerified.png" alt="">
                 <div>邮箱已验证</div>
             </div>
-            <div class="verify">
-                <img src="image/home/telVerified.png" alt="">
-                <div>电话已验证</div>
-            </div>
+            <!--<div class="verify">-->
+                <!--<img src="image/home/telVerified.png" alt="">-->
+                <!--<div>电话已验证</div>-->
+            <!--</div>-->
             <div class="verify">
                 <img src="image/home/permitVerifing.png" alt="">
                 <div>执照未验证</div>
             </div>
         </div>
         <div>
-            <button ng-click="vm.follow()" id="follow">{{vm.concernText}}</button>
+            <button ng-click="vm.follow()" class="follow" ng-if=" vm.concernText==0">关注</button>
+            <button ng-click="vm.follow()" class="follow" ng-if=" vm.concernText==1">已关注</button>
         </div>
     </div>
 </div>
@@ -97,8 +98,8 @@
     <div class="occupation" ng-repeat="job in vm.jobList |limitTo:8">
         <div class="row ">
             <div class="leftTwo">
-                <div style="height: 91px;width: 89px;border-radius: 5px;margin-right: 20px"><img src="{{job.img}}" alt="" style="width: 100%"></div>
-                <div class="sec">
+                <div style="height: 91px;width: 89px;border-radius: 5px;margin-right: 20px"  ui-sref="workDetail({id:job.id,index})"><img src="{{job.img}}" alt="" style="width: 100%"></div>
+                <div class="sec" style="margin: 0 23px;">
                     <div>
                         {{job.job_type}}
                         <span class="salary redF">￥{{job.pay}}</span>
@@ -113,7 +114,7 @@
             <div class="thi">
                 <div class="" style="">
                     <div>
-                        安全工程师或安全员
+                        {{job.name}}
                     </div>
                     <div class="demand grayF">
                         <span>{{job.nature}}</span>
@@ -122,7 +123,7 @@
                     </div>
                 </div>
                 <div class="thi_R">
-                    <span>投个简历</span>
+                    <span ng-click="vm.throw(job.id,$index)" class="position-btn" on-finish-render-filters2>投个简历</span>
                     <div class="update">
                         更新时间：{{job.time}}
                     </div>

@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="container recruitment">
-    <div ng-repeat="x in vm.dataList|filter:vm.selectType" ui-sref="GWResume" class="card">
+    <div ng-repeat="x in vm.dataList" ui-sref="GWResume({id:x.id})" class="card">
         <div class="salary">
             <span>{{x.title}}</span>
         </div>
@@ -36,8 +36,11 @@
             <span class="grayF pull-right">{{x.time}}</span>
         </div>
     </div>
+    <div class="nullList" ng-show="vm.dataList.length==0">
+        暂无数据
+    </div>
 </div>
-<div class="container">
+<div class="container" ng-hide="vm.dataList.length==0">
     <div class="seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
     </div>

@@ -10,20 +10,9 @@
             <div>
                 <span class="all">全部</span>
             </div>
-            <span class="choice"ng-repeat="type in vm.typeList |limitTo: 6">{{type}}</span>
+            <span class="choice"ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>
             <select class="getMore" name="occupations" id="select1">
-                <option ng-repeat="type in vm.typeList ">{{type}}</option>
-            </select>
-        </div>
-        <div class="row">
-            <span>性质:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="type in vm.typeList |limitTo:6">{{type}}</span>
-            <select class="getMore" name="occupations" id="select2" >
-                <option value="">全部</option>
-                <option value="" ng-repeat="type in vm.typeList">{{type}}</option>
+                <option ng-repeat="type in vm.typeList >{{type.name}}</option>
             </select>
         </div>
         <div class="row">
@@ -71,9 +60,9 @@
                         <div class="sec">
                             <div class="position">
                                 {{data.name}}
-                                <img src="image/home/vip.png" alt="">
+                                <!--<img src="image/home/vip.png" alt="">-->
                             </div>
-                            <div class="company-type grayF ">{{data.job_type}} | {{data.nature}}{{data.size}} | {{data.area}}</div>
+                            <div class="company-type grayF " style="margin: 15px 0;">{{data.job_type}} | {{data.nature}}{{data.size}} | {{data.area}}</div>
                             <div class="demand grayF">
                                 <span ng-repeat="items in data.boonarrs track by $index"> | {{items}}</span>
                             </div>
@@ -103,34 +92,12 @@
                     <span>推荐企业</span>
                 </div>
             </div>
-            <div ui-sref="enterpriseInfo" class="occupation">
+            <div ui-sref="enterpriseInfo" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
                 <div class="row1">
-                     <span class="companyName">
-                     博&nbsp;业<br>建&nbsp;设
-                     </span>
+                    <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
                 </div>
-                <div class="enterName text-center">
-                    福建博业建设集团有限公司福州分公司
-                </div>
-            </div>
-            <div ui-sref="enterpriseInfo" class="occupation">
-                <div class="row1">
-                     <span class="companyName">
-                     博&nbsp;业<br>建&nbsp;设
-                     </span>
-                </div>
-                <div class="enterName text-center">
-                    福建博业建设集团有限公司福州分公司
-                </div>
-            </div>
-            <div ui-sref="enterpriseInfo" class="occupation">
-                <div class="row1">
-                     <span class="companyName">
-                     博&nbsp;业<br>建&nbsp;设
-                     </span>
-                </div>
-                <div class="enterName text-center">
-                    福建博业建设集团有限公司福州分公司
+                <div class="text-center" style="display: block">
+                 <div>{{data.name}}</div>
                 </div>
             </div>
         </div>

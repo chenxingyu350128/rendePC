@@ -28,6 +28,7 @@ angular.module('myApp')
                     sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
                     sessionStorage.setItem('token',JSON.stringify(vm.success.token));
                     sessionStorage.setItem('client',vm.success.typeid);
+                    sessionStorage.setItem('phone',JSON.stringify(vm.phone));
                     switch(parseInt(vm.success.typeid)){
                         case 1:
                         case 2:

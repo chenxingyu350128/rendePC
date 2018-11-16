@@ -119,12 +119,12 @@
 </div>
 <div id="" class="container down0">
     <div class="col-lg-6 col-md-6 col-sm-4 topic" ui-sref="topic-detail" ng-repeat="data in vm.dataList">
-        <img src="{{data.img}}" alt="" class="topic-bg">
-        <div class="topic-title">
-            <div class="first" style="margin-top: 66px;">{{data.title}}</div>
-            <!--<div class="second">{{data.title}}</div>-->
-            <!--<div class="third">专属应届毕业生</div>-->
-        </div>
+      <div class="topic-bg">
+          <img src="{{data.img}}" alt="" class="topic-bg-img">
+          <div>
+              <div class="first" >{{data.title}}</div>
+          </div>
+      </div>
     </div>
 </div>
 <rd-footer></rd-footer>

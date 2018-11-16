@@ -106,12 +106,15 @@ angular.module('myApp')
             vm.postData['come_job']=vm.filterData['come_job']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
+
+
         // 获取简历接口(全部简历/收到的简历)
         common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
             if(res.data.code===200){
                 vm.cardData = res.data.data;
                 console.log(res);
-            }else if(res.data.code===201){
+            }
+            else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){
                     $timeout(function(){
                         $state.go('signPage',{login:1})
@@ -123,6 +126,8 @@ angular.module('myApp')
             }
 
         });
+
+
 //**************************获取各个列表************************
      vm.lists=listsRequest.lists();
      vm.typeList=vm.lists.jobType;

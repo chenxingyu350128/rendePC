@@ -26,10 +26,10 @@
         <ul>
             <li>职位:</li>
             <li><button class="work-list-allbtn">全部</button></li>
-            <li ng-repeat="type in vm.typeList |limitTo: 6">{{type}}</li>
+            <li ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</li>
             <li style=" float: right;">
                 <select class="moreOpt" name="" id="" style="border: 1px solid red;">
-                    <option value="1"  ng-repeat="type in vm.typeList">{{type}}</option>
+                    <option value="1"  ng-repeat="type in vm.typeList">{{type.name}}</option>
                 </select>
             </li>
         </ul>
@@ -60,12 +60,6 @@
             <li><button class="work-list-allbtn">全部</button></li>
             <li>
                 <select name="" id="">
-                    <option value="1">公司行业</option>
-                    <option value="1"  ng-repeat="type in vm.typeList">{{type}}</option>
-                </select>
-            </li>
-            <li>
-                <select name="" id="">
                     <option value="1">学历要求</option>
                     <option value="{{edu.id}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
                 </select>
@@ -92,47 +86,66 @@
         </ul>
     </div>
     <!--推荐最新职位-->
-    <div class="work-position">
-        <ul class="position-tj">
-            <li class="work-position-l">所有人才</li>
-            <li class="work-position-l">精英推荐</li>
-        </ul>
-        <div class=" personnel-select-fir">筛选：</div>
-        <ul class="personnel-select">
-            <li class="personnel-select-li">更新时间</li>
-            <li class="personnel-select-li">发布时间</li>
-            <li class="personnel-select-li">身份验证</li>
-            <li class="personnel-select-li">有作品</li>
-        </ul>
-        <div class="position-list" ng-repeat="data in vm.dataList">
-            <img src="{{data.img}}" alt="" class="personnel-img" ui-sref="personnel-detail" title="点击查看人才详情">
-            <div class="position-list-right">
-                <div class="positionname fl">{{data.name}}</div>
-                <br>
-                <div class=" grayF personnel-demo ">
-                    {{data.age}}| {{data.education}}工作经验|{{data.education}}学历
+    <div style="margin:10px;width: 100%">
+        <div class="positionLeft write">
+                <ul class="position-tj">
+                    <li class="work-position-l">所有人才</li>
+                    <li class="work-position-l">精英推荐</li>
+                </ul>
+                <div class=" personnel-select-fir">筛选：</div>
+                <ul class="personnel-select">
+                    <li class="personnel-select-li">更新时间</li>
+                    <li class="personnel-select-li">发布时间</li>
+                    <li class="personnel-select-li">身份验证</li>
+                    <li class="personnel-select-li">有作品</li>
+                </ul>
+                <div class="position-list personnel-list " ng-repeat="data in vm.dataList|limitTo:10">
+                    <div class="personnel-list-div">
+                        <img src="{{data.img}}" alt="" class="personnel-img" title="点击查看人才详情">
+                        <div class="person-list-intr">
+                            <div class="positionname">{{data.name}}</div>
+                            <div class=" grayF personnel-demo ">
+                                {{data.age}}| {{data.education}}工作经验|{{data.education}}学历
+                            </div>
+                            <div class="personnel-demo">期望地点：{{data.job_address}}</div>
+                        </div>
+                    </div>
+                    <div style="text-align: center" class="personnel-list-div">
+                        <div class="grayF">期望职位：{{data.want_job}}</div>
+                        <div class=" grayF personnel-demo">
+                            <span>求职状态：{{data.job_type}}</span>
+                        </div>
+                        <div class="personnel-demo grayF ">TA想找<span class="personnel-active">{{data.want_job}}</span>工作</div>
+                    </div>
+                    <div  class="personnel-list-div person-list-btn">
+                        <div class="grayF">
+                            <span>更新时间：{{data.time}}</span>
+                        </div>
+                        <br>
+                        <button class="position-btn"  ui-sref="personnel-detail({r_id:data.id})">查看简历</button>
+                    </div>
+                    <!--<div class="position-hr"></div>-->
                 </div>
-                <div class="personnel-demo">期望地点：{{data.job_address}}</div>
-            </div>
-            <div class="personel-list-center">
-                <div class=" fl grayF">期望职位：{{data.want_job}}</div><br>
-                <div class=" grayF personnel-demo">
-                    <span>求职状态：{{data.job_type}}</span>
+                <div class="container seeMore text-center workmore fr">
+                    <img src="image/home/seeMore.png" alt="">
                 </div>
-                <div class="personnel-demo grayF ">TA想找<span class="personnel-active">{{data.want_job}}</span>工作</div>
             </div>
-            <div class="position-list-right fr">
-                <div class="grayF">
-                    <span>更新时间：{{data.time}}</span>
+        <div class="positionRight write">
+            <div class="hot-position"><span >推荐精英</span></div>
+            <div class="hot-position-list" title="点击可查看职位详情">
+                <div class="person-first">
+                    <img src="image/home/logo.png" alt="" class="headImg">
+                    <div class="person-list-money"><span>期望薪资：￥8000-9090</span></div>
                 </div>
-                <br>
-                <button class="position-btn">查看简历</button><br>
+                <div>福建-福州 | 2年工作经验</div>
+                <div>在职 | 考虑换工作</div>
             </div>
-            <div class="position-hr"></div>
-        </div>
-        <div class="container seeMore text-center workmore fr">
-            <img src="image/home/seeMore.png" alt="">
+            <div class=" seeMore text-center workmore">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
         </div>
     </div>
+
+
 </div>
 <rd-footer></rd-footer>

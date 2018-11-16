@@ -42,7 +42,8 @@
     .leftSide .intro .left .address {
       margin-bottom: .28rem; }
     .leftSide .intro .left .contactMethod + .contactMethod {
-      margin-left: .67rem; }
+      margin-left: .67rem;
+      float: left;}
     .leftSide .intro .right {
       font-size: 14px; }
       .leftSide .intro .right .updateAt {

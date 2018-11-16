@@ -139,7 +139,7 @@
     position: relative;
 }
 .signed span{
-    width: 10em;
+    /*width: 10em;*/
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;

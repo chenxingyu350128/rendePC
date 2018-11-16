@@ -37,3 +37,38 @@
     padding: 13px 13% 0px 13%;
     border-right: 1px solid gainsboro;
 }
+.personnel-list{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid gainsboro;
+}
+.personnel-list-div{
+    width: 33.3333%;
+}
+.person-list-btn{
+    float: right;
+    text-align: right;
+    margin-right: 25px;
+}
+.person-list-intr{
+    margin-left: 10px;
+    float: left;
+}
+.person-first{
+    flex-direction: row;
+    display: flex;
+}
+.person-list-money{
+    color: red;
+    font-size: 17px;
+}
+.person-list-money span{
+    margin: 10px;
+    display: inline-block;
+}
+.headImg{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: grey;
+}

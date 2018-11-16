@@ -49,7 +49,7 @@
                 <div class="productTitle">
                     <span>猜你喜欢</span>
                 </div>
-                <div class="goods" ng-repeat="like in vm.likeList">
+                <div class="goods" ng-repeat="like in vm.likeList" ui-sref="shop-detail({id:like.id})">
                     <img src="{{like.img}}" alt="">
                     <div>
                         <div class="goodsName">{{like.name}}</div>

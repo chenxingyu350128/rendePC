@@ -8,7 +8,7 @@
             <div class="">
                 <!--人才详情-->
                 <div class="headhunt-detail">
-                    <img src="image/home/out_avatar.png" alt="" class="personnel-img mt">
+                    <img src="image/home/out_avatar.png" alt="" class="personnel-img mt fl">
                     <div class="personnel-intr">
                             <div style="width: 100%">
                                 <span class="personnel-name">{{vm.x.name}}</span>
@@ -27,7 +27,7 @@
                             </div>
                             <div class="personnel-detail-intr">
                                 <span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：1次</span><br>
-                                <button class="position-btn fr">邀请面试</button>
+                                <button class="position-btn fr" ng-click="vm.face(vm.x.id)" id="face">邀请面试</button>
                             </div>
                         </div>
 
@@ -47,10 +47,10 @@
 
                     </div>
                     <div class="personnel-detail-intention">
-                        <span CLASS="grayF">工作性质:</span>  <span>{{vm.x.nature}}</span><br>
+                        <span CLASS="grayF">工作性质:</span>  <span>{{vm.x.nature||"无"}}</span><br>
                        <span CLASS="grayF">从事行业：</span>  <span>{{vm.x.want_job}}</span><br>
                        <!--<span CLASS="grayF">期望薪资：</span>  <span>￥5000-8000</span><br>-->
-                        <span CLASS="grayF">求职状态：</span>  <span>{{vm.x.status?"已离职，找工作中":"已就职"}}</span>
+                        <span CLASS="grayF">求职状态：</span>  <span>{{vm.x.job_type}}</span>
                     </div>
                 </div>
             </div>
@@ -60,37 +60,18 @@
                     <span > 工作经历</span>
                 </div>
                 <div class="intention">
-                    <div class="work-exp-list">
+                    <div class="work-exp-list" ng-repeat="work in vm.x.work_history track by $index">
                         <div class="personnel-detail-exp">
-                            <span class="exp-title">2018.06-2018.12</span>
+                            <span class="exp-title">{{work.startTime}} - {{work.endTime}}</span>
                         </div>
                         <div class="personnel-detail-exp2">
-                            <div class="exp-title"><span>宁德时代新能源科技有限公司</span> <span class="exp-title-work">人事实习生</span></div>
+                            <div class="exp-title"><span>{{work.company}}</span> <span class="exp-title-work">{{work.job_name}}</span></div>
                             <br>
                             <p>
-                                我始终把学习作为获得新知、掌握方法、提高能力、解决问题的一条重要途径和方法，切实做到用理论武装头脑、
-                                指导实践、推动工作。思想上积极进取，积极的把自己现有的知识用于社会实践中，在实践中也才能检验知识的有用性。
-                                所以在这一个月的实习工作中给我最大的感触就是我们在学校学到了很多的理论知识，
-                                但很少用于社会实践中，这样理论和实践就大大的脱节了，以至于在以后的学习和生活中找不到方向。
+                                {{work.content}}
                             </p>
                         </div>
                     </div>
-                    <div class="work-exp-list">
-                        <div class="personnel-detail-exp">
-                            <span class="exp-title">2018.06-2018.12</span>
-                        </div>
-                        <div class="personnel-detail-exp2">
-                            <div class="exp-title"><span>宁德时代新能源科技有限公司</span> <span class="exp-title-work">人事实习生</span></div>
-                            <br>
-                            <p>
-                                我始终把学习作为获得新知、掌握方法、提高能力、解决问题的一条重要途径和方法，切实做到用理论武装头脑、
-                                指导实践、推动工作。思想上积极进取，积极的把自己现有的知识用于社会实践中，在实践中也才能检验知识的有用性。
-                                所以在这一个月的实习工作中给我最大的感触就是我们在学校学到了很多的理论知识，
-                                但很少用于社会实践中，这样理论和实践就大大的脱节了，以至于在以后的学习和生活中找不到方向。
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
             </div>
             <!--教育经历-->
@@ -98,17 +79,17 @@
                 <div class="position-hr-top">
                     <span > 教育经历</span>
                 </div>
-                <div class="intention">
+                <div class="intention" ng-repeat="school in vm.x.allshool track by $index">
                     <div class="work-exp-list">
                         <div class="personnel-detail-exp">
-                            <span class="exp-title">2018.06-2018.12</span>
+                            <span class="exp-title">{{school.time}}</span>
                         </div>
                         <div class="personnel-detail-exp2">
-                            <div class="exp-title"><span>福建师范学院</span></div>
+                            <div class="exp-title"><span>{{school.School}}</span></div>
                             <br>
                             <p>
-                               <span class="jy-exp">学历 :  本科</span>
-                               <span>专业 :  计算机科学与技术</span>
+                               <span class="jy-exp">学历 :  {{school.education}}</span>
+                               <span>专业 :  {{school.major}}</span>
                             </p>
                         </div>
                     </div>

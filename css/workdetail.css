@@ -24,6 +24,10 @@
     margin: 0.13rem 0.1rem 0.13rem 0;
 
 }
+.cinfo{
+    margin: .4rem auto;
+    text-align: center;
+}
 .detail-right{
     float: left;
     width: 30%;
@@ -46,8 +50,9 @@
     border: none;
     background-color: red;
     color: white;
-    padding: 0.02rem .2rem;
+    padding: 0.04rem .15rem;
     float: right;
+    border-radius: 5px;
     font-size: 17px;
     margin-right: .1rem;
 }

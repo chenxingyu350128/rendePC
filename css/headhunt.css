@@ -73,6 +73,18 @@
     padding: 10px 15px;
     font-weight: 600;
 }
+.hunt-list2 div:first-child{
+    background-color: rgb(167,247,178);
+}
+/*.hunt-list2 div:nth-child(2){*/
+    /*background-color: #7ddbff;*/
+/*}*/
+/*.hunt-list2 div:nth-child(3){*/
+    /*background-color: rgb(167,247,178);*/
+/*}.hunt-list2 div:nth-child(4){*/
+     /*background-color: rgb(166,179,247);*/
+ /*}*/
+
 .hunt-part-bg1{
     background-color: #ffe748;
 }
@@ -121,13 +133,16 @@
 .hunt-serve img{
     float: left;
     margin-bottom: 30px;
-    border-radius: 50px;
+    border-radius: 50%;
     border: 1px solid red;
     margin-left: 0.3rem;
+    width: 84px;
+    height: 84px;
 }
 .hunt-serve-content{
     padding: 0 15px 10px 15px;
     display: inline-block;
+    width: 100%;
 }
 .hunt-serve-content div{
     font-size: 14px;
@@ -138,11 +153,11 @@
 }
 .hunt-serve-content button{
     border: none;
-    background-color:rgb(226,28,25);
+    background-color: rgb(226,28,25);
     text-align: center;
-    margin: 5% 5%;
+    margin: 10% 25%;
     padding: 2% 0%;
-    width: 90%;
+    width: 50%;
     color: white;
     font-size: 20px;
     font-weight: 600;
@@ -160,6 +175,7 @@
 .hunt-serve-name span:first-child{
     font-weight: bolder;
     font-size: 20px;
+    margin-top: 27px;
 }
 
 

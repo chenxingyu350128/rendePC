@@ -60,6 +60,10 @@ a:active {
     height: .24rem; }
 
 .inIt + .inIt {
-  margin-left: 2.53rem; }
+  margin-left: 2.53rem;
+}
+.inIt img{
+  margin-right: 16px;
+}
 
 /*# sourceMappingURL=proxy.css.map */

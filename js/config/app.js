@@ -92,7 +92,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
-            })//岗位详情
+            })
+            //岗位详情
             .state('workDetail',{
                 url: '/workDetail?id?index',
                 templateUrl: 'html/workdetail.html',
@@ -140,7 +141,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/hunt-position&position0.js'
                     ])
                 }
-            })//人才详情
+            })
+            //人才详情
             .state('personnel-detail',{
                 url: '/personnel-detail?r_id&g_id',
                 templateUrl: 'html/personnel-detail.html',
@@ -246,7 +248,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//猎头详情
             .state('headhunt-detail',{
-                url: '/headHunt/detail',
+                url: '/headHunt/detail?id',
                 templateUrl: 'html/headhunt-detail.html',
                 controller: 'HeadhuntDetailCtrl',
                 controllerAs: 'vm',
@@ -266,7 +268,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
 
             //企业详情
             .state('enterpriseInfo',{
-                url: '/enterprise/enterpriseInfo',
+                url: '/enterprise/enterpriseInfo?id',
                 templateUrl: 'html/enterpriseInfo.html',
                 controller: 'enterpriseInfo',
                 controllerAs: 'vm',
@@ -424,7 +426,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//普工详情
             .state('GWDetail',{
-                url: '/GWDetail',
+                url: '/GWDetail?id',
                 templateUrl: 'html/GWDetail.html',
                 controller: 'GWDetail',
                 controllerAs: 'vm',
@@ -443,7 +445,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('GWResume',{//普工简历详情
-                url: '/GWResume',
+                url: '/GWResume?id',
                 templateUrl: 'html/GWResume.html',
                 controller: 'GWResume',
                 controllerAs: 'vm',
@@ -578,6 +580,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 resolve: {
                     loadMyFile: _ocLazy([
                         'css/superPosition.css',
+                        'css/resumeManage.css',
                         'js/controller/superPosition.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',

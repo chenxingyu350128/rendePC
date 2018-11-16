@@ -1,31 +1,43 @@
 'use strict';
 angular.module('myApp')
-    .controller('enterprise',function ($http,$state,common,modalBox) {
+    .controller('enterprise',function ($http,$state,common,modalBox,$timeout,jobType) {
         let vm=this;
         vm.nav=1;
         var data={};
+        vm.typeList = jobType
         vm.pickNav = pickNav;
-
         vm.pickNav(1);
-
         function pickNav(e){
             vm.nav=(e===1)?1:2;
             //获取企业列表接口
             if(e==1){
                 let url='boss/company_list';
                 common.request(url,data).then(function callback(res){
-                    vm.dataList =res.data.data
-                    vm.boonarr={};
-                    vm.dataList.forEach(function (v) {
-                        vm.boonarr=JSON.parse(v.boonarr)
-                        v.boonarrs =vm.boonarr
-                    })
-                    console.log(vm.dataList)
+                    if(res.data.code===200){
+                        if(res.data.data.length){
+                            vm.dataList =res.data.data
+                            vm.boonarr={};
+                            vm.dataList.forEach(function (v) {
+                                vm.boonarr=JSON.parse(v.boonarr)
+                                v.boonarrs =vm.boonarr
+                            })
+                            console.log(vm.dataList)
+                        }
+                    }else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
+                    }
                 });
             }
             else if(e==2){
                 //名企招聘
-                let url1='user/show_company_recruit';
+                let url1='boss/show_company_recruit';
                 common.request(url1,data).then(function callback(res){
                     vm.dataList =res.data.data
                     vm.boonarr={};
@@ -37,12 +49,7 @@ angular.module('myApp')
             }
         };
 
-        // 获取行业类型接口
-        let url2 ='Boss/show_jobtype_list';
-        common.request(url2,data).then(function callback(res){
-            vm.typeList = res.data.data
-        }),function errorCallback(response) {
-        };
+
 
         // 获取福利待遇接口
         let url3 ='Boss/show_boon';
