@@ -1,6 +1,6 @@
 <rende-header></rende-header>
 <!--发布职位-->
-<form action="" class="container" onsubmit="return vm.addJob(vm.addList,vm.postList,event)" id="addFrom">
+<form  target="hidden_frame" class="container" id="addFrom">
 <div class="work-body">
     <div class="release-banner">我的位置：职位管理>发布职位</div>
     <div class="message-content">
@@ -9,7 +9,7 @@
             <div class="release-name">
                 <span class="name-title">职位名称：</span>
                 <select name="jobType" id="jobType"
-                        ng-model="vm.addList.job_type"
+                        ng-model="vm.job_type"
                         required
                         ng-options="x for x in vm.typeList">
                 </select>
@@ -20,7 +20,7 @@
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title">工作地址：</span>
-                <form class="form-inline adress-select" >
+                <div class="form-inline adress-select" >
                     <div id="distpicker5" style="display:flex;margin-right: 14px;">
                         <div class="form-group" style="margin-right: 10px;">
                             <label class="sr-only" for="province10">Province</label>
@@ -35,21 +35,21 @@
                             <select class="form-control" id="district10"></select>
                         </div>
                     </div>
-                </form>
+                </div>
 
             </div>
-            <div><input type="text" class="release-input" placeholder="请输入详细地址~" ng-model="vm.postList.detailadress" required="required"></div>
+            <div><input type="text" class="release-input" placeholder="请输入详细地址~" ng-model="vm.detailadress" required="required"></div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title">薪资范围：</span>
-                <input type="number" class="salary-input"  ng-model="vm.postList.salfrom" required="required" ng-blur="vm.test(vm.postList.salfrom)"> -
-                <input type="number" class="salary-input" ng-model="vm.postList.salto" required="required" ng-blur="vm.test(vm.postList.salto)">
+                <input type="number" class="salary-input"  ng-model="vm.salfrom" required="required" ng-blur="vm.test(vm.salfrom)"> -
+                <input type="number" class="salary-input" ng-model="vm.salto" required="required" ng-blur="vm.test(vm.salto)">
                 <span>(月薪不能少于4位数)</span>
             </div>
             <div class="center-margin">
                 <span class="name-title ">学历要求：</span>
-                <select name="education" id="education" class="salary-input" ng-model="vm.addList.education" ng-options="x.name as x.name for x in vm.eduList">
+                <select name="education" id="education" class="salary-input" ng-model="vm.education" ng-options="x.name as x.name for x in vm.eduList">
                     <!--<option value="">请选择</option>-->
                     <!--<option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>-->
                 </select>
@@ -57,7 +57,7 @@
             </div>
             <div>
                 <span class="name-title">工作年限：</span>
-                <select name="" id="experience" class="salary-input" ng-model="vm.addList.experience" ng-options="x.years as x.years for x in vm.exprList">
+                <select name="" id="experience" class="salary-input" ng-model="vm.experience" ng-options="x.years as x.years for x in vm.exprList">
                     <!--<option value="">请选择</option>-->
                     <!--<option value="{{expr.years}}" ng-repeat="expr in vm.exprList">{{expr.years}}</option>-->
                 </select>
@@ -66,22 +66,22 @@
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title ">职位描述：</span>
-                <textarea type="text" class="intr-textarea" ng-model="vm.addList.position" required="required"></textarea>
+                <textarea type="text" class="intr-textarea" ng-model="vm.position" required="required"></textarea>
             </div>
         </div>
         <div class="flex-row row-margin">
             <div>
                 <span class="name-title ">公司亮点：</span>
             </div>
-            <div class="light" ng-repeat="spot in vm.spotlist"  ng-click="vm.delete(this) ">
-                <span class="spot spot-bc">{{spot.name}}</span>
+            <div class="light" ng-repeat="x in vm.boonNow track by $index"  ng-click="vm.delete($index) ">
+                <span class="spot spot-bc">{{x.name}}</span>
                 <span class="cancle">x</span>
             </div>
-            <span ng-show="vm.spotlist.length==0" class="noselect">还未选择公司亮点~ 请选择下发公司亮点</span>
+            <span ng-show="vm.boonNow.length==0" class="noselect">还未选择公司亮点~ 请选择下发公司亮点</span>
         </div>
         <div class="flex-row spot-margin">
             <div class="select-spot">
-                <span class="spot select-spot-bc"  ng-repeat="item in vm.noSpotlist" ng-click="vm.add(this)" >{{item.name}}</span>
+                <span class="spot select-spot-bc"  ng-repeat="x in vm.baseBoon track by $index" ng-click="vm.add($index)" >{{x.name}}</span>
             </div>
         </div>
     </div>
@@ -90,18 +90,18 @@
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">招聘人数：</span>
-                <input type="text" class="release-input" ng-model="vm.addList.num">
+                <input type="text" class="release-input" ng-model="vm.num">
             </div>
         </div>
     </div>
     <div class="release-btn">
-        <button class="release-ok" type="submit">发布职位</button>
+        <button class="release-ok" ng-click="vm.addJob()" >发布职位</button>
         <button class="release-reset" type="reset">清空重置</button>
     </div>
 
 </div>
 </form>
-
+<iframe name='hidden_frame' id="hidden_frame" style="display:none"></iframe>
 <script src="js/adresspicker/distpicker.data.js"></script>
 <script src="js/adresspicker/distpicker.js"></script>
 <script src="js/adresspicker/main.js"></script>

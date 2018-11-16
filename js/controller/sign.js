@@ -18,7 +18,6 @@ angular.module('myApp')
             'color': '#000',
             'font-weight': '600'
         });
-        vm.phone='13799772639';
         vm.getECode=function(){
             let data={phone:vm.phone,typeid:vm.clientId};
             common.request('reg/reg',data).then(function callback(res){
