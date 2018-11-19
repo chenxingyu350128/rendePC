@@ -132,14 +132,13 @@
 }
 .header .btnGroup{
     text-align: right;
-    margin-top: .29rem;
 }
 .header1 .btnGroup{
     margin-top: 0;
     text-align: left;
 }
 .header1 .signed{
-    text-align: left;
+    text-align: center;
     position: relative;
 }
 .signed span{

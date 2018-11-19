@@ -7,8 +7,8 @@
         <ul style="overflow-x: scroll;white-space: nowrap;">
             <li>职位:</li>
             <li><button class="work-list-allbtn">全部</button></li>
-            <li ng-repeat="type in vm.typeParent">
-                {{type.name}}
+            <li ng-repeat="x in vm.typeList">
+                {{x}}
             </li>
             <!--<li style=" float: right;">-->
                 <!--<select class="moreOpt" name="" id="" style="border: 1px solid red;" ng-model="type">-->
@@ -67,7 +67,7 @@
                 </select>
             </li>
             <li>
-                <select name="" >
+                <select name="" id="">
                     <option value="1">到岗时间</option>
                     <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
                 </select>
