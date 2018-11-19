@@ -2,7 +2,6 @@
  * citySelect
  * v-1.0.3
  * author：lquan
- * https://github.com/lquan529/citySelect
  * dataJson			    [Array]				json数据，是html显示的列表数据
  * convert              [Boolean]           转换json数据，以适应这个插件的运行，如果传入的格式是指定的格式则不需要，默认(true)
  * whole                [Boolean]           显示市县级数据，否则就只显示市级数据，默认(false)，显示市级数据
@@ -241,6 +240,7 @@
                         parameter.filterCity.HOT.push(value);
                     }
                 });
+                // console.log(hotCity)
             }
         });
 

@@ -22,9 +22,8 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     scope.client=1;
             }
             //0代表客户端1代表企业端
-            scope.username='陈先生';
             scope.showEx=false;
-            console.log(scope.cclient);
+            scope.signIf=sessionStorage.getItem('client');
             scope.showExit=function(){
                 scope.showEx=!scope.showEx;
             };

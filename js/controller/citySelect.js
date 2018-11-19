@@ -16,17 +16,14 @@ angular.module('myApp')
                 console.log(target)
             },
             onCallerAfter: function (target, values) {
-
-                // vm.cityselect= values;
-                // console.log("选中的城市：",vm.cityselect);
-                // console.log("选中的城市：",vm.cityselect.name);
-                // sessionStorage.setItem('city',vm.cityselect.name);
-                // history.go(-1);
+                vm.cityselect= values;
+                sessionStorage.setItem('city',JSON.stringify(vm.cityselect.name));
+                history.go(-1);
             }
         });
 
         // 单选设置城市
-        vm.singleSelect1.setCityVal('北京市');
+        vm.singleSelect1.setCityVal('福州市');
 
         // 单选
         vm.singleSelect2 = $('#single-select-2').citySelect({
@@ -34,7 +31,7 @@ angular.module('myApp')
         });
 
         // 单选设置城市
-        vm.singleSelect2.setCityVal('北京市');
+        vm.singleSelect2.setCityVal('福州市');
 
         // 禁止点击显示的接口
         vm.singleSelect2.status('readonly');
@@ -45,7 +42,7 @@ angular.module('myApp')
         });
 
         // 单选设置城市
-        vm.singleSelect3.setCityVal('广州市');
+        vm.singleSelect3.setCityVal('福州市');
 
         // 禁止点击显示的接口
         vm.singleSelect3.status('disabled');

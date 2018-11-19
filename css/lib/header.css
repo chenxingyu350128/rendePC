@@ -132,6 +132,7 @@
 }
 .header .btnGroup{
     text-align: right;
+    margin-top: .29rem;
 }
 .header1 .btnGroup{
     margin-top: 0;
@@ -149,11 +150,20 @@
     overflow: hidden;
     padding: .1rem;
     border-radius: 4px;
-    border: 1px solid #31bdfd;
+    /*border: 1px solid #31bdfd;*/
     text-align: left;
-    background: #ac4c66;
-    color: #fff;
+    background: white;
+    color: black;
+    overflow: hidden;white-space: nowrap;text-overflow: ellipsis;
+    width: 167px;
 }
+.location{
+    width: 21px;
+    height: 20px;
+    margin-bottom: 2px;
+    margin-left: 10px;
+}
+.signed
 .btnGroup span{
     padding: .05rem .15rem;
     color: #fff;
@@ -167,4 +177,21 @@
     background: #ff3000;
     border-top-right-radius: .2rem;
     border-bottom-right-radius: .2rem;
+}
+.self-center{
+    border-top: gainsboro 1px solid;
+    display: flex;
+    flex-direction: column;
+    width: 165px;
+    background: white;
+    position: relative;
+    z-index: 2;
+    margin: -5px 1px 0px 1px;
+}
+.self-center div{
+    padding: 10px;
+    color: black;
+}
+.self-center div:hover{
+    background-color: gainsboro;
 }

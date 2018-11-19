@@ -1,12 +1,13 @@
 <div class="container-fluid {{client?'enterpriseHome':''}}">
     <!--个人端-->
     <div ng-show="client==0" class="header">
-        <div class="container">
-            <div class="row line1st">
+        <div class="container" style="margin: 20px auto;">
+            <div class="row" >
                 <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <img src="image/home/logo.png" alt="">
-                    <span style="font-size: 16px; margin: 0 8px;">全国</span>
-                    <span ng-click="placeBtn()" style="font-size: 12px; color: #c5c5c5">[切换城市]</span>
+                    <img src="image/location.png" class="location" style="width: 21px;height: 20px;margin-bottom: 2px;margin-left: 10px;">
+                    <span style="font-size: 16px; " id="city">{{citySelect||'全国'}}</span>
+                    <span  style="font-size: 12px; color:#1787fb;margin-left: 5px;" ui-sref="citySelect">[切换城市]</span>
                 </div>
                 <div ng-if="!cclient" class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                     <span class="loginIn" ui-sref="signPage({choice:0})">登录</span><span class="sign" ui-sref="signPage({choice:1})">注册</span>
@@ -19,7 +20,7 @@
                 </div>
             </div>
         </div>
-        <div class="nav container-fluid" style="background: #f52a08">
+        <div class="nav container-fluid" style="background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25));">
             <div class="container">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"
@@ -80,10 +81,14 @@
             </div>
             <div ng-if="cclient" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                 <span ng-click="showExit()">欢迎您！{{username}}</span>
-                <div ng-if="showEx" class="loginInfo">
-                    <span ng-click="Exit()">退出登录</span>
+                <div class="self-center">
+                   <div ui-sref="usercenter">个人中心</div>
+                    <!--ng-show="client=!2"-->
+                   <div ui-sref="signPage({sign:0,login:1})">切换账号</div>
+                    <div ng-click="exit()">退出登录</div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

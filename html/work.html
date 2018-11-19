@@ -39,7 +39,7 @@
             <li><button class="work-list-allbtn">全部</button></li>
             <li ng-repeat="boonr in vm.boon | limitTo:8">{{boonr.name}}</li>
             <li style=" float: right;">
-                <select class="moreOpt" name="" id="" style="border: 1px solid red;">
+                <select class="moreOpt" name=""  style="border: 1px solid red;">
                     <option value="1" ng-repeat="boonr in vm.boon">{{boonr.name}}</option>
                 </select>
             </li>
@@ -67,7 +67,7 @@
                 </select>
             </li>
             <li>
-                <select name="" id="">
+                <select name="" >
                     <option value="1">到岗时间</option>
                     <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
                 </select>
