@@ -1,16 +1,15 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('PersonelCtrl',function ($http,$state,common,$timeout,modalBox,listsRequest,client,nickName) {
-        console.log("{用户类型：}",client);
+    .controller('PersonelCtrl',function ($http,$state,common,$timeout,modalBox,orderBy,eduList,expList,arrival,jobType,boon) {
         var vm=this;
         let url='boss/all_resume';
         let data={};
+
         // 获取人才简历列表接口
         common.request(url,data).then(function callback(res){
             if(res.data.code===200){
-                vm.dataList = res.data.data;
-                nickName.getNickname(vm.dataList);
+                vm.dataList = res.data.data
                 console.log(vm.dataList)
             }
             else if(res.data.code===201){
@@ -26,13 +25,12 @@ angular.module('myApp')
             }
         })
 
-        //推荐人才
-        common.request('boss/recommend_resume',{}).then(function callback(res){
-            vm.recommendResume=res.data.data;
-            nickName.getNickname(vm.recommendResume)
-            // console.log("推荐人才：",vm.recommendResume)
+        common.request('user/show_resume',{}).then(function callback(res){
+            console.log("查看简历信息：",res.data.data)
         })
 
+           vm.show_boonList = jobType;
+           vm.show_boonList =boon
         //找人才导航被选中高亮显示
         $(document).ready(function(){
             $('.work-position-l').eq(0).addClass('work-position-active').siblings().removeClass('work-position-active');
@@ -52,12 +50,49 @@ angular.module('myApp')
         });
 
         /////////////////////////////////////获取筛选条件/////////////////////////////////////////////////////////////
-        vm.lists=listsRequest.lists();
-        vm.typeList=vm.lists.jobType;
-        vm.show_boonList=vm.lists.boonList;
-        vm.comeJobList=vm.lists.arrival;
-        console.log(vm.comeJobList)
-        vm.expbList=vm.lists.expList;
-        vm.eduList=vm.lists.eduList;
-        vm.boon=vm.lists.boonList;
+        // 获取行业类型接口
+        if(!jobType){
+            common.request('Boss/show_jobtype_list',data).then(function callback(res){
+                vm.typeList = res.data.data;
+                console.log(vm.typeList)
+                sessionStorage.setItem('jobType',JSON.stringify(vm.typeList));
+            });
+        }else{
+            vm.typeList=jobType;
+        }
+        // 获取到岗列表接口
+        if(!arrival){
+            common.request('Boss/come_job_list',data).then(function callback(res){
+                vm.comeJobList = res.data.data;
+                sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
+            });
+        }else{
+            vm.comeJobList=arrival
+        }
+        // 获取工作经验列表接口
+        if(!expList){
+            common.request('Boss/show_job_years',data).then(function callback(res){
+                vm.expbList = res.data.data;
+                sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
+            })
+        }else{
+            vm.expbList=expList;
+        }
+        // 获取学历列表接口
+        if(!eduList){
+            common.request('Boss/show_education_list',data).then(function callback(res){
+                vm.eduList = res.data.data;
+                sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
+            });
+        }else{
+            vm.eduList=eduList;
+        }
+        //福利待遇列表
+        if(!boon){
+            common.request('Boss/show_boon',data).then(function callback(res){
+                vm.boon=res.data.data;
+                console.log("[福利待遇：]",vm.boon)
+                sessionStorage.setItem('boon',JSON.stringify(vm.boon));
+            });
+        }
     });

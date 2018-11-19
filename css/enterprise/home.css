@@ -73,7 +73,6 @@
     color: red;
     font-size: 14px;
     border: 1px solid rgba(226,28,25,1);
-    outline: 0px;
 }
 .meeting:hover{
     background:linear-gradient(-45deg,rgba(255,48,0,1),rgba(226,28,25,1));
@@ -149,17 +148,4 @@
 .up_bc{
     background:linear-gradient(-45deg,rgba(255,48,0,1),rgba(226,28,25,1));
     color: white;
-}
-.nodata{
-    text-align: center;
-    margin-bottom: .5rem;
-}
-.nodata img{
-    width: 3rem;
-    height: 3rem;
-    margin-bottom: .2rem;
-}
-.nodata div {
-    font-size: 16px;
-    color: gray;
 }

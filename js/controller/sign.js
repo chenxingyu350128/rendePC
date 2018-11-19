@@ -4,16 +4,18 @@ angular.module('myApp')
     .controller('signCtrl',function ($http,$state,$stateParams,common,modalBox) {
         console.log($stateParams);
         let vm=this;
+        vm.choice=parseInt($stateParams.choice)||0;// 0登录 1注册
+        console.log(vm.choice);
         vm.clientId=parseInt($stateParams.clientId)||1;
         vm.method=parseInt($stateParams.method)||1;
         let nav=$('.navSign');
-        let methods=$('.navLogin');
+        let method=$('.navLogin');
         nav.eq(vm.clientId-1).css({
             'border-bottom':'2px solid #f00',
             'color': '#000',
             'font-weight': '600'
         });
-        methods.eq(vm.method-1).css({
+        method.eq(vm.method-1).css({
             'border-bottom':'2px solid #f00',
             'color': '#000',
             'font-weight': '600'
@@ -44,10 +46,8 @@ angular.module('myApp')
                 }
             });
         };
-
+        //切换登录方式
         vm.loginMethod=1;
-        vm.toSign=parseInt($stateParams.sign);
-        vm.toLogin=parseInt($stateParams.login);
         vm.codeLogin=function () {
             vm.loginMethod=1;
         };

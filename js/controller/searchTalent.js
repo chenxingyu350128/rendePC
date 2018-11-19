@@ -2,7 +2,6 @@
 angular.module('myApp')
     .controller('searchTalent',function ($http,$state,$timeout,$scope,$stateParams,orderBy,listsRequest,common,modalBox) {
         let vm=this;
-        let data={};
         //选择tab(收到的投递，全部，邀请面试)
         vm.params=$stateParams;
         console.log($stateParams);
@@ -29,6 +28,31 @@ angular.module('myApp')
             education: vm.params.education,
             years: vm.params.years,
             interview: vm.params.interview
+        };
+        //搜索栏
+        vm.search=function(e){
+            if(e){
+                vm.resumeType=3;
+                common.request('Boss/find_job',{find:e}).then(function callback(res){
+                    if(res.data.code===200){
+                        vm.result=res.data.data;
+                        console.log(vm.result)
+                    }
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
+                    }
+                })
+            }
+            else{
+                modalBox.alert('请输入关键词');
+            }
         };
         //tabSwitch
         vm.tabSwitch=function(e){

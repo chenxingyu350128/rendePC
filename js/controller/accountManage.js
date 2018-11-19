@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('accountManage',function ($scope,$http,$state,$sce,$stateParams,$timeout,listsRequest,FileUploader,common,modalBox) {
+    .controller('accountManage',function ($scope,$http,$state,$stateParams,$timeout,listsRequest,FileUploader,common,modalBox) {
         let vm=this;
         vm.navType=parseInt($stateParams.navType)||0;
         switch (vm.navType){
@@ -245,7 +245,6 @@ angular.module('myApp')
                     hand_phone: vm.landLine,
                     id_card: vm.id_card
                 };
-                console.log(data.img);
                 common.request('Boss/add_change_userinfo',data).then(function callback(res){
                     if(res.data.code===200){
                         modalBox.alert('修改成功')

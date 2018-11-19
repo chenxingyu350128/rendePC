@@ -4,8 +4,8 @@
     <!--搜索-->
     <div class="work-search">
         <div class="search-content">
-            <input type="text" placeholder="关键词搜索简历 " ng-model="mSearch">
-            <button style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
+            <input type="text" placeholder="关键词搜索简历 " ng-model="vm.keyword">
+            <button ng-click="vm.search(vm.keyword)" style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
         </div>
     </div>
     <!--职位管理-->
@@ -43,26 +43,27 @@
                         </div>
                     </div>
                 </div>
-                <div  ng-show=" vm.cardData.length==0" class="nodata">
-                    <img src="image/no_data.png">
-                </div>
-                <div class=" seeMore text-center workmore" ng-hide=" vm.cardData.length<3">
+                <div class=" seeMore text-center workmore">
                     <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
+
+
             <!--其他职位-->
             <div class="detail-position-hr">
                 <div class="enterprise-top"><span>查看其TA职位</span></div>
                 <div class="position-content">
-                    <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4" on-finish-render-filters2>
+                    <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4">
                         <div class="outstandings talentlist">
                             <img src="{{data.img}}" alt="" style="width: .82rem;height: .82rem;">
-                            <span class="p_name">{{data.nickname}}</span>
+                            <span class="p_name">{{data.name}}</span>
                             <span class="P_margin">{{data.years}}工作经验|{{data.education}}学历</span>
                             <span class="P_margin redF">{{data.want_job}}</span>
-                            <button class="meeting" ng-click="vm.companyjob(data.id,$index)">邀请面试</button>
+                            <button class="meeting" ng-click="vm.companyjob(data.id)">邀请面试</button>
                         </div>
                     </div>
+
+
                     <div class=" seeMore text-center workmore">
                         <img src="image/home/seeMore.png" alt="">
                     </div>

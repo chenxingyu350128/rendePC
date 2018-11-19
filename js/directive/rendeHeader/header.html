@@ -1,104 +1,25 @@
 <div class="container-fluid {{client?'enterpriseHome':''}}">
     <!--个人端-->
     <div ng-show="client==0" class="header">
-        <div class="container" style="margin: 20px auto;">
-            <div class="row" >
+        <div class="container">
+            <div class="row line1st">
                 <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <img src="image/home/logo.png" alt="">
-
-                    <!--<div class="city-select" id="single-select-1">-->
-                        <!--<div class="city-info">-->
-                            <!--<div class="city-name">-->
-                                <!--<span>北京市</span>-->
-                                <!--<span>北京市</span>-->
-                                <!--<span>北京市</span>-->
-                                <!--<span>北京市</span>-->
-                            <!--</div>-->
-                            <!--<div class="city-input">-->
-                                <!--<input type="text" class="input-search" value="" placeholder="请选择城市" />-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<ul class="city-list hide">-->
-                            <!--<li class="caller active"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                            <!--<li class="caller"><span class="name">北京市</span><span class="spell">beijingshi</span></li>-->
-                        <!--</ul>-->
-                        <!--<div class="city-pavilion hide">-->
-                            <!--<div class="city-tabs">-->
-                                <!--<a href="javascript:;" class="active">热门城市</a>-->
-                                <!--<a href="javascript:;">AB</a>-->
-                                <!--<a href="javascript:;">CD</a>-->
-                                <!--<a href="javascript:;">EFG</a>-->
-                                <!--<a href="javascript:;">H</a>-->
-                                <!--<a href="javascript:;">J</a>-->
-                                <!--<a href="javascript:;">KL</a>-->
-                                <!--<a href="javascript:;" class="forbid">MNP</a>-->
-                                <!--<a href="javascript:;">QR</a>-->
-                                <!--<a href="javascript:;">S</a>-->
-                                <!--<a href="javascript:;">T</a>-->
-                                <!--<a href="javascript:;">W</a>-->
-                                <!--<a href="javascript:;">X</a>-->
-                                <!--<a href="javascript:;">Y</a>-->
-                                <!--<a href="javascript:;">Z</a>-->
-                            <!--</div>-->
-                            <!--<div class="city-cont">-->
-                                <!--<dl class="city-HOT">-->
-                                    <!--<dd>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                        <!--<a href="javascript:;">北京市</a>-->
-                                    <!--</dd>-->
-                                <!--</dl>-->
-                                <!--<p>*可以直接搜索查找城市（支持名称、拼音模糊搜索）<a href="javascript:;">清空</a><span>5</span></p>-->
-                                <!--<div class="city-tips">最多只能选择<span>5</span>项</div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <span style="font-size: 16px; margin: 0 8px;" id="city">{{citySelect||'全国'}}</span>
-                    <span  style="font-size: 12px; color: #c5c5c5" ui-sref="citySelect">[切换城市]</span>
+                    <span style="font-size: 16px; margin: 0 8px;">全国</span>
+                    <span ng-click="placeBtn()" style="font-size: 12px; color: #c5c5c5">[切换城市]</span>
                 </div>
-                <div ng-if="!signIf" class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
-                    <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
+                <div ng-if="!cclient" class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
+                    <span class="loginIn" ui-sref="signPage({choice:0})">登录</span><span class="sign" ui-sref="signPage({choice:1})">注册</span>
                 </div>
-                <!--<div ng-if="signIf" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">-->
-                    <!--<span ng-click="showExit()">欢迎您！{{username}}</span>-->
-                    <!--<div ng-if="showEx" class="loginInfo">-->
-                        <!--<span ng-click="exit()">退出登录</span>-->
-                    <!--</div>-->
-                <!--</div>-->
-                <div ng-if="signIf" class="signed " style=" position: absolute;right: 3rem;" ng-mouseleave="mouseLeave()">
-                    <span ng-click="showExit()"   ng-mouseenter="mouseEnter()">欢迎您！{{username}}</span>
-                    <div class="self-center" ng-if="showCates">
-                        <div ui-sref="usercenter">个人中心</div>
-                        <!--ng-show="client=!2"-->
-                        <div ui-sref="setting()">账号设置</div>
-                        <div ui-sref="signPage({sign:0,login:1})">切换账号</div>
-                        <div ng-click="exit()">退出登录</div>
+                <div ng-if="cclient" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
+                    <span ng-click="showExit()">欢迎您！{{username}}</span>
+                    <div ng-if="showEx" class="loginInfo">
+                        <span ng-click="Exit()">退出登录</span>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="nav container-fluid" style="background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25));">
+        <div class="nav container-fluid" style="background: #f52a08">
             <div class="container">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"
@@ -135,7 +56,7 @@
     </div>
     <!--企业端-->
     <div ng-show="client==1" class="container header header1">
-        <div class="row">
+        <div class="row line1st">
             <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
             </div>
@@ -154,19 +75,15 @@
                 <!--<div class="navItem0" ui-sref="accountManage({position0: 5})">账户管理</div>-->
                 <!--<div class="navItem0" ui-sref="superPosition({position0: 6})">高端职位</div>-->
             </div>
-            <div ng-if="!signIf" class="btnGroup col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
+            <div ng-if="!cclient" class="btnGroup col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
                 <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
             </div>
-            <div ng-if="signIf" class="signed  text-right" style=" position: absolute;top: 0.2rem;">
+            <div ng-if="cclient" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                 <span ng-click="showExit()">欢迎您！{{username}}</span>
-                <div class="self-center">
-                   <div ui-sref="usercenter">个人中心</div>
-                    <!--ng-show="client=!2"-->
-                   <div ui-sref="signPage({sign:0,login:1})">切换账号</div>
-                    <div ng-click="exit()">退出登录</div>
+                <div ng-if="showEx" class="loginInfo">
+                    <span ng-click="Exit()">退出登录</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

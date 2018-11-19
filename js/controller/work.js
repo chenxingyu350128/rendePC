@@ -1,11 +1,10 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state,$stateParams,$timeout,listsRequest,common,modalBox,$scope) {
+    .controller('WorkCtrl',function ($scope,$http,$state,$stateParams,$timeout,listsRequest,common,modalBox) {
         let vm=this;
         vm.keyword=$stateParams.find;
-        let url='Boss/find_job';
         let data1={find:vm.keyword};
-        common.request(url,data1).then(function callback(res){
+        common.request('Boss/find_job',data1).then(function callback(res){
             if(res.data.code===200){
                 if(res.data.data.length){
                     vm.searchResult=res.data.data;
@@ -25,18 +24,11 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
-
       //获取职位信息接口
-        let data={};
-        vm.a=1;
-        vm.type =type;
-        type(vm.a);
-        function type(e){
-            vm.a=e;
-            console.log(vm.a)
-            if(e==1){
+        vm.type = function type(e){
+            if(e===1){
                 // 获取工作列表接口
-                common.request('boss/find_job',data).then(function callback(res){
+                common.request('boss/find_job',{}).then(function callback(res){
                     if(res.data.code===200){
                         vm.dataList = res.data.data;
                     }
@@ -49,21 +41,20 @@ angular.module('myApp')
                         modalBox.alert(res.data.msg)
                     }
                 })
-            }else if(e==2){
+            }else if(e===2){
                 //获取最新职位
                 common.request('Boss/new_job',data).then(function callback(res){
                     vm.dataList = res.data.data
-                }),function errorCallback(response) {
-                };
+                });
             }
-        }
+        };
 
         //投递简历
         $scope.$on('ngRepeatFinished2', function () {
             //repeat完成后
             vm.throw= function(id,index){
-                console.log(index)
-                common.request('user/throw_resume',{r_id:id}).then(function callback(res){
+                console.log(index);
+                common.request('user/throw_resume',{j_id:id}).then(function callback(res){
                     $(".position-btn").eq(index).text("已投递");
                     $timeout(function(){
                         modalBox.alert(res.data.msg);
@@ -72,7 +63,6 @@ angular.module('myApp')
                 });
             }
         });
-
         //点击查看更多是职位分类
         $(".tipRight").on('click',function(){
             let distant1= sessionStorage.getItem('distant1')||0;

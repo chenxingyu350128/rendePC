@@ -1,7 +1,20 @@
 'use strict';
 angular.module('myApp')
     .controller('positionManageCtrl',function ($http,$state,$stateParams,common,$timeout,modalBox) {
-         let vm=this;
+        let vm=this;
+        //搜索栏
+        vm.search=function(e){
+            if(e){
+                $state.go('resumeManage',{
+                    resumeType: 3,
+                    keyword: e
+                },{reload:true});
+                sessionStorage.setItem('mainNav1',2);
+            }
+            else{
+                modalBox.alert('请输入关键词');
+            }
+        };
         vm.client=sessionStorage.getItem('client');
         vm.nav=parseInt($stateParams.nav);
         let data={};

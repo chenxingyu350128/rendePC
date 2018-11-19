@@ -23,7 +23,6 @@ angular.module('myApp')
             interview: vm.params.interview,
             resumeType: vm.resumeType
         };
-
         vm.postData={
             job_type: vm.params.job_type,
             come_job: vm.params.come_job,
@@ -32,6 +31,31 @@ angular.module('myApp')
             years: vm.params.years,
             interview: vm.params.interview
         };
+        //搜索栏
+        vm.search=function(e){
+            if(e){
+                vm.resumeType=3;
+                common.request('Boss/find_job',{find:e}).then(function callback(res){
+                    if(res.data.code===200){
+                        vm.result=res.data.data;
+                        console.log(vm.result)
+                    }
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
+                    }
+                })
+            }
+            else{
+                modalBox.alert('请输入关键词');
+            }
+        };
         //tabSwitch
         vm.tabSwitch=function(e){
             if(e===2){
@@ -39,7 +63,7 @@ angular.module('myApp')
             }
             vm.filterData['resumeType']=e;
             console.log('数值：',vm.filterData);
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };
         //正序倒序排列
         vm.orderBy=orderBy;
@@ -84,36 +108,35 @@ angular.module('myApp')
                 vm.postData['job_type']=vm.filterData['job_type']=e;
                 vm.filterData['idx']=idx;
                 console.log(vm.filterData);
-                $state.go('superPosition',vm.filterData,{reload:true});
+                $state.go('resumeManage',vm.filterData,{reload:true});
             };
         });
         //学历筛选
         vm.eduFilter=function(e){
             console.log(e);
             vm.postData['education']=vm.filterData['education']=e;
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };//工作经验筛选
         vm.expFilter=function(e){
             console.log(e);
             vm.postData['years']=vm.filterData['years']=e;
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };//性别筛选
         vm.sexFilter=function(e){
             console.log(e);
             vm.postData['sex']=vm.filterData['sex']=e;
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };//到岗时间筛选
         vm.arrival=function(e){
             console.log(e);
             vm.postData['come_job']=vm.filterData['come_job']=e;
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };
-
         // 获取简历接口(全部简历/收到的简历)
-        common.request('Boss/tall_job',vm.postData).then(function callback(res) {
+        common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
             if(res.data.code===200){
                 vm.cardData = res.data.data;
-                console.log("高端职位：", vm.cardData );
+                console.log(res);
             }else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){
                     $timeout(function(){
@@ -144,22 +167,32 @@ angular.module('myApp')
                 idx: '',
                 interview: ''
             };
-            $state.go('superPosition',vm.filterData,{reload:true});
+            $state.go('resumeManage',vm.filterData,{reload:true});
         };
-
         // 邀请面试按钮接口
-        $scope.$on('ngRepeatFinished2', function () {
-            vm.inviteFace=function(id,index) {
-                let data = {r_id: id};
-                console.log(index)
-                common.request('Boss/resume_interview', data).then(function callback(res) {
+        vm.inviteFace=function(id){
+            let data={r_id:id};
+            common.request('Boss/resume_interview',data).then(function callback(res){
+                console.log(res);
+                if(res.data.code===200){
                     modalBox.alert(res.data.msg);
-                    $(".face").eq(index).text("已邀请");
-                });
-            }
+                    $timeout(function(){
+                        $state.go('resumeManage',vm.filterData,{reload:true})
+                    },300)
+                }
+                else if(res.data.code===201){
+                    modalBox.alert(res.data.msg,function(){
+                        $timeout(function(){
+                            $state.go('signPage',{login:1})
+                        },300)
+                    });
+                }
+                else{
+                    modalBox.alert(res.data.msg)
+                }
 
-        });
-
+            });
+        };
         vm.ifSuper=function(){
             if(vm.mask){
                 $('.theMask').show();

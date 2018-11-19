@@ -2,15 +2,16 @@
 angular.module('myApp')
     .controller('resumeManage',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,orderBy,common,modalBox) {
         let vm=this;
+
         //选择tab(收到的投递，全部，邀请面试)
         vm.params=$stateParams;
         console.log($stateParams);
         // 将页面上的数据绑定到$stateParams
         vm.resumeType=parseInt(vm.params.resumeType)||0;
-        console.log(vm.resumeType)
         vm.education=vm.params.education;
         vm.exp=vm.params.years;
         vm.sex=vm.params.sex;
+        vm.keyword=vm.params.keyword;
         vm.idx=vm.params.idx||0;
         vm.filterData={
             job_type: vm.params.job_type,
@@ -29,6 +30,19 @@ angular.module('myApp')
             education: vm.params.education,
             years: vm.params.years,
             interview: vm.params.interview
+        };
+        vm.searchData={find: vm.keyword};
+        //搜索栏
+        vm.search=function(e){
+            if(e){
+                $state.go('resumeManage',{
+                    resumeType: 3,
+                    keyword: e
+                },{reload:true});
+            }
+            else{
+                modalBox.alert('请输入关键词');
+            }
         };
         //tabSwitch
         vm.tabSwitch=function(e){
@@ -107,27 +121,45 @@ angular.module('myApp')
             vm.postData['come_job']=vm.filterData['come_job']=e;
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
-
-
-
         // 获取简历接口(全部简历/收到的简历)
-        common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
-            if(res.data.code===200){
-                vm.cardData = res.data.data;
-                console.log(res);
-            }
-            else if(res.data.code===201){
-                modalBox.alert(res.data.msg,function(){
-                    $timeout(function(){
-                        $state.go('signPage',{login:1})
-                    },300)
-                });
-            }
-            else{
-                modalBox.alert(res.data.msg)
-            }
+        if(vm.resumeType!==3){
+            common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
+                if(res.data.code===200){
+                    vm.cardData = res.data.data;
+                    console.log(res);
+                }
+                else if(res.data.code===201){
+                    modalBox.alert(res.data.msg,function(){
+                        $timeout(function(){
+                            $state.go('signPage',{login:1})
+                        },300)
+                    });
+                }
+                else{
+                    modalBox.alert(res.data.msg)
+                }
 
-        });
+            });
+        }
+        if(vm.resumeType===3){
+            common.request('Boss/find_job',vm.searchData).then(function callback(res) {
+                if(res.data.code===200){
+                    vm.result = res.data.data;
+                    console.log(res);
+                }
+                else if(res.data.code===201){
+                    modalBox.alert(res.data.msg,function(){
+                        $timeout(function(){
+                            $state.go('signPage',{login:1})
+                        },300)
+                    });
+                }
+                else{
+                    modalBox.alert(res.data.msg)
+                }
+
+            });
+        }
 
 
 //**************************获取各个列表************************
@@ -149,7 +181,6 @@ angular.module('myApp')
             };
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
-
         // 邀请面试按钮接口
         vm.inviteFace=function(id){
             let data={r_id:id};

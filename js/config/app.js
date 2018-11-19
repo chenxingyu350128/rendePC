@@ -90,8 +90,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
-                        'js/directive/common_search/common_search.js',
-                        'css/lib/search_common.css'
                     ])
                 }
             })
@@ -312,7 +310,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//登录/注册页
             .state('signPage',{
-                url: '/signPage?sign&login&clientId&method',
+                url: '/signPage?choice&clientId&method',
                 templateUrl: 'html/sign.html',
                 controller: 'signCtrl',
                 controllerAs: 'vm',
@@ -526,7 +524,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('resumeManage',{
-                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview',
+                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview&keyword',
                 templateUrl: 'html/resumeManage.html',
                 controller: 'resumeManage',
                 controllerAs: 'vm',
@@ -629,68 +627,6 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
-            // 个人中心
-            .state('usercenter',{
-                url: '/usercenter',
-                templateUrl: 'html/usercenter.html',
-                controller: 'userCenter',
-                controllerAs: 'vm',
-                resolve: {
-                    loadMyFile: _ocLazy([
-                        'css/personnel-detail.css',
-                        'css/headhunt-detail.css',
-                        'css/work.css',
-                        'css/store.css',
-                        'css/enterprise.css',
-                        'js/controller/usercenter.js',
-                        'css/usercenter.css',
-                        'css/enterprise/home.css',
-                        'css/lib/header.css',
-                        'css/lib/footer.css',
-                        'js/directive/rendeHeader/header.js',
-                        'js/directive/rendeFooter/footer.js',
-                    ])
-                }
-            })
-
-            //账号设置
-            .state('setting',{
-                url: '/setting',
-                templateUrl: 'html/setting.html',
-                controller: 'setting',
-                controllerAs: 'vm',
-                resolve: {
-                    loadMyFile: _ocLazy([
-                        'css/setting.css',
-                        'css/headhunt.css',
-                        'js/controller/headhunt.js',
-                        'js/controller/setting.js',
-                        'css/lib/header.css',
-                        'css/lib/footer.css',
-                        'js/directive/rendeHeader/header.js',
-                        'js/directive/rendeFooter/footer.js',
-                    ])
-                }
-            })
-
-    //账号设置
-    .state('citySelect',{
-            url: '/citySelect',
-            templateUrl: 'html/citySelect.html',
-            controller: 'citySelect',
-            controllerAs: 'vm',
-            resolve: {
-                loadMyFile: _ocLazy([
-                    'css/city-select.css',
-                    'js/controller/citySelect.js',
-                    'css/lib/header.css',
-                    'css/lib/footer.css',
-                    'js/directive/rendeHeader/header.js',
-                    'js/directive/rendeFooter/footer.js',
-                ])
-            }
-        })
-
 
     });
 app.run(function($state){

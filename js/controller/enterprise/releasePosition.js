@@ -13,6 +13,7 @@ angular.module('myApp')
      ////////////////////////////////////////////////////////////////////////////////////////////////////
      //    获取需要的列表
         vm.lists=listsRequest.lists();
+        console.log(vm.lists);
         vm.baseBoon=vm.lists.boonList;
         console.log(vm.baseBoon);
         vm.typeList=vm.lists.jobType;
@@ -62,7 +63,7 @@ angular.module('myApp')
             // e.boonarr=JSON.stringify(vm.spotlist);
             // e.ask=e.experience;
             let data={
-                address: vm.address,
+                address: vm.detailadress,
                 boonarr:JSON.stringify(vm.boonNow),
                 job_type:vm.job_type,
                 start_money:vm.salfrom,
@@ -78,21 +79,25 @@ angular.module('myApp')
 
             }
             common.request('Boss/add_job',data).then(function callback(res){
-                console.log(res);
-                // vm.res = res.data.msg;
-                // console.log("发布列表",vm.res);
-                // modalBox.alert(vm.res)
+               if(res.data.code===200){
+                    modalBox.alert('提交成功',function () {
+                       $timeout(function(){
+                           $state.go('positionManage')
+                       },200)
+                   })
+               }
+               else if(res.data.code===201){
+                   modalBox.alert(res.data.msg,function(){
+                       $timeout(function(){
+                           $state.go('signPage',{login:1})
+                       },300)
+                   });
+               }
+               else{
+                   modalBox.alert(res.data.msg)
+               }
+
             });
-            // if(vm.province==undefined || vm.city===undefined|| vm.district==undefined){
-            //     modalBox.alert("请输入完整地址")
-            // }else if(vm.spotlist.length==0){
-            //     modalBox.alert("请选择公司亮点")
-            // }else if(e.education==""){
-            //     modalBox.alert("请选择学历要求")
-            // }else if(e.experience==""){
-            //     modalBox.alert("请选择经验要求")
-            // }else {
-            // }
         };
         //添加公司亮点
         vm.add=function (e) {

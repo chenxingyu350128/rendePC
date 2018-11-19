@@ -1,21 +1,23 @@
 <rende-header></rende-header>
 <div class="container search_s">
-    <input class="input" placeholder="关键词搜索简历" type="text" ng-model="mSearch">
-    <span class="text-center">搜索</span>
+    <input class="input" placeholder="关键词搜索简历" type="text" ng-model="vm.keyword">
+    <span ng-click="vm.search(vm.keyword)"  class="text-center">搜索</span>
 </div>
 <div class="container options">
     <div class="position">
         <span class="ocp ">职位:</span>
-        <span ng-click="vm.jobTypeFilter('')" class="opt0 ocp">全部</span>
-        <span ng-click="vm.jobTypeFilter(type,$index+1)"
-              class="opt0 ocp"
-              ng-repeat="type in vm.typeList |limitTo:7"
-              on-finish-render-filters2>
+        <button ng-click="vm.jobTypeFilter('')" ng-disabled="vm.result" class="opt0 ocp btn">全部</button>
+        <button ng-click="vm.jobTypeFilter(type,$index+1)"
+                class="opt0 ocp btn"
+                ng-repeat="type in vm.typeList |limitTo:7"
+                ng-disabled="vm.result"
+                on-finish-render-filters2>
             {{type}}
-        </span>
+        </button>
         <select class="ocp"
                 ng-model="vm.jobType"
                 ng-change="vm.jobTypeFilter(vm.jobType)"
+                ng-disabled="vm.result"
                 ng-options="y for y in vm.typeList">
             <option value="">更多</option>
         </select>
@@ -40,7 +42,7 @@
                 ng-model="vm.exp"
                 class="ocp select">
             <option value="">工作经验</option>
-            <option value="{{exp.years}}" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
+            <option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>
         </select>
         <select class="ocp select"
                 ng-change="vm.sexFilter(vm.sex)"
@@ -72,6 +74,10 @@
     <div class="{{vm.resumeType==2?'checkedResume':''}}"
          ng-click="vm.tabSwitch(2)">
         <span class="text-center">邀请面试</span>
+        <img src="image/home/arrowBottom_white.png" alt="">
+    </div>
+    <div ng-if="vm.result.length" class="{{vm.resumeType==3?'checkedResume':''}}">
+        <span class="text-center">搜索结果</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
 </div>
@@ -193,5 +199,66 @@
             </div>
         </div>
     </div>
+
+    <div ng-if="vm.resumeType==3"
+         ng-repeat="x in vm.result |limitTo:8|orderBy:x.time:vm.boolean"  >
+        <div class="lPart face">
+            <img ng-src="{{x.img}}" alt="">
+            <div class="onLeft">
+                <div class="left1">
+                    <div class="nameAndOcp">
+                        <span class="name">{{x.name}}</span>
+                        <img src="image/home/vipSign.png" alt="">
+                        <span class="position">{{x.want_job}}</span>
+                    </div>
+                    <div class="intro">{{x.age}}岁 | {{x.years}}岁 | {{x.education}}学历</div>
+                    <div class="place">{{x.job_address}}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cPart">
+            <div class="right1">
+                <span>面试信息:</span>
+                <div class="right1Info">
+                    <div class="faceAt">面试时间:{{x.interview_time}}</div>
+                    <div class="contact">联系人:{{x.name}}</div>
+                    <div class="tel">联系电话:{{x.phone}}</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="rPart">
+            <div class="onRight text-center">
+                <div class="updateAt">更新时间:{{x.time}}</div>
+                <div class="button">打印简历</div>
+                <div class="button">面试完成</div>
+            </div>
+        </div>
+    </div>
 </div>
+<div style="font-size: 20px;margin-bottom: .25rem" class="text-center" ng-if="vm.result&&!vm.result.length" class="noResult">无搜索结果</div>
 <rd-footer></rd-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

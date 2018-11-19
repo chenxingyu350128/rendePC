@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome,client){
+app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome){
     return {
         restrict: 'EA',
         replace: true,
@@ -9,11 +9,11 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
 
         },
         link: function (scope) {
-            // scope.cclient=parseInt(sessionStorage.getItem('client'));
-            scope.cclient=2;
-            scope.citySelect=JSON.parse(sessionStorage.getItem('city'));   // 获取选中城市
+            scope.cclient=parseInt(sessionStorage.getItem('client'));
+            console.log(scope.cclient);
             scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
             switch(scope.cclient){
+                case 0:
                 case 1:
                 case 2:
                     scope.client=0;
@@ -22,14 +22,17 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     scope.client=1;
             }
             //0代表客户端1代表企业端
+            scope.username='陈先生';
             scope.showEx=false;
-            scope.signIf=sessionStorage.getItem('client');
+            console.log(scope.cclient);
             scope.showExit=function(){
                 scope.showEx=!scope.showEx;
             };
-            scope.exit=function(){
-                sessionStorage.removeItem('client');
-                $state.go('signPage',{login:1});
+            scope.Exit=function(){
+                console.log('fake');
+                sessionStorage.clear();
+                sessionStorage.setItem('client',"0");
+                $state.go('home',{},{reload:true});
             };
             let data={};
             //客户端homeMenu，企业端enterHome菜单栏

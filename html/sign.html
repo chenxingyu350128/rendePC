@@ -4,7 +4,7 @@
         <span ui-sref="home">仁德直聘，给你最好的人才招聘!</span>
     </div>
     <div class="mainShell">
-        <div ng-show="vm.toSign" class="main text-center">
+        <div ng-show="vm.choice" class="main text-center">
             <h3 class="text-center">注册仁德直聘</h3>
             <div class="tip1 text-center">使用手机号注册</div>
             <div class="table">
@@ -21,20 +21,20 @@
                     <label  class="label2" for="Ecode">
                         <img src="image/home/signIcon_gray.png" alt="">
                         <input id="Ecode" type="text" placeholder="验证码">
-                        <span ng-click="vm.getECode()">| 发送验证码</span>
+                        <span>| 发送验证码</span>
                     </label>
                 </div>
-                <div class="signBtn text-center">注册</div>
+                <div ng-click="vm.getECode()" class="signBtn text-center">注册</div>
             </div>
             <div class="deal text-center">
                 点击注册即同意
                 <span class="redF">用户协议及隐私政策</span>
             </div>
             <div class="login text-center">已有账号
-                <span class="redF" ui-sref="signPage({login:1,sign:0})">直接登录</span>
+                <span class="redF" ui-sref="signPage({choice:0})">直接登录</span>
             </div>
         </div>
-        <div ng-show="vm.toLogin" class="main text-center">
+        <div ng-show="!vm.choice" class="main text-center">
             <h3 class="text-center">登录仁德直聘</h3>
             <div style="visibility: hidden" class="tip1 text-center">使用手机号注册</div>
             <div class="table">
@@ -65,7 +65,7 @@
                     <img src="" alt="">
                     微信登录
                 </span>
-                <span class="redF" ui-sref="signPage({sign:1,login:0})">立即注册</span>
+                <span class="redF" ui-sref="signPage({choice:1})">立即注册</span>
             </div>
         </div>
     </div>

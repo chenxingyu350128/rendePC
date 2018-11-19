@@ -1,57 +1,62 @@
 'use strict';
 angular.module('myApp')
-    .controller('enterpriseHome',function ($http,$state,$scope, common,modalBox,nickName) {
+    .controller('enterpriseHome',function ($http,$state,common,modalBox) {
         var vm=this;
-        // 获取收到简历接口
-        common.request('Boss/show_resumelist',{interview: ''}).then(function callback(res){
-            if(res.data.code===200){
-                vm.cardData = res.data.data;
-
-            }
-            else if(res.data.code===201){
-                modalBox.alert('未注册或登录已过期',function(){
-                    sessionStorage.removeItem('signSuccess');
-                    $timeout(function(){
-                        $state.go('signPage',{sign:1})
-                    },300)
+        //搜索栏
+        vm.search=function(e){
+            if(e){
+                $state.go('resumeManage',{
+                    resumeType: 3,
+                    keyword: e
                 });
+                sessionStorage.setItem('mainNav1',2);
             }
-            else if(res.data.code===404){
-                modalBox.alert(res.data.msg)
+            else{
+                modalBox.alert('请输入关键词');
             }
+        };
+        vm.companyjob=companyjob;//邀请面试
+        // 获取收到简历接口
+        let url1 ='Boss/show_resumelist';
+        var data1= {interview: ''};
+        common.request(url1,data1).then(function callback(res){
+            vm.cardData = res.data.data;
         })
         // 获取收到面试简历接口
-        common.request('Boss/show_resumelist',{interview: '1'}).then(function callback(res){
+        let url2 ='Boss/show_resumelist';
+        var data2= {interview: '1'};
+        common.request(url2,data2).then(function callback(res){
             vm.faceData = res.data.data;
         })
 
-        // 获取公司其他职位信息
-        common.request('Boss/all_resume',{}).then(function callback(res){
+        // 获取收到简历接口
+        let url3 ='Boss/all_resume';
+        var data3= {}
+        common.request(url3,data3).then(function callback(res){
             vm.otherData = res.data.data;
-            console.log("其他职位：",vm.otherData )
-            nickName.getNickname(vm.otherData)
-        })
+            // console.log("其他职位：",vm.otherData )
+        }),function errorCallback(response) {};
 
         //获取公司信息接口
-        common.request('Boss/show_company',{}).then(function callback(res){
+        let url4 ='Boss/show_company';
+        var data4= {}
+        common.request(url4,data4).then(function callback(res){
             vm.company = res.data.data;
             // console.log("查看公司信息：",vm.company )
-        })
+        }),function errorCallback(response) {
+            console.log(re)
+        };
 
         // 邀请面试按钮接口
-        $scope.$on('ngRepeatFinished2', function () {
-            //repeat完成后
-           vm.companyjob= function(id,index){
-                common.request('Boss/resume_interview',{r_id:id}).then(function callback(res){
-                    $(".meeting").eq(index).text("已邀请");
-                    $(".meeting").eq(index).css("background","red");
-                    $(".meeting").eq(index).css("color","#fff");
-
-                    modalBox.alert(res.data.msg);
-                })
-            }
-        });
-
-
+        function companyjob(id){
+            let url6 ='Boss/resume_interview';
+            var data6={r_id:id}
+            common.request(url6,data6).then(function callback(res){
+                console.log(res)
+                vm.eduList = res.data.msg;
+                modalBox.alert(vm.eduList);
+            }),function errorCallback(response) {
+            };
+        }
 
     });
