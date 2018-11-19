@@ -1,0 +1,128 @@
+<rende-header></rende-header>
+<common-search></common-search>
+<!--人才详情-->
+<div class="work-body">
+    <!--搜索-->
+    <div class="workdetail-body">
+        <div class="usercenterR">
+            <div class="">
+                <!--人才详情-->
+                <div class="headhunt-detail">
+                    <img src="{{vm.userList.img}}" alt="" class="personnel-img mt fl">
+                    <div class="personnel-intr" style="width: 87%">
+                        <div style="width: 100%">
+                            <span class="personnel-name">{{vm.userList.name||"信息未完善"}}</span>
+                            <br>
+                        </div>
+                        <div style="width: 100%;">
+                            <div class="personnel-detail-intr">
+                                <span>年龄：{{vm.userList.age||"信息未完善"}}</span><br>
+                                <span>学历：{{vm.x.education}}  {{vm.userList.name||"信息未完善"}}</span><br>
+                                <!--<span>现居地： {{vm.userList.name||"信息未完善"}}</span>-->
+                            </div>
+                            <div class="personnel-detail-intr" style="padding-left: 1.2rem; width: 37%;">
+                                <span>工作经验：{{vm.userList.years||"信息未完善"}}</span><br>
+                                <span>联系邮箱：{{vm.userList.email||"信息未完善"}}</span><br>
+                                <span>联系电话：{{vm.userList.hand_phone||"信息未完善"}}</span>
+                            </div>
+                            <div class="personnel-detail-intr">
+                                <!--<span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：1次</span>-->
+                                <br>
+                                <button class="position-btn fr" ng-click="vm.face(vm.x.id)" id="face" ng-show="client==2">邀请面试</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--求职意向-->
+            <div class="detail-position-hr">
+                <div class="detail-position top-flex">
+                    <div class="resume-num top-border">
+                        <div style="color: red">888{{vm.cardData.length}}</div>
+                        <div>收到的简历</div>
+                    </div>
+                    <div class="resume-num">
+                        <div style="color: red">88{{vm.faceData.length}}</div>
+                        <div>邀请面试</div>
+                    </div>
+                </div>
+            </div>
+            <!--求职经历-->
+            <div class="detail-position-hr">
+                <div class="position-hr-top">
+                    <span > 推荐职位</span>
+                </div>
+                <div class="intention">
+                    <div class="position-list" ng-repeat="data in vm.dataList" on-finish-render-filters2>
+                        <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
+                            <img src="{{data.img}}" style="width: 89px;height: 87px">
+                        </div>
+                        <div  class="position-list-right flex-column" >
+                            <div class="positionname fl" style="margin-bottom: 9px;">{{data.job_type}}</div>
+                            <div class="worksalary redF fl">￥{{data.start_money}}-{{data.end_money}}</div>
+                            <div class="demand grayF workdemand">
+                                <span>{{data.experience}}|</span>
+                                <span >{{data.education}}|</span>
+                                <span>{{data.area}}</span>
+                            </div>
+                        </div>
+                        <div class="position-list-center flex-column" style="margin-top: 28px;">
+                            <div class="positionname fl">{{data.name}}</div>
+                            <div class="demand grayF workdemand" style="margin-top: 8px;">
+                                <span>{{data.c_type}}</span>
+                                <span>|{{data.nature}}</span>
+                                <span>{{data.size}}</span>
+                            </div>
+                        </div>
+                        <div class="fr">
+                            <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
+                            <br>
+                            <div class="demand grayF workdemand">
+                                <span>更新时间：{{data.time}}</span>
+                            </div>
+                        </div>
+                        <div class="position-hr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="usercenterL">
+            <div class="user">
+                <div class="userInfo">
+                    <img src="image/home/out_avatar.png" alt="">
+                    <div>
+                        <div class="username">{{vm.userList.name||"当前用户"}}</div>
+                        <div class="userScore">
+                            可用积分: <span>{{vm.userList.integral}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instructor">
+                    <div class="text-center leftIntro" ui-sref="help">
+                        <img src="image/store/instuctor.png" alt=""> <br>
+                        <span>积分说明</span>
+                    </div>
+                    <div class="text-center">
+                        <img src="image/store/exchange.png" alt=""> <br>
+                        <span>我的兑换</span>
+                    </div>
+                </div>
+            </div>
+            <div class="RHshell">
+                <div class="rightHeader">
+                    <span>推荐企业</span>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo({id:data.id})" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
+                <div class="row1">
+                    <img class="companyName company-logo" src="{{data.img}}" style="padding: 0;margin: .2rem auto .25rem;">
+                </div>
+                <div class="text-center" style="display: block">
+                    <div>{{data.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<rd-footer></rd-footer>

@@ -1,0 +1,15 @@
+/*个人中心*/
+.usercenterR{
+    width: 70%;
+    float: left;
+    margin-right: 15px;
+    background-color: white;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.usercenterL{
+    width: calc(30% - 15px);
+    float: left;
+    background-color: white;
+    margin-top: 15px;
+}

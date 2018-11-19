@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('PersonnelDetailCtrl',function ($http,$state,$stateParams,common,modalBox,$timeout) {
+    .controller('PersonnelDetailCtrl',function ($http,$state,$stateParams,common,modalBox,$timeout,client) {
         let vm=this;
         vm.r_id=$stateParams.r_id;
         vm.g_id=$stateParams.g_id;

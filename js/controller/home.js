@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,boon,jobType,bannerImg,hotSearch,common,modalBox) {
+    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,common,modalBox,nickName) {
         let vm=this;
         let dataEmpty={};
         $scope.$on('ngRepeatFinished2', function () {
@@ -60,35 +60,30 @@ angular.module('myApp')
                 }
                 vm.famousEnter=res.data.data;
             }
-            else if(res.data.code===201){
-                modalBox.alert('未注册或登录已过期',function(){
-                    sessionStorage.removeItem('signSuccess');
-                    $timeout(function(){
-                        $state.go('signPage',{sign:1})
-                    },300)
-                });
-            }
-            else if(res.data.code===404){
-                modalBox.alert(res.data.msg)
-            }
         });
         //人才推荐-所有的简历
         common.request('boss/all_resume',dataEmpty).then(function callback(res){
             if(res.data.code===200){
                 vm.allResume=res.data.data;
-            }
-            else if(res.data.code===201){
-                modalBox.alert('未注册或登录已过期',function(){
-                    sessionStorage.removeItem('signSuccess');
-                    $timeout(function(){
-                        $state.go('signPage',{sign:1})
-                    },300)
-                });
-            }
-            else if(res.data.code===404){
-                modalBox.alert(res.data.msg)
+                console.log("人才推荐",vm.allResume)
+                nickName.getNickname(vm.allResume);
             }
         });
+
+        // 悬赏招聘
+        common.request('Boss/show_money_job',{}).then(function callback(res){
+            if(res.data.code===200){
+                vm.huntData = res.data.data;
+            }
+        })
+
+        // 推荐职位
+        common.request('boss/find_job',{}).then(function callback(res){
+            if(res.data.code===200){
+                vm.dataList = res.data.data;
+            }
+        })
+
         // 设置描点不失效
         $('.toTop').on('click',function () {
            window.location.hash="#header_top";

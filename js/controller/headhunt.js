@@ -4,9 +4,8 @@ angular.module('myApp')
     .controller('HeadhuntCtrl',function ($http,$state,common,modalBox,$timeout) {
         var vm=this;
         let huntdata={};
-        let hunturrl='Boss/show_money_job'
         // 悬赏招聘
-        common.request(hunturrl,huntdata).then(function callback(res){
+        common.request('Boss/show_money_job',huntdata).then(function callback(res){
             if(res.data.code===200){
                 vm.huntData = res.data.data;
                 // console.log("悬赏招聘：",vm.huntData)

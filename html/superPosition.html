@@ -76,9 +76,9 @@
             <img src="image/home/arrowBottom_white.png" alt="">
         </div>
     </div>
+
     <div class="container main_content">
-        <div ng-if="vm.resumeType==0"
-             ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
+        <div ng-if="vm.resumeType==0" ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean" on-finish-render-filters2>
             <div class="lPart">
                 <img ng-src="{{x.img}}" alt="">
                 <div class="onLeft">
@@ -107,19 +107,15 @@
                          class="button {{x.look_type==1?'viewedResume':''}}">
                         查看简历
                     </div>
-                    <div class="button {{x.status==2?'faced':''}}"
-                         ng-disabled="x.status==2"
-                         ng-click="vm.inviteFace(x.r_id)">
+                    <div class="button {{x.status==2?'faced':''}}" ng-disabled="x.status==2" ng-click="vm.inviteFace(x.id,$index)" class="face">
                         邀请面试
                     </div>
                 </div>
             </div>
-
-
         </div>
 
         <div ng-if="vm.resumeType==1"
-             ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  >
+             ng-repeat="x in vm.cardData |limitTo:8|orderBy:x.time:vm.boolean"  on-finish-render-filters2>
             <div class="lPart">
                 <img ng-src="{{x.img}}" alt="">
                 <div class="onLeft">
@@ -150,7 +146,7 @@
                     </div>
                     <div class="button {{x.status==2?'faced':''}}"
                          ng-disabled="x.status==2"
-                         ng-click="vm.inviteFace(x.r_id)">
+                         ng-click="vm.inviteFace(x.id,$index)" class="face">
                         邀请面试
                     </div>
                 </div>

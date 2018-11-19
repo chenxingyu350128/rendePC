@@ -18,4 +18,5 @@ angular.module('myApp')
         {name:"排列顺序",value:2},
         {name:"正序",value:0},
         {name:"倒序",value:1},
-        ]);
+        ])
+    .constant('client',parseInt(sessionStorage.getItem('client')))

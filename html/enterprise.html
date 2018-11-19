@@ -92,7 +92,7 @@
                     <span>推荐企业</span>
                 </div>
             </div>
-            <div ui-sref="enterpriseInfo" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
+            <div ui-sref="enterpriseInfo({id:data.id})" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
                 <div class="row1">
                     <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
                 </div>

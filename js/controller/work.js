@@ -1,8 +1,7 @@
 'use strict';
 angular.module('myApp')
-    .controller('WorkCtrl',function ($http,$state,$stateParams,$timeout,listsRequest,common,modalBox) {
+    .controller('WorkCtrl',function ($http,$state,$stateParams,$timeout,listsRequest,common,modalBox,$scope) {
         let vm=this;
-        vm.boon = boon;
         vm.keyword=$stateParams.find;
         let url='Boss/find_job';
         let data1={find:vm.keyword};
@@ -64,7 +63,7 @@ angular.module('myApp')
             //repeat完成后
             vm.throw= function(id,index){
                 console.log(index)
-                common.request('user/throw_resume',{j_id:id}).then(function callback(res){
+                common.request('user/throw_resume',{r_id:id}).then(function callback(res){
                     $(".position-btn").eq(index).text("已投递");
                     $timeout(function(){
                         modalBox.alert(res.data.msg);
@@ -107,6 +106,7 @@ angular.module('myApp')
         vm.comeJobList=vm.lists.arrival;
         vm.expbList=vm.lists.expList;
         vm.eduList=vm.lists.eduList;
+        vm.boon=vm.lists.boonList;
         //导航被选中高亮显示
         $(document).ready(function(){
             $('.work-position-l').eq(0).addClass('work-position-active').siblings().removeClass('work-position-active');

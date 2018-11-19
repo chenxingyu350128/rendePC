@@ -66,7 +66,7 @@
     </div>
     <div class="container content">
         <div class="row companyCard">
-            <div ng-repeat="x in vm.famousEnter" ui-sref="" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+            <div ng-repeat="x in vm.famousEnter |limitTo:24" ui-sref="enterpriseInfo({id:x.id})" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
                 <div class="company">
                     <div class="text-center">{{x.name}}</div>
                     <img ng-src="{{x.img}}" alt="">
@@ -92,10 +92,10 @@
     </div>
     <div class="container content">
         <div class="row wanted">
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div ui-sref="workDetail({id:hunt.id})" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="hunt in vm.huntData |limitTo:6">
                 <div class="occupation">
                     <div class="price">
-                        <span class="num">￥30.00</span>
+                        <span class="num">￥{{hunt.money}}</span>
                         <span class="get">领赏</span>
                     </div>
                     <div class="step">
@@ -108,184 +108,18 @@
                             <span class="grayF">面试职位</span>
                         </div>
                         <div>
-                            <span class="redF">￥30.00</span><br>
+                            <span class="redF">￥{{hunt.money}}</span><br>
                             <span class="grayF">入职成功</span>
                         </div>
                     </div>
                     <div class="ocDetail">
-                        <div>总经理助理</div>
+                        <div>{{hunt.job_type}}</div>
                         <div>
                             <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州&emsp;仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="price">
-                        <span class="num">￥30.00</span>
-                        <span class="get">领赏</span>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">投递简历</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">面试职位</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥30.00</span><br>
-                            <span class="grayF">入职成功</span>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>总经理助理</div>
-                        <div>
-                            <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州&emsp;仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="price">
-                        <span class="num">￥30.00</span>
-                        <span class="get">领赏</span>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">投递简历</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">面试职位</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥30.00</span><br>
-                            <span class="grayF">入职成功</span>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>总经理助理</div>
-                        <div>
-                            <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州&emsp;仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="price">
-                        <span class="num">￥30.00</span>
-                        <span class="get">领赏</span>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">投递简历</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">面试职位</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥30.00</span><br>
-                            <span class="grayF">入职成功</span>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>总经理助理</div>
-                        <div>
-                            <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州&emsp;仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="price">
-                        <span class="num">￥30.00</span>
-                        <span class="get">领赏</span>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">投递简历</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">面试职位</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥30.00</span><br>
-                            <span class="grayF">入职成功</span>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>总经理助理</div>
-                        <div>
-                            <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州&emsp;仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="price">
-                        <span class="num">￥30.00</span>
-                        <span class="get">领赏</span>
-                    </div>
-                    <div class="step">
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">投递简历</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥0.00</span><br>
-                            <span class="grayF">面试职位</span>
-                        </div>
-                        <div>
-                            <span class="redF">￥30.00</span><br>
-                            <span class="grayF">入职成功</span>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>总经理助理</div>
-                        <div>
-                            <div>
-                                <span>￥3000-6000&emsp;|</span>
-                                <span>福州</span>
-                                <span>仓山区|</span>
-                                <span>不限经验|</span>
-                                <span>大专学历</span>
+                                <span>￥{{hunt.start_money}} - {{hunt.end_money}}&emsp;|</span>
+                                <span>{{hunt.address}} | </span>
+                                <span>{{hunt.experience}}工作经验 | </span>
+                                <span>{{hunt.education}}学历</span>
                             </div>
                         </div>
                     </div>
@@ -302,169 +136,27 @@
     </div>
     <div class="container content">
         <div class="row recommend">
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
+            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="data in vm.dataList |limitTo:6">
                 <div class="occupation">
                     <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
+                        <img src="{{data.img}}" alt="" class="companyName">
                         <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
+                            <div class="position">{{data.job_type}}</div>
+                            <div class="salary redF">￥{{data.start_money}}-{{data.end_money}}</div>
                             <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
+                                <span>{{data.experience}}工作经验|</span>
+                                <span>{{data.education}}学历|</span>
+                                <span>{{data.area}}</span>
                             </div>
                         </div>
                     </div>
                     <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
+                        <div>{{data.name}}</div>
                         <div>
                             <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                        <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
-                            <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
-                        <div>
-                            <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div ui-sref="workDetail" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                        <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
-                            <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
-                        <div>
-                            <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                        <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
-                            <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
-                        <div>
-                            <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                        <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
-                            <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
-                        <div>
-                            <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12">
-                <div class="occupation">
-                    <div class="row1">
-                   <span class="companyName">
-                       博&nbsp;业<br>建&nbsp;设
-                   </span>
-                        <div>
-                            <div class="position">安全工程师或安全员</div>
-                            <div class="salary redF">￥3000-8000</div>
-                            <div class="demand grayF">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ocDetail">
-                        <div>福建博业建设集团有限公司福州分公司</div>
-                        <div>
-                            <div class="grayF">
-                                <span>建筑/房地产|</span>
-                                <span>民营企业|</span>
-                                <span>10-50人|</span>
+                                <span>{{data.c_type}}|</span>
+                                <span>{{data.nature}}|</span>
+                                <span>{{data.size}}|</span>
                             </div>
                         </div>
                     </div>
@@ -486,12 +178,15 @@
                  class="wantedBlock col-lg-1-5 col-md-1-5 col-sm-1-5 col-xs-1-5">
                 <div class="outstandings text-center">
                     <img src="image/home/out_avatar.png" alt="">
-                    <span class="real_name">{{x.name}}</span>
-                    <span class="P_data">十年以上学历|大专学历</span>
-                    <span class="job redF">外贸/进出口专员</span>
+                    <span class="real_name">{{x.nickname}}</span>
+                    <span class="P_data">
+                        <!--{{data.experience}}|-->
+                        {{x.education}}学历</span>
+                    <span class="job redF">{{x.job_type}}</span>
                 </div>
             </div>
-    </div>
+        </div>
+   </div>
     <div class="container seeMore text-center">
         <img src="image/home/next_icon.png" alt="">
         <img src="image/home/seeMore.png" alt="">
@@ -500,14 +195,17 @@
     <div class="container title">
         <div>职场资讯</div>
     </div>
-    <div class="container information">
+    <div class="container information content">
         <div class="row">
             <div class="infoLeft col-lg-9 col-md-12 col-sm-12 col-xs-12">
-                <img src="image/home/information_left.png" alt="">
-                <div class="imgTitle">
-                    这三类人群可以领失业保证金
+                <div  class="info-col" ng-repeat="x in vm.newsList |limitTo:4" ui-sref="new-detail({id:{{x.id}},index:$index})">
+                    <img src="{{x.img}}" alt="">
+                    <div class="imgTitle">
+                        {{x.title}}
+                    </div>
                 </div>
             </div>
+
             <div class="infoRight col-lg-3 col-md-12 col-sm-12 col-xs-12">
                 <div ui-sref="workplace-news" class="listHeader text-center">
                     <div class="listTitle">职场咨询</div>
@@ -515,19 +213,19 @@
                     <div class="triangle"></div>
                 </div>
                 <ul class="articles">
-                    <li class="article" ui-sref="new-detail({id:{{x.id}}})" ng-repeat="x in vm.newsList">{{x.content}}</li>
+                    <li class="article" ui-sref="new-detail({id:{{x.id}},index:$index})" ng-repeat="x in vm.newsList">{{x.content}}</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div ui-sref="workplace-news" class="container seeMore text-center">
+    <div class="container seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
     </div>
     <!--友情链接-->
     <div class="container title">
         <div>友情链接</div>
     </div>
-    <div class="container links">
+    <div class="container links content">
         <span>百度</span>
         <span>阿里</span>
         <span>腾讯</span>

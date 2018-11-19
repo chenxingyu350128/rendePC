@@ -7,6 +7,7 @@ angular.module('myApp')
         console.log($stateParams);
         // 将页面上的数据绑定到$stateParams
         vm.resumeType=parseInt(vm.params.resumeType)||0;
+        console.log(vm.resumeType)
         vm.education=vm.params.education;
         vm.exp=vm.params.years;
         vm.sex=vm.params.sex;
@@ -108,6 +109,7 @@ angular.module('myApp')
         };
 
 
+
         // 获取简历接口(全部简历/收到的简历)
         common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
             if(res.data.code===200){
@@ -147,6 +149,7 @@ angular.module('myApp')
             };
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
+
         // 邀请面试按钮接口
         vm.inviteFace=function(id){
             let data={r_id:id};

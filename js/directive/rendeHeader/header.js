@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome){
+app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome,client){
     return {
         restrict: 'EA',
         replace: true,
@@ -9,8 +9,10 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
 
         },
         link: function (scope) {
-            scope.cclient=parseInt(sessionStorage.getItem('client'));
-            scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
+            // scope.cclient=parseInt(sessionStorage.getItem('client'));
+            scope.cclient=2;
+            // scope.citySelect=JSON.parse(sessionStorage.getItem('city'));   // 获取选中城市
+            // scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
             switch(scope.cclient){
                 case 1:
                 case 2:
@@ -20,7 +22,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     scope.client=1;
             }
             //0代表客户端1代表企业端
-            scope.username='陈先生';
             scope.showEx=false;
             scope.signIf=sessionStorage.getItem('client');
             scope.showExit=function(){

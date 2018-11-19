@@ -161,17 +161,17 @@ angular.module('myApp')
                             vm.hotSearch=res.data.data;
                             sessionStorage.setItem('hotSearch',JSON.stringify(res.data.data))
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert('未注册或登录已过期',function(){
-                                sessionStorage.removeItem('signSuccess');
-                                $timeout(function(){
-                                    $state.go('signPage',{sign:1})
-                                },300)
-                            });
-                        }
-                        else if(res.data.code===404){
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert('未注册或登录已过期',function(){
+                        //         sessionStorage.removeItem('signSuccess');
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{sign:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else if(res.data.code===404){
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     });
                 }else{
                     vm.hotSearch=hotSearch;
@@ -183,17 +183,17 @@ angular.module('myApp')
                             vm.banner=res.data.data;
                             sessionStorage.setItem('bannerImg',JSON.stringify(vm.banner));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert('未注册或登录已过期',function(){
-                                sessionStorage.removeItem('signSuccess');
-                                $timeout(function(){
-                                    $state.go('signPage',{sign:1})
-                                },300)
-                            });
-                        }
-                        else if(res.data.code===404){
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert('未注册或登录已过期',function(){
+                        //         sessionStorage.removeItem('signSuccess');
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{sign:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else if(res.data.code===404){
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     });
                 }else{
                     vm.banner=bannerImg;
@@ -205,17 +205,17 @@ angular.module('myApp')
                             vm.boon=res.data.data;
                             sessionStorage.setItem('boon',JSON.stringify(vm.boon));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert('未注册或登录已过期',function(){
-                                sessionStorage.removeItem('signSuccess');
-                                $timeout(function(){
-                                    $state.go('signPage',{sign:1})
-                                },300)
-                            });
-                        }
-                        else if(res.data.code===404){
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert('未注册或登录已过期',function(){
+                        //         sessionStorage.removeItem('signSuccess');
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{sign:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else if(res.data.code===404){
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     });
                 }else{
                     vm.boon=boon;
@@ -227,16 +227,16 @@ angular.module('myApp')
                             vm.comeJobList = res.data.data;
                             sessionStorage.setItem('arrival',JSON.stringify(vm.comeJobList));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert(res.data.msg,function(){
-                                $timeout(function(){
-                                    $state.go('signPage',{login:1})
-                                },300)
-                            });
-                        }
-                        else{
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert(res.data.msg,function(){
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{login:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else{
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     });
                 }else{
                     vm.comeJobList=arrival
@@ -248,18 +248,16 @@ angular.module('myApp')
                             vm.expbList = res.data.data;
                             sessionStorage.setItem('expList',JSON.stringify(vm.expbList));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert(res.data.msg,function(){
-                                $timeout(function(){
-                                    $state.go('signPage',{login:1})
-                                },300)
-                            });
-                        }
-                        else{
-                            modalBox.alert(res.data.msg)
-                        }
-
-
+                        // else if(res.data.code===201){
+                        //     modalBox.alert(res.data.msg,function(){
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{login:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else{
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     })
                 }
                 else{
@@ -272,17 +270,16 @@ angular.module('myApp')
                             vm.eduList = res.data.data;
                             sessionStorage.setItem('eduList',JSON.stringify(vm.eduList));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert(res.data.msg,function(){
-                                $timeout(function(){
-                                    $state.go('signPage',{login:1})
-                                },300)
-                            });
-                        }
-                        else{
-                            modalBox.alert(res.data.msg)
-                        }
-
+                        // else if(res.data.code===201){
+                        //     modalBox.alert(res.data.msg,function(){
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{login:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else{
+                        //     modalBox.alert(res.data.msg)
+                        // }
                     });
                 }
                 else{
@@ -294,16 +291,16 @@ angular.module('myApp')
                             vm.natureList = res.data.data;
                             sessionStorage.setItem('natureList',JSON.stringify(vm.natureList));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert(res.data.msg,function(){
-                                $timeout(function(){
-                                    $state.go('signPage',{login:1})
-                                },300)
-                            });
-                        }
-                        else{
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert(res.data.msg,function(){
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{login:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else{
+                        //     modalBox.alert(res.data.msg)
+                        // }
 
                     });
                 }
@@ -316,16 +313,16 @@ angular.module('myApp')
                             vm.sizeList = res.data.data;
                             sessionStorage.setItem('sizeList',JSON.stringify(vm.sizeList));
                         }
-                        else if(res.data.code===201){
-                            modalBox.alert(res.data.msg,function(){
-                                $timeout(function(){
-                                    $state.go('signPage',{login:1})
-                                },300)
-                            });
-                        }
-                        else{
-                            modalBox.alert(res.data.msg)
-                        }
+                        // else if(res.data.code===201){
+                        //     modalBox.alert(res.data.msg,function(){
+                        //         $timeout(function(){
+                        //             $state.go('signPage',{login:1})
+                        //         },300)
+                        //     });
+                        // }
+                        // else{
+                        //     modalBox.alert(res.data.msg)
+                        // }
 
                     });
                 }
@@ -347,6 +344,19 @@ angular.module('myApp')
                 };
             }
         }
-    });
+    })
+    .factory('nickName',function () {
+       return{
+           getNickname: function (arry){
+            arry.forEach(function (v) {
+                if(v.sex=="男"){
+                    v.nickname=v.name.slice(0,1)+"先生"
+                }  else if(v.sex=="女"){
+                    v.nickname=v.name.slice(0,1)+"女士"
+                }
+            })
+        }
+       }
+    })
 
   

@@ -245,6 +245,7 @@ angular.module('myApp')
                     hand_phone: vm.landLine,
                     id_card: vm.id_card
                 };
+                console.log(data.img);
                 common.request('Boss/add_change_userinfo',data).then(function callback(res){
                     if(res.data.code===200){
                         modalBox.alert('修改成功')
