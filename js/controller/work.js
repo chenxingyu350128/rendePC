@@ -2,6 +2,13 @@
 angular.module('myApp')
     .controller('WorkCtrl',function ($scope,$http,$state,$stateParams,$timeout,listsRequest,common,modalBox) {
         let vm=this;
+        vm.lists=listsRequest.lists();
+        vm.typeList=vm.lists.jobType;
+        vm.show_boonList=vm.lists.boonList;
+        vm.comeJobList=vm.lists.arrival;
+        vm.expbList=vm.lists.expList;
+        vm.eduList=vm.lists.eduList;
+        vm.boon=vm.lists.boonList;
         vm.keyword=$stateParams.find;
         let data1={find:vm.keyword};
         common.request('Boss/find_job',data1).then(function callback(res){
@@ -90,13 +97,7 @@ angular.module('myApp')
             sessionStorage.setItem('distant1',distant1);
             $(this).parent().prev().scrollLeft(distant1);
         });
-        vm.lists=listsRequest.lists();
-        vm.typeList=vm.lists.jobType;
-        vm.show_boonList=vm.lists.boonList;
-        vm.comeJobList=vm.lists.arrival;
-        vm.expbList=vm.lists.expList;
-        vm.eduList=vm.lists.eduList;
-        vm.boon=vm.lists.boonList;
+
         //导航被选中高亮显示
         $(document).ready(function(){
             $('.work-position-l').eq(0).addClass('work-position-active').siblings().removeClass('work-position-active');
