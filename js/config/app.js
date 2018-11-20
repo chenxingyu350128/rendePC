@@ -212,7 +212,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找企业
             .state('enterprise',{
-                url: '/enterprise?nav',
+                url: '/enterprise?nav&idx0&idx1&idx2&jobType&nature&size&boon&selectedType&selectedNature',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',

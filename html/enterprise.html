@@ -4,46 +4,68 @@
 <common-search></common-search>
 <div class="container checkBox">
     <div>
-        <div class="row">
-            <span>职位:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span  ng-click='vm.getJobType(x.name,$index+1)' class="choice" ng-repeat="x in vm.jobType |limitTo: 6">{{x.name}}</span>
-            <select ng-model="vm.selectedType" ng-click="vm.getType(vm.selectedType)" class="getMore" name="occupations" >
-                <option value="">选择行业类型</option>
-                <option ng-repeat="x in vm.otherTypes">{{x.name}}</option>
+        <div class="row optRow">
+            <span>
+                职位:
+                <span ng-click="vm.clearType()" class="all choice0 ">全部</span>
+            </span>
+            <span  ng-click='vm.getJobType(x,$index+1)'
+                   class="choice choice0"
+                   ng-repeat="x in vm.jobType |limitTo: 6" on-finish-render-filters>{{x}}</span>
+            <select ng-model="vm.selectedType"
+                    ng-change="vm.getType(vm.selectedType)"
+                    class="getMore typeSelect"
+                    name="occupations" >
+                <option value="">&emsp;&emsp;更多&emsp;&emsp;</option>
+                <option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>
             </select>
         </div>
-        <div class="row">
-            <span>性质:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>
-            <select class="getMore" name="occupations" >
-                <option ng-repeat="type in vm.typeList">{{type.name}}</option>
+        <div class="row optRow">
+            <span>
+                性质:
+                <span ng-click="vm.clearNature()" class="all choice1 ">全部</span>
+            </span>
+            <span ng-click='vm.getNatureType(x.name,$index+1)'
+                  class="choice choice1"
+                  ng-repeat="x in vm.natureList |limitTo: 6"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
+            <select ng-model="vm.selectedNature"
+                    ng-change="vm.getNature(vm.selectedNature)"
+                    class="getMore natureSelect"
+                    name="occupations" >
+                <option value="">&emsp;&emsp;更多&emsp;&emsp;</option>
+                <option value="{{x.name}}" ng-repeat="x in vm.otherNatures">{{x.name}}</option>
             </select>
         </div>
-        <div class="row">
-            <span>规模:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="size in vm.sizeList |limitTo:6">{{size.name}}</span>
+        <div class="row optRow">
+            <span>
+                规模:
+                <span class="all choice2 ">全部</span>
+            </span>
+            <span class="choice choice2"
+                  ng-repeat="x in vm.sizeList |limitTo:6"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
             <select style="visibility: hidden" class="getMore" name="occupations" id="select3">
-                <option ng-repeat="size in vm.sizeList ">{{size.name}}</option>
+                <option ng-repeat="x in vm.sizeList ">{{x.name}}</option>
             </select>
         </div>
-        <div class="row">
-            <span>福利:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="boonarr in vm.show_boonList |limitTo:6">{{boonarr.name}}</span>
+        <div class="row optRow">
+            <span>
+                福利:
+                <span class="all ">全部</span>
+            </span>
+            <span class="choice choice3"
+                  ng-repeat="x in vm.show_boonList |limitTo:6"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
             <select style="visibility: hidden" class="getMore" name="occupations" id="select4">
                 <option value="">全部</option>
-                <option ng-repeat="boonarr in vm.show_boonList">{{boonarr.name}}</option>
+                <option ng-repeat="x in vm.show_boonList">{{boonarr.name}}</option>
             </select>
         </div>
     </div>

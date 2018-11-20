@@ -8,5 +8,18 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="angular" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="angular-animate" level="application" />
+    <orderEntry type="library" name="angular-ui-router" level="application" />
+    <orderEntry type="library" name="md5" level="application" />
+    <orderEntry type="library" name="ocLazyLoad" level="application" />
+    <orderEntry type="library" name="bootbox" level="application" />
+    <orderEntry type="library" name="angular-locale_zh-cn" level="application" />
+    <orderEntry type="library" name="ui-bootstrap-tpls" level="application" />
+    <orderEntry type="library" name="bootstrap" level="application" />
+    <orderEntry type="library" name="angular-messages" level="application" />
+    <orderEntry type="library" name="swiper" level="application" />
+    <orderEntry type="library" name="angular-file-upload" level="application" />
   </component>
 </module>

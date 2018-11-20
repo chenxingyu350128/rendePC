@@ -106,6 +106,7 @@ angular.module('myApp')
         //清除福利
         vm.clearBoon=function(){
            sessionStorage.removeItem('boonSelected');
+           postData['boonarr']=paramsData['boon']='';
            $state.go('WorkCtrl',paramsData,{reload:true})
         };
         //清除学历，经验，到岗时间等
