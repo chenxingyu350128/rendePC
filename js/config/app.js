@@ -46,7 +46,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?jobType&id&find',
+                url: '/workCtrl?jobType&id&keyword&salary&boon&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -212,7 +212,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找企业
             .state('enterprise',{
-                url: '/enterprise',
+                url: '/enterprise?nav',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',

@@ -2,7 +2,6 @@
 <rende-header></rende-header>
 <!--搜索-->
 <common-search></common-search>
-<!--xuanze-->
 <div class="container checkBox">
     <div>
         <div class="row">
@@ -10,9 +9,20 @@
             <div>
                 <span class="all">全部</span>
             </div>
-            <span class="choice"ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>
-            <select class="getMore" name="occupations" id="select1">
-                <option ng-repeat="type in vm.typeList >{{type.name}}</option>
+            <span  ng-click='vm.getJobType(x.name,$index+1)' class="choice" ng-repeat="x in vm.jobType |limitTo: 6">{{x.name}}</span>
+            <select ng-model="vm.selectedType" ng-click="vm.getType(vm.selectedType)" class="getMore" name="occupations" >
+                <option value="">选择行业类型</option>
+                <option ng-repeat="x in vm.otherTypes">{{x.name}}</option>
+            </select>
+        </div>
+        <div class="row">
+            <span>性质:</span>
+            <div>
+                <span class="all">全部</span>
+            </div>
+            <span class="choice" ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>
+            <select class="getMore" name="occupations" >
+                <option ng-repeat="type in vm.typeList">{{type.name}}</option>
             </select>
         </div>
         <div class="row">
@@ -42,11 +52,11 @@
     <div class="row">
         <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="leftNav">
-                <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav:0})" class="{{vm.nav==0?'checkedNav':''}}">
                     <span>企业列表</span>
                     <img src="image/home/threeSquare.png" alt="">
                 </div>
-                <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav:1})" class="{{vm.nav==1?'checkedNav':''}}">
                     <span>名企招聘</span>
                     <img src="image/home/threeSquare.png" alt="">
                 </div>

@@ -124,9 +124,7 @@ angular.module('myApp')
                                 vm.innerType[i] = [];
                                 vm.eazyMainType[i] = vm.devJobType[i].name;//只有Name的总类别
                             }
-                            console.log(vm.innerType);
                             vm.childTypes = vm.types.slice(vm.devJobType.length);
-                            console.log(vm.childTypes);
                             for (let i = 0; i < vm.childTypes.length; i++) {
                                 for (let j = 1; j < vm.devJobType.length + 1; j++) {
                                     if (vm.childTypes[i].fid === j) {
@@ -244,7 +242,6 @@ angular.module('myApp')
                     common.request('Boss/show_job_years', data).then(function callback(res) {
                         if (res.data.code === 200) {
                             vm.expList = res.data.data;
-                            console.log('expList',vm.expList);
                             sessionStorage.setItem('expList', JSON.stringify(vm.expList));
                         }
                         else if (res.data.code === 201) {
@@ -271,7 +268,6 @@ angular.module('myApp')
                         if (res.data.code === 200) {
                             vm.mark6 = true;
                             vm.eduList = res.data.data;
-                            console.log('edulist',vm.eduList);
                             sessionStorage.setItem('eduList', JSON.stringify(vm.eduList));
                         }
                         else if (res.data.code === 201) {

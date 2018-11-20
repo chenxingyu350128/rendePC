@@ -18,4 +18,10 @@ angular.module('myApp')
         {name:"排列顺序",value:2},
         {name:"正序",value:0},
         {name:"倒序",value:1},
-        ]);
+        ])
+    .constant('salaryList',[
+        '2000以下',
+        '2000-4000',
+        '4000-6000',
+        '6000-8000'
+    ]);
