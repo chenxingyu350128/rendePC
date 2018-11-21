@@ -3,6 +3,9 @@
 angular.module('myApp')
     .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,common,modalBox) {
         let vm=this;
+        vm.showKey=function(){
+            console.log(vm.keyword)
+        };
         let dataEmpty={};
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后

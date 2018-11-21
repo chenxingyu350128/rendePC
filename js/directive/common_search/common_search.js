@@ -6,12 +6,9 @@ app.directive('commonSearch',function ($http,$state,$stateParams,listsRequest,co
         replace: true,
         templateUrl: 'js/directive/common_search/common_search.html',
         scope: {
-
         },
         link: function (scope) {
             scope.hotSearch=listsRequest.lists().hotSearch;
-            console.log(12243);
-
         }
     }
 });

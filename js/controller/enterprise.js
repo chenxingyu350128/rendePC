@@ -4,7 +4,7 @@ angular.module('myApp')
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
-        vm.nav=vm.params.nav||0;
+        vm.nav=parseInt(vm.params.nav)||0;
         let postData={};
         let paramsData={};
         // 获取福利待遇接口
@@ -15,13 +15,33 @@ angular.module('myApp')
         vm.otherNatures=vm.natureList.slice(6);
         vm.sizeList=vm.lists.sizeList;
         vm.boonList=vm.lists.boonList;
+        vm.otherBoones=vm.boonList.slice(6);
         //获取$stateParams值
         vm.selectedType=vm.params.selectedType;
         vm.selectedNature=vm.params.selectedNature;
-        vm.idx0=vm.params.idx0;
-        vm.idx1=vm.params.idx1;
+        vm.selectedBoon=vm.params.selectedBoon;
+        vm.idx0=vm.params.idx0||0;
+        vm.idx1=vm.params.idx1||0;
+        vm.idx2=vm.params.idx2||0;
+        postData['jobType']=vm.params.jobType;
+        postData['nature']=vm.params.nature;
+        postData['size']=vm.params.size;
+        let real_boon=JSON.parse(sessionStorage.getItem('boonSelected'))||[];
+        console.log(real_boon);
+        postData['boonarr']=JSON.stringify(vm.params.boon);
+        if(real_boon.length){
+            $('.allBoon').css({
+                'background': '#fff',
+                'color': '#000'
+            })
+        }else{
+            $('.allBoon').css({
+                'background': '#f00',
+                'color': '#fff'
+            })
+        }
         let url='';
-        if(!vm.nav){
+        if(vm.nav===0){
             url='boss/company_list';
         }
         else{
@@ -38,13 +58,23 @@ angular.module('myApp')
             paramsData['jobType']=e;
             paramsData['selectedType']=e;
             paramsData['idx0']=undefined;
-            $state.go('enterprise',paramsData,{reload:true})
+            $state.go('enterprise',paramsData,{reload:true});
+        };
+        vm.getSize=function(x,idx){
+            paramsData['size']=x;
+            paramsData['idx2']=idx;
+            $state.go('enterprise',paramsData,{reload:true});
+        };
+        vm.clearSize=function(){
+            paramsData['size']='';
+            paramsData['idx2']=0;
+            $state.go('enterprise',paramsData,{reload:true});
         };
         vm.clearType=function(){
             paramsData['jobType']='';
             paramsData['selectedType']='';
             paramsData['idx0']=0;
-            $state.go('enterprise',paramsData,{reload:true})
+            $state.go('enterprise',paramsData,{reload:true});
         };
         //nature
         vm.getNatureType=function(x,idx){
@@ -65,10 +95,51 @@ angular.module('myApp')
             paramsData['idx1']=0;
             $state.go('enterprise',paramsData,{reload:true})
         };
+        vm.getBoon=function(x){
+            if(!real_boon.includes(x)){
+                real_boon.push(x);
+            }
+            else{
+                let idx=real_boon.indexOf(x);
+                real_boon.splice(idx,1);
+            }
+            sessionStorage.setItem('boonSelected',JSON.stringify(real_boon));
+            console.log(real_boon);
+            console.log(Array.isArray(real_boon));
+            postData['boonarr']=paramsData['boon']=real_boon;
+            $state.go('enterprise',paramsData,{reload:true})
+        };
+        //清除福利
+        vm.clearBoon=function(){
+            sessionStorage.removeItem('boonSelected');
+            postData['boonarr']=paramsData['boon']='';
+            $state.go('enterprise',paramsData,{reload:true})
+        };
         $scope.$on('ngRepeatFinished', function () {
             //repeat完成后
             let choice0=$('.choice0');
             let choice1=$('.choice1');
+            let choice2=$('.choice2');
+            let boon=$('.choice3');
+            let boonOnlyName=[];
+            for(let i=0;i<vm.boonList.length;i++){//css点亮已选项
+                boonOnlyName[i]=vm.boonList[i].name;
+                for(let j=0;j<real_boon.length;j++){
+                    if(boonOnlyName.includes(real_boon[j])){
+                        let inBase=boonOnlyName.indexOf(real_boon[j]);
+                        boon.eq(inBase).css({
+                            'background': '#f00',
+                            'color': '#fff'
+                        })
+                    }
+                }
+            }
+            if(vm.idx0===undefined){
+                $('.allType').css({
+                    'background': '#fff',
+                    'color': '#000'
+                })
+            }
             if(vm.idx0!==undefined){
                 choice0.eq(vm.idx0).css({
                     'background': '#f00',
@@ -86,6 +157,12 @@ angular.module('myApp')
                     'color': '#000'
                 })
             }//nature
+            if(vm.idx1===undefined){
+                $('.allNature').css({
+                    'background': '#fff',
+                    'color': '#000'
+                })
+            }
             if(vm.idx1!==undefined){
                 choice1.eq(vm.idx1).css({
                     'background': '#f00',
@@ -101,6 +178,19 @@ angular.module('myApp')
                 $('.natureSelect').css({
                     'background': '#fff',
                     'color': '#000'
+                })
+            }
+            //size
+            if(vm.idx2===undefined){
+                $('.allSize').css({
+                    'background': '#fff',
+                    'color': '#000'
+                })
+            }
+            if(vm.idx2!==undefined){
+                choice2.eq(vm.idx2).css({
+                    'background': '#f00',
+                    'color': '#fff'
                 })
             }
         });

@@ -90,6 +90,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
                     ])
                 }
             })
@@ -212,7 +214,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找企业
             .state('enterprise',{
-                url: '/enterprise?nav&idx0&idx1&idx2&jobType&nature&size&boon&selectedType&selectedNature',
+                url: '/enterprise?nav&idx0&idx1&idx2&jobType&nature&size&boon&selectedType&selectedNature&selectedBoon',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',

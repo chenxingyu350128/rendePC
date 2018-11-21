@@ -22,6 +22,9 @@
 .optRow+.optRow{
     margin-top: .23rem;
 }
+.checkBox .boonRow .choice{
+    width: 9.72%;
+}
 .checkBox .row>span{
     text-align: center;
     width: 12.5%;

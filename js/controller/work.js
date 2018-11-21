@@ -20,6 +20,9 @@ angular.module('myApp')
         vm.otherBoones=vm.boon.slice(6);
         vm.otherBoones.unshift({name:'更多'});
         vm.keyword=vm.params.keyword;
+        if(vm.keyword){
+            sessionStorage.setItem('mainNav',2);
+        }
         vm.salaryList=salaryList;
         let postData={};
         let paramsData={};
@@ -83,7 +86,7 @@ angular.module('myApp')
         };
         vm.getType=function(e){
             paramsData['jobType']=e;
-            paramsData['idx0']='';
+            paramsData['idx0']=undefined;
             paramsData['selectedType']=vm.selected;
             $state.go('WorkCtrl',paramsData,{reload:true})
         };

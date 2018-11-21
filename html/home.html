@@ -44,11 +44,11 @@
                 </div>
                 <div class="search">
                     <div class="searchBox">
-                        <input placeholder="搜索职位、公司或地点" type="text" ng-model="vm.keyword"><button ui-sref="WorkCtrl({find:'{{vm.keyword}}'})">搜索</button>
+                        <input placeholder="搜索职位、公司或地点" type="text"  ng-model="vm.keyword"><button ng-click="vm.showKey()" ui-sref="WorkCtrl({keyword: vm.keyword})">搜索</button>
                     </div>
                     <div class="hot">
                         <span class="redF">热门搜索:</span>
-                        <span ui-sref="WorkCtrl({find:'{{x.name}}',position:2})" ng-repeat="x in vm.hotSearch">{{x.name}}</span>
+                        <span ui-sref="WorkCtrl({keyword:'{{x.name}}'})" ng-repeat="x in vm.hotSearch">{{x.name}}</span>
                     </div>
                 </div>
             </div>

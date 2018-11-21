@@ -76,6 +76,7 @@ body{
     height: 100%;
     padding: .3rem;
     background: #fff;
+    opacity: .9;
 }
 .typeDetails .category{
     display: inline-block;
