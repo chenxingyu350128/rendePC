@@ -224,44 +224,37 @@ angular.module('myApp')
                 });
             }
         });
-        //点击查看更多是职位分类
-        $(".tipRight").on('click',function(){
-            let distant1= sessionStorage.getItem('distant1')||0;
-            // console.log(distant1);
-            // distant1=parseInt(distant1)+100;
-            if(distant1<3000){
-                distant1=parseInt(distant1)+100;
-            }
-            else{
-                distant1=2000;
-            }
-            sessionStorage.setItem('distant1',distant1);
-            $(this).parent().prev().scrollLeft(distant1);
-        });
-
-        //点击查看更多是职位分类
-        $(".tipleft").on('click',function(){
-            let distant1= sessionStorage.getItem('distant1')||0;
-            if(distant1>2000){
-                distant1=parseInt(distant1)-100;
-            }
-            else{
-                distant1=0;
-            }
-            sessionStorage.setItem('distant1',distant1);
-            $(this).parent().prev().scrollLeft(distant1);
-        });
+        // //点击查看更多是职位分类
+        // $(".tipRight").on('click',function(){
+        //     let distant1= sessionStorage.getItem('distant1')||0;
+        //     // console.log(distant1);
+        //     // distant1=parseInt(distant1)+100;
+        //     if(distant1<3000){
+        //         distant1=parseInt(distant1)+100;
+        //     }
+        //     else{
+        //         distant1=2000;
+        //     }
+        //     sessionStorage.setItem('distant1',distant1);
+        //     $(this).parent().prev().scrollLeft(distant1);
+        // });
+        //
+        // //点击查看更多是职位分类
+        // $(".tipleft").on('click',function(){
+        //     let distant1= sessionStorage.getItem('distant1')||0;
+        //     if(distant1>2000){
+        //         distant1=parseInt(distant1)-100;
+        //     }
+        //     else{
+        //         distant1=0;
+        //     }
+        //     sessionStorage.setItem('distant1',distant1);
+        //     $(this).parent().prev().scrollLeft(distant1);
+        // });
 
         //导航被选中高亮显示
         $('.work-position-l').eq(vm.navType).css({
            'background': '#f00',
             'color': '#fff'
         });
-        // $(document).ready(function(){
-        //     $('.work-position-l').eq(vm.navType).addClass('work-position-active').siblings().removeClass('work-position-active');
-        //     $('.work-position-l').click(function(){
-        //         var i = $(this).index();
-        //         $('.work-position-l').eq(i).addClass('work-position-active').siblings().removeClass('work-position-active');
-        //     });
-        // });
     });

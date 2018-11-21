@@ -9,9 +9,16 @@
     margin-right: .1rem;
     background: #f00; }
 
-.top {
-  line-height: .36rem;
-  padding: 0; }
+.GWTop {
+  line-height: .36rem; }
+  .GWTop > div {
+    width: 100%;
+    float: left;
+    background: #fff;
+    margin-bottom: .1rem; }
+    .GWTop > div .redF {
+      border-left: 4px solid #f00;
+      padding-left: .1rem; }
 
 .main {
   overflow: hidden; }
@@ -42,8 +49,7 @@
     .leftSide .intro .left .address {
       margin-bottom: .28rem; }
     .leftSide .intro .left .contactMethod + .contactMethod {
-      margin-left: .67rem;
-      float: left;}
+      margin-left: .67rem; }
     .leftSide .intro .right {
       font-size: 14px; }
       .leftSide .intro .right .updateAt {

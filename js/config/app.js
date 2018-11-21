@@ -77,7 +77,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找人才
             .state('personel',{
-                url: '/personel',
+                url: '/personel?jobType&id&keyword&salary&boon&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -391,7 +391,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//店铺/招普工
             .state('recruit',{
-                url: '/recruit?type',
+                url: '/recruit?navType&jobType&idx&selectedType',
                 templateUrl: 'html/recruit.html',
                 controller: 'recruitCtrl',
                 controllerAs: 'vm',

@@ -31,6 +31,13 @@
 .underNav + .underNav {
   margin-left: .22rem; }
 
+.hotOcp .job_type {
+  line-height: .25rem;
+  padding: 0 12px; }
+
+.job_type + .job_type {
+  margin-left: .3rem; }
+
 .hotOcp select {
   line-height: 26px;
   height: 30px;
@@ -66,11 +73,5 @@
 
 .seeMore {
   background: none; }
-.nullList{
-  text-align: center;
-  background: white;
-  padding: 30px;
-  width: 100%;
-  font-size: 23px;
-}
+
 /*# sourceMappingURL=recruit.css.map */

@@ -105,37 +105,6 @@
                 <div class="position-hr"></div>
             </div>
 
-            <div class="position-list" ng-show="vm.a==2" ng-repeat="data in vm.dataList |limitTo : 8" on-finish-render-filters2>
-                <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
-                    <img src="{{data.img}}" style="width: 89px;height: 87px">
-                </div>
-                <div  class="position-list-right flex-column" >
-                    <div class="positionname fl" >{{data.job_type}}</div>
-                    <div class="worksalary redF fl">￥{{data.start_money}}-{{data.end_money}}</div>
-                    <div class="demand grayF workdemand">
-                        <span>{{data.experience}}|</span>
-                        <span >{{data.education}}|</span>
-                        <span>{{data.address}}</span>
-                    </div>
-                </div>
-                <div class="position-list-center flex-column" style="margin-top: 28px;">
-                    <div class="positionname fl">{{data.name}}</div>
-                    <div class="demand grayF workdemand" style="margin-top: 8px;">
-                        <span>{{data.c_type}}</span>
-                        <span>|{{data.nature}}</span>
-                        <span>{{data.size}}</span>
-                    </div>
-                </div>
-                <div class="fr">
-                    <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button><br>
-
-                    <div class="demand grayF workdemand">
-                        <span>更新时间：{{data.time}}</span>
-                    </div>
-                </div>
-                <div class="position-hr"></div>
-            </div>
-
             <div class=" seeMore text-center workmore">
                 <img src="image/home/seeMore.png" alt="">
             </div>

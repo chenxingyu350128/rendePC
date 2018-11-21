@@ -35,7 +35,7 @@ a:active {
   text-indent: 2em;
   box-sizing: border-box;
   height: 4.05rem;
-  padding: 31px 17px 0 11px;
+  padding: 31px 17px;
   font-size: 14px;
   letter-spacing: .5em;
   font-family: MicrosoftYaHei;
@@ -60,10 +60,6 @@ a:active {
     height: .24rem; }
 
 .inIt + .inIt {
-  margin-left: 2.53rem;
-}
-.inIt img{
-  margin-right: 16px;
-}
+  margin-left: 2.53rem; }
 
 /*# sourceMappingURL=proxy.css.map */

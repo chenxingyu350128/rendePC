@@ -10,9 +10,18 @@
     background: #f00;
   }
 }
-.top{
+.GWTop{
   line-height: .36rem;
-  padding: 0;
+  &>div{
+    width: 100%;
+    float: left;
+    background: #fff;
+    margin-bottom: .1rem;
+    .redF{
+      border-left: 4px solid #f00;
+      padding-left: .1rem;
+    }
+  }
 }
 .main{
   overflow: hidden;
