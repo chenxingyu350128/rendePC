@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinceAndCities,common,modalBox,homeMenu,enterHome){
+app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,modalBox,homeMenu,enterHome){
     return {
         restrict: 'EA',
         replace: true,
@@ -9,6 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
 
         },
         link: function (scope) {
+            scope.city=sessionStorage.getItem('city')||'全国';
             scope.cclient=parseInt(sessionStorage.getItem('client'));
             console.log(scope.cclient);
             scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
@@ -22,6 +23,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     scope.client=1;
             }
             //0代表客户端1代表企业端
+            scope.hideNav=sessionStorage.getItem('hideNav');
             scope.username='陈先生';
             scope.showEx=false;
             console.log(scope.cclient);
@@ -157,60 +159,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,provinc
                     'border-bottom':'5px solid #e11c19',
                 });
             });
-            //地区选择
-            scope.placeBtn=function(){
-                scope.changePlace=true;
-            };
-            scope.hole_country=provinceAndCities;
-            $(".rightClick1").on('click',function(){
-                let distant1= sessionStorage.getItem('distant1')||0;
-                if(distant1<2000){
-                    distant1=parseInt(distant1)+100;
-                }
-                else{
-                    distant1=2000;
-                }
-                sessionStorage.setItem('distant1',distant1);
-                $(this).parent().parent().scrollLeft(distant1);
-            });
-            $(".leftClick1").on('click',function(){
-                let distant1= sessionStorage.getItem('distant1')||0;
-                if(distant1>2000){
-                    distant1=parseInt(distant1)-100;
-                }
-                else{
-                    distant1=0;
-                }
-                sessionStorage.setItem('distant1',distant1);
-                $(this).parent().parent().scrollLeft(distant1);
-            });
-            $(".rightClick2").on('click',function(){
-                let distant2= sessionStorage.getItem('distant2')||0;
-                distant2=parseInt(distant2)+100;
-                sessionStorage.setItem('distant2',distant2);
-                $(this).parent().parent().scrollLeft(distant2);
-            });
-            $(".leftClick2").on('click',function(){
-                let distant2= sessionStorage.getItem('distant2')||0;
-                if(distant2>100){
-                    distant2=parseInt(distant2)-100;
-                }
-                else{
-                    distant2=0;
-                }
-                sessionStorage.setItem('distant2',distant2);
-                $(this).parent().parent().scrollLeft(distant2);
-            });
-            scope.cities=scope.hole_country[0].cities;
-            scope.chooseProvince=function (idx) {
-                scope.cities=scope.hole_country[idx].cities;
-            };
-            scope.chooseCity=function () {
-                scope.changePlace=false;
-                sessionStorage.removeItem('distant1');
-                sessionStorage.removeItem('distant2');
-                $(this).parent().scrollLeft(0);
-            };
         }
     }
 });

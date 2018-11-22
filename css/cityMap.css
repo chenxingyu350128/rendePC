@@ -1,0 +1,50 @@
+.cityMap {
+  font-size: 16px; }
+
+.letter_row {
+  background: #fdfdfd; }
+  .letter_row .container {
+    padding: .3rem .45rem; }
+  .letter_row .first_letter {
+    font-size: 16px;
+    cursor: pointer; }
+    .letter_row .first_letter:hover {
+      color: #31BEFF; }
+  .letter_row .first_letter + .first_letter {
+    margin-left: .35rem; }
+
+.searchRow {
+  margin-bottom: .2rem; }
+
+.detail_letter_row {
+  background: #f2f4f7; }
+  .detail_letter_row .single {
+    color: #84888b;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: .2rem; }
+  .detail_letter_row .letterBox {
+    display: flex;
+    flex-wrap: wrap; }
+    .detail_letter_row .letterBox .unit {
+      width: calc((100% - .6rem)/6);
+      text-align: center;
+      line-height: .5rem;
+      margin-left: .1rem;
+      margin-bottom: .1rem;
+      background: #fff;
+      cursor: pointer; }
+      .detail_letter_row .letterBox .unit:hover {
+        color: #31BEFF;
+        box-shadow: 0 0 8px #b4b2cc; }
+
+.cityMap .fixedRow {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 0 #b4b2cc; }
+
+/*# sourceMappingURL=cityMap.css.map */

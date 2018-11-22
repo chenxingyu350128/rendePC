@@ -5,8 +5,8 @@
             <div class="row line1st">
                 <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <img src="image/home/logo.png" alt="">
-                    <span style="font-size: 16px; margin: 0 8px;">全国</span>
-                    <span ng-click="placeBtn()" style="font-size: 12px; color: #c5c5c5">[切换城市]</span>
+                    <span style="font-size: 16px; margin: 0 8px;">{{city}}</span>
+                    <span ui-sref="cityMap" style="font-size: 12px; color: #c5c5c5">[切换城市]</span>
                 </div>
                 <div ng-if="!cclient" class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                     <span class="loginIn" ui-sref="signPage({choice:0})">登录</span><span class="sign" ui-sref="signPage({choice:1})">注册</span>
@@ -19,37 +19,13 @@
                 </div>
             </div>
         </div>
-        <div class="nav container-fluid" style="background: #f52a08">
+        <div ng-hide="hideNav" class="nav container-fluid" style="background: #f52a08">
             <div class="container">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"
                      ng-click="nav0(x.id)"
                      on-finish-render-filters>
                     {{x.name}}
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div ng-show="changePlace" class="row provinceChoose">
-                <div class="province">
-                    <div>
-                        <div>
-                            <img class="leftClick leftClick1" ng-click="provinceMoreL()" src="image/home/leftTriangle.png" alt="">
-                            <span ng-click="chooseProvince($index)" ng-repeat="x in hole_country">{{x.provinceName}}</span>
-                            <img class="rightClick rightClick1" ng-click="provinceMoreR()" src="image/home/rightTriangle.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div draggable="true" ng-show="changePlace" class="row cityChoose">
-                <div class="cities">
-                    <div class="cxx">
-                        <div id="chooseCity">
-                            <img class="leftClick leftClick2" ng-click="cityMoreL()" src="image/home/leftTriangle.png" alt="">
-                            <span ng-click="chooseCity($index)" class="cityGroup"  ng-repeat="x in cities" repeat-finished>{{x.cityName}}</span>
-                            <img class="rightClick rightClick2" ng-click="cityMoreR()" src="image/home/rightTriangle.png" alt="">
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -60,7 +36,7 @@
             <div class="logo col-lg-2 col-md-6 col-sm-6 col-xs-12">
                 <img src="image/home/logo.png" alt="">
             </div>
-            <div class="nav nav1 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+            <div ng-hide="hideNav" class="nav nav1 col-lg-8 col-md-12 col-sm-12 col-xs-12">
                 <div ng-repeat="x in enterHome"
                      class="navItem0"
                      ng-click="nav1(x.id)"

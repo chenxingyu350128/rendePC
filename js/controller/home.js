@@ -1,12 +1,13 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,listsRequest,common,modalBox) {
+    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,dynamic,listsRequest,common,modalBox) {
         let vm=this;
         vm.showKey=function(){
             console.log(vm.keyword)
         };
         let dataEmpty={};
+        dataEmpty['city']=sessionStorage.getItem('city');
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后
            $('.carousel-inner div').eq(0).addClass('active');
@@ -15,8 +16,8 @@ angular.module('myApp')
         vm.lists=listsRequest.lists();
         vm.jobType=vm.lists.devJobType;
         vm.innerType=vm.lists.innerType;
-        vm.hotSearch=vm.lists.hotSearch;
-        vm.banner=vm.lists.bannerList;
+        vm.hotSearch=dynamic.getHotSearch();
+        vm.banner=dynamic.getBanner();
         vm.mouseEnter=function(e){
             vm.typeDetail=vm.innerType[e-1];
             vm.cateIdx=e-1;
@@ -29,6 +30,41 @@ angular.module('myApp')
         vm.category=function(e){
 
         };
+        // //轮播图
+        common.request('Boss/show_banner', dataEmpty).then(function callback(res) {
+            if (res.data.code === 200) {
+                vm.banner = res.data.data;
+            }
+            else if (res.data.code === 201) {
+                vm.banner='';
+                $timeout(function () {
+                    $state.go('signPage')
+                }, 300);
+                // modalBox.alert('未注册或登录已过期', function () {
+                //
+                // });
+            }
+            else if (res.data.code === 404) {
+                vm.banner='';
+                modalBox.alert(res.data.msg)
+            }
+        });
+        //热搜
+        common.request('other/hot_search', dataEmpty).then(function callback(res) {
+            if (res.data.code === 200) {
+                vm.hotSearch = res.data.data;
+            }
+            else if (res.data.code === 201) {
+                vm.hotSearch ='';
+                $timeout(function () {
+                    $state.go('signPage')
+                }, 300);
+            }
+            else if (res.data.code === 404) {
+                vm.hotSearch ='';
+                modalBox.alert(res.data.msg)
+            }
+        });
         //资讯列表
         common.request('Boss/show_news',dataEmpty).then(function callback(res){
             if(res.data.code===200){

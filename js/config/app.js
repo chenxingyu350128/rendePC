@@ -25,7 +25,24 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/repeatEnd2.js'
                     ])
                 }
-            })//简历详情页(个人增删改)
+            })
+            .state('cityMap',{
+                url: '/cityMap',
+                templateUrl: 'html/cityMap.html',
+                controller: 'cityMap',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'css/cityMap.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                        'js/controller/cityMap.js',
+                    ])
+                }
+            })
+            //简历详情页(个人增删改)
             .state('resume',{
                 url: '/resume',
                 templateUrl: 'html/resume.html',
@@ -373,7 +390,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//普工
             .state('GWorker',{
-                url: '/GWorker?type0',
+                url: '/GWorker??navType&jobType&idx&selectedType',
                 templateUrl: 'html/GWorker.html',
                 controller: 'GWorkerCtrl',
                 controllerAs: 'vm',

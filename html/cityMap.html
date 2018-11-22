@@ -1,0 +1,36 @@
+<rende-header></rende-header>
+<div class="cityMap">
+    <div class="container-fluid letter_row">
+
+        <div class="container letterLine">
+            <div class="searchRow">
+                搜索:
+                <input ng-keyup="vm.checkSearch(vm.searchInput)" ng-model="vm.searchInput" style="border: 1px solid #b4b2cc;" type="text">
+                <span ng-click="vm.clearInput()" class="clear">清空</span>
+            </div>
+            <div ng-if="vm.march&&vm.searchInput==vm.march" class="searchRow">
+                搜索结果: <span style="cursor: pointer;color: #31BEFF" ng-click="vm.getCity(vm.march)">{{vm.march}}</span>
+            </div>
+            <span ng-click="vm.jump(x)" class="first_letter" name="{{x}}" ng-repeat="x in vm.letters">
+                {{x}}
+            </span>
+        </div>
+    </div>
+    <div class="container-fluid detail_letter_row">
+        <div class="container">
+            <div class="single">默认</div>
+            <div>
+                <div class="letterBox">
+                    <span ng-click="vm.getCity('全国')" class="unit">全国</span>
+                </div>
+            </div>
+            <div id="{{x[0].key}}" ng-repeat="x in vm.newCityArr">
+                <div class="single">{{x[0].key}}</div>
+                <div class="letterBox">
+                    <span id="{{y}}" ng-click="vm.getCity(y)" class="unit"  ng-repeat="y in x[0].value">{{y}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<rd-footer></rd-footer>

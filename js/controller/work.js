@@ -69,48 +69,48 @@ angular.module('myApp')
             console.log(realBoon);
             console.log(Array.isArray(realBoon));
             postData['boonarr']=paramsData['boon']=realBoon;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         //清空
         vm.clearJobType=function(){
             paramsData['jobType']='';
             paramsData['selectedType']='';
             paramsData['idx0']=0;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         //行业选择
         vm.getJobType=function(x,idx){
             paramsData['jobType']=x;
             paramsData['idx0']=idx;
-           $state.go('WorkCtrl',paramsData,{reload:true})
+           $state.go('.',paramsData,{reload:true})
         };
         vm.getType=function(e){
             paramsData['jobType']=e;
             paramsData['idx0']=undefined;
             paramsData['selectedType']=vm.selected;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         //清空薪资
         vm.clearSalary=function(){
             paramsData['salary']='';
             paramsData['idx1']=0;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getSalary=function(x,idx){
             paramsData['salary']=x;
             paramsData['idx1']=idx;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.defSalary=function(x,y){
             paramsData['salary']=x+'-'+y;
             paramsData['idx1']='';
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         //清除福利
         vm.clearBoon=function(){
            sessionStorage.removeItem('boonSelected');
            postData['boonarr']=paramsData['boon']='';
-           $state.go('WorkCtrl',paramsData,{reload:true})
+           $state.go('.',paramsData,{reload:true})
         };
         //清除学历，经验，到岗时间等
         vm.clearOthers=function(){
@@ -118,23 +118,23 @@ angular.module('myApp')
             vm.exp=postData['experience']=paramsData['exp']='';
             vm.time=postData['come_job']=paramsData['arrival']='';
             vm.sex=postData['sex']=paramsData['sex']='';
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getEdu=function(e){
             vm.edu=postData['education']=paramsData['edu']=e;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getExp=function(e){
             vm.exp=postData['experience']=paramsData['exp']=e;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getSex=function(e){
             vm.time=postData['sex']=paramsData['sex']=e;
-            $state.go('WorkCtrl',paramsData,{reload:true})
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getArrival=function(e){
             vm.time=postData['come_job']=paramsData['arrival']=e;
-            $state.go('WorkCtrl',paramsData,{reload:true});
+            $state.go('.',paramsData,{reload:true});
         };
         $scope.$on('ngRepeatFinished', function () {
             //repeat结束
