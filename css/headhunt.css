@@ -56,25 +56,25 @@
     text-align: center;
 }
 .border1{
-    width: 273px;
-    height: 273px;
+    width: 280px;
+    height: 280px;
     border: 2px rgba(194,12,12,1) dotted;
     border-radius: 50%;
     position: absolute;
 }
 .border2{
-    width:241px;
-    height:241px;
-    /*opacity:0.6;*/
-    border-radius:50%;
+    width: 280px;
+    height: 280px;
+    /* opacity: 0.6; */
+    border-radius: 50%;
     position: relative;
     z-index: 2;
     text-align: center;
 }
 .border2 img{
-    margin-top: 17px;
-    margin-left: 16px;
-    /*opacity:0.6;*/
+    width: 250px;
+    height: 250px;
+    margin-top: 15px;
 }
 .border2 :hover{
     opacity: 1;
@@ -83,12 +83,12 @@
     background-color: #f61111;
 }
 .bordertext{
-    width: 241px;
-    height: 35px;
+    width: 249px;
+    height: 38px;
     background: #c20c0c;
     position: relative;
     z-index: 2;
-    margin-top: -131px;
+    margin-top: -140px;
     margin-left: 16px;
     padding: 7px;
     color: white;
@@ -96,7 +96,6 @@
 .bordertitle{
     position: relative;
     z-index: 2;
-    margin-left: 26px;
     margin-top: -125px;
     display: inherit;
     font-size: 39px;
@@ -120,11 +119,11 @@
 .hunt-banner{
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
 }
 .hunt-banner-content{
-    width: 33.3333%;
-    margin-left: 95px;
-    padding-bottom: 78px;
+    padding: 35px 0;
 }
 
 .hunt-title{

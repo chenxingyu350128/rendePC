@@ -7,7 +7,7 @@
                  ng-mouseenter="vm.mouseEnter(x.id)"
                  ui-sref="WorkCtrl({jobType: {{$index}}})"
                  class="type">
-                <img src="image/home/type1.png" alt="">
+                <img src="image/icon/icon{{$index+1}}.png" alt="">
                 {{x.name}}
             </div>
             <div ng-if="vm.showCates" class="typeDetails">
@@ -54,9 +54,10 @@
         <!--</div>-->
     </div>
 </div>
+
 <div class="container title">
     <div>
-        我们的服务
+        名企招聘
     </div>
 </div>
 <div class="container services">

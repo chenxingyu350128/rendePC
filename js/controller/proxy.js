@@ -1,9 +1,8 @@
 'use strict';
-
 angular.module('myApp')
-    .controller('proxyCtrl',function ($scope,$http,$state,sidebar,listsRequest,common,modalBox) {
+    .controller('proxyCtrl',function ($scope,$http,$state,listsRequest,common,modalBox) {
         let vm=this;
-        $scope.sidebar=sidebar;
+        // $scope.sidebar=sidebar;
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后
             $('.carousel-inner div').eq(0).addClass('active');
@@ -26,4 +25,24 @@ angular.module('myApp')
         vm.category=function(e){
 
         };
+
+        // //轮播图
+        common.request('Boss/show_banner', {}).then(function callback(res) {
+            if (res.data.code === 200) {
+                vm.banner = res.data.data;
+            }
+            else if (res.data.code === 201) {
+                vm.banner='';
+                $timeout(function () {
+                    $state.go('signPage')
+                }, 300);
+                // modalBox.alert('未注册或登录已过期', function () {
+                //
+                // });
+            }
+            else if (res.data.code === 404) {
+                vm.banner='';
+                modalBox.alert(res.data.msg)
+            }
+        });
     });

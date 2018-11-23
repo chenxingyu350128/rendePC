@@ -158,6 +158,16 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                     'border-bottom':'5px solid #e11c19',
                 });
             });
+
+            // 用户中心显示和隐藏
+            scope.mouseEnter=function(){
+                scope.showCates=true;
+                console.log( scope.showCates)
+            };
+            scope.mouseLeave=function(){
+                scope.showCates=false;
+                console.log( scope.showCates)
+            };
         }
     }
 });

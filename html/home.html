@@ -66,10 +66,10 @@
     </div>
     <div class="container content">
         <div class="row companyCard">
-            <div ng-repeat="x in vm.famousEnter" ui-sref="" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <div class="company">
-                    <div class="text-center">{{x.name}}</div>
-                    <img ng-src="{{x.img}}" alt="">
+            <div ng-repeat="x in vm.famousEnter|limitTo:24" ui-sref="enterpriseInfo({id:x.id})" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="company" style="background-image: url('{{x.img}}');background-repeat:no-repeat; ">
+                    <div class="text-center" style="margin-bottom: 15px;font-size: 15px;">{{x.name}}</div>
+                    <!--<img ng-src="{{x.img}}" alt="">-->
                 </div>
                 <div class="detail">
                     <div class="camp">{{x.name}}</div>
