@@ -1,4 +1,110 @@
 @import url('../css/work.css');
+.huntbg{
+    width: 100%;
+    height: 100%;
+
+}
+.hunt-top{
+    position: relative;
+    z-index: 2;
+}
+.aboutus{
+    height: 79px;
+    margin-left: 27px;
+    font-size: 64px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    color: rgba(255,255,255,1);
+    opacity: 0.6;
+    margin-top: 10px;
+}
+.textborder{
+    width:343px;
+    height:4px;
+    background:rgba(255,255,255,1);
+    border-radius:2px;
+}
+.aboutus-content{
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+.aboutus-content div{
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    line-height:45px;
+    text-indent: 40px;
+}
+.handhunt-title{
+    margin:20px;
+}
+.handhunt-title1{
+    font-size:37px;
+    font-family:微软雅黑;
+    font-weight:bold;
+    color:rgba(255,0,0,1);
+    line-height:56px;
+    text-align: center;
+}
+.handhunt-title2{
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(185,185,185,1);
+    line-height:45px;
+    text-align: center;
+}
+.border1{
+    width: 273px;
+    height: 273px;
+    border: 2px rgba(194,12,12,1) dotted;
+    border-radius: 50%;
+    position: absolute;
+}
+.border2{
+    width:241px;
+    height:241px;
+    /*opacity:0.6;*/
+    border-radius:50%;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+.border2 img{
+    margin-top: 17px;
+    margin-left: 16px;
+    /*opacity:0.6;*/
+}
+.border2 :hover{
+    opacity: 1;
+}
+.bordertext:hover{
+    background-color: #f61111;
+}
+.bordertext{
+    width: 241px;
+    height: 35px;
+    background: #c20c0c;
+    position: relative;
+    z-index: 2;
+    margin-top: -131px;
+    margin-left: 16px;
+    padding: 7px;
+    color: white;
+}
+.bordertitle{
+    position: relative;
+    z-index: 2;
+    margin-left: 26px;
+    margin-top: -125px;
+    display: inherit;
+    font-size: 39px;
+    font-family: 微软雅黑;
+    font-weight: bold;
+    color: rgba(255,255,255,1);
+    line-height: 88px;
+}
 .hunt-part1{
     display: inline-block;
     width: 100%;
@@ -7,41 +113,62 @@
     padding: 20px 0px;
     margin:10px ;
 }
+.hunt-banner-box{
+    background: white;
+    padding: 0 18%;
+}
+.hunt-banner{
+    display: flex;
+    flex-direction: row;
+}
+.hunt-banner-content{
+    width: 33.3333%;
+    margin-left: 95px;
+    padding-bottom: 78px;
+}
+
 .hunt-title{
-    border-left: 5px red solid;
+    border-left:5px solid #f61111;
 }
 .hunt-title span{
     margin-left: 15px;
     font-weight: 600;
     font-size: 18px;
-    color: red;
+    color: #f61111
 }
 .hunt-list1{
-    margin: 1% 2%;
-    display: inline-block;
-    width: 46%;
+    margin: 1% 0% 0 1%;
+    width: 48%;
     border: 1px solid gainsboro;
     padding: 10px;
     float: left;
+    cursor: pointer;
+}
+.hunt-list1 img{
+    width: 100px;
+    height: 136px;
 }
 .hunt-list1:hover{
     border: 1px solid red;
 }
+.hunt-list1:hover .hunt-btn {
+    background: #f61111;
+}
 .hunt-money{
-    background-color: red;
+    background-color: f61111;
     width: 50px;
     height: 70px;
 }
 .hunt-list-right{
     float: left;
     margin: 0px 23px 0px 23px;
-    width: 78%;
+    width: 76%;
 }
 .demand{
-    padding-top: 10px;
+    padding-top: 15px;
 }
 .hunt-btn{
-    background-color: red;
+    background: #f61111;
     color: white;
     text-align: center;
     float: right;
@@ -49,18 +176,18 @@
     margin-top: -15px;
     border: none;
 }
+
 .grayB{
     font-size: 14px;
     color: black;
 }
 .moreimg{
     /*margin-right: -2.82rem;*/
-    margin-top: 15px;
+    margin-top: 25px;
 }
 .hunt-list2{
-    margin: 20px 13px;
-    border-radius: 5px;
-    box-shadow: 2px 2px 5px #999;
+    margin: 20px 12px;
+    box-shadow: 1px 1px 4px #999;
     width: 23%;
     float: left;
 }
@@ -75,21 +202,21 @@
 }
 .hunt-list2 div:first-child{
     background-color: rgb(167,247,178);
+    cursor: pointer;
 }
 /*.hunt-list2 div:nth-child(2){*/
-    /*background-color: #7ddbff;*/
+/*background-color: #7ddbff;*/
 /*}*/
 /*.hunt-list2 div:nth-child(3){*/
-    /*background-color: rgb(167,247,178);*/
+/*background-color: rgb(167,247,178);*/
 /*}.hunt-list2 div:nth-child(4){*/
-     /*background-color: rgb(166,179,247);*/
- /*}*/
-
+/*background-color: rgb(166,179,247);*/
+/*}*/
 .hunt-part-bg1{
     background-color: #ffe748;
 }
 .hunt-part-bg2{
-  background-color: #7ddbff;
+    background-color: #7ddbff;
 }
 .hunt-part-bg3{
     background-color: rgb(167,247,178);
@@ -98,31 +225,41 @@
     background-color: rgb(166,179,247);
 }
 .hunt-list2-money{
-    padding: 10px;
+    padding: 15px 10px 4px 15px;
     color: red;
+    font-weight: 600;
 }
 .hunt-list2-money span:first-child{
     font-size: 18px;
 }
-.hunt-list2-money span:last-child{
-    font-size: 13px;
+/*.hunt-list2-money span:last-child{*/
+/*font-size: 13px;*/
+/*}*/
+.border-go{
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 27px;
+    height: 27px;
+    text-align: center;
 }
 .hunt-list2-intr{
     padding: 10px;
     font-size: 17px;
 }
 .hunt-list2:hover{
-    box-shadow: 2px 2px 8px red;
+    box-shadow: 1px 1px 6px red;
 }
 .hunt-list3{
-    border-radius: 5px;
-    box-shadow: 2px 2px 6px #999;
-    width: 21%;
+    box-shadow: 1px 1px 6px #999;
+    width: 22%;
     float: left;
     margin: 15px 20px;
 }
 .hunt-list3:hover{
-    border: 1px solid red;
+    border: 1px solid #f61111;
+}
+.hunt-list3:hover button{
+    background-color: #c20c0c;
 }
 .hunt-serve{
     border-bottom: 1px solid gainsboro;
@@ -134,7 +271,7 @@
     float: left;
     margin-bottom: 30px;
     border-radius: 50%;
-    border: 1px solid red;
+    border: 1px solid #f61111;
     margin-left: 0.3rem;
     width: 84px;
     height: 84px;
@@ -149,11 +286,11 @@
     padding-top: 13px;
 }
 .hunt-serve-content span{
-    color: red;
+    color: #f61111;
 }
 .hunt-serve-content button{
     border: none;
-    background-color: rgb(226,28,25);
+    background-color: #c20c0c;
     text-align: center;
     margin: 10% 25%;
     padding: 2% 0%;
@@ -161,6 +298,7 @@
     color: white;
     font-size: 20px;
     font-weight: 600;
+    cursor: pointer;
 }
 .font-hidden{
     white-space: nowrap;
