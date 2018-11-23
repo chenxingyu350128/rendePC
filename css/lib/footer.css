@@ -42,5 +42,6 @@ footer li:first-child:hover{
     color: #8d8d8d;
 }
 .warn{
-    margin-bottom: .36rem;
+    padding-top: 10px;
+    margin-bottom: .2rem;
 }

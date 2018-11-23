@@ -31,6 +31,7 @@
     padding: .1rem .2rem;
     margin-bottom: .1rem;
     background-color: white;
+    cursor: pointer;
 }
 .news-detail-auto span{
     width: 100%;
@@ -71,6 +72,9 @@
     display: inline-block;
     font-weight: 600;
 }
+.next-new-title:hover{
+    color: #f61111;
+}
 .next-new-bottom{
     margin-bottom: .1rem
 }
@@ -87,6 +91,10 @@
 }
 .hot-news-content{
     margin:0 .2rem;
+}
+.hot-news-content:hover{
+    cursor: pointer;
+    color: #f61111;
 }
 .hot-news-content div:first-child{
     font-size: 20px;

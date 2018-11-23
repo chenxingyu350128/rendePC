@@ -8,56 +8,48 @@
 }
 .checkBox>div{
     background: #fff;
-    padding: .28rem .09rem .35rem .18rem;
 }
 .checkBox .row{
     display: flex;
     /*justify-content: space-between;*/
     /*align-items: center;*/
-    /*padding: 10px 20px;*/
+    padding: 10px 20px;
     font-size: 16px;
-    margin: 0;
-    /*margin-left: 15px;*/
-}
-.optRow+.optRow{
-    margin-top: .23rem;
-}
-.checkBox .boonRow .choice{
-    width: 9.72%;
+    margin-left: 15px;
 }
 .checkBox .row>span{
+    /*min-width: 10vw;*/
     text-align: center;
-    width: 12.5%;
-    padding: 5px 12px;
+    padding: 10px 20px;
 }
-.checkBox .row>select{
-    width: 12.5%;
-}
-.checkBox .row>span:first-child{
-    display: flex;
-    align-items: center;
+.checkBox .row:first-child{
+    min-width: 10vw;
     text-align: left;
-    padding: 0;
+
 }
-.checkBox .row>span:first-child span{
-    margin-left: .3rem;
-    padding: 5px 12px;
+.checkBox .row>div{
+    /*min-width: 10vw;*/
 }
-/*.checkBox .row .choice{*/
-    /*text-align: left;*/
-/*}*/
+.checkBox .row .all{
+    background: #f61111;
+    color: #fff;
+    padding: .05rem .1rem;
+    margin-top: 5px;
+    display: inline-block;
+}
 .getMore{
     padding: .05rem .1rem;
     border: 1px solid #f00;
 }
 .leftNav{
     background: #fff;
+    border-bottom: 1px solid gainsboro;
 }
 .leftNav>div{
     display: inline;
     align-items: center;
     line-height: .5rem;
-    padding: .1rem .14rem;
+    padding: 12px;
     font-size: 20px;
     font-weight: 600;
 }
@@ -75,10 +67,11 @@
 .enterNav .row1 .sec{
     margin-left: .25rem;
 }
-.enterNav .occupation{
-    padding: .08rem;
-    background: #fff;
-}
+/*.enterNav .occupation{*/
+    /*padding: .18rem;*/
+    /*background: #fff;*/
+/*}*/
+
 .leftTwo{
     display: flex;
     justify-content: space-between;
@@ -99,17 +92,22 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.jobs span{
+.thi .jobs span{
     box-sizing: border-box;
-    margin-right: .1rem;
-    margin-top: .1rem;
-    padding: .07rem .05rem;
-    border: 1px solid #f00;
-    border-radius: .1rem;
+    /*margin-right: .1rem;*/
+    margin-top: .15rem;
+    padding: .04rem .15rem;
+    border: 1px solid #c20c0c;
+    border-radius: 1.1rem;
     font-size: 12px;
 }
-.checkedNav{
-    background: #f00;
+.thi .jobs span:hover{
+    background: #f61111;
+    color: white;
+    border: none;
+}
+.checkedNav{;
+    background:#f61111;
     color: #fff;
 }
 .RHshell{
@@ -124,8 +122,8 @@
     border-left: 3px solid #f00;
 }
 .recommend .companyName{
-    width: 106px;
-    height: 106px;
+    width: 2rem;
+    height: 2rem;
     font-size: 50px;
     text-align: center;
     margin: .2rem auto .25rem;
@@ -133,8 +131,9 @@
 .recommend .occupation{
     border: none;
     background: #fff;
+    margin-bottom: 10px;
 }
 .enterName{
     background: #fff;
-    padding-bottom: .37rem;
+    padding-bottom: .2rem;
 }

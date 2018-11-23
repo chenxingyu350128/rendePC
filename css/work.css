@@ -26,14 +26,14 @@
     margin-left: 20px;
 }
 .search-content button{
-    background-color: red;
+    background-color: #f61111;
     color: white;
     text-align: center;
     width: 7%;
     font-size: 19px;
     padding: 0.65%;
     margin-left: -5px;
-    border: 1px solid red;
+    border: 1px solid #f61111;
 }
 .hot-search{
     width: 80%;
@@ -66,18 +66,11 @@
     align-items: center;
     position: relative;
 }
-.ul+.ul{
-    margin-top: .24rem;
-}
 .work-list li{
     float: left;
     list-style: none;
-    line-height: .25rem;
-    padding: 0 12px;
-    font-size: 16px;
-}
-.opt + .opt{
-    margin-left: .15rem;
+    padding: 10px 20px;
+    font-size: 17px;
 }
 .childMenu{
     position: relative;
@@ -114,7 +107,7 @@
     margin-left: 163px;
 }
 .work-list-allbtn{
-    background-color: red;
+    background-color: #f61111;
     text-align: center;
     color: white;
     padding: 1px 5px;
@@ -122,16 +115,15 @@
 }
 .work-input-input{
     width: 75px;
-    line-height: .25rem;
-    border: 1px solid red;
+    padding: 2px 5px;
+    /*border: 1px solid red;*/
     outline: 0px;
 }
 .work-input-button{
     background-color: white;
-    border: 1px solid red;
-    outline: 0;
-    line-height: .28rem;
-    height: .28rem;
+    /*border: 1px solid red;*/
+    border: none;
+    outline: 0px;
     margin-left: 20px;
     padding: 1px 10px;
 }
@@ -155,52 +147,57 @@
     width: 155px;
     font-weight: 600;
     text-align: center;
+    cursor: pointer;
 }
 .work-position-active{
     color: white;
-    background-color: red;
+    background: #f61111;
 }
 .position-list{
-    padding: 20px 30px 0px 30px;
-    width: 99%;
+    padding: 30px 15px 0px 19px;
+    width: 100%;
     float: left;
 
 }
 .position-list:hover {
-    border: 1px solid red;
+    border: 1px solid #f61111;
 }
 .position-name{
-    width: 89px;
+    width: 105px;
+    height: 105px;
     box-sizing: border-box;
-    height: 87px;
     text-space: .5em;
     padding: 9px 20px;
     color: #fff;
     font-size: 24px;
     border-radius: 13px;
     font-weight: 600;
-    background: powderblue;
-    box-shadow: 2px 2px 5px #999;
+    text-align: center;
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
     float: left;
+    border: 1px solid ghostwhite;
+    cursor: pointer;
 }
 .position-list-right{
     float: left;
     /*margin: 11px 23px 0px 23px;*/
-    width: 33.3333%;
+    width: 32.3333%;
 }
 .position-list-right div{
     padding-left: 15px;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
 .noList{
     text-align: center;
     font-size: 18px;
     margin: 20px auto;
-    display: inline-block;;
+    /*display: inline-block;*/
+    color: grey;
 }
 .positionname{
     font-size: 18px;
     font-weight: bolder;
+    padding-right: 16px;
 }
 .worksalary{
     font-size: 21px;
@@ -222,7 +219,7 @@
 }
 .position-btn{
     border: none;
-    background-color: red;
+    background: #f61111;
     color: white;
     padding: 7px 6px;
     width: 1.5rem;
@@ -233,8 +230,11 @@
 .position-hr{
     float: left;
     width: 94%;
-    margin: 1% 0 0 5%;
+    margin: 3% 0 -2px 5%;
     border-bottom: 1px solid gainsboro;
+}
+.position-hr :hover{
+    border: none;
 }
 .workmore{
     display: inline-block;
@@ -242,10 +242,16 @@
     margin-bottom: .15rem;
     width: 100%;
 }
+.work-ul{
+    border-bottom: 1px solid gainsboro;
+    display: inline-block;
+    width: 100%;
+}
 .positionLeft{
     width: 70%;
     float: left;
      margin-right: 15px;
+    margin-bottom: 15px;
 }
 .positionRight{
     width: calc(30% - 15px);
@@ -258,25 +264,34 @@
     border-bottom: 1px solid gainsboro
 }
 .hot-position span{
-    border-left: 5px solid red;
+    border-left: 5px solid #f61111;
     padding-left: 15px;
-    color: red;
+    color: #f61111;
 }
 .hot-position-list{
     display: flex;
     flex-direction: column;
     padding: 15px;
     border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+}
+.hot-position-list:hover{
+    background-color: pink ;
+    /*box-shadow:2px 2px 5px rgba(0,0,0, 0.15);*/
 }
 .hot-position-list div{
-    margin: 5px 0 ;
+    margin: 5px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 98%;
 }
 .type-name{
     font-size: 18px;
     font-weight: 600;
 }
 .type-pay{
-    color: red;
+    color: #f61111;
     font-size: 20px;
 }
 .type-intr{

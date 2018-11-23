@@ -3,12 +3,11 @@
     width: 100%;
 }
 .newscontent{
-    width: 100%;
-    display: inline-block;
-    background-color: whitesmoke;
+    margin-top: -50px;
+    position: relative;
+    margin-bottom: 15px;
 }
 .news{
-    width: 70%;
     margin: -.3rem auto .1rem auto;
     background-color: white;
 }
@@ -18,9 +17,13 @@
     margin: .3rem .5rem;
     padding-bottom: .3rem;
     border-bottom: 1px solid gainsboro;
+    cursor: pointer;
 }
 .newslist-content{
-    width: 100%;
+    width: 70%;
+    float: left;
+    margin-right: 15px;
+    background: white;
 }
 .newslist-left{
     width: 23%;
@@ -47,7 +50,88 @@
     height: .25rem;
     color: black;
 }
+.news-title:hover{
+    color: #f61111;
+    cursor: pointer;
+}
 .news-content{
     line-height: 26px;
     height: 1rem;
+}
+.newlistRight{
+    width: calc(30% - 15px);
+    float: left;
+    background-color: white;
+    padding-bottom: 16px;
+    margin-bottom: 15px;
+}
+.news-search{
+    margin: 15px;
+    line-height: 30px;
+    background: #f0f0f0;
+    border-radius: 5px;
+}
+.news-search input{
+    border: none;
+    background-color: #f0f0f0;
+    padding: 0 10px;
+    border-right: 1px solid gainsboro;
+    width: 80%;
+    margin: 10px 0;
+    outline: 0px;
+    color: grey;
+}
+.news-search img{
+    width: 23px;
+    height: 23px;
+    margin-top: 13px;
+    z-index: 2;
+    position: absolute;
+    right: 57px;
+}
+.banner{
+    width: 100%;
+    padding: 10px 0;
+}
+.banner span{
+    padding: 0px 20px;
+    border-left: 4px solid red;
+    color: red;
+    font-size: 20px;
+    font-weight:800;
+    font-family:黑体;
+}
+.hotnewList{
+    padding: 15px 10px 5px 10px;
+}
+.hotnewList:hover{
+    color: #f61111;
+    cursor: pointer;
+
+}
+.hotnewList span {
+    padding:3px 6px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-family: 微软雅黑;
+}
+.hotnewList span:hover{
+    color: #f61111;
+    cursor: pointer;
+}
+.span-bg1{
+    background:red;
+    color: white;
+}
+.span-bg2{
+    background:#0f1c46;
+    color: white;
+}
+.tj-content{
+    border-bottom: 1px solid gainsboro;
+    padding: 6px 10px 25px 20px;
+    line-height: 30px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    overflow: hidden;
 }

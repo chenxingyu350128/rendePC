@@ -5,10 +5,11 @@ html{
 body{
     background: #f7f7f7;
     min-width: 1366px;
+    font-family: 微软雅黑;
 }
 .container{
     min-width: 1366px!important;
-    margin: 0 auto;
+    margin: 0 auto 0 auto;
 }
 .rightFix {
     position: relative;
@@ -76,7 +77,7 @@ body{
     height: 100%;
     padding: .3rem;
     background: #fff;
-    opacity: .9;
+    top: 0;
 }
 .typeDetails .category{
     display: inline-block;
@@ -88,7 +89,7 @@ body{
     border-radius: 5px;
 }
 .typeDetails .category:hover{
-    background: plum;
+    background: #190e63;
     color: #fff;
 }
 .topDiv+.topDiv{
@@ -100,6 +101,11 @@ body{
     flex-direction: column;
     justify-content: space-evenly;
 }
+.types img{
+    /*width: 17px;*/
+    /*height: 13px;*/
+}
+.type hover{}
 .top .swiper{
     width: calc(50% - .1rem);
     padding: .1rem 0;
@@ -110,8 +116,8 @@ body{
 }
 .rightImg img{
     width: 100%;
-    height: 1.6rem;
-    box-shadow: 1px 1px 3px #ccc;
+    height: 1.8rem;
+    box-shadow: 2px 2px 14px rgba(0,0,0, 0.5);
 }
 .types{
     padding-left: 0;
@@ -120,26 +126,40 @@ body{
     flex: 1;
     display: flex;
     align-items: center;
-    padding-left: .15rem;
+    padding: .1rem .15rem;
     cursor: pointer;
 }
+/*行业类型悬浮*/
+.types div:nth-of-type(odd):hover{
+    background-color: white;
+    color: #000;
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+
+}
+.types div:nth-of-type(even):hover{
+    background-color: white;
+    color: #000;
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+}
+
 .types div:nth-of-type(odd){
-    background: #190e63;
+    background: #6c1b1b;
 }
 .types div:nth-of-type(even){
-    background: #261b6c;
+    background: #630e0e;
 }
 .swiper {
     box-sizing: border-box;
     padding: .1rem 0;
 }
 .search{
-    /*margin: .14rem 0;*/
+    /*margin: .2rem 0 0 0;*/
     padding: .26rem .47rem .23rem .39rem;
-    background: -webkit-linear-gradient(left, #2b2775, #3c5392); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #2b2775, #3c5392); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #2b2775, #3c5392); /* Firefox 3.6 - 15 */
-    background: linear-gradient(right, #2b2775, #3c5392); /* 标准的语法 */
+    background-color: #2a1a1a;
+    /*background: -webkit-linear-gradient(left, #2b2775, #3c5392); !* Safari 5.1 - 6.0 *!*/
+    /*background: -o-linear-gradient(right, #2b2775, #3c5392); !* Opera 11.1 - 12.0 *!*/
+    /*background: -moz-linear-gradient(right, #2b2775, #3c5392); !* Firefox 3.6 - 15 *!*/
+    /*background: linear-gradient(right, #2b2775, #3c5392); !* 标准的语法 *!*/
 }
 .searchBox{
     line-height: .5rem;
@@ -150,19 +170,20 @@ body{
     line-height: .5rem;
     padding: 0 .2rem;
     color: #fff;
-    background: #f00;
+    background: #f61111;
     border: none;
     outline: none;
+    font-size: 16px;
 }
 .searchBox input{
     flex: 1;
-    padding-left: .11rem;
+    padding-left: .08rem;
     color: #999;
-    font-size: 20px;
+    font-size: 16px;
 }
 .carousel .item img{
     width: 100%;
-    height: 3.45rem;
+    height: 4.2rem;
 }
 .search .hot{
     display: flex;
@@ -178,7 +199,7 @@ body{
     clear: both;
 }
 .redF{
-    color: #f00;
+    color: #f61111;
 }
 .title{
     padding-top: .28rem;
@@ -189,44 +210,53 @@ body{
 }
 .title div{
     padding-left: .18rem;
-    border-left: 3px solid #f00;
+    border-left: 3px solid #f61111;
     font-size: 20px;
-    color: #f00;
+    color: #f61111;
     font-weight: 600;
 }
 .content{
     background: #fff;
 }
 .content .wantedBlock{
-    margin-bottom: .2rem;
+    /*margin-bottom: .2rem;*/
+
 }
-.content .row{
-    margin: 0;
-}
-.companyCard{
-    padding: 0 2px;
-}
-.companyCard>div{
-    padding: 0;
-    border-spacing: 0;
-    border-collapse: collapse;
-    margin-top: -1px;
-    margin-right: -1px;
-}
-.company{
-    overflow: hidden;
-    padding: 1px;
-    display: flex;
-    flex-direction: column-reverse;
-    border: 1px solid #ccc;
-    font-size: 12px;
-    height: 1.47rem;
-    position: relative;
-    cursor: pointer;
-}
-.company img{
-    width: 100%;
-    height: calc(100% - .204rem);
+    .content .row{
+        margin: 0;
+    }
+    .companyCard{
+        padding: 0 2px;
+    }
+    .companyCard>div{
+        padding: 0;
+        border-spacing: 0;
+        border-collapse: collapse;
+        margin-top: -1px;
+        margin-right: -1px;
+    }
+    .company{
+        overflow: hidden;
+        padding: 1px;
+        display: flex;
+        flex-direction: column-reverse;
+        border: 1px solid #ccc;
+        font-size: 12px;
+        height: 1.47rem;
+        position: relative;
+        cursor: pointer;
+    }
+    .slide{
+        box-shadow: 2px 2px 18px rgba(0,0,0, 0.5);
+    }
+    .company img{
+        width: 100%;
+        height: 100%;
+        /*height: calc(100% - .204rem);*/
+    /*text-align: center;*/
+    /*margin: 4px auto;*/
+    /*width: 1.5rem;*/
+    /*height: 1rem;*/
 }
 /*.company div{*/
     /*margin-bottom: .32rem;*/
@@ -243,15 +273,16 @@ body{
     font-size: 12px;
     color: #fff;
     background: #000;
-    opacity: .7;
+    opacity: .85;
+    font-family: MicrosoftYaHei;
 }
 .companyBlock:hover .detail{
     visibility: visible;
-    border: 1px solid #f00;
+    border: 1px solid #f61111;
 }
 .detail>div{
-    margin-bottom: .08rem;
-    text-align: center;
+    margin-bottom: 10px;
+    /*text-align: center;*/
 }
 .camp{
     font-size: 14px;
@@ -259,11 +290,12 @@ body{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-    margin: 0 auto;
+    /*margin: 0 auto;*/
 }
 .btns button{
-    /*width: .77rem;*/
-    background: #ce1c19;
+    width: .77rem;
+    background: #e8e8e8;
+    color: black;
     height: .25rem;
     -webkit-border-radius: .125rem;
     -moz-border-radius: .125rem;
@@ -272,9 +304,15 @@ body{
     outline: none;
 }
 .btns .whiteBG{
-    background: #e8e8e8;
-    color: #060158;
     margin-left: .2rem;
+}
+.whiteBG:hover{
+    color: white;
+    background-color: #c20c0c;
+}
+.redBG:hover{
+    background-color: #c20c0c;
+    color: white;
 }
 .seeMore{
     background: #fff;
@@ -291,10 +329,18 @@ body{
 .wanted{
     padding: 0;
 }
+.border{
+    border: 1px solid #e1e1e1;
+}
 .occupation{
     padding: .16rem .21rem;
-    border: 1px solid #e1e1e1;
     cursor: pointer;
+    margin: 10px 0;
+    background-color: white;
+    border: 1px solid #e1e1e1;
+}
+.occupation:hover {
+    border: 1px solid #f61111;
 }
 .occupation>div{
     display: flex;
@@ -306,13 +352,13 @@ body{
 }
 .price .num{
     font-size: 30px;
-    color: #f00;
+    color: #f61111;
 }
 .price .get{
     font-size: 16px;
     padding: .09rem .21rem;
     color: #fff;
-    background: #f00;
+    background: #c20c0c;
     cursor: pointer;
 }
 .step{
@@ -341,11 +387,9 @@ body{
     font-size: 18px;
     display: block;
 }
-.occupation:hover {
-    border: 1px solid #f00;
-}
+/**/
 .occupation:hover .get {
-    background: #b42424;
+    background: #f61111;
 }
 /*推荐职位*/
 .recommend .occupation{
@@ -363,6 +407,7 @@ body{
 }
 .occupation .companyName{
     box-sizing: border-box;
+    border: 1px solid gainsboro;
     width: 1.17rem;
     height: 1.17rem;
     /*max-width: 2em;*/
@@ -371,9 +416,10 @@ body{
     color: #fff;
     font-size: 30px;
     font-weight: 600;
-    background: powderblue;
-    box-shadow: 2px 2px 5px #999;
+    /*background: powderblue;*/
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15)
 }
+
 .occupation .position{
     font-size: 18px;
 }
@@ -428,8 +474,8 @@ body{
     float: left;
 }
 .outstandings:hover{
-    border: 1px solid #f00;
-    box-shadow: 0 0 2px #f00;
+    border: 1px solid #c20c0c;
+    box-shadow: 0 0 2px #c20c0c;
 }
 .outstandings:hover>img{
     border: 1px solid #f00;
@@ -442,23 +488,29 @@ body{
     align-items: center;
     border: 1px solid #dddddd;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 .outstandings img{
-    /*width: .82rem;*/
-    /*height: .82rem;*/
+    width: .82rem;
+    height: .82rem;
     border-radius: 50%;
     margin: .58rem 0 .23rem 0;
 }
 .outstandings .real_name{
     font-size: 20px;
-    margin-bottom: .28rem;
+    margin-bottom: .1rem;
     opacity: 1;
+    margin-top: 11px;
 }
 .P_data{
-    margin-bottom: .25rem;
+    margin-bottom: .15rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 74%;
 }
 .job{
-    margin-bottom: .32rem;
+    margin-bottom: .25rem;
 }
 /*职场资讯*/
 .information .row{
@@ -478,20 +530,29 @@ li{
 .infoLeft{
     position: relative;
 }
-.infoLeft img{
+.info-content{
+    margin: 0 20px 20px 0;
+    width: calc(50% - 20px);
+    float: left;
+}
+.info-content:hover{
+    box-shadow: 2px 2px 12px rgba(0,0,0, 0.35);
+}
+.info-content img{
     width: 100%;
-    height: 100%;
+    height: 284px;
 }
 .infoLeft .imgTitle{
-    position: absolute;
     bottom: 0;
-    width: calc(100% - .16rem);
     background: #000;
-    opacity: .4;
-    line-height: .77rem;
+    opacity: .8;
+    line-height: .7rem;
     font-size: 20px;
     color: #fff;
-    text-align: center;
+    z-index: 122;
+    margin-top: -68px;
+    width: 100%;
+    padding: 0px 21px;
 }
 /*资讯右边*/
 .infoRight{
@@ -500,7 +561,7 @@ li{
 }
 .listHeader{
     position: relative;
-    background: #e41e17;
+    background: #f61111;
     color: #fff;
     padding-top: .21rem;
 }
@@ -530,7 +591,7 @@ li{
 .article{
     /*padding-bottom: .25rem;*/
     overflow: hidden;
-    line-height: .45rem;
+    line-height: .4rem;
     padding-left: .1rem;
     width: 100%;
     box-sizing: border-box;
@@ -539,8 +600,9 @@ li{
     cursor: pointer;
 }
 .article:hover{
-    color: #f00;
+    color: #c20c0c;
 }
+
 /*友情链接*/
 .links{
     padding-top: .1rem;
@@ -553,5 +615,5 @@ li{
     margin-right: .1rem;
 }
 .links span:hover{
-    color: #f00;
+    color: #c20c0c;
 }

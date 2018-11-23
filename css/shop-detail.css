@@ -4,18 +4,18 @@
 }
 .shop-detail-img {
     float: left;
-    margin: .2rem;
+    margin: .2rem 0;
 }
 .shop-detail-img img{
-    width: 267px;
-    height: 270px;
+    width: 271px;
+    height: 338px;
 }
 .shop-intr{
     float: left;
     margin: .2rem;
     border-left: 1px solid gainsboro;
     padding: 0 .4rem;
-    width: 62%;
+    width: 61%;
 }
 .shop-intr div{
     margin-bottom: .2rem;
@@ -80,4 +80,12 @@
     color: red;
     font-size: .25rem;
     font-weight: 600;
+}
+.redeem_gift_detail {
+    width: 100%;
+    overflow: hidden;
+    color: #666;
+    font-size: 14px;
+    line-height: 28px;
+    padding: 20px 20px 0 20px;
 }

@@ -10,18 +10,9 @@
     background: #f00;
   }
 }
-.GWTop{
+.top{
   line-height: .36rem;
-  &>div{
-    width: 100%;
-    float: left;
-    background: #fff;
-    margin-bottom: .1rem;
-    .redF{
-      border-left: 4px solid #f00;
-      padding-left: .1rem;
-    }
-  }
+  padding: 0;
 }
 .main{
   overflow: hidden;
@@ -144,22 +135,22 @@
           margin-right: .09rem;;
         }
         .ocpAndSalary{
-          margin-bottom: .33rem;
+          margin-bottom: .2rem;
           font-size: 20px;
         }
         .desc{
           color: #808080;
-          margin-bottom: .41rem;
+          margin-bottom: .2rem;
           max-width: 20em;
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
         }
         .tel{
-          margin-bottom: .31rem;
+          margin-bottom: .2rem;
         }
         .addressAndDate .grayF{
-          margin-left: .3rem;
+          margin-left: .2rem;
         }
       }
 

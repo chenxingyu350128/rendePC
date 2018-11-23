@@ -9,16 +9,9 @@
     margin-right: .1rem;
     background: #f00; }
 
-.GWTop {
-  line-height: .36rem; }
-  .GWTop > div {
-    width: 100%;
-    float: left;
-    background: #fff;
-    margin-bottom: .1rem; }
-    .GWTop > div .redF {
-      border-left: 4px solid #f00;
-      padding-left: .1rem; }
+.top {
+  line-height: .36rem;
+  padding: 0; }
 
 .main {
   overflow: hidden; }
@@ -41,15 +34,16 @@
     background: #fff;
     margin-bottom: .1rem; }
     .leftSide .intro .left .ocp {
-      margin-bottom: .3rem; }
+      margin-bottom: .2rem; }
     .leftSide .intro .left .salary {
-      margin-bottom: .32rem; }
+      margin-bottom: .2rem; }
     .leftSide .intro .left .endAt {
       margin-bottom: .28rem; }
     .leftSide .intro .left .address {
       margin-bottom: .28rem; }
     .leftSide .intro .left .contactMethod + .contactMethod {
-      margin-left: .67rem; }
+      margin-left: .67rem;
+      float: left;}
     .leftSide .intro .right {
       font-size: 14px; }
       .leftSide .intro .right .updateAt {
@@ -102,7 +96,8 @@
     padding: .3rem .16rem .18rem;
     font-size: 16px; }
   .leftSide .recommend {
-    background: none; }
+    background: none;
+    margin-top: 45px;}
     .leftSide .recommend .boxTitle {
       margin-bottom: 0;
       background: #fff; }
@@ -136,7 +131,8 @@
   margin-left: .15rem;
   float: left;
   padding: 0 .18rem .32rem .12rem;
-  background: #fff; }
+  background: #fff;
+  height: 415px;}
   .rightSide .redF {
     font-size: 20px;
     font-weight: 600; }
@@ -152,6 +148,7 @@
     color: #fff;
     background: #E21C19;
     border-radius: .1rem;
-    text-align: center; }
+    text-align: center;
+    cursor: pointer}
 
 /*# sourceMappingURL=GWDetail.css.map */

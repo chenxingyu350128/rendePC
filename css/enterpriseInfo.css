@@ -48,21 +48,19 @@
       justify-content: space-between; }
       .enterDesc .enterLeft .count > div {
         flex: 1;
-        padding-top: .05rem;
+        padding: .05rem;
         text-align: center;
         border-right: 1px solid #e5e5e5; }
         .enterDesc .enterLeft .count > div > div {
           font-size: 24px;
           font-weight: 600;
-          margin-bottom: .15rem;
+          margin-bottom: .1rem;
           color: #dd1c19; }
       .enterDesc .enterLeft .count > div:last-child {
         border-right: 0; }
   .enterDesc .enterRight {
-    padding: 0 0.4rem 0 0.3rem;
-    border-left: 1px solid gainsboro;
-    width: 23%;
-    margin-left: 100px;}
+    padding: 0 0.4rem 0 0.55rem;
+    border-left: 1px solid gainsboro;}
   .enterDesc .enterRight > div:first-child{
     border-bottom: 1px solid #e5e5e5; }
     .enterDesc .enterRight > div {
@@ -130,7 +128,9 @@
   align-items: center;
  width: 50%}
   .jobs .leftTwo img {
-    margin: 0 .27rem; }
+    height: 86px;
+    width: 89px;
+    text-align: center; }
 .jobs .demand {
   margin-top: .3rem; }
 .jobs .thi {
@@ -143,7 +143,8 @@
   .jobs .thi .thi_R {
     display: flex;
     flex-direction: column;
-    align-items: center; }
+    align-items: center;
+    margin-right: 37px;}
     .jobs .thi .thi_R span {
       background: #f00;
       color: #fff;
