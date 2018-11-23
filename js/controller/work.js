@@ -8,7 +8,7 @@ angular.module('myApp')
         vm.lists=listsRequest.lists();
         console.log(vm.lists);
         vm.typeList=vm.lists.jobType;
-        // vm.otherTypes=vm.typeList.slice(5);
+        vm.otherTypes=vm.typeList.slice(5);
         // vm.otherTypes.unshift('更多');
         vm.show_boonList=vm.lists.boonList;
         vm.comeJobList=vm.lists.arrival;
@@ -159,7 +159,7 @@ angular.module('myApp')
                     'color': '#000'
                 })
             }
-            if(vm.selected!=='更多'){
+            if(vm.selected){
                 typeList.eq(0).css({
                     'background': '#fff',
                     'color': '#000'
@@ -167,6 +167,11 @@ angular.module('myApp')
                 $('.typeSelect').css({
                     'background': '#f00',
                     'color': '#fff'
+                })
+            }else{
+                $('.typeSelect').css({
+                    'background': '#fff',
+                    'color': '#000'
                 })
             }
 
