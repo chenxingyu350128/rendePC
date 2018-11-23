@@ -30,10 +30,10 @@ a:active {
   background: linear-gradient(-9deg, #725ae3, #b73be6); }
 
 .cardContent {
-  text-indent: 2em;
+  text-indent: 3em;
   box-sizing: border-box;
   height: 4.05rem;
-  padding: 31px 17px;
+  padding: 31px 27px;
   font-size: 14px;
   letter-spacing: .5em;
   font-family: "microsoft yahei";

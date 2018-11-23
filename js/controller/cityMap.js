@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('cityMap',function ($scope,$http,$state,$stateParams,$timeout,district) {
+    .controller('cityMap',function ($scope,$http,$state,$rootScope,$stateParams,$timeout,district) {
         let vm=this;
         $(function(){
             $(window).scroll(function() {
@@ -44,13 +44,26 @@ angular.module('myApp')
             }
 
         };
+        vm.clickTime=0;
         vm.getCity=function(e){
+            console.log(e);
             sessionStorage.setItem('city',e);
             sessionStorage.removeItem('hideNav');
-            history.back();
+            let stateToGo='';
+            let currentClient=parseInt(sessionStorage.getItem('client'));
+            if(currentClient===3){
+                stateToGo='enterpriseHome';
+                sessionStorage.setItem('mainNav0',1);
+            }else{
+                stateToGo='home';
+                sessionStorage.setItem('mainNav1',1);
+            }
+            $state.go(stateToGo);
         };
         console.log(vm.newCityArr);
         vm.jump=function(x){
+            vm.clickTime ++;
+            console.log(vm.clickTime);
             // window.location.hash="#footer_bottom";
             window.location.hash='#'+x;
         };
