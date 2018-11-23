@@ -10,18 +10,6 @@
 .usercenterL{
     width: calc(30% - 15px);
     float: left;
+    background-color: white;
     margin-top: 15px;
-}
-.user-img{
-    width: 85px;
-    height: 85px;
-    border: 1px solid gainsboro;
-    border-radius: 50%;
-}
-.user-company-logo{
-    padding: 0;margin: .2rem auto 0;
-    width: 2rem;
-    height: 2rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0, 0.15);
-    border: 1px solid gainsboro;
 }

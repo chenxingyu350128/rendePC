@@ -4,14 +4,14 @@
     display: inline;
     align-items: center;
     line-height: .5rem;
-    padding:12px;
+    padding: .1rem .14rem;
     font-size: 20px;
     font-weight: 600; }
   .leftNav span {
     margin-right: .14rem; }
 
 .checkedNav {
-  background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25));
+  background: #f00;
   color: #fff; }
 
 .leftNav > div {
@@ -31,6 +31,13 @@
 .underNav + .underNav {
   margin-left: .22rem; }
 
+.hotOcp .job_type {
+  line-height: .25rem;
+  padding: 0 12px; }
+
+.job_type + .job_type {
+  margin-left: .3rem; }
+
 .hotOcp select {
   line-height: 26px;
   height: 30px;
@@ -48,46 +55,23 @@
 .recruitment .card {
   width: calc((100% - 15px)/2);
   margin-bottom: 15px;
-  padding: .31rem .2rem .28rem .2rem;
-  background: #fff;
-  float: left}
-
-.recruitment .card:hover{
-  box-shadow:2px 2px 18px rgba(0,0,0, 0.15);
-  cursor: pointer;
-}
+  padding: .31rem .14rem .28rem .12rem;
+  background: #fff; }
 
 .recruitment .card:nth-child(even) {
-  margin-left: 15px;}
+  margin-left: 15px; }
 
 .recruitment {
-  font-size: 17px; }
+  font-size: 16px; }
   .recruitment .salary {
     font-size: 20px;
-    margin-bottom: .2rem; }
+    margin-bottom: .33rem; }
   .recruitment .desc {
-    margin-bottom: .2rem; }
+    margin-bottom: .41rem; }
   .recruitment .tel {
-    margin-bottom: .2rem; }
+    margin-bottom: .3rem; }
 
 .seeMore {
   background: none; }
-.nullList{
-  text-align: center;
-  background: white;
-  padding: 30px;
-  width: 100%;
-  font-size: 23px;
-}
+
 /*# sourceMappingURL=recruit.css.map */
-.leftRecuit{
-  width: 74%;
-  float: left;
-  margin: 15px 15px 15px 0;
-}
-.rightRecuit{
-  width: calc(26% - 15px);
-  float: left;
-  margin:25px 0;
-  background-color: white;
-}

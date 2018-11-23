@@ -6,16 +6,16 @@ angular.module('myApp')
         console.log(vm.params);
         //获取所需列表
         vm.lists=listsRequest.lists();
+        console.log(vm.lists);
         vm.typeList=vm.lists.jobType;
-        vm.otherTypes=vm.typeList.slice(5);
-        vm.otherTypes.unshift('更多');
+        // vm.otherTypes=vm.typeList.slice(5);
+        // vm.otherTypes.unshift('更多');
         vm.show_boonList=vm.lists.boonList;
         vm.comeJobList=vm.lists.arrival;
         vm.expList=vm.lists.expList;
         vm.eduList=vm.lists.eduList;
         vm.boon=vm.lists.boonList;
-        vm.otherBoones=vm.boon.slice(6);
-        vm.otherBoones.unshift({name:'更多'});
+        // vm.otherBoones=vm.boon.slice(6);
         vm.keyword=vm.params.keyword;
         if(vm.keyword){
             sessionStorage.setItem('mainNav',2);
@@ -47,9 +47,9 @@ angular.module('myApp')
                 'color': '#fff'
             })
         }
-        vm.selected=vm.params.selectedType||vm.otherTypes[0];
+        vm.selected=vm.params.selectedType;
         if(vm.params.idx0){
-            vm.selected=vm.otherTypes[0];
+            vm.selected='';
         }
         if(vm.keyword){
             postData['find']=vm.keyword;
@@ -221,34 +221,6 @@ angular.module('myApp')
                 });
             }
         });
-        // //点击查看更多是职位分类
-        // $(".tipRight").on('click',function(){
-        //     let distant1= sessionStorage.getItem('distant1')||0;
-        //     // console.log(distant1);
-        //     // distant1=parseInt(distant1)+100;
-        //     if(distant1<3000){
-        //         distant1=parseInt(distant1)+100;
-        //     }
-        //     else{
-        //         distant1=2000;
-        //     }
-        //     sessionStorage.setItem('distant1',distant1);
-        //     $(this).parent().prev().scrollLeft(distant1);
-        // });
-        //
-        // //点击查看更多是职位分类
-        // $(".tipleft").on('click',function(){
-        //     let distant1= sessionStorage.getItem('distant1')||0;
-        //     if(distant1>2000){
-        //         distant1=parseInt(distant1)-100;
-        //     }
-        //     else{
-        //         distant1=0;
-        //     }
-        //     sessionStorage.setItem('distant1',distant1);
-        //     $(this).parent().prev().scrollLeft(distant1);
-        // });
-
         //导航被选中高亮显示
         $('.work-position-l').eq(vm.navType).css({
            'background': '#f00',

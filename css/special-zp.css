@@ -1,13 +1,10 @@
 /*专题招聘*/
 .topic-bg{
-    width: 639px;
-    height: 294px;
-    background: rgba(247,247,247,1);
-    margin: 0.3rem 0.1rem 0 .3rem;
-    border: 1px solid gainsboro;
-}
-.topic-bg:hover{
-    box-shadow:0px 3px 18px 0px rgba(0, 0, 0, 0.2);
+    width:534px;
+    height:283px;
+    background:rgba(247,247,247,1);
+    margin: 20px;
+    box-shadow:0px 3px 18px 0px rgba(0, 0, 0, 0.68);
 }
 .topic{
     display: flex;
@@ -23,7 +20,7 @@
     font-size:23px;
     font-family:MicrosoftYaHei-Bold;
     font-weight:bold;
-    padding: 20px 5px;
+    padding: 10px 5px;
 }
 .second{
     font-size:46px;

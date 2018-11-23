@@ -362,8 +362,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/proxy.css',
                         'js/controller/proxy.js',
-                        'js/directive/sidebar/sidebar.js',
-                        'css/sideBar.css',
+                        // 'js/directive/sidebar/sidebar.js',
+                        // 'css/sideBar.css',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',

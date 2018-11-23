@@ -1,8 +1,8 @@
 <div class="container-fluid {{client?'enterpriseHome':''}}">
     <!--个人端-->
     <div ng-show="client==0" class="header">
-        <div class="container" style="margin: 20px auto;">
-            <div class="row line1st" >
+        <div class="container">
+            <div class="row line1st">
                 <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <img src="image/home/logo.png" alt="">
                     <img src="image/location.png" class="location" style="width: 21px;height: 20px;margin-bottom: 2px;margin-left: 10px;">
@@ -62,14 +62,10 @@
             </div>
             <div ng-if="cclient" class="signed  col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                 <span ng-click="showExit()">欢迎您！{{username}}</span>
-                <div class="self-center">
-                   <div ui-sref="usercenter">个人中心</div>
-                    <!--ng-show="client=!2"-->
-                   <div ui-sref="signPage({sign:0,login:1})">切换账号</div>
-                    <div ng-click="exit()">退出登录</div>
+                <div ng-if="showEx" class="loginInfo">
+                    <span ng-click="Exit()">退出登录</span>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

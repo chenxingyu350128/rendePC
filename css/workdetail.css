@@ -25,22 +25,18 @@
 
 }
 .cinfo{
-    margin: 0.4rem auto 0.15rem auto;
+    margin: .4rem auto;
     text-align: center;
-}
-.cinfo img{
-    width: 2rem;
-    height: 1.5rem;
 }
 .detail-right{
     float: left;
     width: 30%;
-    margin: 0.13rem 0 0rem 0;
+    margin: 0.13rem 0 0.1rem 0;
     background-color: white;
     padding-bottom: .2rem;
 }
 .detail-position{
-    padding: 0.2rem;
+    padding: 0.1rem;
     background-color: white;
 }
 .detail-position-name{
@@ -52,16 +48,13 @@
 }
 .detail-position-name button{
     border: none;
-    background-color: #c20c0c;
+    background-color: red;
     color: white;
-    padding: 0.04rem .2rem;
+    padding: 0.04rem .15rem;
     float: right;
     border-radius: 5px;
     font-size: 17px;
     margin-right: .1rem;
-}
-.detail-position-name button:hover{
-  background-color: #f61111;
 }
 .detail-position-intr{
     font-size: 16px;
@@ -71,18 +64,18 @@
     padding: 0 .1rem;
 }
 .detail-position-intr span:first-child{
-    color: #f61111;
+    color: red;
     padding-left: 0;
 }
 .detail-position-fuli{
     font-size: 16px;
-    padding: .05rem 0;
+    padding: .1rem 0;
 }
 .detail-position-fuli span{
     margin-right:.1rem ;
     color: white;
     background-color: rgb(238,118,117);
-    padding: .06rem .2rem;
+    padding: .1rem .2rem;
     margin-bottom: 10px;
     display: inline-block;
 }
@@ -130,9 +123,11 @@
 .detail-position-put-r span{
     color: gray;
     font-size: 14px;
-    margin: 0 .2rem 0 .05rem;
+    margin: 0 .2rem 0 .1rem;
 }
-
+.detail-position-put-r img{
+    width: 0.22rem;
+}
 .detail-position-hr{
     margin: .1rem 0;
     background-color: white;
@@ -153,7 +148,7 @@
     border-top:1px solid gainsboro ;
 }
 .position-hr-content div{
-    margin: 10px 0;
+    padding: .08rem 0;
 }
 .hr-content-f{
     font-family: 黑体;
@@ -223,10 +218,6 @@
     font-size: .24rem;
     text-align: center;
     margin: 0 .4rem .3rem;
-    cursor: pointer;
-}
-.detail-right-company-name:hover{
-    color: red;
 }
 .company-intr{
     width: 100%;
@@ -238,8 +229,7 @@
     padding: .1rem .4rem;
 }
 .company-intr li img{
-    margin-right: 5px;
-
+    width: .23rem;
 }
 .company-intr li span{
     color: gray;
@@ -251,7 +241,6 @@
     width: 30%;
     display: flex;
     justify-content: space-evenly;
-    border-top: 1px solid gainsboro;
 }
 .company-work-manage li{
     border-right: 1px solid gainsboro;
@@ -270,7 +259,7 @@
 }
 .detail-right-other{
     margin: .2rem 0;
-    padding:.2rem 0 0.3rem 0;
+    padding:.2rem 0 1rem 0;
     background-color: white;
     float: left;
     width: 30%;
@@ -291,20 +280,16 @@
     font-size: 16px;
     color: black;
     display: inline-block;
-    padding: .1rem 0;
+    margin: .1rem 0;
     border-top: 1px solid gainsboro;
     width: 100%;
-}
-.detail-list:hover{
-    background-color: pink;
-    cursor: pointer;
 }
 .detail-right-other-name-intr div{
     padding: .1rem .2rem;
 }
-/*.detail-right-other-name-intr div:first-child{*/
-    /*padding-top: 0.2rem;*/
-/*}*/
+.detail-right-other-name-intr div:first-child{
+    padding-top: 0.2rem;
+}
 .similar-position{
     font-family: 黑体;
     font-size: 21px;

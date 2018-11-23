@@ -7,7 +7,7 @@
         <div class="top container">
             <!--<div class="row">-->
             <div  ng-mouseleave="vm.mouseLeave()" class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 types">
-                <div ng-repeat="x in vm.jobType"
+                <div ng-repeat="x in vm.devJobType"
                      ng-mouseenter="vm.mouseEnter(x.id)"
                      ui-sref="WorkCtrl({jobType: {{$index}}})"
                      class="type">
@@ -532,5 +532,6 @@
         <span>阿里</span>
         <span>腾讯</span>
     </div>
+</div>
 </div>
 <rd-footer></rd-footer>

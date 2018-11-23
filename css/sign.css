@@ -45,7 +45,7 @@
       justify-content: space-between; }
       .signPage .main .table .pickers span {
         padding-bottom: .09rem;
-        color: grey;
+        color: #ddd;
         border-bottom: 2px solid #b2b2b2; }
 
 .inputs label {
@@ -62,17 +62,8 @@
     transform: translate(0, -50%); }
   .inputs label input {
     width: 100%;
-    padding-left: .3rem;
-  border: 1px solid gainsboro;
-    outline: 0px;
-  }
-
-.inputs label input:focus{
-    border: 1px solid #f61111;
-    box-shadow: 0px 3px 18px 0px rgba(0, 0, 0, 0.2);
-}
-
-.inputs label span {
+    padding-left: .3rem; }
+  .inputs label span {
     position: absolute;
     top: 50%;
     -webkit-transform: translate(0, -50%);

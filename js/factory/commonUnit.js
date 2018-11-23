@@ -105,11 +105,13 @@ angular.module('myApp')
     .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,boon){
         return {
             lists: function() {
+                console.log('最外端位置');
                 // 获取行业类型接口
                 let vm = this;
                 let data = {};
                 data['city']=sessionStorage.getItem('city');
                 if (!jobType) {
+                    console.log('无行业类型位置');
                     common.request('Boss/show_jobtype_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
                             vm.types = res.data.data;
@@ -148,12 +150,14 @@ angular.module('myApp')
                             modalBox.alert(res.data.msg)
                         }
                     });
-                } else {
+                }
+                else {
+                    console.log('you行业LLLL');
                     vm.devJobType = devJobType;
                     vm.innerType = innerType;
                     vm.eazyMainType = jobType;
                 }
-                //福利待遇列表
+                // 福利待遇列表
                 if (!boon) {
                     common.request('Boss/show_boon', data).then(function callback(res) {
                         if (res.data.code === 200) {
@@ -245,7 +249,7 @@ angular.module('myApp')
                 else{
                     vm.eduList=eduList;
                 }
-                // /公司性质列表
+                // 公司性质列表
                 if(!natureList){
                     common.request('Boss/show_nature',data).then(function callback(res){
                         if(res.data.code===200){
@@ -301,56 +305,6 @@ angular.module('myApp')
                     sizeList: vm.sizeList,
                     boonList: vm.boon,
                 };
-            }
-        }
-    })
-    .factory('dynamic',function(common,modalBox,$timeout){
-        return {
-            getBanner: function(){
-                //轮播图
-                let vm=this;
-                let data={};
-                data['city']=sessionStorage.getItem('city');
-                common.request('Boss/show_banner', data).then(function callback(res) {
-                    if (res.data.code === 200) {
-                        vm.banner = res.data.data;
-                    }
-                    else if (res.data.code === 201) {
-                        vm.banner='';
-                        $timeout(function () {
-                            $state.go('signPage')
-                        }, 300);
-                        // modalBox.alert('未注册或登录已过期', function () {
-                        //
-                        // });
-                    }
-                    else if (res.data.code === 404) {
-                        vm.banner='';
-                        modalBox.alert(res.data.msg)
-                    }
-                });
-                return vm.banner
-            },
-            getHotSearch: function(){
-                let vm=this;
-                let data={};
-                data['city']=sessionStorage.getItem('city');
-                common.request('other/hot_search', data).then(function callback(res) {
-                    if (res.data.code === 200) {
-                        vm.hotSearch = res.data.data;
-                    }
-                    else if (res.data.code === 201) {
-                        vm.hotSearch ='';
-                        $timeout(function () {
-                            $state.go('signPage')
-                        }, 300);
-                    }
-                    else if (res.data.code === 404) {
-                        vm.hotSearch ='';
-                        modalBox.alert(res.data.msg)
-                    }
-                });
-                return vm.hotSearch
             }
         }
     })
