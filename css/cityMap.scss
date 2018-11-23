@@ -1,0 +1,57 @@
+.cityMap{
+  font-size: 16px;
+}
+.letter_row{
+  background: #fdfdfd;
+  .container{
+    padding: .3rem .45rem;
+  }
+  .first_letter{
+    font-size: 16px;
+    cursor: pointer;
+    &:hover{
+      color: #31BEFF;
+    }
+  }
+  .first_letter+.first_letter{
+    margin-left: .35rem;
+  }
+}
+.searchRow{
+  margin-bottom: .2rem;
+}
+.detail_letter_row{
+  background: #f2f4f7;
+  .single{
+    color: #84888b;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    margin-left: 10px;
+    padding-left: .2rem;
+  }
+  .letterBox{
+    display: flex;
+    flex-wrap: wrap;
+    .unit{
+      width: calc((100% - .6rem)/6);
+      text-align: center;
+      line-height: .5rem;
+      margin-left: .1rem;
+      margin-bottom: .1rem;
+      background: #fff;
+      cursor: pointer;
+      &:hover{
+        color: #31BEFF;
+        box-shadow:0 0 8px #b4b2cc;
+      }
+    }
+  }
+}
+.cityMap .fixedRow{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow:0 2px 0 #b4b2cc;;
+}

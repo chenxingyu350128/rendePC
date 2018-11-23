@@ -2,31 +2,38 @@
 <common-search></common-search>
 <div class="container">
     <div class="leftNav">
-        <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+        <div ui-sref="recruit({navType: 0})">
             <span>推荐职位</span>
-            <img src="image/home/threeSquare.png" alt="">
+            <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
         </div>
-        <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+        <div ui-sref="recruit({navType: 1})">
             <span>最新职位</span>
-            <img src="image/home/threeSquare.png" alt="">
+            <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
         </div>
     </div>
     <div class="hotOcp">
         <span class="underNav">职位: </span>
-        <span ui-sref="recruit({type:1})" class="underNav hot {{vm.type==1?'checkedType':''}}">全部</span>
-        <span ui-sref="recruit({type0:1})" class="underNav hot {{vm.type==0?'checkedType':''}}" ng-repeat="type in vm.typeList |limitTo :6">{{type}}</span>
+        <span class="job_type" ng-click="vm.clearType()">全部</span>
+        <span class="job_type"
+              ng-click="vm.getJobType(x,$index+1)"
+              on-finish-render-filters
+              ng-repeat="x in vm.typeList |limitTo :6">{{x}}
+        </span>
         <!--<span ui-sref="recruit({type:3})" class="underNav hot {{vm.type==3?'checkedType':''}}">电子</span>-->
         <!--<span ui-sref="recruit({type:4})" class="underNav hot {{vm.type==4?'checkedType':''}}">保姆</span>-->
         <!--<span ui-sref="recruit({type:5})" class="underNav hot {{vm.type==5?'checkedType':''}}">货运</span>-->
         <!--<span ui-sref="recruit({type:6})" class="underNav hot {{vm.type==6?'checkedType':''}}">快递</span>-->
-        <select class="underNav select" name="kind" id="" ng-model="vm.selectType" >
+        <select class="underNav job_type typeSelect"
+                name="kind"
+                ng-change="vm.getType(vm.selectedType)"
+                ng-model="vm.selectedType" >
             <option value="">更多</option>
-            <option value="{{type}}"ng-repeat="type in vm.typeList">{{type}}</option>
+            <option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>
         </select>
     </div>
 </div>
-<div class="container recruitment">
-    <div ng-repeat="x in vm.cardData |filter:vm.selectType" ui-sref="GWDetail({id:x.id})" class="card">
+<div ng-if="!vm.noResult" class="container recruitment">
+    <div ng-repeat="x in vm.cardData" ui-sref="GWDetail({id:x.id})" class="card">
         <div class="salary">
             <span>{{x.title}}</span>
         </div>
@@ -38,7 +45,8 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div style="margin: .2rem 0;font-size: 18px" ng-if="vm.noResult" class="nothing text-center">无匹配结果</div>
+<div ng-if="!vm.noResult" class="container">
     <div class="seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
     </div>

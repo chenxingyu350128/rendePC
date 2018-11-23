@@ -4,72 +4,64 @@
 <div class="work-body container">
     <!--职位列表-->
     <div class="work-list">
-        <ul style="overflow-x: scroll;white-space: nowrap;">
-            <li>职位:</li>
-            <li><button class="work-list-allbtn">全部</button></li>
-            <li ng-repeat="x in vm.typeList">
+        <ul class="ul">
+            <li class="opt">职位:</li>
+            <li class="Type opt btn" ng-click="vm.clearJobType()">全部</li>
+            <li class="Type opt btn"
+                ng-click="vm.getJobType(x,$index+1)"
+                ng-repeat="x in vm.typeList|limitTo: 5" on-finish-render-filters>
                 {{x}}
             </li>
-            <!--<li style=" float: right;">-->
-                <!--<select class="moreOpt" name="" id="" style="border: 1px solid red;" ng-model="type">-->
-                    <!--<option value="" ></option>-->
-                    <!--<option value="{{type}}"  ng-repeat="type in vm.typeList">{{type}}</option>-->
-                <!--</select>-->
-            <!--</li>-->
-        </ul>
-        <div>
-            <!--<div class="tipLeft" ng-click="vm.returnMore()"> </div>-->
-            <div class="tipRight" ng-click="vm.nextMore()"> </div>
-        </div>
-
-        <ul>
-            <li>薪资:</li>
-            <li><button class="work-list-allbtn">全部</button></li>
-            <li>2000以下</li>
-            <li>2000-4000</li>
-            <li>4000-6000</li>
-            <li>6000-8000</li>
-            <li>
-                <input type="number" class="work-input-input" id="startPay"> - <input type="number" class="work-input-input" id="endPay">
-                <button class="work-input-button">确定</button>
-            </li>
-        </ul>
-        <ul>
-            <li>福利:</li>
-            <li><button class="work-list-allbtn">全部</button></li>
-            <li ng-repeat="boonr in vm.boon | limitTo:8">{{boonr.name}}</li>
-            <li style=" float: right;">
-                <select class="moreOpt" name=""  style="border: 1px solid red;">
-                    <option value="1" ng-repeat="boonr in vm.boon">{{boonr.name}}</option>
+            <li class="opt btn">
+                <select class="typeSelect"
+                        ng-model="vm.selected"
+                        ng-change="vm.getType(vm.selected)"
+                        ng-options="x for x in vm.otherTypes">
                 </select>
             </li>
         </ul>
-        <ul>
+        <ul class="ul">
+            <li class="opt">薪资:</li>
+            <li class="btn salaryBtn opt" ng-click="vm.clearSalary()">全部</li>
+            <li class="btn salaryBtn opt" ng-click="vm.getSalary(x,$index+1)" ng-repeat="x in vm.salaryList" on-finish-render-filters>{{x}}</li>
+            <li class="opt" ng-disabled="vm.salaryGet">
+                <input ng-model="vm.low" type="number" class="work-input-input" id="startPay">
+                -
+                <input ng-model="vm.high" type="number" class="work-input-input" id="endPay">
+                <button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>
+            </li>
+        </ul>
+        <ul class="ul">
+            <li class="opt">福利:</li>
+            <li class="allBoon boonOpt opt" ng-click="vm.clearBoon()">全部</li>
+            <li class="boonOpt opt" ng-click="vm.getBoon(x.name)" ng-repeat="x in vm.boon " on-finish-render-filters>{{x.name}}</li>
+        </ul>
+        <ul class="ul">
             <li>更多:</li>
-            <li><button class="work-list-allbtn">全部</button></li>
+            <li ng-click="vm.clearOthers()" class="allOthers">全部</li>
             <li>
-                <select name="" id="">
-                    <option value="1">学历要求</option>
-                    <option value="" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
+                <select ng-model="vm.edu" ng-change="vm.getEdu(vm.edu)">
+                    <option value="">学历要求</option>
+                    <option value="{{x.name}}" ng-repeat="x in vm.eduList">{{x.name}}</option>
                 </select>
             </li>
             <li>
-                <select name="" id="">
+                <select ng-model="vm.exp" ng-change="vm.getExp(vm.exp)">
                     <option value="" >工作经验</option>
-                    <option value="" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
+                    <option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>
                 </select>
             </li>
             <li>
-                <select name="" id="">
-                    <option value="1">性别要求</option>
-                    <option value="1">男</option>
-                    <option value="1">女</option>
+                <select ng-model="vm.sex" ng-change="vm.getSex(vm.sex)" required>
+                    <option value="">性别要求</option>
+                    <option value="男">男</option>
+                    <option value="女">女</option>
                 </select>
             </li>
             <li>
-                <select name="" id="">
-                    <option value="1">到岗时间</option>
-                    <option value="" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
+                <select ng-model="vm.time" ng-change="vm.getArrival(vm.time)">
+                    <option value="">到岗时间</option>
+                    <option value="{{come.name}}" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
                 </select>
             </li>
         </ul>
@@ -78,11 +70,11 @@
     <div style="margin:10px;width: 100%">
         <div class="positionLeft write">
             <ul>
-                <li class="work-position-l" ng-click="vm.type(1)">推荐职位</li>
-                <li class="work-position-l" ng-click="vm.type(2)">最新职位</li>
+                <li class="work-position-l" ui-sref="WorkCtrl({navType:0})">推荐职位</li>
+                <li class="work-position-l" ui-sref="WorkCtrl({navType:1})">最新职位</li>
             </ul>
 
-            <div class="position-list" ng-show="vm.a==1" ng-repeat="data in vm.dataList |filter:type|limitTo : 8" on-finish-render-filters2>
+            <div class="position-list" ng-repeat="data in vm.dataList |filter:type|limitTo : 8" on-finish-render-filters2>
                 <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
                     <img src="{{data.img}}" style="width: 89px;height: 87px">
                 </div>
@@ -106,37 +98,6 @@
                 <div class="fr">
                     <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
                     <br>
-                    <div class="demand grayF workdemand">
-                        <span>更新时间：{{data.time}}</span>
-                    </div>
-                </div>
-                <div class="position-hr"></div>
-            </div>
-
-            <div class="position-list" ng-show="vm.a==2" ng-repeat="data in vm.dataList |limitTo : 8" on-finish-render-filters2>
-                <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
-                    <img src="{{data.img}}" style="width: 89px;height: 87px">
-                </div>
-                <div  class="position-list-right flex-column" >
-                    <div class="positionname fl" >{{data.job_type}}</div>
-                    <div class="worksalary redF fl">￥{{data.start_money}}-{{data.end_money}}</div>
-                    <div class="demand grayF workdemand">
-                        <span>{{data.experience}}|</span>
-                        <span >{{data.education}}|</span>
-                        <span>{{data.address}}</span>
-                    </div>
-                </div>
-                <div class="position-list-center flex-column" style="margin-top: 28px;">
-                    <div class="positionname fl">{{data.name}}</div>
-                    <div class="demand grayF workdemand" style="margin-top: 8px;">
-                        <span>{{data.c_type}}</span>
-                        <span>|{{data.nature}}</span>
-                        <span>{{data.size}}</span>
-                    </div>
-                </div>
-                <div class="fr">
-                    <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button><br>
-
                     <div class="demand grayF workdemand">
                         <span>更新时间：{{data.time}}</span>
                     </div>

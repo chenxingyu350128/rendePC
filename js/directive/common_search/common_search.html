@@ -3,17 +3,11 @@
     <img src="image/home/searchLeft.png" alt="">
     <div>
         <div class="searchBox">
-            <input type="text" placeholder="搜索职位、公司或地址"><button>搜索</button>
+            <input ng-model="keyword" type="text" placeholder="搜索职位、公司或地址"><button ui-sref="WorkCtrl({keyword:'{{keyword}}'})">搜索</button>
         </div>
         <div class="hot_search">
-            <span>热门搜索</span>
-            <span ng-repeat="data in vm.hot_search">{{data.name}}</span>
-            <!--<span>建筑设计</span>-->
-            <!--<span>电话销售</span>-->
-            <!--<span>司机</span>-->
-            <!--<span>预算员</span>-->
-            <!--<span>营销总监</span>-->
-            <!--<span>销售代表</span>-->
+            <span style="color: #f00;">热门搜索:</span>
+            <span ui-sref="WorkCtrl({keyword:'{{x.name}}'})" style="cursor: pointer" ng-repeat="x in hotSearch">{{x.name}}</span>
         </div>
     </div>
 </div>

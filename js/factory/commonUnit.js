@@ -102,12 +102,13 @@ angular.module('myApp')
 
         }
     })
-    .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,bannerImg,boon,hotSearch){
+    .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,boon){
         return {
             lists: function() {
                 // 获取行业类型接口
                 let vm = this;
                 let data = {};
+                data['city']=sessionStorage.getItem('city');
                 if (!jobType) {
                     common.request('Boss/show_jobtype_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
@@ -124,9 +125,7 @@ angular.module('myApp')
                                 vm.innerType[i] = [];
                                 vm.eazyMainType[i] = vm.devJobType[i].name;//只有Name的总类别
                             }
-                            console.log(vm.innerType);
                             vm.childTypes = vm.types.slice(vm.devJobType.length);
-                            console.log(vm.childTypes);
                             for (let i = 0; i < vm.childTypes.length; i++) {
                                 for (let j = 1; j < vm.devJobType.length + 1; j++) {
                                     if (vm.childTypes[i].fid === j) {
@@ -153,50 +152,6 @@ angular.module('myApp')
                     vm.devJobType = devJobType;
                     vm.innerType = innerType;
                     vm.eazyMainType = jobType;
-                }
-                //热门搜索
-                if (!hotSearch) {
-                    common.request('other/hot_search', data).then(function callback(res) {
-                        if (res.data.code === 200) {
-                            vm.hotSearch = res.data.data;
-                            sessionStorage.setItem('hotSearch', JSON.stringify(res.data.data))
-                        }
-                        else if (res.data.code === 201) {
-                            $timeout(function () {
-                                $state.go('signPage')
-                            }, 300);
-                            // modalBox.alert('未注册或登录已过期', function () {
-                            //
-                            // });
-                        }
-                        else if (res.data.code === 404) {
-                            modalBox.alert(res.data.msg)
-                        }
-                    });
-                } else {
-                    vm.hotSearch = hotSearch;
-                }
-                //banner轮播图
-                if (!bannerImg) {
-                    common.request('Boss/show_banner', data).then(function callback(res) {
-                        if (res.data.code === 200) {
-                            vm.banner = res.data.data;
-                            sessionStorage.setItem('bannerImg', JSON.stringify(vm.banner));
-                        }
-                        else if (res.data.code === 201) {
-                            $timeout(function () {
-                                $state.go('signPage')
-                            }, 300);
-                            // modalBox.alert('未注册或登录已过期', function () {
-                            //
-                            // });
-                        }
-                        else if (res.data.code === 404) {
-                            modalBox.alert(res.data.msg)
-                        }
-                    });
-                } else {
-                    vm.banner = bannerImg;
                 }
                 //福利待遇列表
                 if (!boon) {
@@ -244,7 +199,6 @@ angular.module('myApp')
                     common.request('Boss/show_job_years', data).then(function callback(res) {
                         if (res.data.code === 200) {
                             vm.expList = res.data.data;
-                            console.log('expList',vm.expList);
                             sessionStorage.setItem('expList', JSON.stringify(vm.expList));
                         }
                         else if (res.data.code === 201) {
@@ -271,7 +225,6 @@ angular.module('myApp')
                         if (res.data.code === 200) {
                             vm.mark6 = true;
                             vm.eduList = res.data.data;
-                            console.log('edulist',vm.eduList);
                             sessionStorage.setItem('eduList', JSON.stringify(vm.eduList));
                         }
                         else if (res.data.code === 201) {
@@ -346,11 +299,186 @@ angular.module('myApp')
                     expList: vm.expList,
                     natureList: vm.natureList,
                     sizeList: vm.sizeList,
-                    bannerList: vm.banner,
                     boonList: vm.boon,
-                    hotSearch: vm.hotSearch,
                 };
             }
+        }
+    })
+    .factory('dynamic',function(common,modalBox,$timeout){
+        return {
+            getBanner: function(){
+                //轮播图
+                let vm=this;
+                let data={};
+                data['city']=sessionStorage.getItem('city');
+                common.request('Boss/show_banner', data).then(function callback(res) {
+                    if (res.data.code === 200) {
+                        vm.banner = res.data.data;
+                    }
+                    else if (res.data.code === 201) {
+                        vm.banner='';
+                        $timeout(function () {
+                            $state.go('signPage')
+                        }, 300);
+                        // modalBox.alert('未注册或登录已过期', function () {
+                        //
+                        // });
+                    }
+                    else if (res.data.code === 404) {
+                        vm.banner='';
+                        modalBox.alert(res.data.msg)
+                    }
+                });
+                return vm.banner
+            },
+            getHotSearch: function(){
+                let vm=this;
+                let data={};
+                data['city']=sessionStorage.getItem('city');
+                common.request('other/hot_search', data).then(function callback(res) {
+                    if (res.data.code === 200) {
+                        vm.hotSearch = res.data.data;
+                    }
+                    else if (res.data.code === 201) {
+                        vm.hotSearch ='';
+                        $timeout(function () {
+                            $state.go('signPage')
+                        }, 300);
+                    }
+                    else if (res.data.code === 404) {
+                        vm.hotSearch ='';
+                        modalBox.alert(res.data.msg)
+                    }
+                });
+                return vm.hotSearch
+            }
+        }
+    })
+    .factory('district',function(cityData){
+        return {
+          cityByLetter: function () {
+              let params={};
+
+            // 包含市县级数据，否则市级数据
+            // configure.contain = configure.options.whole ? configure.whole : configure.newCityData;
+
+            //分类的城市
+            params.filterCity = {
+                A: [],
+                B: [],
+                C: [],
+                D: [],
+                E: [],
+                F: [],
+                G: [],
+                H: [],
+                // I: [],
+                J: [],
+                K: [],
+                L: [],
+                M: [],
+                N: [],
+                // O: [],
+                P: [],
+                Q: [],
+                R: [],
+                S: [],
+                T: [],
+                // U: [],
+                // V: [],
+                W: [],
+                X: [],
+                Y: [],
+                Z: []
+            };
+            for(let i=0;i<cityData.length;i++){
+                let city=cityData[i].initial;
+                let value=cityData[i].city;
+                switch (city) {
+                    case ('A'):
+                        params.filterCity.A.push(value);
+                        break;
+                    case ('B'):
+                        params.filterCity.B.push(value);
+                        break;
+                    case ('C'):
+                        params.filterCity.C.push(value);
+                        break;
+                    case ('D'):
+                        params.filterCity.D.push(value);
+                        break;
+                    case ('E'):
+                        params.filterCity.E.push(value);
+                        break;
+                    case ('F'):
+                        params.filterCity.F.push(value);
+                        break;
+                    case ('G'):
+                        params.filterCity.G.push(value);
+                        break;
+                    case ('H'):
+                        params.filterCity.H.push(value);
+                        break;
+                    // case ('I'):
+                    //     params.filterCity.I.push(value);
+                    //     break;
+                    case ('J'):
+                        params.filterCity.J.push(value);
+                        break;
+                    case ('K'):
+                        params.filterCity.K.push(value);
+                        break;
+                    case ('L'):
+                        params.filterCity.L.push(value);
+                        break;
+                    case ('M'):
+                        params.filterCity.M.push(value);
+                        break;
+                    case ('N'):
+                        params.filterCity.N.push(value);
+                        break;
+                    // case ('O'):
+                    //     params.filterCity.O.push(value);
+                    //     break;
+                    case ('P'):
+                        params.filterCity.P.push(value);
+                        break;
+                    case ('Q'):
+                        params.filterCity.Q.push(value);
+                        break;
+                    case ('R'):
+                        params.filterCity.R.push(value);
+                        break;
+                    case ('S'):
+                        params.filterCity.S.push(value);
+                        break;
+                    case ('T'):
+                        params.filterCity.T.push(value);
+                        break;
+                    // case ('U'):
+                    //     params.filterCity.U.push(value);
+                    //     break;
+                    // case ('V'):
+                    //     params.filterCity.V.push(value);
+                    //     break;
+                    case ('W'):
+                        params.filterCity.W.push(value);
+                        break;
+                    case ('X'):
+                        params.filterCity.X.push(value);
+                        break;
+                    case ('Y'):
+                        params.filterCity.Y.push(value);
+                        break;
+                    case ('Z'):
+                        params.filterCity.Z.push(value);
+                        break;
+                    default:
+                }
+
+            }
+            return params.filterCity;
+          }
         }
     });
 

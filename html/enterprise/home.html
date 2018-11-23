@@ -5,7 +5,7 @@
     <div class="work-search">
         <div class="search-content">
             <input type="text" placeholder="关键词搜索简历 " ng-model="vm.keyword">
-            <button ng-click="vm.search(vm.keyword)" style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
+            <button ng-disabled="{{!vm.keyword}}" class="btn" ng-click="vm.search(vm.keyword)" style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
         </div>
     </div>
     <!--职位管理-->

@@ -2,39 +2,66 @@
 <rende-header></rende-header>
 <!--搜索-->
 <common-search></common-search>
-<!--xuanze-->
 <div class="container checkBox">
     <div>
-        <div class="row">
-            <span>职位:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice"ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>
-            <select class="getMore" name="occupations" id="select1">
-                <option ng-repeat="type in vm.typeList >{{type.name}}</option>
+        <div class="row optRow">
+            <span>
+                职位:
+                <span ng-click="vm.clearType()" class="all allType choice0 ">全部</span>
+            </span>
+            <span  ng-click='vm.getJobType(x,$index+1)'
+                   class="choice choice0"
+                   ng-repeat="x in vm.jobType |limitTo: 6" on-finish-render-filters>{{x}}</span>
+            <select ng-model="vm.selectedType"
+                    ng-change="vm.getType(vm.selectedType)"
+                    class="getMore typeSelect"
+                    name="occupations" >
+                <option value="">&emsp;&emsp;更多&emsp;&emsp;</option>
+                <option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>
             </select>
         </div>
-        <div class="row">
-            <span>规模:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="size in vm.sizeList |limitTo:6">{{size.name}}</span>
-            <select style="visibility: hidden" class="getMore" name="occupations" id="select3">
-                <option ng-repeat="size in vm.sizeList ">{{size.name}}</option>
+        <div class="row optRow">
+            <span>
+                性质:
+                <span ng-click="vm.clearNature()" class="all choice1 allNature">全部</span>
+            </span>
+            <span ng-click='vm.getNatureType(x.name,$index+1)'
+                  class="choice choice1"
+                  ng-repeat="x in vm.natureList |limitTo: 6"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
+            <select ng-model="vm.selectedNature"
+                    ng-change="vm.getNature(vm.selectedNature)"
+                    class="getMore natureSelect"
+                    name="occupations" >
+                <option value="">&emsp;&emsp;更多&emsp;&emsp;</option>
+                <option value="{{x.name}}" ng-repeat="x in vm.otherNatures">{{x.name}}</option>
             </select>
         </div>
-        <div class="row">
-            <span>福利:</span>
-            <div>
-                <span class="all">全部</span>
-            </div>
-            <span class="choice" ng-repeat="boonarr in vm.show_boonList |limitTo:6">{{boonarr.name}}</span>
-            <select style="visibility: hidden" class="getMore" name="occupations" id="select4">
-                <option value="">全部</option>
-                <option ng-repeat="boonarr in vm.show_boonList">{{boonarr.name}}</option>
-            </select>
+        <div class="row optRow">
+            <span>
+                规模:
+                <span ng-click="vm.clearSize()" class="all choice2 allSize">全部</span>
+            </span>
+            <span class="choice choice2"
+                  ng-click="vm.getSize(x.name,$index+1)"
+                  ng-repeat="x in vm.sizeList"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
+        </div>
+        <div class="row optRow boonRow">
+            <span>
+                福利:
+                <span ng-click="vm.clearBoon()" class="all allBoon">全部</span>
+            </span>
+            <span class="choice choice3"
+                  ng-click="vm.getBoon(x.name)"
+                  ng-repeat="x in vm.boonList"
+                  on-finish-render-filters>
+                {{x.name}}
+            </span>
         </div>
     </div>
 </div>
@@ -42,13 +69,13 @@
     <div class="row">
         <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="leftNav">
-                <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav:0})" class="{{vm.nav==0?'checkedNav':''}}">
                     <span>企业列表</span>
-                    <img src="image/home/threeSquare.png" alt="">
+                    <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
                 </div>
-                <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav:1})" class="{{vm.nav==1?'checkedNav':''}}">
                     <span>名企招聘</span>
-                    <img src="image/home/threeSquare.png" alt="">
+                    <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
                 </div>
             </div>
             <div ui-sref="enterpriseInfo({id:data.id})" class="occupation" ng-repeat="data in vm.dataList|limitTo:8">
