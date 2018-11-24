@@ -137,8 +137,8 @@ angular.module('myApp')
         $scope.$on('ngRepeatFinished', function () {
             //repeat结束
             let typeList=$('.Type');
-            let salary=$('.salaryBtn');
-            let boon=$('.boonOpt');
+            let salary=$('.salaryBtn span');
+            let boon=$('.boonOpt span');
             let idx0=paramsData['idx0'];
             let idx1=paramsData['idx1'];
             let boonOnlyName=[];
@@ -147,7 +147,7 @@ angular.module('myApp')
                 for(let j=0;j<realBoon.length;j++){
                     if(boonOnlyName.includes(realBoon[j])){
                         let inBase=boonOnlyName.indexOf(realBoon[j]);
-                        boon.eq(inBase+1).css({
+                        boon.eq(inBase).css({
                             'background': '#f61111',
                             'color': '#fff'
                         })
@@ -166,13 +166,11 @@ angular.module('myApp')
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'background': '#f61111',
-                    'color': '#fff'
+                    'border': '1px solid #c20c20',
                 })
             }else{
                 $('.typeSelect').css({
-                    'background': '#fff',
-                    'color': '#000'
+                    'border': '1px solid #000'
                 })
             }
 
@@ -180,7 +178,7 @@ angular.module('myApp')
                 'background': '#f61111',
                 'color': '#fff'
             });
-            salary.eq(idx1).css({
+            salary.eq(idx1-1).css({
                 'background': '#f61111',
                 'color': '#fff'
             });

@@ -145,13 +145,11 @@ angular.module('myApp')
             }
             if(vm.params.selectedType0){
                 $('.typeSelect').css({
-                    'background': '#f00',
-                    'color': '#fff'
+                    'border': '3px solid #c30c30'
                 })
             }else{
                 $('.typeSelect').css({
-                    'background': '#fff',
-                    'color': '#000'
+                    'border': '3px solid #000'
                 })
             }//nature
             if(vm.idx1===undefined){
@@ -167,13 +165,11 @@ angular.module('myApp')
             }
             if(vm.params.selectedNature0){
                 $('.natureSelect').css({
-                    'background': '#f00',
-                    'color': '#fff'
+                    'border': '3px solid #c30c30'
                 })
             }else{
                 $('.natureSelect').css({
-                    'background': '#fff',
-                    'color': '#000'
+                    'border': '3px solid #000'
                 })
             }
             //size

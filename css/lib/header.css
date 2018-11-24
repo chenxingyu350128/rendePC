@@ -92,6 +92,7 @@
     width: 100%;
     margin: 0;
     overflow: hidden;
+    position: relative;
 }
 
 .logo{
@@ -183,9 +184,15 @@
     flex-direction: column;
 }
 .loginInfo{
+    position: fixed;
+    top: .05rem;
+    right: calc((100% - 1366px)/2);
     display: flex;
     flex-direction: column;
     float: right;
+}
+.loginInfo span{
+    width: 164px;
 }
 .loginInfo span:first-child{
     margin-top: 10px;
@@ -213,7 +220,7 @@
 .usercenter{
     position: absolute;
     z-index: 2;
-    right: 14%;
+    right: 0;
     border: 1px solid red;
     border-radius: 5px;
     background: white

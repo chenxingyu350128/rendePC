@@ -3,69 +3,133 @@
 <!--找工作-->
 <div class="work-body container">
     <!--职位列表-->
-    <div class="work-list">
-        <ul class="ul">
-            <li class="opt">职位:</li>
-            <li class="Type opt btn" ng-click="vm.clearJobType()">全部</li>
-            <li class="Type opt btn"
-                ng-click="vm.getJobType(x,$index+1)"
-                ng-repeat="x in vm.typeList|limitTo: 5" on-finish-render-filters>
-                {{x}}
-            </li>
-            <li class="opt btn">
-                <select class="typeSelect"
-                        ng-model="vm.selected"
+    <div class="container checkBox">
+        <div>
+            <div class="row optRow">
+                <span class="all  allType">
+                    职位:
+                    <span ng-click="vm.clearJobType()" class="choice0 Type">全部</span>
+                </span>
+                <span  ng-click='vm.getJobType(x,$index+1)'
+                       class="Type choice choice0"
+                       ng-repeat="x in vm.typeList |limitTo: 6" on-finish-render-filters>{{x}}</span>
+                <select ng-model="vm.selected"
                         ng-change="vm.getType(vm.selected)"
-                        ng-options="x for x in vm.otherTypes">
+                        class="getMore typeSelect "
+                        name="occupations" >
+                    <option value="">&emsp;&emsp;更多&emsp;&emsp;</option>
+                    <option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>
                 </select>
-            </li>
-        </ul>
-        <ul class="ul">
-            <li class="opt">薪资:</li>
-            <li class="btn salaryBtn opt" ng-click="vm.clearSalary()">全部</li>
-            <li class="btn salaryBtn opt" ng-click="vm.getSalary(x,$index+1)" ng-repeat="x in vm.salaryList" on-finish-render-filters>{{x}}</li>
-            <li class="opt" ng-disabled="vm.salaryGet">
-                <input ng-model="vm.low" type="number" class="work-input-input" id="startPay">
-                -
-                <input ng-model="vm.high" type="number" class="work-input-input" id="endPay">
-                <button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>
-            </li>
-        </ul>
-        <ul class="ul">
-            <li class="opt">福利:</li>
-            <li class="allBoon boonOpt opt btn" ng-click="vm.clearBoon()">全部</li>
-            <li class="boonOpt opt btn" ng-click="vm.getBoon(x.name)" ng-repeat="x in vm.boon " on-finish-render-filters>{{x.name}}</li>
-        </ul>
-        <ul class="ul">
-            <li>更多:</li>
-            <li ng-click="vm.clearOthers()" class="allOthers">全部</li>
-            <li>
-                <select ng-model="vm.edu" ng-change="vm.getEdu(vm.edu)">
-                    <option value="">学历要求</option>
-                    <option value="{{x.name}}" ng-repeat="x in vm.eduList">{{x.name}}</option>
-                </select>
-            </li>
-            <li>
-                <select ng-model="vm.exp" ng-change="vm.getExp(vm.exp)">
-                    <option value="" >工作经验</option>
-                    <option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>
-                </select>
-            </li>
-            <li>
-                <select ng-model="vm.sex" ng-change="vm.getSex(vm.sex)" required>
-                    <option value="">性别要求</option>
-                    <option value="男">男</option>
-                    <option value="女">女</option>
-                </select>
-            </li>
-            <li>
-                <select ng-model="vm.time" ng-change="vm.getArrival(vm.time)">
-                    <option value="">到岗时间</option>
-                    <option value="{{come.name}}" ng-repeat="come in vm.comeJobList">{{come.name}}</option>
-                </select>
-            </li>
-        </ul>
+            </div>
+            <div class="row optRow">
+                <span>
+                    薪资:
+                    <span ng-click="vm.clearSalary()" class="all Type allType choice choice1 btn salaryBtn opt">全部</span>
+                </span>
+                <span  ng-click='vm.getSalary(x,$index+1)'
+                       class="Type choice choice1 btn salaryBtn opt"
+                       ng-repeat="x in vm.salaryList">
+                    <span> {{x}}</span>
+                </span>
+                <span class="opt">
+                    <input ng-model="vm.low" type="number" class="work-input-input" id="startPay">
+                     -
+                    <input ng-model="vm.high" type="number" class="work-input-input" id="endPay">
+                    <button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>
+                </span>
+            </div>
+            <!--<ul class="ul">-->
+            <!--<li class="opt">薪资:</li>-->
+            <!--<li class="btn salaryBtn opt" ng-click="vm.clearSalary()">全部</li>-->
+            <!--<li class="btn salaryBtn opt" ng-click="vm.getSalary(x,$index+1)" ng-repeat="x in vm.salaryList" on-finish-render-filters>{{x}}</li>-->
+            <!--<li class="opt" ng-disabled="vm.salaryGet">-->
+            <!--<input ng-model="vm.low" type="number" class="work-input-input" id="startPay">-->
+            <!-- - -->
+            <!--<input ng-model="vm.high" type="number" class="work-input-input" id="endPay">-->
+            <!--<button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <div class="row optRow boonRow">
+            <span class="opt">
+                福利:
+                <span ng-click="vm.clearBoon()" class="all allBoon boonOpt">全部</span>
+            </span>
+                <span class="choice choice3 boonOpt"
+                      ng-click="vm.getBoon(x.name)"
+                      ng-repeat="x in vm.boon"
+                      on-finish-render-filters>
+                <span>
+                      {{x.name}}
+                </span>
+            </span>
+            </div>
+        </div>
     </div>
+
+    <!--<div class="work-list">-->
+        <!--<ul class="ul">-->
+            <!--<li class="opt">职位:</li>-->
+            <!--<li class="Type opt btn" ng-click="vm.clearJobType()">全部</li>-->
+            <!--<li class="Type opt btn"-->
+                <!--ng-click="vm.getJobType(x,$index+1)"-->
+                <!--ng-repeat="x in vm.typeList|limitTo: 5" on-finish-render-filters>-->
+                <!--{{x}}-->
+            <!--</li>-->
+            <!--<li class="opt btn">-->
+                <!--<select class="typeSelect"-->
+                        <!--ng-model="vm.selected"-->
+                        <!--ng-change="vm.getType(vm.selected)">-->
+                    <!--<option value="">更多</option>-->
+                    <!--<option value="x" ng-repeat="x in vm.otherTypes">{{x}}</option>-->
+                <!--</select>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<ul class="ul">-->
+            <!--<li class="opt">薪资:</li>-->
+            <!--<li class="btn salaryBtn opt" ng-click="vm.clearSalary()">全部</li>-->
+            <!--<li class="btn salaryBtn opt" ng-click="vm.getSalary(x,$index+1)" ng-repeat="x in vm.salaryList" on-finish-render-filters>{{x}}</li>-->
+            <!--<li class="opt" ng-disabled="vm.salaryGet">-->
+                <!--<input ng-model="vm.low" type="number" class="work-input-input" id="startPay">-->
+                <!-- - -->
+                <!--<input ng-model="vm.high" type="number" class="work-input-input" id="endPay">-->
+                <!--<button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>-->
+            <!--</li>-->
+        <!--</ul>-->
+        <!--<ul class="ul">-->
+            <!--<li class="opt">福利:</li>-->
+            <!--<li class="allBoon boonOpt opt btn" ng-click="vm.clearBoon()">全部</li>-->
+            <!--<li class="boonOpt opt btn" ng-click="vm.getBoon(x.name)" ng-repeat="x in vm.boon " on-finish-render-filters>{{x.name}}</li>-->
+        <!--</ul>-->
+        <!--<ul class="ul">-->
+            <!--<li>更多:</li>-->
+            <!--<li ng-click="vm.clearOthers()" class="allOthers">全部</li>-->
+            <!--<li>-->
+                <!--<select ng-model="vm.edu" ng-change="vm.getEdu(vm.edu)">-->
+                    <!--<option value="">学历要求</option>-->
+                    <!--<option value="{{x.name}}" ng-repeat="x in vm.eduList">{{x.name}}</option>-->
+                <!--</select>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<select ng-model="vm.exp" ng-change="vm.getExp(vm.exp)">-->
+                    <!--<option value="" >工作经验</option>-->
+                    <!--<option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>-->
+                <!--</select>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<select ng-model="vm.sex" ng-change="vm.getSex(vm.sex)" required>-->
+                    <!--<option value="">性别要求</option>-->
+                    <!--<option value="男">男</option>-->
+                    <!--<option value="女">女</option>-->
+                <!--</select>-->
+            <!--</li>-->
+            <!--<li>-->
+                <!--<select ng-model="vm.time" ng-change="vm.getArrival(vm.time)">-->
+                    <!--<option value="">到岗时间</option>-->
+                    <!--<option value="{{come.name}}" ng-repeat="come in vm.comeJobList">{{come.name}}</option>-->
+                <!--</select>-->
+            <!--</li>-->
+        <!--</ul>-->
+    <!--</div>-->
     <!--推荐最新职位-->
     <div style="margin:10px;width: 100%">
         <div class="positionLeft write">

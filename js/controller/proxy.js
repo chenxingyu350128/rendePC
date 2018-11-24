@@ -1,6 +1,6 @@
 'use strict';
 angular.module('myApp')
-    .controller('proxyCtrl',function ($scope,$http,$state,listsRequest,common,modalBox) {
+    .controller('proxyCtrl',function ($scope,$http,$state,$timeout,listsRequest,common,modalBox) {
         let vm=this;
         // $scope.sidebar=sidebar;
         $scope.$on('ngRepeatFinished2', function () {

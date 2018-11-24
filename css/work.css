@@ -26,14 +26,14 @@
     margin-left: 20px;
 }
 .search-content button{
-    background-color: red;
+    background-color: #f61111;
     color: white;
     text-align: center;
     width: 7%;
     font-size: 19px;
     padding: 0.65%;
     margin-left: -5px;
-    border: 1px solid red;
+    border: 1px solid #f61111;
 }
 .hot-search{
     width: 80%;
@@ -55,10 +55,11 @@
     background-color: white;
     border-radius: 4px;
     padding: 20px 10px;
-    margin:0px  10px ;
+    margin:0  10px ;
 }
 .work-list select{
     padding: 0.05rem .2rem;
+    border-radius: 5px;
 }
 .work-list ul{
     width: 100%;
@@ -76,12 +77,12 @@
     padding: 0 12px;
     font-size: 16px;
 }
-.opt{
-    width: 12.5%;
-}
-.opt + .opt{
-    margin-left: .15rem;
-}
+/*.opt{*/
+    /*width: 12.5%;*/
+/*}*/
+/*.opt + .opt{*/
+    /*margin-left: .15rem;*/
+/*}*/
 .childMenu{
     position: relative;
     z-index: 2;
@@ -117,7 +118,7 @@
     margin-left: 163px;
 }
 .work-list-allbtn{
-    background-color: red;
+    background-color: #f61111;
     text-align: center;
     color: white;
     padding: 1px 5px;
@@ -126,12 +127,15 @@
 .work-input-input{
     width: 75px;
     line-height: .25rem;
-    border: 1px solid red;
-    outline: 0px;
+    /*border: 1px solid #f61111;*/
+    outline: 0;
+}
+.work-input-input:focus{
+    border: 1px solid #f61111;
 }
 .work-input-button{
     background-color: white;
-    border: 1px solid red;
+    border: 1px solid #f61111;
     outline: 0;
     line-height: .28rem;
     height: .28rem;
@@ -161,7 +165,7 @@
 }
 .work-position-active{
     color: white;
-    background-color: red;
+    background-color: #f61111;
 }
 .position-list{
     padding: 20px 30px 0px 30px;
@@ -170,7 +174,7 @@
 
 }
 .position-list:hover {
-    border: 1px solid red;
+    border: 1px solid #f61111;
 }
 .position-name{
     width: 89px;
@@ -224,7 +228,7 @@
 }
 .position-btn{
     border: none;
-    background-color: red;
+    background-color: #f61111;
     color: white;
     padding: 7px 6px;
     width: 1.5rem;
@@ -261,9 +265,9 @@
     border-bottom: 1px solid gainsboro
 }
 .hot-position span{
-    border-left: 5px solid red;
+    border-left: 5px solid #f61111;
     padding-left: 15px;
-    color: red;
+    color: #f61111;
 }
 .hot-position-list{
     display: flex;
@@ -282,7 +286,7 @@
     font-weight: 600;
 }
 .type-pay{
-    color: red;
+    color: #f61111;
     font-size: 20px;
 }
 .type-intr{
@@ -296,5 +300,54 @@
 .flex-column{
     display: flex;
     flex-direction: column;
+}
+/*剪切自找企业*/
+.checkBox{
+    margin-bottom: .1rem;
+}
+.checkBox>div{
+    background: #fff;
+    padding: .28rem .09rem .35rem .18rem;
+}
+.checkBox .row{
+    display: flex;
+    /*justify-content: space-between;*/
+    /*align-items: center;*/
+    /*padding: 10px 20px;*/
+    font-size: 16px;
+    margin: 0;
+    /*margin-left: 15px;*/
+}
+.optRow+.optRow{
+    margin-top: .23rem;
+}
+.checkBox .boonRow .choice{
+    width: 9.72%;
+}
+.boonRow .choice3 span{
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5px 12px;
+}
+.checkBox .row>span{
+    text-align: center;
+    width: 12.5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*padding: 5px 12px;*/
+}
+.checkBox .row>select{
+    width: 12.5%;
+}
+.checkBox .row>span:first-child{
+    display: flex;
+    align-items: center;
+    text-align: left;
+    padding: 0;
+}
+.checkBox .row>span:first-child span{
+    margin-left: .3rem;
+    padding: 5px 12px;
 }
 

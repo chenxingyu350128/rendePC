@@ -16,6 +16,45 @@ angular.module('myApp')
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后
            $('.carousel-inner div').eq(0).addClass('active');
+            vm.mouseEnter=function(e,index){
+                vm.typeDetail=vm.innerType[e-1];
+                vm.cateIdx=e-1;
+                vm.showCates=true;
+                vm.typeIdx=index+1;
+                $('.type').removeClass('hoveredType');
+                $('.type').eq(index).addClass('hoveredType');
+                let a=$('.type img');
+                for(let i=0;i<a.length;i++){
+                    a.eq(i).attr('src',"image/icon/icon"+(i+1)+".png");
+                }
+                // a.attr('src',"image/icon/icon"+(index+1)+".png");
+                a.eq(index).attr('src',"image/iconhover/icon"+(index+1)+".png");
+                console.log(a);
+                // let hover=$('.type').eq(index).hasClass('hoveredType');
+                //     vm.img="image/iconhover/icon"+vm.typeIdx+".png";
+                // if(hover){
+                //         $(".changeImg")[index].src = vm.img;
+                // }
+            };
+            vm.indexLeave=function(index){
+                // vm.showCates=false;
+                vm.typeIdx=index+1;
+                let wait=$('.types').hasClass('hoveredType');
+                // if(!wait){
+                //     vm.img="image/icon/icon"+vm.typeIdx+".png";
+                //     $(".changeImg")[index].src = vm.img;
+                // }
+            };
+            vm.mouseLeave=function(index){
+                vm.showCates=false;
+                $('.type').removeClass('hoveredType');
+                // var a=index+1;
+                // vm.img="image/icon/icon"+a+".png";
+                // $(".changeImg")[index].src = vm.img;
+            };
+            vm.category=function(e){
+
+            };
         });
         if (!jobType) {
             common.request('Boss/show_jobtype_list', data).then(function callback(res) {
@@ -277,23 +316,7 @@ angular.module('myApp')
             vm.sizeList = sizeList;
         }
 
-        vm.mouseEnter=function(e,index){
-            vm.typeDetail=vm.innerType[e-1];
-            vm.cateIdx=e-1;
-            vm.showCates=true;
-            var a=index+1;
-            vm.img="image/iconhover/icon"+a+".png"
-            $(".changeImg")[index].src = vm.img;
-        };
-        vm.mouseLeave=function(index){
-            vm.showCates=false;
-            var a=index+1;
-            vm.img="image/icon/icon"+a+".png"
-            $(".changeImg")[index].src = vm.img;
-        };
-        vm.category=function(e){
 
-        };
         // //轮播图
         common.request('Boss/show_banner', data).then(function callback(res) {
             if (res.data.code === 200) {

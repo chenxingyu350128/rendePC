@@ -1,8 +1,4 @@
-@import "lib/footer.css";
-@import "lib/header.css";
-/*.nav div:nth-child(3){*/
-    /*border-bottom: 5px solid #e11c19;*/
-/*}*/
+
 .checkBox{
     margin-bottom: .1rem;
 }

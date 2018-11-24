@@ -82,14 +82,14 @@ body{
 .typeDetails .category{
     display: inline-block;
     padding: .1rem;
-    margin: .1rem;
+    margin: .2rem .1rem;
     color:#000;
     background: #e3e7ed;
     cursor: pointer;
     border-radius: 5px;
 }
 .typeDetails .category:hover{
-    background: #190e63;
+    background: #c20c20;
     color: #fff;
 }
 .topDiv+.topDiv{
@@ -148,6 +148,10 @@ body{
 }
 .types div:nth-of-type(even){
     background: #630e0e;
+}
+ .top .types .hoveredType{
+    background: #fff;
+    color: #000;
 }
 .swiper {
     box-sizing: border-box;
