@@ -402,12 +402,87 @@ angular.module('myApp')
             }
         }
     })
-    .factory('changed',function($http,$state,$timeout,common,modalBox){
+    .factory('changed',function($http,$state,$timeout,hotSearch,bannerImg,common,modalBox){
         return {
-            hotsearch: function(){
+            hotSearchList: function(){
+                let vm=this;
                 let data={};
                 data['city']=sessionStorage.getItem('city');
-                common.request('other/hot_search',data).then()
+                if(!hotSearch){
+                    common.request('other/hot_search',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.hotSearch = res.data.data;
+                            sessionStorage.setItem('hotSearch',JSON.stringify(vm.hotSearch));
+                        }
+                        else if(res.data.code===201){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
+                        }
+                        else{
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
+                        }
+                    })
+                }else{
+                    vm.hotSearch=hotSearch;
+                }
+                return vm.hotSearch
+            },
+            bannerList: function(){
+                let vm=this;
+                let data={};
+                data['city']=sessionStorage.getItem('city');
+                if(!bannerImg){
+                    common.request('Boss/show_banner',data).then(function callback(res){
+                        if(res.data.code===200){
+                            vm.banner = res.data.data;
+                            sessionStorage.setItem('bannerImg',JSON.stringify(vm.banner));
+                        }
+                        else if(res.data.code===201){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
+                        }
+                        else{
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
+                        }
+                    })
+                }else{
+                    vm.banner=bannerImg;
+                }
+                return vm.banner
             }
         }
     })
@@ -415,10 +490,6 @@ angular.module('myApp')
         return {
           cityByLetter: function () {
               let params={};
-
-            // 包含市县级数据，否则市级数据
-            // configure.contain = configure.options.whole ? configure.whole : configure.newCityData;
-
             //分类的城市
             params.filterCity = {
                 A: [],

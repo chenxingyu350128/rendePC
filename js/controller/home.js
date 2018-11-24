@@ -1,23 +1,22 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,jobType,arrival,natureList,innerType,devJobType,eduList,boon,sizeList,expList,common,modalBox,listsRequest) {
+    .controller('HomeCtrl',function ($http,$state,$timeout,$scope,$stateParams,jobType,arrival,natureList,innerType,devJobType,eduList,boon,sizeList,expList,common,modalBox,listsRequest,changed) {
         let vm=this;
+        sessionStorage.setItem('mainNav',1);
         vm.showKey=function(){
             console.log(vm.keyword)
         };
         let data={};
         vm.lists=listsRequest.lists();
+        vm.bannerList=changed.bannerList();
+        vm.hotSearchList=changed.hotSearchList();
+        //先运行，否则后续页面不显示
         data['city']=sessionStorage.getItem('city');
         $scope.$on('ngRepeatFinished2', function () {
             //轮播图repeat完成后
            $('.carousel-inner div').eq(0).addClass('active');
         });
-        // 各种用到的通用列表
-        vm.lists=listsRequest.lists();
-        console.log(vm.lists);
-        vm.jobType=vm.lists.devJobType;
-        vm.innerType=vm.lists.innerType;
         if (!jobType) {
             common.request('Boss/show_jobtype_list', data).then(function callback(res) {
                 if (res.data.code === 200) {
@@ -42,7 +41,7 @@ angular.module('myApp')
                             }
                         }
                     }
-              }
+                }
                 else if (res.data.code === 201) {
                     vm.showAlert=true;
                     modalBox.alert('homeJobType', function () {
@@ -65,13 +64,11 @@ angular.module('myApp')
             vm.innerType = innerType;
             vm.eazyMainType = jobType;
         }
-        console.log(vm.devJobType);
         //福利待遇列表
         if (!boon) {
             common.request('Boss/show_boon', data).then(function callback(res) {
                 if (res.data.code === 200) {
                     vm.boon = res.data.data;
-                    // sessionStorage.setItem('boon', JSON.stringify(vm.boon));
                 }
                 else if (res.data.code === 201) {
                     if(!vm.showAlert){
@@ -106,7 +103,6 @@ angular.module('myApp')
             common.request('Boss/come_job_list', data).then(function callback(res) {
                 if (res.data.code === 200) {
                     vm.comeJobList = res.data.data;
-                    // sessionStorage.setItem('arrival', JSON.stringify(vm.comeJobList));
                 }
                 else if (res.data.code === 201) {
                     if(!vm.showAlert){
@@ -141,7 +137,6 @@ angular.module('myApp')
             common.request('Boss/show_job_years', data).then(function callback(res) {
                 if (res.data.code === 200) {
                     vm.expList = res.data.data;
-                    // sessionStorage.setItem('expList', JSON.stringify(vm.expList));
                 }
                 else if (res.data.code === 201) {
                     if(!vm.showAlert){
@@ -178,7 +173,6 @@ angular.module('myApp')
                 if (res.data.code === 200) {
                     vm.mark6 = true;
                     vm.eduList = res.data.data;
-                    // sessionStorage.setItem('eduList', JSON.stringify(vm.eduList));
                 }
                 else if (res.data.code === 201) {
                     if(!vm.showAlert){
@@ -215,7 +209,6 @@ angular.module('myApp')
             common.request('Boss/show_nature',data).then(function callback(res){
                 if(res.data.code===200){
                     vm.natureList = res.data.data;
-                    // sessionStorage.setItem('natureList',JSON.stringify(vm.natureList));
                 }
                 else if(res.data.code===201){
                     if(!vm.showAlert){
@@ -252,7 +245,6 @@ angular.module('myApp')
             common.request('Boss/show_job_size', data).then(function callback(res) {
                 if (res.data.code === 200) {
                     vm.sizeList = res.data.data;
-                    // sessionStorage.setItem('sizeList', JSON.stringify(vm.sizeList));
                 }
                 else if (res.data.code === 201) {
                     if(!vm.showAlert){
@@ -299,7 +291,6 @@ angular.module('myApp')
             vm.img="image/icon/icon"+a+".png"
             $(".changeImg")[index].src = vm.img;
         };
-
         vm.category=function(e){
 
         };

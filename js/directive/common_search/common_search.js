@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout,modalBox) {
+app.directive('commonSearch',function ($http,$state,$stateParams,changed,hotSearch,common,$timeout,modalBox) {
     return {
         restrict: 'EA',
         replace: true,
@@ -8,7 +8,8 @@ app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout
         scope: {
         },
         link: function (scope) {
-            scope.hotSearch=listsRequest.lists().hotSearch;
+            scope.hotSearchList=changed.hotSearchList();
+            console.log(scope.hotSearchList);
         }
     }
 });

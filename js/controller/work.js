@@ -22,6 +22,7 @@ angular.module('myApp')
         }
         vm.salaryList=salaryList;
         let postData={};
+        postData['city']=sessionStorage.getItem('city');
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
