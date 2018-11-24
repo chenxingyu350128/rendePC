@@ -6,7 +6,7 @@ angular.module('myApp')
             $(window).scroll(function() {
                 let s = $(window).scrollTop();
                 if(s>265){
-                   $('.letter_row').addClass('fixedRow')
+                    $('.letter_row').addClass('fixedRow')
                 }else{
                     $('.letter_row').removeClass('fixedRow');
                 }

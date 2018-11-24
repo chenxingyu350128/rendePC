@@ -14,11 +14,10 @@ angular.module('myApp')
            $('.carousel-inner div').eq(0).addClass('active');
         });
         // 各种用到的通用列表
-        // vm.lists=listsRequest.lists();
-        // console.log(vm.lists);
-        // vm.jobType=vm.lists.devJobType;
-        // vm.innerType=vm.lists.innerType;
-        //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        vm.lists=listsRequest.lists();
+        console.log(vm.lists);
+        vm.jobType=vm.lists.devJobType;
+        vm.innerType=vm.lists.innerType;
         if (!jobType) {
             common.request('Boss/show_jobtype_list', data).then(function callback(res) {
                 if (res.data.code === 200) {
@@ -43,10 +42,7 @@ angular.module('myApp')
                             }
                         }
                     }
-                    // sessionStorage.setItem('jobType', JSON.stringify(vm.eazyMainType));//总分类列表（只含name）
-                    // sessionStorage.setItem('devJobType', JSON.stringify(vm.devJobType));//总分类列表
-                    // sessionStorage.setItem('innerType', JSON.stringify(vm.innerType));//各分类详细
-                }
+              }
                 else if (res.data.code === 201) {
                     vm.showAlert=true;
                     modalBox.alert('homeJobType', function () {
@@ -69,6 +65,7 @@ angular.module('myApp')
             vm.innerType = innerType;
             vm.eazyMainType = jobType;
         }
+        console.log(vm.devJobType);
         //福利待遇列表
         if (!boon) {
             common.request('Boss/show_boon', data).then(function callback(res) {
@@ -288,16 +285,21 @@ angular.module('myApp')
             vm.sizeList = sizeList;
         }
 
-
-        vm.mouseEnter=function(e){
+        vm.mouseEnter=function(e,index){
             vm.typeDetail=vm.innerType[e-1];
             vm.cateIdx=e-1;
-            console.log(vm.typeDetail);
             vm.showCates=true;
+            var a=index+1;
+            vm.img="image/iconhover/icon"+a+".png"
+            $(".changeImg")[index].src = vm.img;
         };
-        vm.mouseLeave=function(){
+        vm.mouseLeave=function(index){
             vm.showCates=false;
+            var a=index+1;
+            vm.img="image/icon/icon"+a+".png"
+            $(".changeImg")[index].src = vm.img;
         };
+
         vm.category=function(e){
 
         };
@@ -470,5 +472,23 @@ angular.module('myApp')
         });
         $('.toBottom').on('click',function () {
             window.location.hash="#footer_bottom";
+        })
+
+        //赏金职位
+        common.request('Boss/show_money_job',{}).then(function callback(res){
+            if(res.data.code===200){
+                vm.huntData = res.data.data;
+                console.log("悬赏招聘：",vm.huntData);
+                vm.huntData.forEach(function (v) {
+                    v.area= v.address.slice(0,2);
+                })
+            }
+        })
+
+        // 获取工作列表接口
+        common.request('boss/find_job',{}).then(function callback(res){
+            if(res.data.code===200){
+                vm.workList = res.data.data;
+            }
         })
     });

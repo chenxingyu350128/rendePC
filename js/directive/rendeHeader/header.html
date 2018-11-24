@@ -1,7 +1,7 @@
-<div class="container-fluid {{client?'enterpriseHome':''}}">
+<div class="container-fluid {{client?'enterpriseHome':''}} box-bg" >
     <!--个人端-->
     <div ng-show="client==0" class="header">
-        <div class="container">
+        <div class="container"  style="margin: 20px auto;">
             <div class="row line1st">
                 <div class="logo col-lg-6 col-md-6 col-sm-6 col-xs-12">
                     <img src="image/home/logo.png" alt="">
@@ -25,7 +25,7 @@
                 </div>
             </div>
         </div>
-        <div class="nav container-fluid" style="background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25));">
+        <div class="nav container-fluid" style="background: #c20c20">
             <div class="container">
                 <div ng-repeat="x in homeMenu"
                      class="navItem"

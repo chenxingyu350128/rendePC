@@ -12,17 +12,19 @@ angular.module('myApp')
         vm.innerType=vm.lists.innerType;
         vm.hotSearch=vm.lists.hotSearch;
         vm.banner=vm.lists.bannerList;
-        vm.mouseEnter=function(e){
+        vm.mouseEnter=function(e,index){
             vm.typeDetail=vm.innerType[e-1];
             vm.cateIdx=e-1;
-            console.log(vm.typeDetail);
             vm.showCates=true;
+            var a=index+1;
+            vm.img="image/iconhover/icon"+a+".png"
+            $(".changeImg")[index].src = vm.img;
         };
-        vm.mouseLeave=function(){
+        vm.mouseLeave=function(index){
             vm.showCates=false;
-        };
-        vm.category=function(e){
-
+            var a=index+1;
+            vm.img="image/icon/icon"+a+".png"
+            $(".changeImg")[index].src = vm.img;
         };
         // //轮播图
         common.request('Boss/show_banner', {}).then(function callback(res) {

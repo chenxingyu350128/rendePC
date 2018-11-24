@@ -147,7 +147,7 @@ angular.module('myApp')
                     if(boonOnlyName.includes(realBoon[j])){
                         let inBase=boonOnlyName.indexOf(realBoon[j]);
                         boon.eq(inBase+1).css({
-                            'background': '#f00',
+                            'background': '#f61111',
                             'color': '#fff'
                         })
                     }
@@ -165,7 +165,7 @@ angular.module('myApp')
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'background': '#f00',
+                    'background': '#f61111',
                     'color': '#fff'
                 })
             }else{
@@ -176,11 +176,11 @@ angular.module('myApp')
             }
 
             typeList.eq(idx0).css({
-                'background': '#f00',
+                'background': '#f61111',
                 'color': '#fff'
             });
             salary.eq(idx1).css({
-                'background': '#f00',
+                'background': '#f61111',
                 'color': '#fff'
             });
 
@@ -228,7 +228,7 @@ angular.module('myApp')
         });
         //导航被选中高亮显示
         $('.work-position-l').eq(vm.navType).css({
-           'background': '#f00',
+           'background': '#f61111',
             'color': '#fff'
         });
     });

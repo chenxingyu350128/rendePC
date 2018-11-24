@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 <!--页眉-->
 <rende-header></rende-header>
 <!--搜索-->
@@ -135,4 +136,115 @@
 <div class="container">
     <div class="row"></div>
 </div>
+=======
+<!--页眉-->
+<rende-header></rende-header>
+<!--搜索-->
+<common-search></common-search>
+<!--xuanze-->
+<!--<div class="container checkBox">-->
+<!--<div>-->
+<!--<div class="row">-->
+<!--<span>职位:</span>-->
+<!--<div>-->
+<!--<span class="all">全部</span>-->
+<!--</div>-->
+<!--<span class="choice"ng-repeat="type in vm.typeList |limitTo: 6">{{type.name}}</span>-->
+<!--<select class="getMore" name="occupations" id="select1">-->
+<!--<option ng-repeat="type in vm.typeList >{{type.name}}</option>-->
+<!--</select>-->
+<!--</div>-->
+<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;<span>规模:</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<div>&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="all">全部</span>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<span class="choice" ng-repeat="size in vm.sizeList |limitTo:6">{{size.name}}</span>&ndash;&gt;-->
+<!--&lt;!&ndash;<select style="visibility: hidden" class="getMore" name="occupations" id="select3">&ndash;&gt;-->
+<!--&lt;!&ndash;<option ng-repeat="size in vm.sizeList ">{{size.name}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;</select>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--<div class="row">-->
+<!--<span>福利:</span>-->
+<!--<div>-->
+<!--<span class="all">全部</span>-->
+<!--</div>-->
+<!--<span class="choice" ng-repeat="boonarr in vm.show_boonList |limitTo:6">{{boonarr.name}}</span>-->
+<!--<select style="visibility: hidden" class="getMore" name="occupations" id="select4">-->
+<!--<option value="">全部</option>-->
+<!--<option ng-repeat="boonarr in vm.show_boonList">{{boonarr.name}}</option>-->
+<!--</select>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<div class="container enterNav">
+    <div class="row">
+        <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12" style="background: white;padding: 0;">
+            <div class="leftNav">
+                <div ng-click="vm.pickNav(1)" class="{{vm.nav==1?'checkedNav':''}}">
+                    <span>企业列表</span>
+                    <img src="image/home/threeSquare.png" alt="">
+                </div>
+                <div ng-click="vm.pickNav(2)" class="{{vm.nav==2?'checkedNav':''}}">
+                    <span>名企招聘</span>
+                    <img src="image/home/threeSquare.png" alt="">
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo({id:data.id})" class="occupation"style="border: none;
+    border-bottom: 1px solid gainsboro;" ng-repeat="data in vm.dataList|limitTo:8">
+                <div class="row1">
+                    <div class="leftTwo">
+                        <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
+                        <div class="sec">
+                            <div class="position">
+                                {{data.name}}
+                                <!--<img src="image/home/vip.png" alt="">-->
+                            </div>
+                            <div class="company-type grayF " style="margin: 15px 0;">{{data.job_type}} | {{data.nature}}{{data.size}} | {{data.area}}</div>
+                            <div class="demand grayF">
+                                <span ng-repeat="items in data.boonarrs track by $index"> | {{items}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="thi">
+                        <div class="line1">推荐职位</div>
+                        <div class="jobs">
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>市场经理</span>
+                            <span>查看更多</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div  class="seeMore text-center">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
+        </div>
+        <div class="recommend col-lg-3 col-md-3 col-sm-12 col-xs-12">
+            <div class="RHshell">
+                <div class="rightHeader">
+                    <span>推荐企业</span>
+                </div>
+            </div>
+            <div ui-sref="enterpriseInfo" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
+                <div class="row1">
+                    <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
+                </div>
+                <div class="text-center" style="display: block;font-weight: 600">
+                    <div>{{data.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row"></div>
+</div>
+>>>>>>> Stashed changes
 <rd-footer></rd-footer>

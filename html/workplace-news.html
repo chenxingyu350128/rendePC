@@ -1,27 +1,43 @@
 <rende-header></rende-header>
 <!--职场资讯-->
-<div class="container">
+<div class="container-fluid">
     <img src="image/workplace-banner.png" alt="" class="newsimg">
-    <div class="newscontent">
-        <div class="news">
-            <div class=" newslist-content" >
-                <div class="newslist" ui-sref="new-detail({id:data.id,index:$index+1})" ng-repeat="data in vm.dataList| limitTo : 4">
-                    <div class=" newslist-left fl">
-                        <img src="{{data.img}}" alt="" >
-                    </div>
-                    <div class=" newslist-right fl">
-                        <div class="news-title news-hidden">{{data.title}}</div>
-                        <div class="news-content"> {{data.content}}
-                        </div>
-                        <div class="fr grayF">{{data.time}}</div>
-                    </div>
-                </div >
-
-                <div class="seeMore text-center workmore newslist-content">
-                    <img src="image/home/seeMore.png" alt="">
+</div>
+<div class="newscontent container">
+        <div class=" newslist-content" >
+            <div class="newslist" ui-sref="new-detail({id:data.id,index:$index+1})" ng-repeat="data in vm.dataList| limitTo : 4">
+                <div class=" newslist-left fl">
+                    <img src="{{data.img}}" alt="" >
                 </div>
-            </div>
+                <div class=" newslist-right fl">
+                    <div class="news-title news-hidden">{{data.title}}</div>
+                    <div class="news-content"> {{data.content}}
+                    </div>
+                    <div class="fr grayF">{{data.time}}</div>
+                </div>
+            </div >
 
+            <div class="seeMore text-center workmore newslist-content">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
+        </div>
+        <div class="newlistRight">
+            <div class="news-search">
+                <input type="text" placeholder="搜索你你想要的..." ng-model="search">
+                <img src="image/topic/search.jpg">
+            </div>
+            <div class="banner"><span>热搜排行</span></div>
+            <div class="hotnewList" ng-repeat=" x in vm.dataList|filter:search|limitTo : 10">
+                <span class="{{$index<3 ? 'span-bg1':'span-bg2'}}" >{{$index+1}}</span>
+                <span style="" ui-sref="new-detail({id:x.id,index:$index+1})">{{x.title}}</span>
+            </div>
+        </div>
+    <div class="newlistRight">
+        <div class="banner"><span>今日推荐</span></div>
+        <div class="hotnewList"  ng-repeat=" x in vm.dataList| limitTo : 5">
+            <div class="tj-content">
+                {{x.content}}
+            </div>
         </div>
     </div>
 </div>

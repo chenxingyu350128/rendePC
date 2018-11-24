@@ -313,7 +313,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store',
+                url: '/store?type',
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -647,6 +647,47 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
 
+            // 账号切换
+            .state('setting',{
+                url: '/setting',
+                templateUrl: 'html/setting.html',
+                controller: 'setting',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'js/controller/setting.js',
+                        'css/setting.css',
+                        'css/headhunt.css',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
+            //用户中心
+            .state('usercenter',{
+                url: '/usercenter',
+                templateUrl: 'html/usercenter.html',
+                controller: 'userCenter',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'js/controller/usercenter.js',
+                        'css/usercenter.css',
+                        'css/headhunt-detail.css',
+                        'css/personnel-detail.css',
+                        'css/workdetail.css',
+                        'css/enterprise.css',
+                        'css/store.css',
+                        'css/enterprise/home.css',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                    ])
+                }
+            })
     });
 app.run(function($state){
     $state.go('home');

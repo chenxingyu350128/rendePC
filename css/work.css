@@ -179,7 +179,6 @@
     font-size: 24px;
     border-radius: 13px;
     font-weight: 600;
-    background: powderblue;
     box-shadow: 2px 2px 5px #999;
     float: left;
 }
@@ -245,7 +244,8 @@
 .positionLeft{
     width: 70%;
     float: left;
-     margin-right: 15px;
+    margin-right: 15px;
+    margin-bottom: 15px;
 }
 .positionRight{
     width: calc(30% - 15px);
@@ -268,6 +268,9 @@
     padding: 15px;
     border-bottom: 1px solid gainsboro;
 }
+.hot-position-list:hover{
+    background-color: rgb(251,204,210);
+}
 .hot-position-list div{
     margin: 5px 0 ;
 }
@@ -282,6 +285,10 @@
 .type-intr{
     color: grey;
     font-size: 14px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 .flex-column{
     display: flex;

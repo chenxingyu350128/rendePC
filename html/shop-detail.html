@@ -10,9 +10,9 @@
     <div class="workdetail-body">
         <div class="detail-left">
             <div class="detail-position shop-detail">
-               <div class="shop-detail-img">
-                   <img src="{{ vm.shop .img}}" alt="">
-               </div>
+                <div class="shop-detail-img">
+                    <img src="{{ vm.shop .img}}" alt="">
+                </div>
                 <div class="shop-intr">
                     <div class="shop-name ">{{ vm.shop .name }}</div>
                     <div>所需积分：<span class="colorRed">{{ vm.shop .integral}}</span>个积分</div>
@@ -26,13 +26,34 @@
                             <button ng-click="vm.add()"> + </button>
                         </div>
                     </div>
-                    <div class="fl dhsl"><button class="detail-position-put-button " ng-click="vm.exchange(vm.shop.id)">立即兑换</button></div>
+                    <div class="fl dhsl"><button class="detail-position-put-button " data-toggle="modal" data-target="#exchange">立即兑换</button></div>
+                    <!--ng-click="vm.exchange(vm.shop.id)"-->
                 </div>
             </div>
+           <!--模态框-->
+            <div class="modal fade" id="exchange" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+                        </div>
+                        <div class="modal-body">在这里添加一些文本</div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-primary">提交更改</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--商品详情-->
             <div class="detail-position-hr">
                 <div class="position-hr-top"><span> 商品详情</span></div>
-                <div class="position-hr-content" ng-repeat="img in vm.imgList track by $index">
+                <div class="redeem_gift_detail">
+                    <div ng-repeat="spec in vm.specList">{{spec}}</div><br>
+                </div>
+                <div class="position-hr-content" ng-repeat="img in vm.imgList track by $index" style="margin-top: 0">
                     <img src="{{img}}" alt="" class="shop-detail-intrimg">
                 </div>
             </div>
@@ -40,15 +61,15 @@
 
         <div class="detail-right-other" style="padding-bottom: 0">
             <div class="detail-right-other-name"><span>猜你喜欢</span></div>
-            <div class="detail-right-other-name-intr" style="border-bottom: none" ng-repeat="like in vm.likeList">
-                    <div class="shop-detail-likeimg fl">
-                        <img src="{{like.img}}" alt="" >
-                    </div>
-                    <div class="shop-detail-likeintr fl">
-                        <div>{{like.name}}</div>
-                        <div> 所需积分：<span class="likeRed ">{{like.integral}}</span> 积分</div>
-                    </div>
+            <div class="detail-right-other-name-intr" style="border-bottom: none" ng-repeat="like in vm.likeList" ui-sref="shop-detail({id:like.id})">
+                <div class="shop-detail-likeimg fl">
+                    <img src="{{like.img}}" alt="" >
                 </div>
+                <div class="shop-detail-likeintr fl">
+                    <div>{{like.name}}</div>
+                    <div> 所需积分：<span class="likeRed ">{{like.integral}}</span> 积分</div>
+                </div>
+            </div>
         </div>
 
 

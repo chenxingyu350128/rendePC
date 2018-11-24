@@ -41,6 +41,7 @@
     border: none;
     background-color: white;
     outline: 0px;
+    padding: 0 5px;
 }
 .shop-num input{
     border-right: 1px solid gray;
@@ -49,9 +50,8 @@
     border-top: none;
     background-color: white;
     width: .6rem;
-    padding: 1px .1rem;
+    padding: 1px 0px 0 11px;
     text-align: center;
-
 }
 .dhsl{
     width: 100%;
@@ -75,9 +75,21 @@
     font-size: 22px;
     font-weight: 600;
     margin-bottom: .2rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .likeRed{
     color: red;
     font-size: .25rem;
     font-weight: 600;
+}
+.redeem_gift_detail {
+    width: 100%;
+    overflow: hidden;
+    color: #666;
+    font-size: 14px;
+    line-height: 28px;
+    padding: 20px 20px 0 20px;
 }

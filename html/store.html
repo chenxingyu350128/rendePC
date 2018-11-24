@@ -8,27 +8,50 @@
     <div class="row">
         <div class="col-lg-8 content1">
             <div class="productTitle">
-                <span>推荐商品</span>
+                <span ng-hide="vm.type==1">推荐商品</span>
+                <span ng-show="vm.type==1">我的兑换</span>
             </div>
             <div class="blockCard">
-                <div ui-sref="shop-detail({id:shop.id})" class="cardUnit text-center" ng-repeat="shop in vm.shoppingList">
+                <div ui-sref="shop-detail({id:shop.id})" class="cardUnit text-center storeList" ng-repeat="shop in vm.shoppingList|limitTo:9">
                     <img src="{{shop.img}}" alt="">
                     <div class="productName">{{shop.name}}</div>
                     <div class="scoreNeed">
                         所需积分: <span>{{shop.integral }}</span>
                     </div>
                 </div>
-                <div class="seeMorePng text-center">
+                <div ng-show="vm.shoppingList.length==0">
+                    <!--<img src="image/no_data.png">-->
+                    <div class="no-List">您目前还没有兑换列表~</div>
+                </div>
+                <div class="seeMorePng text-center" ng-hide="vm.shoppingList.length==0">
                     <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
+            <div class=" content1">
+                <div class="productTitle">
+                    <span>最新商品</span>
+                </div>
+                <div class="blockCard">
+                    <div class="cardUnit text-center" ng-repeat="time in vm.timeList" ui-sref="shop-detail({id:time.id})">
+                        <img src="{{time.img}}" alt="">
+                        <div class="productName">{{time.name}}</div>
+                        <div class="scoreNeed">
+                            所需积分: <span>{{time.integral}}</span>
+                        </div>
+                    </div>
+                    <div class="seeMorePng text-center" >
+                        <img src="image/home/seeMore.png" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
+
         <div class="col-lg-4">
             <div class="user">
                 <div class="userInfo">
-                    <img src="image/home/out_avatar.png" alt="">
+                    <img src="{{vm.userList.img}}" alt="">
                     <div>
-                        <div class="username">呈现的是</div>
+                        <div class="username">{{vm.userList.name ||"暂无用户名"}}</div>
                         <div class="userScore">
                             可用积分: <span>{{vm.userList.integral}}</span>
                         </div>
@@ -39,7 +62,7 @@
                         <img src="image/store/instuctor.png" alt=""> <br>
                         <span>积分说明</span>
                     </div>
-                    <div class="text-center">
+                    <div class="text-center" ui-sref="store({type:1})">
                         <img src="image/store/exchange.png" alt=""> <br>
                         <span>我的兑换</span>
                     </div>
@@ -59,24 +82,10 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
-        <div class="col-lg-8 content1">
-            <div class="productTitle">
-                <span>最新商品</span>
-            </div>
-            <div class="blockCard">
-                <div class="cardUnit text-center" ng-repeat="time in vm.timeList" ui-sref="shop-detail({id:time.id})">
-                    <img src="{{time.img}}" alt="">
-                    <div class="productName">{{time.name}}</div>
-                    <div class="scoreNeed">
-                        所需积分: <span>{{time.integral}}</span>
-                    </div>
-                </div>
-                    <img src="image/home/seeMore.png" alt="" ng-hide="vm.timeList.length<3">
-                </div>
-            </div>
+
+        </div>
     </div>
 </div>
 <rd-footer></rd-footer>

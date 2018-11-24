@@ -24,7 +24,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             }
             //0代表客户端1代表企业端
             scope.hideNav=sessionStorage.getItem('hideNav');
-            scope.username='陈先生';
             scope.showEx=false;
             console.log(scope.cclient);
             scope.showExit=function(){

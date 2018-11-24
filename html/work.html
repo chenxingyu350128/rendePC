@@ -76,26 +76,26 @@
 
             <div class="position-list" ng-repeat="data in vm.dataList |filter:type|limitTo : 8" on-finish-render-filters2>
                 <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
-                    <img src="{{data.img}}" style="width: 89px;height: 87px">
+                    <img src="{{data.img}}" style="width: 89px;height: 87px;">
                 </div>
                 <div  class="position-list-right flex-column" >
-                    <div class="positionname fl" style="margin-bottom: 9px;">{{data.job_type}}</div>
-                    <div class="worksalary redF fl">￥{{data.start_money}}-{{data.end_money}}</div>
+                    <div class="positionname fl" style="margin-bottom: 9px;">{{data.job_type ||"暂无"}}</div>
+                    <div class="worksalary redF fl">￥{{data.start_money||"面议"}}-{{data.end_money||"面议"}}</div>
                     <div class="demand grayF workdemand">
-                        <span>{{data.experience}}|</span>
-                        <span >{{data.education}}|</span>
-                        <span>{{data.area}}</span>
+                        <span>{{data.experience||"暂无"}} | </span>
+                        <span >{{data.education||"暂无"}} | </span>
+                        <span>{{data.area ||"暂无"}}</span>
                     </div>
                 </div>
-                <div class="position-list-center flex-column" style="margin-top: 28px;">
-                    <div class="positionname fl">{{data.name}}</div>
+                <div class="position-list-center flex-column" style="margin-top: 42px;">
+                    <div class="positionname fl">{{data.name ||"暂无"}}</div>
                     <div class="demand grayF workdemand" style="margin-top: 8px;">
-                        <span>{{data.c_type}}</span>
-                        <span>|{{data.nature}}</span>
-                        <span>{{data.size}}</span>
+                        <span>{{data.c_type ||"不限"}}</span>
+                        <span>|{{data.nature ||"不限"}} | </span>
+                        <span>{{data.size ||"不限"}}</span>
                     </div>
                 </div>
-                <div class="fr">
+                <div class="fr" style="margin-top: 21px;">
                     <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
                     <br>
                     <div class="demand grayF workdemand">
