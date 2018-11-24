@@ -94,7 +94,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找人才
             .state('personel',{
-                url: '/personel?jobType&id&keyword&salary&boon&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
+                url: '/personel?jobType1&id&keyword&salary1&boon1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -231,7 +231,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找企业
             .state('enterprise',{
-                url: '/enterprise?nav&idx0&idx1&idx2&jobType&nature&size&boon&selectedType&selectedNature&selectedBoon',
+                url: '/enterprise?nav0&idx00&idx01&idx02&jobType0&nature0&size0&boon0&selectedType0&selectedNature0&selectedBoon0',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',

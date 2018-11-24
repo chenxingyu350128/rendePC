@@ -1,6 +1,6 @@
 'use strict';
 
-app.directive('commonSearch',function ($http,$state,$stateParams,listsRequest,common,$timeout,modalBox) {
+app.directive('commonSearch',function ($http,$state,$stateParams,common,$timeout,modalBox) {
     return {
         restrict: 'EA',
         replace: true,

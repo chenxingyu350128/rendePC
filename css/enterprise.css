@@ -25,6 +25,11 @@
 .checkBox .boonRow .choice{
     width: 9.72%;
 }
+.boonRow .choice3 span{
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto;
+}
 .checkBox .row>span{
     text-align: center;
     width: 12.5%;

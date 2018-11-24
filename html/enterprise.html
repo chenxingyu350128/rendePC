@@ -60,7 +60,9 @@
                   ng-click="vm.getBoon(x.name)"
                   ng-repeat="x in vm.boonList"
                   on-finish-render-filters>
-                {{x.name}}
+                <span>
+                      {{x.name}}
+                </span>
             </span>
         </div>
     </div>
@@ -69,11 +71,11 @@
     <div class="row">
         <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <div class="leftNav">
-                <div ui-sref="enterprise({nav:0})" class="{{vm.nav==0?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav0:0})" class="{{vm.nav==0?'checkedNav':''}}">
                     <span>企业列表</span>
                     <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
                 </div>
-                <div ui-sref="enterprise({nav:1})" class="{{vm.nav==1?'checkedNav':''}}">
+                <div ui-sref="enterprise({nav0:1})" class="{{vm.nav==1?'checkedNav':''}}">
                     <span>名企招聘</span>
                     <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
                 </div>

@@ -47,9 +47,9 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                     }
                     else if(res.data.code===201){
                         modalBox.alert(res.data.msg,function(){
-                            sessionStorage.removeItem('signSuccess');
+                            // sessionStorage.removeItem('signSuccess');
                             $timeout(function(){
-                                $state.go('signPage',{login:1})
+                                $state.go('signPage')
                             },300)
                         });
                     }
@@ -71,7 +71,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                         modalBox.alert(res.data.msg,function(){
                             sessionStorage.removeItem('signSuccess');
                             $timeout(function(){
-                                $state.go('signPage',{login:1})
+                                $state.go('signPage')
                             },300)
                         });
                     }

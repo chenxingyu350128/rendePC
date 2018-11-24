@@ -140,6 +140,7 @@ angular.module('myApp')
                             sessionStorage.setItem('innerType', JSON.stringify(vm.innerType));//各分类详细
                         }
                         else if (res.data.code === 201) {
+                            vm.showAlert=true;
                             modalBox.alert('jobType', function () {
                                 $timeout(function () {
                                     $state.go('signPage')
@@ -147,12 +148,16 @@ angular.module('myApp')
                             });
                         }
                         else {
-                            modalBox.alert(res.data.msg)
+                            vm.showAlert=true;
+                            modalBox.alert('jobType', function () {
+                                $timeout(function () {
+                                    $state.go('signPage')
+                                }, 300)
+                            });
                         }
                     });
                 }
                 else {
-                    console.log('you行业LLLL');
                     vm.devJobType = devJobType;
                     vm.innerType = innerType;
                     vm.eazyMainType = jobType;
@@ -165,12 +170,28 @@ angular.module('myApp')
                             sessionStorage.setItem('boon', JSON.stringify(vm.boon));
                         }
                         else if (res.data.code === 201) {
-                            $timeout(function () {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
                                 $state.go('signPage')
-                            }, 300);
+                            }
                         }
                         else if (res.data.code === 404) {
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
                     });
                 } else {
@@ -184,15 +205,28 @@ angular.module('myApp')
                             sessionStorage.setItem('arrival', JSON.stringify(vm.comeJobList));
                         }
                         else if (res.data.code === 201) {
-                            $timeout(function () {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
                                 $state.go('signPage')
-                            }, 300);
-                            // modalBox.alert(res.data.msg, function () {
-                            //
-                            // });
+                            }
                         }
                         else {
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
                     });
                 } else {
@@ -206,18 +240,29 @@ angular.module('myApp')
                             sessionStorage.setItem('expList', JSON.stringify(vm.expList));
                         }
                         else if (res.data.code === 201) {
-                            $timeout(function () {
-                                $state.go('signPage', {login: 1})
-                            }, 300);
-                            // modalBox.alert(res.data.msg, function () {
-                            //
-                            // });
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
                         else {
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
-
-
                     })
                 }
                 else {
@@ -227,21 +272,41 @@ angular.module('myApp')
                 if (!eduList) {
                     common.request('Boss/show_education_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            vm.mark6 = true;
                             vm.eduList = res.data.data;
                             sessionStorage.setItem('eduList', JSON.stringify(vm.eduList));
                         }
                         else if (res.data.code === 201) {
-                            vm.mark6 = false;
-                            $timeout(function () {
-                                $state.go('signPage')
-                            }, 300);
-                            // modalBox.alert(res.data.msg, function () {
-                            //
-                            // });
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                if(!vm.showAlert){
+                                    vm.showAlert=!vm.showAlert;
+                                    modalBox.alert(res.data.msg,function () {
+                                        $timeout(function () {
+                                            $state.go('signPage')
+                                        }, 300);
+                                    })
+                                }else{
+                                    $state.go('signPage')
+                                }
+                            }
                         }
                         else {
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
 
                     });
@@ -257,15 +322,28 @@ angular.module('myApp')
                             sessionStorage.setItem('natureList',JSON.stringify(vm.natureList));
                         }
                         else if(res.data.code===201){
-                            $timeout(function(){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
                                 $state.go('signPage')
-                            },300);
-                            // modalBox.alert(res.data.msg,function(){
-                            //
-                            // });
+                            }
                         }
                         else{
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
 
                     });
@@ -281,12 +359,28 @@ angular.module('myApp')
                             sessionStorage.setItem('sizeList', JSON.stringify(vm.sizeList));
                         }
                         else if (res.data.code === 201) {
-                            $timeout(function () {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
                                 $state.go('signPage')
-                            }, 300)
+                            }
                         }
                         else {
-                            // modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                modalBox.alert(res.data.msg,function () {
+                                    $timeout(function () {
+                                        $state.go('signPage')
+                                    }, 300);
+                                })
+                            }else{
+                                $state.go('signPage')
+                            }
                         }
 
                     });
@@ -305,6 +399,15 @@ angular.module('myApp')
                     sizeList: vm.sizeList,
                     boonList: vm.boon,
                 };
+            }
+        }
+    })
+    .factory('changed',function($http,$state,$timeout,common,modalBox){
+        return {
+            hotsearch: function(){
+                let data={};
+                data['city']=sessionStorage.getItem('city');
+                common.request('other/hot_search',data).then()
             }
         }
     })
