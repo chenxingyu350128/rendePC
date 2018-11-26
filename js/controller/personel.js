@@ -9,8 +9,8 @@ angular.module('myApp')
         vm.lists=listsRequest.lists();
         vm.typeList=vm.lists.jobType;
         vm.otherTypes=vm.typeList.slice(5);
-        vm.otherTypes.unshift('更多');
         vm.show_boonList=vm.lists.boonList;
+        vm.natureList=vm.lists.natureList;
         vm.comeJobList=vm.lists.arrival;
         vm.expList=vm.lists.expList;
         vm.eduList=vm.lists.eduList;
@@ -29,12 +29,14 @@ angular.module('myApp')
         paramsData['idx10']=vm.params.idx10||0;
         paramsData['idx11']=vm.params.idx11||0;
         postData['money']=paramsData['money']=vm.params.salary1;
-        vm.edu=postData['education']=paramsData['edu1']=vm.params.edu1;
-        vm.exp=postData['experience']=paramsData['exp1']=vm.params.exp1;
+        vm.edu=vm.params.edu1;
+        vm.exp=vm.params.exp1;
+        vm.nature=vm.params.nature1;
         vm.time=postData['come_job']=paramsData['arrival1']=vm.params.arrival1;
         vm.sex=postData['sex']=paramsData['sex1']=vm.params.sex1;
+        vm.selected=paramsData['selectedType1']=vm.params.selectedType1;
+
         let realBoon=JSON.parse(sessionStorage.getItem('boonSelected1'))||[];
-        console.log(realBoon);
         postData['boonarr']=JSON.stringify(vm.params.boon1);
         if(realBoon.length){
             $('.allBoon').css({
@@ -46,10 +48,6 @@ angular.module('myApp')
                 'background': '#f00',
                 'color': '#fff'
             })
-        }
-        vm.selected=vm.params.selectedType1;
-        if(vm.params.idx10){
-            vm.selected=vm.otherTypes[0];
         }
         if(vm.keyword){
             postData['find']=vm.keyword;
@@ -63,8 +61,6 @@ angular.module('myApp')
                 realBoon.splice(idx,1);
             }
             sessionStorage.setItem('boonSelected1',JSON.stringify(realBoon));
-            console.log(realBoon);
-            console.log(Array.isArray(realBoon));
             postData['boonarr']=paramsData['boon1']=realBoon;
             $state.go('personel',paramsData,{reload:true})
         };
@@ -79,6 +75,7 @@ angular.module('myApp')
         vm.getJobType=function(x,idx){
             paramsData['jobType1']=x;
             paramsData['idx10']=idx;
+            paramsData['selectedType1']='';
             $state.go('personel',paramsData,{reload:true})
         };
         vm.getType=function(e){
@@ -111,11 +108,16 @@ angular.module('myApp')
         };
         //清除学历，经验，到岗时间等
         vm.clearOthers=function(){
-            vm.edu=postData['education']=paramsData['edu1']='';
-            vm.exp=postData['experience']=paramsData['exp1']='';
-            vm.time=postData['come_job']=paramsData['arrival1']='';
-            vm.sex=postData['sex']=paramsData['sex1']='';
-            $state.go('personel',paramsData,{reload:true})
+            paramsData['edu1']='';
+            paramsData['exp1']='';
+            paramsData['arrival1']='';
+            paramsData['sex1']='';
+            paramsData['nature1']='';
+            $state.go('.',paramsData,{reload:true})
+        };
+        vm.getNature=function(e){
+            paramsData['nature1']=e;
+            $state.go('.',paramsData,{reload:true})
         };
         vm.getEdu=function(e){
             vm.edu=postData['education']=paramsData['edu1']=e;
@@ -135,46 +137,50 @@ angular.module('myApp')
         };
         $scope.$on('ngRepeatFinished', function () {
             //repeat结束
-            let typeList=$('.Type');
-            let salary=$('.salaryBtn');
-            let boon=$('.boonOpt');
-            let idx0=paramsData['idx10'];
-            let idx1=paramsData['idx11'];
+            let typeList=$('.Type span');
+            let salary=$('.salaryBtn span');
+            let boon=$('.boonOpt span');
+            let idx10=paramsData['idx10'];
+            let idx11=paramsData['idx11'];
             let boonOnlyName=[];
             for(let i=0;i<vm.boon.length;i++){//css点亮已选项
                 boonOnlyName[i]=vm.boon[i].name;
                 for(let j=0;j<realBoon.length;j++){
                     if(boonOnlyName.includes(realBoon[j])){
                         let inBase=boonOnlyName.indexOf(realBoon[j]);
-                        boon.eq(inBase+1).css({
+                        boon.eq(inBase).css({
                             'background': '#f00',
                             'color': '#fff'
                         })
                     }
                 }
             }
-            if(vm.idx0===undefined){
+            if(vm.idx10===undefined){
                 $('.typeSelect').css({
                     'background': '#fff',
                     'color': '#000'
                 })
             }
+            typeList.eq(idx10).css({
+                'background': '#f00',
+                'color': '#fff'
+            });
             if(vm.selected){
                 typeList.eq(0).css({
                     'background': '#fff',
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'background': '#f00',
-                    'color': '#fff'
+                    'border': '1px solid #f61111',
+                    'color': '#f61111'
+                })
+            }else{
+                $('.typeSelect').css({
+                    'border': '1px solid #000',
+                    'color': '#000'
                 })
             }
-
-            typeList.eq(idx0).css({
-                'background': '#f00',
-                'color': '#fff'
-            });
-            salary.eq(idx1).css({
+            salary.eq(idx11).css({
                 'background': '#f00',
                 'color': '#fff'
             });
@@ -186,8 +192,62 @@ angular.module('myApp')
         }else{
             url='Boss/recommend_resume';
         }
+        if(vm.nature){
+            $('#nature').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#nature').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.edu){
+            $('#education').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#education').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.exp){
+            $('#experience').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#experience').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.sex){
+            $('#gender').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#gender').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.time){
+            $('#arrival').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#arrival').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
         common.request(url,postData).then(function callback(res){
-            console.log(postData);
             if(res.data.code===200){
                 if(res.data.data.length){
                     vm.dataList=res.data.data;
@@ -211,7 +271,6 @@ angular.module('myApp')
         $scope.$on('ngRepeatFinished2', function () {
             //repeat完成后
             vm.throw= function(id,index){
-                console.log(index);
                 common.request('user/throw_resume',{j_id:id}).then(function callback(res){
                     $(".position-btn").eq(index).text("已查看");
                     $timeout(function(){

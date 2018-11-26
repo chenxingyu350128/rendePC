@@ -335,7 +335,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /*padding: 5px 12px;*/
+    padding: 0;
+}
+.checkBox .row .salaryInput{
+    width: 25%;
+}
+.checkBox .row>span span{
+    padding: 6px 12px;
 }
 .checkBox .row>select{
     width: 12.5%;
@@ -350,4 +356,25 @@
     margin-left: .3rem;
     padding: 5px 12px;
 }
+/*下拉菜单组*/
+.demand {
+    display: flex;
+    margin-top: .31rem; }
+.demand .ocp {
+    padding: .05rem .12rem; }
+.demand .ocp:nth-child(2) {
+    /*margin-right: .46rem;*/
+    margin-left: .18rem; }
+.demand .select {
+    box-sizing: border-box;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    background: url("../image/home/selectIcon.png") no-repeat right center transparent;
+    -webkit-background-size: .28rem 100%;
+    background-size: .28rem 100%;
+    padding: 0 .5rem 0 .19rem; }
+.demand select + select {
+    margin-left: .5rem; }
 

@@ -4,7 +4,7 @@ angular.module('myApp')
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
-        vm.nav=parseInt(vm.params.nav)||0;
+        vm.nav=parseInt(vm.params.nav0)||0;
         let postData={};
         let paramsData={};
         // 获取福利待遇接口
@@ -20,9 +20,9 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType0;
         vm.selectedNature=vm.params.selectedNature0;
         vm.selectedBoon=vm.params.selectedBoon0;
-        vm.idx0=vm.params.idx00||0;
-        vm.idx1=vm.params.idx01||0;
-        vm.idx2=vm.params.idx02||0;
+        vm.idx0=vm.params.idx00;
+        vm.idx1=vm.params.idx01;
+        vm.idx2=vm.params.idx02;
         postData['jobType']=vm.params.jobType0;
         postData['nature']=vm.params.nature0;
         postData['size']=vm.params.size0;
@@ -115,9 +115,9 @@ angular.module('myApp')
         };
         $scope.$on('ngRepeatFinished', function () {
             //repeat完成后
-            let choice0=$('.choice0');
-            let choice1=$('.choice1');
-            let choice2=$('.choice2');
+            let choice0=$('.choice0 span');
+            let choice1=$('.choice1 span');
+            let choice2=$('.choice2 span');
             let boon=$('.choice3 span');
             let boonOnlyName=[];
             for(let i=0;i<vm.boonList.length;i++){//css点亮已选项
@@ -145,11 +145,13 @@ angular.module('myApp')
             }
             if(vm.params.selectedType0){
                 $('.typeSelect').css({
-                    'border': '3px solid #c30c30'
+                    'border': '3px solid #c30c30',
+                    'color': '#c30c30'
                 })
             }else{
                 $('.typeSelect').css({
-                    'border': '3px solid #000'
+                    'border': '3px solid #000',
+                    'color': '#000'
                 })
             }//nature
             if(vm.idx1===undefined){
@@ -165,11 +167,13 @@ angular.module('myApp')
             }
             if(vm.params.selectedNature0){
                 $('.natureSelect').css({
-                    'border': '3px solid #c30c30'
+                    'border': '3px solid #c30c30',
+                    'color': '#c30c30'
                 })
             }else{
                 $('.natureSelect').css({
-                    'border': '3px solid #000'
+                    'border': '3px solid #000',
+                    'color': '#000'
                 })
             }
             //size
@@ -186,6 +190,12 @@ angular.module('myApp')
                 })
             }
         });
+        if(!vm.params.boon0){
+            $('.boonIgnore').css({
+                'background': '#f61111',
+                'color': '#fff'
+            })
+        }
         //请求放最后，先选条件
         common.request(url,postData).then(function callback(res){
             if(res.data.code===200){

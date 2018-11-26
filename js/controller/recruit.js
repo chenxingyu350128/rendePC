@@ -17,21 +17,21 @@ angular.module('myApp')
         // let url='';
         // url=vm.nav?'Boss/show_work':'Boss/recommend_work';
         postData['job_type']=paramsData['jobType']=vm.params.jobType;
-        vm.idx=parseInt(vm.params.idx);
+        vm.idx=parseInt(vm.params.idx30);
         vm.clearType=function(){
             paramsData['jobType']='';
-            paramsData['idx']=0;
+            paramsData['idx30']=0;
             $state.go('recruit',paramsData,{reload:true});
         };
         vm.getJobType=function(e,idx){
             paramsData['jobType']=e;
-            paramsData['idx']=idx;
+            paramsData['idx30']=idx;
             paramsData['selectedType']='';
             $state.go('recruit',paramsData,{reload:true});
         };
         vm.getType=function(x){
             paramsData['jobType']=paramsData['selectedType']=x;
-            paramsData['idx']='';
+            paramsData['idx30']=undefined;
             $state.go('recruit',paramsData,{reload:true});
         };
         common.request('Boss/show_work',postData).then(function callback(res){
@@ -66,9 +66,15 @@ angular.module('myApp')
                    'color': '#000'
                });
                $('.typeSelect').css({
-                   'background': '#f00',
-                   'color': '#fff'
+                   'border': '3px solid #f61111',
+                   'color': '#f61111'
                });
+           }
+           else{
+               $('.typeSelect').css({
+                   'border': '3px solid #000',
+                   'color': '#000'
+               })
            }
         });
     });

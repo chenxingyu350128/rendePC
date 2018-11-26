@@ -13,16 +13,12 @@
     </div>
     <div class="hotOcp">
         <span class="underNav">职位: </span>
-        <span class="job_type" ng-click="vm.clearType()">全部</span>
-        <span class="job_type"
+        <span class="job_type btn" ng-click="vm.clearType()">全部</span>
+        <span class="job_type btn"
               ng-click="vm.getJobType(x,$index+1)"
               on-finish-render-filters
               ng-repeat="x in vm.typeList |limitTo :6">{{x}}
         </span>
-        <!--<span ui-sref="recruit({type:3})" class="underNav hot {{vm.type==3?'checkedType':''}}">电子</span>-->
-        <!--<span ui-sref="recruit({type:4})" class="underNav hot {{vm.type==4?'checkedType':''}}">保姆</span>-->
-        <!--<span ui-sref="recruit({type:5})" class="underNav hot {{vm.type==5?'checkedType':''}}">货运</span>-->
-        <!--<span ui-sref="recruit({type:6})" class="underNav hot {{vm.type==6?'checkedType':''}}">快递</span>-->
         <select class="underNav job_type typeSelect"
                 name="kind"
                 ng-change="vm.getType(vm.selectedType)"

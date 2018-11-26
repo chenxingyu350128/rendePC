@@ -11,6 +11,7 @@ angular.module('myApp')
         vm.otherTypes=vm.typeList.slice(5);
         // vm.otherTypes.unshift('更多');
         vm.show_boonList=vm.lists.boonList;
+        vm.natureList=vm.lists.natureList;
         vm.comeJobList=vm.lists.arrival;
         vm.expList=vm.lists.expList;
         vm.eduList=vm.lists.eduList;
@@ -27,10 +28,11 @@ angular.module('myApp')
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
         postData['jobType']=paramsData['jobType']=vm.params.jobType;
-        paramsData['idx0']=vm.params.idx0||0;
-        paramsData['idx1']=vm.params.idx1||0;
+        paramsData['idx0']=vm.params.idx0;
+        paramsData['idx1']=vm.params.idx1;
         postData['money']=paramsData['money']=vm.params.salary;
         vm.edu=postData['education']=paramsData['edu']=vm.params.edu;
+        vm.nature=postData['nature']=paramsData['nature']=vm.params.nature;
         vm.exp=postData['experience']=paramsData['exp']=vm.params.exp;
         vm.time=postData['come_job']=paramsData['arrival']=vm.params.arrival;
         vm.sex=postData['sex']=paramsData['sex']=vm.params.sex;
@@ -101,7 +103,7 @@ angular.module('myApp')
         };
         vm.defSalary=function(x,y){
             paramsData['salary']=x+'-'+y;
-            paramsData['idx1']='';
+            paramsData['idx1']=undefined;
             $state.go('.',paramsData,{reload:true})
         };
         //清除福利
@@ -112,31 +114,36 @@ angular.module('myApp')
         };
         //清除学历，经验，到岗时间等
         vm.clearOthers=function(){
-            vm.edu=postData['education']=paramsData['edu']='';
-            vm.exp=postData['experience']=paramsData['exp']='';
-            vm.time=postData['come_job']=paramsData['arrival']='';
-            vm.sex=postData['sex']=paramsData['sex']='';
+            paramsData['edu']='';
+            paramsData['exp']='';
+            paramsData['arrival']='';
+            paramsData['sex']='';
+            paramsData['nature']='';
+            $state.go('.',paramsData,{reload:true})
+        };
+        vm.getNature=function(e){
+            paramsData['nature']=e;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getEdu=function(e){
-            vm.edu=postData['education']=paramsData['edu']=e;
+            paramsData['edu']=e;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getExp=function(e){
-            vm.exp=postData['experience']=paramsData['exp']=e;
+            paramsData['exp']=e;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getSex=function(e){
-            vm.time=postData['sex']=paramsData['sex']=e;
+            paramsData['sex']=e;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getArrival=function(e){
-            vm.time=postData['come_job']=paramsData['arrival']=e;
+            paramsData['arrival']=e;
             $state.go('.',paramsData,{reload:true});
         };
         $scope.$on('ngRepeatFinished', function () {
             //repeat结束
-            let typeList=$('.Type');
+            let typeList=$('.Type span');
             let salary=$('.salaryBtn span');
             let boon=$('.boonOpt span');
             let idx0=paramsData['idx0'];
@@ -160,25 +167,26 @@ angular.module('myApp')
                     'color': '#000'
                 })
             }
+            typeList.eq(idx0).css({
+                'background': '#f61111',
+                'color': '#fff'
+            });
             if(vm.selected){
                 typeList.eq(0).css({
                     'background': '#fff',
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'border': '1px solid #c20c20',
+                    'border': '3px solid #f61111',
+                    'color': '#f61111'
                 })
             }else{
                 $('.typeSelect').css({
-                    'border': '1px solid #000'
+                    'border': '3px solid #000',
+                    'color': '#000'
                 })
             }
-
-            typeList.eq(idx0).css({
-                'background': '#f61111',
-                'color': '#fff'
-            });
-            salary.eq(idx1-1).css({
+            salary.eq(idx1).css({
                 'background': '#f61111',
                 'color': '#fff'
             });
@@ -189,6 +197,67 @@ angular.module('myApp')
             url='Boss/find_job';
         }else{
             url='Boss/new_job';
+        }
+        if(vm.nature){
+            $('#nature').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#nature').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.edu){
+            $('#education').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#education').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.exp){
+            $('#experience').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#experience').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.sex){
+            $('#gender').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#gender').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(vm.time){
+            $('#arrival').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#arrival').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+        if(!vm.time&&!vm.sex&&!vm.exp&&!vm.edu&&!vm.nature){
+            $('.allOptions').css({
+                'background': '#f61111',
+                'color': '#fff'
+            })
         }
         common.request(url,postData).then(function callback(res){
             console.log(postData);

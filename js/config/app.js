@@ -63,7 +63,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?jobType&id&keyword&salary&boon&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
+                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -94,7 +94,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找人才
             .state('personel',{
-                url: '/personel?jobType1&id&keyword&salary1&boon1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1',
+                url: '/personel?jobType1&id&keyword&salary1&boon1&nature1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -390,7 +390,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//普工
             .state('GWorker',{
-                url: '/GWorker??navType&jobType&idx&selectedType',
+                url: '/GWorker??navType&jobType&idx40&selectedType',
                 templateUrl: 'html/GWorker.html',
                 controller: 'GWorkerCtrl',
                 controllerAs: 'vm',
@@ -408,7 +408,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//店铺/招普工
             .state('recruit',{
-                url: '/recruit?navType&jobType&idx&selectedType',
+                url: '/recruit?navType&jobType&idx30&selectedType',
                 templateUrl: 'html/recruit.html',
                 controller: 'recruitCtrl',
                 controllerAs: 'vm',

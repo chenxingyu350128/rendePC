@@ -5,13 +5,15 @@
 <div class="container checkBox">
     <div>
         <div class="row optRow">
-            <span>
+            <span class="choice0">
                 职位:
-                <span ng-click="vm.clearType()" class="all allType choice0 ">全部</span>
+                <span ng-click="vm.clearType()" class="btn allType choice0 ">全部</span>
             </span>
             <span  ng-click='vm.getJobType(x,$index+1)'
                    class="choice choice0"
-                   ng-repeat="x in vm.jobType |limitTo: 6" on-finish-render-filters>{{x}}</span>
+                   ng-repeat="x in vm.jobType |limitTo: 6" on-finish-render-filters>
+                <span class="btn">{{x}}</span>
+            </span>
             <select ng-model="vm.selectedType"
                     ng-change="vm.getType(vm.selectedType)"
                     class="getMore typeSelect"
@@ -21,15 +23,15 @@
             </select>
         </div>
         <div class="row optRow">
-            <span>
+            <span class="choice1">
                 性质:
-                <span ng-click="vm.clearNature()" class="all choice1 allNature">全部</span>
+                <span ng-click="vm.clearNature()" class="allNature btn">全部</span>
             </span>
             <span ng-click='vm.getNatureType(x.name,$index+1)'
                   class="choice choice1"
                   ng-repeat="x in vm.natureList |limitTo: 6"
                   on-finish-render-filters>
-                {{x.name}}
+                <span class="btn">{{x.name}}</span>
             </span>
             <select ng-model="vm.selectedNature"
                     ng-change="vm.getNature(vm.selectedNature)"
@@ -40,27 +42,27 @@
             </select>
         </div>
         <div class="row optRow">
-            <span>
+            <span class=" choice2">
                 规模:
-                <span ng-click="vm.clearSize()" class="all choice2 allSize">全部</span>
+                <span ng-click="vm.clearSize()" class="allSize btn">全部</span>
             </span>
             <span class="choice choice2"
                   ng-click="vm.getSize(x.name,$index+1)"
                   ng-repeat="x in vm.sizeList"
                   on-finish-render-filters>
-                {{x.name}}
+                <span class="btn">{{x.name}}</span>
             </span>
         </div>
         <div class="row optRow boonRow">
-            <span>
+            <span class="">
                 福利:
-                <span ng-click="vm.clearBoon()" class="all allBoon">全部</span>
+                <span class="boonIgnore btn" ng-click="vm.clearBoon()">全部</span>
             </span>
             <span class="choice choice3"
                   ng-click="vm.getBoon(x.name)"
                   ng-repeat="x in vm.boonList"
                   on-finish-render-filters>
-                <span>
+                <span class="btn">
                       {{x.name}}
                 </span>
             </span>
