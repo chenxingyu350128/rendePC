@@ -10,12 +10,16 @@ angular.module('myApp')
         // 获取福利待遇接口
         vm.lists=listsRequest.lists();
         vm.jobType=vm.lists.jobType;
-        vm.otherTypes=vm.jobType.slice(6);
+        if(vm.jobType.length){
+            vm.otherTypes=vm.jobType.slice(6);
+        }
         vm.natureList=vm.lists.natureList;
-        vm.otherNatures=vm.natureList.slice(6);
+        if( vm.natureList){
+            vm.otherNatures=vm.natureList.slice(6);
+        }
         vm.sizeList=vm.lists.sizeList;
         vm.boonList=vm.lists.boonList;
-        vm.otherBoones=vm.boonList.slice(6);
+        // vm.otherBoones=vm.boonList.slice(6);
         //获取$stateParams值
         vm.selectedType=vm.params.selectedType0;
         vm.selectedNature=vm.params.selectedNature0;
@@ -150,7 +154,7 @@ angular.module('myApp')
                 })
             }else{
                 $('.typeSelect').css({
-                    'border': '3px solid #000',
+                    'border': '3px solid #848484',
                     'color': '#000'
                 })
             }//nature
@@ -172,7 +176,7 @@ angular.module('myApp')
                 })
             }else{
                 $('.natureSelect').css({
-                    'border': '3px solid #000',
+                    'border': '3px solid #848484',
                     'color': '#000'
                 })
             }

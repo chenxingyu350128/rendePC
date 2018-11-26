@@ -77,6 +77,9 @@
 
 .label2 {
   margin-bottom: .41rem; }
+  .label2 span {
+    position: absolute;
+    right: .15rem; }
 
 .signBtn {
   line-height: .42rem;

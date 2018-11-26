@@ -5,29 +5,21 @@ angular.module('myApp')
         let vm=this;
         vm.baseinfo= [];
         vm.lists=listsRequest.lists();
-        vm.typeList=vm.lists.jobType;
-        console.log(vm.typeList)
+        vm.innerType=vm.lists.innerType;
+        console.log(vm.innerType);
+        vm.jobType=vm.lists.jobType;
+        console.log(vm.jobType);
         vm.comeJobList=vm.lists.arrival;
         vm.expbList=vm.lists.expList;
         vm.eduList=vm.lists.eduList;
         vm.natureList = vm.lists.natureList;
-        vm.work={
-            "startTime":'',
-            "endTime":'',
-            "company":'',
-            "job_name":'',
-            "content":'',
 
-        };
-        vm.edu={
-            "time ":'',
-            "School ":'',
-            "education ":'',
-            "major ":'',
-        }
-        vm.homePage=function(){
-            $state.go('home')
-        };
+        // vm.edu={
+        //     "time ":'',
+        //     "School ":'',
+        //     "education ":'',
+        //     "major ":'',
+        // };
         layui.use('laydate', function(){
             var laydate = layui.laydate;
             laydate.render({
@@ -41,38 +33,109 @@ angular.module('myApp')
             });
         });
         //查看个人简历
+        let x='';
         common.request('user/show_resume',{}).then(function callback(res){
             if(res.data.code===200){
-               vm.resume = res.data.data;
-               console.log("{vm.resume}",vm.resume);
-               vm.work_history =JSON.parse(vm.resume.work_history);
-               vm.allshool =JSON.parse(vm.resume.allshool);
-               console.log("工作经历：",vm.work_history)
-               $('#putadress').val(vm.resume.job_address);
+                 vm.resume=res.data.data;
+                 x=vm.resume;
+                if(vm.resume.work_history){
+                    vm.resume.work_history=JSON.parse(vm.resume.work_history);
+                }
+                if(vm.resume.allshool){
+                    vm.resume.allshool=JSON.parse(vm.resume.allshool);
+                }
+               // console.log("{x}",x.address);
+                // vm.work=x.work_history;
+
+               // vm.work_historx.allshooly =JSON.parse(x.work_history);
+               // vm.allshool =JSON.parse(x.allshool);
+               // console.log("工作经历：",vm.work_history)
+               // $('#putadress').val(x.job_address);
             }
             else if(res.data.code===201){
                 modalBox.alert('未注册，登录已过期');
                 $timeout(function(){
-                    $state.go('sign',{sign:1})
+                    $state.go('sign')
                 },1000)
             } else if(res.data.code===404){
                 modalBox.alert(res.data.msg)
             }
-        })
-
-
+        });
+        console.log(x);
+        // vm.img=x.img;
+        // vm.age=x.age;
+        // vm.edu=x.education;
+        // vm.address=x.address;
+        // vm.years=x.years;
+        // vm.phone=x.phone;
+        // vm.email=x.email;
+        // vm.want_job=x.want_job;
+        // vm.job_address=x.job_address;
+        // vm.come_job=x.come_job;
+        // vm.major=x.major;
+        // vm.nature=x.nature;
+        // vm.status=x.status;
+        // vm.job_type=x.job_type;
+        // vm.work=x.work_history
+        //     .push({
+        //     "startTime":vm.startTime,
+        //     "endTime":vm.endTime,
+        //     "company":vm.company,
+        //     "job_name":vm.job_name,
+        //     "content":vm.content,
+        // })
+        ;
+        console.log(vm.work);
+        //选择行业主类
+        vm.MainType=function(e){
+            console.log(typeof (e));
+            console.log(e);
+            for (let i=0;i<vm.jobType.length;i++){
+                if(vm.jobType[i]===e){
+                    console.log(i);
+                    vm.typeDetail=vm.innerType[i]
+                }
+            }
+            console.log(vm.typeDetail);
+        };
         vm.edit1=function () {
             vm.table1=!vm.table1;
         };
-        vm.commit1=function (info) {
-            console.log(info);
-            var data ={img:info.img,age:info.age,education:info.education,address:info.address,years:info.years,phone:info.phone,email:info.email}
+        vm.commit=function () {
+            console.log(vm.work);
+            let data={
+                img: vm.img,
+                job_type: vm.job_type,
+                name: vm.name,
+                sex: vm.sex,
+                want_job: vm.want_job,
+                years: vm.years,
+                education: vm.edu,
+                age: vm.age,
+                recommend: vm.recommend,
+                work_history: JSON.stringify(vm.work),
+                allshool: vm.allshool,
+                job_address: vm.job_address,
+                phone: vm.phone,
+                address: vm.address,
+                email: vm.email,
+                nature: vm.nature,
+                come_job: vm.come_job,
+                skill: vm.skill,
+            };
+            // let data ={img:info.img,age:info.age,education:info.education,address:info.address,years:info.years,phone:info.phone,email:info.email}
             // 修改用户信息
             common.request('user/add_change_resume',data).then(function callback(res) {
-                console.log(res.data.data)
-                if(res.data.code==200){
-                    modalBox.alert(res.data.msg)
+                if(res.data.code===200){
+                    modalBox.alert('修改成功',function () {
+                        $state.go('.')
+                    })
                 }
+                modalBox.alert(res.data.msg,function(){
+                    $timeout(function(){
+                        $state.go('.');
+                    })
+                });
             })
         };
         vm.edit2=function () {
@@ -121,9 +184,9 @@ angular.module('myApp')
                 console.log(arr);
                 common.request('user/show_resume',{}).then(function callback(res){
                     if(res.data.code===200){
-                        vm.resume = res.data.data;
-                        vm.allshool =JSON.parse(vm.resume.allshool);
-                        if(vm.resume.allshool !=null){
+                        x = res.data.data;
+                        vm.allshool =JSON.parse(x.allshool);
+                        if(x.allshool !=null){
                             vm.allshool.forEach(function (v) {
                                 arr.push(v)
                             })
@@ -161,9 +224,9 @@ angular.module('myApp')
                 console.log(arr);
                 common.request('user/show_resume',{}).then(function callback(res){
                     if(res.data.code===200){
-                        vm.resume = res.data.data;
-                        vm.work_history =JSON.parse(vm.resume.work_history);
-                        if(vm.resume.work_history !=null){
+                        x = res.data.data;
+                        vm.work_history =JSON.parse(x.work_history);
+                        if(x.work_history !=null){
                             vm.work_history.forEach(function (v) {
                                 arr.push(v)
                             })

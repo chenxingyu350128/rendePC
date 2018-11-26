@@ -176,8 +176,8 @@ angular.module('myApp')
                 })
             }else{
                 $('.typeSelect').css({
-                    'border': '1px solid #000',
-                    'color': '#000'
+                    'border': '1px solid #848484',
+                    'color': '#848484'
                 })
             }
             salary.eq(idx11).css({

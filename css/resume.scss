@@ -37,12 +37,10 @@
   }
   .editTable{
     z-index: 333;
-    position: absolute;
     top: .23rem;
     left: .4rem;
     right: .4rem;
     background: #fff;
-    border: 1px solid #f00;
     padding: .25rem;
     form{
       position: relative;
@@ -72,7 +70,8 @@
         width: 45%;
       }
     }
-    input{
+    input,
+    select{
       width: 100%;
       margin-bottom: .2rem;
     }
@@ -126,12 +125,7 @@
   }
   .editTable{
     z-index: 333;
-    position: absolute;
-    top: -4rem;
-    left: .4rem;
-    right: .4rem;
     background: #fff;
-    border: 1px solid #f00;
     padding: .25rem;
   }
   form{

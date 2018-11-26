@@ -78,13 +78,8 @@ angular.module('myApp')
                         }, 300)
                     });
                 }
-                else {
-                    vm.showAlert=true;
-                    modalBox.alert('homeJobType', function () {
-                        $timeout(function () {
-                            $state.go('signPage')
-                        }, 300)
-                    });
+                else if(res.data.code===202) {
+                    modalBox.alert(res);
                 }
             });
         } else {

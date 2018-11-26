@@ -33,16 +33,19 @@ angular.module('myApp')
                     sessionStorage.setItem('phone',JSON.stringify(vm.phone));
                     switch(parseInt(vm.success.typeid)){
                         case 1:
-                        case 2:
+                        // case 2:
                             $state.go('home');
                             break;
-                        case 3:
+                        case 2:
                             $state.go('enterpriseHome');
                             break;
                     }
                 }
                 else if(res.data.code===404){
                     modalBox.alert(res.msg)
+                }
+                else if(res.data.code===202) {
+                    modalBox.alert(res);
                 }
             });
         };
