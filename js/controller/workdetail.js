@@ -39,6 +39,28 @@ angular.module('myApp')
                 vm.browse=res.data.data;
         });
 
+        //投递简历
+        $scope.$on('ngRepeatFinished2', function () {
+            //repeat完成后
+            vm.throwResum= function(id,index){
+                // console.log(index);
+                common.request('user/throw_resume',{j_id:id}).then(function callback(res){
+                    if(res.data.code==200){
+                        if(index=="me"){
+                            $("#meresume").text("已投递");
+                        }else {
+                            $(".detail-position-put-button").eq(index).text("已投递");
+                        }
+
+                    }
+                    $timeout(function(){
+                        modalBox.alert(res.data.msg);
+                    },200)
+
+                });
+            }
+        });
+
         // 查看该公司的其他职位
         common.request("Boss/company_job_list",data).then(function callback(res){
             vm.others=res.data.data;

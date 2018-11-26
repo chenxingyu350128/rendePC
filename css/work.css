@@ -181,7 +181,7 @@
     box-sizing: border-box;
     height: 87px;
     text-space: .5em;
-    padding: 9px 20px;
+    /*padding: 9px 20px;*/
     color: #fff;
     font-size: 24px;
     border-radius: 13px;
@@ -192,11 +192,14 @@
 .position-list-right{
     float: left;
     /*margin: 11px 23px 0px 23px;*/
-    width: 33.3333%;
+    /*width: 33.3333%;*/
+    display: flex;
+    flex-direction: column;
 }
 .position-list-right div{
-    padding-left: 15px;
-    padding-bottom: 5px;
+    /*padding-left: 15px;*/
+    /*padding-bottom: 5px;*/
+    padding: 10px 20px;
 }
 .noList{
     text-align: center;
@@ -235,6 +238,7 @@
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 8px;
+    text-align: center;
 }
 .position-hr{
     float: left;
@@ -256,6 +260,7 @@
 }
 .positionRight{
     width: calc(30% - 15px);
+    margin-bottom: 15px;
     float: left;
 }
 .hot-position{

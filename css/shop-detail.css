@@ -93,3 +93,60 @@
     line-height: 28px;
     padding: 20px 20px 0 20px;
 }
+.shop-exchange{
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.shop-exchangeL{
+    float: left;
+    width: 50%;
+    padding: 0 0 0 20px;
+    border-right: 1px solid gainsboro;
+}
+.shop-exchangeL div{
+    font-size: 16px;
+    color: #000;
+    margin: 10px 0;
+}
+.shop-exchangeL input,.shop-exchangeL textarea{
+    padding: 5px;
+    margin-bottom: 10px;
+    line-height: 29px;
+    width: 75%;
+    height: 42px;
+    background: rgba(240,240,240,1);
+    border: 1px solid rgba(202,202,202,1);
+    border-radius: 10px;
+}
+.shop-exchangeL input:focus,.shop-exchangeL textarea:focus{
+  border: 1px solid #f61111;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.2);
+}
+.shop-exchangeR{
+    float: left;
+    padding: 0 0 0 .3rem;
+    width: 50%;
+}
+.exchange-ts{
+    font-size: 20px;
+    margin-top: 15px;
+    text-align: center;
+}
+.exchange-bt{
+    width: 100%;
+    text-align: center;
+    margin: 0.5rem 0 1.07rem 0;
+}
+.exchange-bt button{
+    width:309px;
+    height:58px;
+    background:rgba(193,5,2,1);
+    border:1px solid rgba(255,0,0,1);
+    border-radius:10px;
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:bold;
+    color:rgba(255,255,255,1);
+}

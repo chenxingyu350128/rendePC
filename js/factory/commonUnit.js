@@ -608,6 +608,20 @@ angular.module('myApp')
             return params.filterCity;
           }
         }
-    });
+    })
+
+.factory('nickname',function($http,$state){
+    return {
+        request: function (arry) {
+            arry.forEach(function (v) {
+                if(v.sex=='女'){
+                    v.nickname=v.name.slice(0,1)+'女士';
+                }else if(v.sex=='男'){
+                    v.nickname=v.name.slice(0,1)+'先生';
+                }
+            })
+        }
+    }
+});
 
   

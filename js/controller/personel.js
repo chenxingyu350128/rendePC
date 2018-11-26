@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('PersonelCtrl',function ($scope,$http,$state,$stateParams,common,$timeout,modalBox,salaryList,listsRequest) {
+    .controller('PersonelCtrl',function ($scope,$http,$state,$stateParams,common,$timeout,modalBox,salaryList,listsRequest,nickname) {
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
@@ -251,6 +251,7 @@ angular.module('myApp')
             if(res.data.code===200){
                 if(res.data.data.length){
                     vm.dataList=res.data.data;
+                    nickname.request(vm.dataList)
                 }
                 else{
                     modalBox.alert('无搜索结果，请重试')

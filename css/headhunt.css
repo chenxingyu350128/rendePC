@@ -137,7 +137,7 @@
 }
 .hunt-list1{
     margin: 1% 2%;
-    display: inline-block;
+    display: flex;
     width: 46%;
     border: 1px solid gainsboro;
     padding: 10px;

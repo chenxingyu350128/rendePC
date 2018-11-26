@@ -44,7 +44,7 @@ angular.module('myApp')
         if(vm.nav===0){
             url='boss/company_list';
         }
-        else{
+        else if (vm.nav===1){
             url='boss/show_company_recruit';
         }
 
@@ -216,4 +216,5 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
+
     });

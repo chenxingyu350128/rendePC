@@ -98,7 +98,7 @@
     <div class="occupation" ng-repeat="job in vm.jobList |limitTo:8">
         <div class="row ">
             <div class="leftTwo">
-                <div style="height: 91px;width: 89px;border-radius: 5px;margin-right: 20px"  ui-sref="workDetail({id:job.id,index})"><img src="{{job.img}}" alt="" style="width: 100%"></div>
+                <div class="infoImg"  ui-sref="workDetail({id:job.id,index})"><img src="{{job.img}}" alt="" style="width: 100%"></div>
                 <div class="sec" style="margin: 0 23px;">
                     <div>
                         {{job.job_type}}

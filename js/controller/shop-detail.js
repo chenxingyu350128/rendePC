@@ -4,14 +4,13 @@ angular.module('myApp')
     .controller('ShopDetailCtrl',function ($http,$state,$timeout,$stateParams,common,modalBox) {
         var vm = this;
         vm.id= $stateParams.id;
-        console.log(vm.id)
         vm.reduce= reduce;
         vm.add= add;
+        vm.info={};
         vm.exchange = exchange; //立即兑换
 
-        var num=$("#num").val();
-        console.log("兑换数量：",num)
 
+        var num=$("#num").val();
         function reduce() {
             if (num==0) {
                 modalBox.alert("当前商品数量不能再少了！")
@@ -30,8 +29,6 @@ angular.module('myApp')
                 num++;
                 $("#num").val(num);
             }
-
-
         }
 
         // 获取商品详情信息
@@ -55,12 +52,12 @@ angular.module('myApp')
         })
 
         //立即兑换
-        function exchange(id){
-            let exchangeurl='boss/exchange';
-            let exchangedata={s_id:id};
-            common.request(exchangeurl,exchangedata).then(function callback(res){
+        function exchange(id,info){
+            let exchangedata={s_id:id,address:vm.info.address,phone:vm.info.phone,name:vm.info.name};
+            common.request("boss/exchange",exchangedata).then(function callback(res){
+                $('#exchange').modal('hide')
                 if(res.data.code===200){
-                    modalBox.alert(res.data.msg)
+                    modalBox.alert(res.data.msg);
                 }
                 else if(res.data.code===201){
                     modalBox.alert('未注册，登录已过期');

@@ -112,15 +112,17 @@
                     <img src="{{data.img}}" style="width: 89px;height: 87px;">
                 </div>
                 <div  class="position-list-right flex-column" >
-                    <div class="positionname fl" style="margin-bottom: 9px;">{{data.job_type ||"暂无"}}</div>
-                    <div class="worksalary redF fl">￥{{data.start_money||"面议"}}-{{data.end_money||"面议"}}</div>
+                    <div class="positionname fl" style="margin-bottom: 9px;">
+                        <span>{{data.job_type ||"暂无"}}</span>
+                        <span class="worksalary redF ">￥{{data.start_money||"面议"}}-{{data.end_money||"面议"}}</span>
+                    </div>
                     <div class="demand grayF workdemand">
                         <span>{{data.experience||"暂无"}} | </span>
                         <span >{{data.education||"暂无"}} | </span>
                         <span>{{data.area ||"暂无"}}</span>
                     </div>
                 </div>
-                <div class="position-list-center flex-column" style="margin-top: 42px;">
+                <div class="position-list-right flex-column">
                     <div class="positionname fl">{{data.name ||"暂无"}}</div>
                     <div class="demand grayF workdemand" style="margin-top: 8px;">
                         <span>{{data.c_type ||"不限"}}</span>
@@ -145,9 +147,9 @@
         <div class="positionRight write">
             <div class="hot-position"><span >热门职位</span></div>
             <div class="hot-position-list" ng-repeat="data in vm.dataList |limitTo : 4" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
-                <div class="type-name">{{data.job_type}}</div>
-                <div class="type-pay">￥{{data.start_money}}-{{data.end_money}}</div>
-                <div class="type-intr">{{data.experience}} | {{data.education}} | {{data.address}}</div>
+                <div class="type-name">{{data.job_type||"暂无"}}</div>
+                <div class="type-pay">￥{{data.start_money ||"面议"}}-{{data.end_money ||"面议"}}</div>
+                <div class="type-intr">{{data.experience ||"不限"}} | {{data.education ||"不限"}} | {{data.address ||"暂无"}}</div>
             </div>
             <div class=" seeMore text-center workmore">
                 <img src="image/home/seeMore.png" alt="">

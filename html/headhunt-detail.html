@@ -13,7 +13,7 @@
                     <div class="headhunt-detail-name-intr">
                         <div class="headhunt-detail-name ">
                             <span>张雨文</span>
-                            <img src="image/home/server.png" alt="">
+                            <img src="image/home/editIcon.png" alt="">
                         </div>
                         <div class="headhunt-detail-intr">
                             <!--<span>从业年限：2年</span>-->
@@ -32,51 +32,34 @@
             <div class="detail-position-hr">
                 <div class="">
                     <ul class="position-tj">
-                        <li class="work-position-l">所有职位</li>
-                        <li class="work-position-l">悬赏职位</li>
-                        <li class="work-position-l">推荐职位</li>
+                        <li class="work-position-l" ng-click="vm.getPosition(1)">所有职位</li>
+                        <li class="work-position-l" ng-click="vm.getPosition(2)">悬赏职位</li>
+                        <li class="work-position-l" ng-click="vm.getPosition(3)">推荐职位</li>
                     </ul>
-                    <div ui-sref="workDetail" class="position-list">
-                        <div class="position-name" >博业建设</div>
-                        <div class="position-list-right">
-                            <div class="positionname fl">安全工程师或安全员</div>
-                            <div class="worksalary redF fl">￥3000-8000</div><br>
-                            <div class="demand grayF workdemand">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
+                    <div ui-sref="workDetail({id:data.id})" class="position-list" ng-repeat="data in vm.Data |limitTo:5">
+                        <div class="headhunt-info">
+                            <div  ><img src="{{data.img}}" style="width: 89px;height: 87px;" class="position-name"></div>
+                            <div class="position-list-right">
+                                <div class="positionname fl">
+                                    <span>{{data.job_type }}</span>
+                                    <span class="worksalary redF">￥{{data.start_money || "面议"}}-{{data.end_money || "面议"}}</span>
+                                </div>
+
+                                <div class="demand grayF workdemand">
+                                    <span>{{data.experience || "不限"}}经验 | </span>
+                                    <span>{{data.education || "不限"}}学历 | </span>
+                                    <span>{{data.area}}</span>
+                                    <span>{{data.address || "暂无"}}</span>
+                                </div>
                             </div>
-                            <div class="hunt-company"><span>福建博业建设集团有限公司福州分公司</span> <span>建筑/房地产|民营企业|10-50人</span></div>
-                        </div>
-                        <div class="position-list-right fr">
-                            <button class="position-btn">申请</button>
-                            <!--<button class="position-btn" style="color: yellow">赏金：1500</button>-->
-                            <br>
-                            <div class="demand grayF workdemand">
-                                <span>更新时间：2018-09-12</span>
-                            </div>
-                        </div>
-                        <div class="position-hr"></div>
-                    </div>
-                    <div ui-sref="workDetail" class="position-list">
-                        <div class="position-name" >博业建设</div>
-                        <div class="position-list-right">
-                            <div class="positionname fl">安全工程师或安全员</div>
-                            <div class="worksalary redF fl">￥3000-8000</div><br>
-                            <div class="demand grayF workdemand">
-                                <span>不限经验|</span>
-                                <span>大专学历|</span>
-                                <span>福建-福州</span>
-                            </div>
-                            <div class="hunt-company"><span>福建博业建设集团有限公司福州分公司</span> <span>建筑/房地产|民营企业|10-50人</span></div>
-                        </div>
-                        <div class="position-list-right fr">
-                            <!--<button class="position-btn">申请</button>-->
-                            <button class="position-btn" style="color: yellow">赏金：1500</button><br>
-                            <div class="demand grayF workdemand">
-                                <span>更新时间：2018-09-12</span>
+                            <div class="position-list-right fr" style="padding-left: 13%;">
+                                <button class="position-btn">申请</button><br>
+                                <!--<button class="position-btn" style="color: yellow">赏金：1500</button>-->
+                                <span>更新时间：{{data.time}}</span>
                             </div>
                         </div>
+                        <div class="hunt-company"><span>{{data.name}}</span> <span>{{data.c_type || "不限"}} | {{data.nature ||"不限" }} | {{data.size||"不限"}}</span></div>
+
                         <div class="position-hr"></div>
                     </div>
                     <!--查看更多-->
@@ -97,31 +80,13 @@
         <!--精英推荐-->
         <div class="detail-right-other" style="padding-bottom: .2rem;margin-top: -.1rem;">
             <div class="detail-right-other-name hunt-person-banner"><span>精英推荐</span></div>
-            <div class="hunt-person-tj">
-                <div class="person-tj-intr">
-                    <img src="image/home/out_avatar.png" alt="" class="person-tj-img">
-                    <span class="tj-intr-f">张艺兴</span>
-                    <span class="tj-intr-l"> 期望薪资：￥5000-8000</span>
+            <div class="hot-position-list tc" style="text-align: center;" title="点击可查看职位详情" ng-repeat="data in vm.recommendData"  ui-sref="personnel-detail({r_id:data.id})">
+                <div class="">
+                    <img src="{{data.img}}" alt="" class ="headImg">
                 </div>
-                <div>
-                    <span>福建-福州-仓山区</span>| <span>2年工作经验</span>
-                </div>
-                <div>
-                    <span>在职，考虑换工作</span>| <span>平面设计</span>
-                </div>
-            </div>
-            <div class="hunt-person-tj">
-                <div class="person-tj-intr">
-                    <img src="image/home/out_avatar.png" alt="" class="person-tj-img">
-                    <span class="tj-intr-f">张艺兴</span>
-                    <span class="tj-intr-l"> 期望薪资：￥5000-8000</span>
-                </div>
-                    <div>
-                        <span>福建-福州-仓山区</span>| <span>2年工作经验</span>
-                    </div>
-                    <div>
-                        <span>在职，考虑换工作</span>| <span>平面设计</span>
-                    </div>
+                <div class="person-list-money"><span style="color: black">{{data.nickname}}</span></div>
+                <div>{{data.age}}岁 | {{data.education}}工作经验  | {{data.education}}学历</div>
+                <div>{{data.job_type}} | 考虑换工作</div>
             </div>
             <!--查看更多-->
             <div class="text-center workmore hunt-more  seeMore">

@@ -8,8 +8,8 @@
             <div class="">
                 <!--人才详情-->
                 <div class="headhunt-detail">
-                    <img src="{{vm.userList.img}}" alt="" class="personnel-img mt fl">
-                    <div class="personnel-intr" style="width: 87%">
+                    <img src="{{vm.userList.img}}" alt="" class="user-img mt fl">
+                    <div class="personnel-intr" style="width: 83%">
                         <div style="width: 100%">
                             <span class="personnel-name">{{vm.userList.name||"信息未完善"}}</span>
                             <br>
@@ -18,7 +18,7 @@
                             <div class="personnel-detail-intr">
                                 <span>年龄：{{vm.userList.age||"信息未完善"}}</span><br>
                                 <span>学历：{{vm.x.education}}  {{vm.userList.name||"信息未完善"}}</span><br>
-                                <!--<span>现居地： {{vm.userList.name||"信息未完善"}}</span>-->
+                                <span>现居地： {{vm.userList.area||"信息未完善"}}</span>
                             </div>
                             <div class="personnel-detail-intr" style="padding-left: 1.2rem; width: 37%;">
                                 <span>工作经验：{{vm.userList.years||"信息未完善"}}</span><br>
@@ -90,7 +90,7 @@
         <div class="usercenterL">
             <div class="user">
                 <div class="userInfo">
-                    <img src="image/home/out_avatar.png" alt="">
+                    <img src="{{vm.userList.img}}" alt="" class="user-img">
                     <div>
                         <div class="username">{{vm.userList.name||"当前用户"}}</div>
                         <div class="userScore">

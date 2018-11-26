@@ -193,6 +193,7 @@ angular.module('myApp')
 
         });
         let url='';
+        vm.navType=0;
         if(!vm.navType){
             url='Boss/find_job';
         }else{
@@ -280,6 +281,7 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
+
         //投递简历
         $scope.$on('ngRepeatFinished2', function () {
             //repeat完成后

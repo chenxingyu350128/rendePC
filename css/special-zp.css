@@ -132,6 +132,9 @@
     padding: 20px 50px;
     text-align: center;
 }
+.list-content:hover{
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+}
 .list-name{
     font-size:20px;
     font-family:MicrosoftYaHei;

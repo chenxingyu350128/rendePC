@@ -1,6 +1,6 @@
-.work-body .positionLeft{
-    width: 100%;
-}
+/*.work-body .positionLeft{*/
+    /*width: 100%;*/
+/*}*/
 .personnel-select{
     width: 95%;
     margin-left: 1%;
@@ -56,6 +56,10 @@
 .person-list-intr{
     margin-left: 10px;
     float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 67%;
 }
 .person-first{
     flex-direction: row;
@@ -75,4 +79,3 @@
     border-radius: 50%;
     background-color: grey;
 }
-

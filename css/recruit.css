@@ -57,7 +57,10 @@
   margin-bottom: 15px;
   padding: .31rem .14rem .28rem .12rem;
   background: #fff; }
-
+.recruitment .card:hover{
+  box-shadow:2px 2px 18px rgba(0,0,0, 0.15);
+  cursor: pointer;
+}
 .recruitment .card:nth-child(even) {
   margin-left: 15px; }
 

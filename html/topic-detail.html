@@ -26,7 +26,7 @@
     </div>
 </div>
 <div class="container down1">
-     <div class="detali-list" ng-repeat="data in vm.dataList" ui-sref="enterpriseInfo(id:data.id)">
+     <div class="detali-list" ng-repeat="data in vm.dataList" ui-sref="enterpriseInfo({id:data.id})">
          <div class="list-content">
              <div class="list-name"><span>{{data.c_name}}</span></div>
              <img src="{{data.img}}" alt="">
@@ -44,10 +44,6 @@
              </div>
          </div>
      </div>
-    <!--查看更多-->
-    <div class=" seeMore text-center workmore">
-        <img src="image/home/seeMore.png" alt="">
-    </div>
 
 </div>
 

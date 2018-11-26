@@ -54,6 +54,7 @@
 }
 .leftNav{
     background: #fff;
+    border-bottom: 1px solid gainsboro;
 }
 .leftNav>div{
     display: inline;
@@ -101,14 +102,19 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.jobs span{
+.thi .jobs span{
     box-sizing: border-box;
-    margin-right: .1rem;
-    margin-top: .1rem;
-    padding: .07rem .05rem;
-    border: 1px solid #f00;
-    border-radius: .1rem;
+    /*margin-right: .1rem;*/
+    margin-top: .15rem;
+    padding: .04rem .15rem;
+    border: 1px solid #c20c0c;
+    border-radius: 1.1rem;
     font-size: 12px;
+}
+.thi .jobs span:hover{
+    background: #f61111;
+    color: white;
+    border: none;
 }
 .checkedNav{
     background: #f00;
@@ -126,8 +132,8 @@
     border-left: 3px solid #f00;
 }
 .recommend .companyName{
-    width: 106px;
-    height: 106px;
+    width: 2rem;
+    height: 2rem;
     font-size: 50px;
     text-align: center;
     margin: .2rem auto .25rem;
@@ -135,8 +141,9 @@
 .recommend .occupation{
     border: none;
     background: #fff;
+    margin-bottom: 10px;
 }
 .enterName{
     background: #fff;
-    padding-bottom: .37rem;
+    padding-bottom: .2rem;
 }

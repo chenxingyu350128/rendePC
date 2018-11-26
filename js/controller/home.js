@@ -27,23 +27,12 @@ angular.module('myApp')
                 for(let i=0;i<a.length;i++){
                     a.eq(i).attr('src',"image/icon/icon"+(i+1)+".png");
                 }
-                // a.attr('src',"image/icon/icon"+(index+1)+".png");
                 a.eq(index).attr('src',"image/iconhover/icon"+(index+1)+".png");
                 console.log(a);
-                // let hover=$('.type').eq(index).hasClass('hoveredType');
-                //     vm.img="image/iconhover/icon"+vm.typeIdx+".png";
-                // if(hover){
-                //         $(".changeImg")[index].src = vm.img;
-                // }
             };
             vm.indexLeave=function(index){
-                // vm.showCates=false;
                 vm.typeIdx=index+1;
                 let wait=$('.types').hasClass('hoveredType');
-                // if(!wait){
-                //     vm.img="image/icon/icon"+vm.typeIdx+".png";
-                //     $(".changeImg")[index].src = vm.img;
-                // }
             };
             vm.mouseLeave=function(index){
                 vm.showCates=false;

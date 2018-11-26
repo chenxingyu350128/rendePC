@@ -48,37 +48,37 @@
 <!--仁德猎头-->
 <div class="work-body">
     <!--悬赏招聘-->
-    <div class="hunt-part1">
-        <div class="hunt-title"><span>悬赏招聘</span></div>
-        <div class="hunt-list1" ng-repeat="hunt in vm.huntData|limitTo :4"  ui-sref="workDetail({id:hunt.id,index})" title="点击查看职位详情">
-            <div class="fl"><img src="image/work/huntmoney.png" ></div>
-            <div class="hunt-list-right">
-                <div class="positionname fl">{{hunt.job_type}}</div>
-                <div class="worksalary redF fl">￥{{hunt.start_money}}-{{hunt.end_money}}</div><br>
-                <div class="demand grayB">
-                    <span>{{hunt.c_name}}</span>
-                </div>
-                <div class="demand grayB">
-                    <span>{{hunt.experience}}|</span>
-                    <span>{{hunt.education}}|</span>
-                    <span>{{hunt.address}}</span>
-                </div>
-                <div class="demand grayF ">
-                    <span>更新时间：{{hunt.time}}</span>
-                    <button class="hunt-btn">立即推荐</button>
-                </div>
-            </div>
-        </div>
-        <div class="container  text-center workmore">
-            <img src="image/home/seeMore.png" alt="" style="" class="moreimg">
-        </div>
-    </div>
+    <!--<div class="hunt-part1">-->
+        <!--<div class="hunt-title"><span>悬赏招聘</span></div>-->
+        <!--<div class="hunt-list1" ng-repeat="hunt in vm.huntData|limitTo :4"  ui-sref="workDetail({id:hunt.id,index})" title="点击查看职位详情">-->
+            <!--<div class="fl"><img src="image/work/huntmoney.png" ></div>-->
+            <!--<div class="hunt-list-right">-->
+                <!--<div class="positionname fl">{{hunt.job_type}}</div>-->
+                <!--<div class="worksalary redF fl">￥{{hunt.start_money}}-{{hunt.end_money}}</div><br>-->
+                <!--<div class="demand grayB">-->
+                    <!--<span>{{hunt.c_name}}</span>-->
+                <!--</div>-->
+                <!--<div class="demand grayB">-->
+                    <!--<span>{{hunt.experience}}|</span>-->
+                    <!--<span>{{hunt.education}}|</span>-->
+                    <!--<span>{{hunt.address}}</span>-->
+                <!--</div>-->
+                <!--<div class="demand grayF ">-->
+                    <!--<span>更新时间：{{hunt.time}}</span>-->
+                    <!--<button class="hunt-btn">立即推荐</button>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--<div class="container  text-center workmore">-->
+            <!--<img src="image/home/seeMore.png" alt="" style="" class="moreimg">-->
+        <!--</div>-->
+    <!--</div>-->
 
     <!--推荐职位-->
     <div class="hunt-part1">
         <div class="hunt-title"><span>推荐职位</span></div>
-        <div class="hunt-list2" ng-repeat="job in vm.newJob |limitTo:4">
-            <div class="hunt-list2-name hunt-part-bg1" ui-sref="workDetail({id:job.id,index})" title="点击查看职位详情">
+        <div class="hunt-list2" ng-repeat="job in vm.newJob |limitTo:4" ui-sref="workDetail({id:job.id,index})" title="点击查看职位详情">
+            <div class="hunt-list2-name hunt-part-bg1" >
                 {{job.job_type}}
                 <span class="fr border-go" > > </span>
             </div>
@@ -96,7 +96,7 @@
     <!--猎头服务-->
     <div class="hunt-part1">
         <div class="hunt-title"><span>猎头服务</span></div>
-        <div class=" hunt-list3"  ng-repeat="recommend in vm.recommend |limitTo:4">
+        <div class=" hunt-list3"  ng-repeat="recommend in vm.recommend |limitTo:4" ui-sref=" headhunt-detail({id:recommend.id})">
             <div class="hunt-serve">
                 <img src="{{recommend.img }}" alt="">
                 <div class="hunt-serve-name">
