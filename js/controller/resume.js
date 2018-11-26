@@ -99,8 +99,12 @@ angular.module('myApp')
         vm.edit3=function () {
             vm.table3=!vm.table3
         };
+        vm.edit4=function () {
+            vm.table3=!vm.table3
+        };
         // 添加教育经历
         vm.commit3=function (info) {
+            vm.table3=!vm.table3
             info.time=$("#edustarttime").val();
             if(info.time==""){
                 modalBox.alert("请填写时间")
@@ -229,13 +233,16 @@ angular.module('myApp')
             $(this).parent().parent().parent().hide()
         });
         //添加教育
-        $('.addEdu>div').on('click',function () {
+        $('.addEdu .addEduBtn').on('click',function () {
+            console.log('add')
             $('.addEdu .editTable').show();
         });
         $('.addEdu img').on('click',function () {
+            console.log('img')
             $(this).parent().parent().hide()
         });
         $('.addEdu button').on('click',function () {
+            console.log('btn')
             $(this).parent().parent().parent().hide()
         });
         vm.editEval=function (info) {
