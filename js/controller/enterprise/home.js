@@ -1,8 +1,9 @@
 'use strict';
 angular.module('myApp')
-    .controller('enterpriseHome',function ($http,$state,common,modalBox) {
+    .controller('enterpriseHome',function ($http,$state,listsRequest,common,modalBox) {
         var vm=this;
         //搜索栏
+        vm.lists=listsRequest.lists();
         vm.search=function(e){
             if(e){
                 $state.go('resumeManage',{

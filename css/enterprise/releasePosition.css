@@ -5,6 +5,7 @@
 .flex-row{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .release-banner{
     font-size: 14px;
@@ -75,6 +76,7 @@
 }
 .row-margin{
     padding: 13px 0;
+    position: relative;
 }
 .center-margin{
     margin: 0 100px;
@@ -105,7 +107,7 @@
     padding: 0 10px;
 }
 .spot{
-    width: 147px;
+    width: 132px;
     height: 34px;
     border-radius: 4px;
     padding: 8px;

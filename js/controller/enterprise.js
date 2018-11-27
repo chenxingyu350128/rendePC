@@ -6,6 +6,7 @@ angular.module('myApp')
         console.log(vm.params);
         vm.nav=parseInt(vm.params.nav0)||0;
         let postData={};
+        postData['city']=sessionStorage.getItem('city');
         let paramsData={};
         // 获取福利待遇接口
         vm.lists=listsRequest.lists();

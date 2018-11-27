@@ -33,24 +33,21 @@ angular.module('myApp')
             });
         });
         //查看个人简历
-        let x='';
         common.request('user/show_resume',{}).then(function callback(res){
+            console.log(res);
             if(res.data.code===200){
-                 vm.resume=res.data.data;
-                 x=vm.resume;
+                console.log(res.data.data);
+                vm.resume=res.data.data;
                 if(vm.resume.work_history){
                     vm.resume.work_history=JSON.parse(vm.resume.work_history);
                 }
                 if(vm.resume.allshool){
                     vm.resume.allshool=JSON.parse(vm.resume.allshool);
                 }
-               // console.log("{x}",x.address);
-                // vm.work=x.work_history;
-
-               // vm.work_historx.allshooly =JSON.parse(x.work_history);
-               // vm.allshool =JSON.parse(x.allshool);
-               // console.log("工作经历：",vm.work_history)
-               // $('#putadress').val(x.job_address);
+                vm.work_history=vm.resume.work_history;
+                // vm.work_history.push(vm.resume.work_history);
+                console.log(vm.work_history);
+                console.log(res.data.data);
             }
             else if(res.data.code===201){
                 modalBox.alert('未注册，登录已过期');
@@ -61,31 +58,7 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
-        console.log(x);
-        // vm.img=x.img;
-        // vm.age=x.age;
-        // vm.edu=x.education;
-        // vm.address=x.address;
-        // vm.years=x.years;
-        // vm.phone=x.phone;
-        // vm.email=x.email;
-        // vm.want_job=x.want_job;
-        // vm.job_address=x.job_address;
-        // vm.come_job=x.come_job;
-        // vm.major=x.major;
-        // vm.nature=x.nature;
-        // vm.status=x.status;
-        // vm.job_type=x.job_type;
-        // vm.work=x.work_history
-        //     .push({
-        //     "startTime":vm.startTime,
-        //     "endTime":vm.endTime,
-        //     "company":vm.company,
-        //     "job_name":vm.job_name,
-        //     "content":vm.content,
-        // })
-        ;
-        console.log(vm.work);
+
         //选择行业主类
         vm.MainType=function(e){
             console.log(typeof (e));
@@ -101,28 +74,31 @@ angular.module('myApp')
         vm.edit1=function () {
             vm.table1=!vm.table1;
         };
-        vm.commit=function () {
-            console.log(vm.work);
-            let data={
-                img: vm.img,
-                job_type: vm.job_type,
-                name: vm.name,
-                sex: vm.sex,
-                want_job: vm.want_job,
-                years: vm.years,
-                education: vm.edu,
-                age: vm.age,
-                recommend: vm.recommend,
-                work_history: JSON.stringify(vm.work),
-                allshool: vm.allshool,
-                job_address: vm.job_address,
-                phone: vm.phone,
-                address: vm.address,
-                email: vm.email,
-                nature: vm.nature,
-                come_job: vm.come_job,
-                skill: vm.skill,
-            };
+        vm.commit=function (data) {
+            data.work_history=JSON.stringify(data.work_history);
+            data.allshool=JSON.stringify(data.allshool);
+            // console.log(vm.work);
+            // let data={
+            //     img: vm.img,
+            //     job_type: vm.job_type,
+            //     name: vm.name,
+            //     sex: vm.sex,
+            //     want_job: vm.want_job,
+            //     years: vm.years,
+            //     education: vm.edu,
+            //     age: vm.age,
+            //     recommend: vm.recommend,
+            //     work_history: JSON.stringify(vm.work),
+            //     allshool: vm.allshool,
+            //     job_address: vm.job_address,
+            //     phone: vm.phone,
+            //     address: vm.address,
+            //     email: vm.email,
+            //     nature: vm.nature,
+            //     come_job: vm.come_job,
+            //     skill: vm.skill,
+            // };
+            // console.log(data);
             // let data ={img:info.img,age:info.age,education:info.education,address:info.address,years:info.years,phone:info.phone,email:info.email}
             // 修改用户信息
             common.request('user/add_change_resume',data).then(function callback(res) {
@@ -138,10 +114,10 @@ angular.module('myApp')
                 });
             })
         };
-        vm.edit2=function () {
-            vm.table2=!vm.table2;
-
-        };
+        // vm.edit2=function () {
+        //     vm.table2=!vm.table2;
+        //
+        // };
         vm.commit2=function (info) {
             vm.province=$("#province10 option:selected").val(); //获取选中的项
             vm.city=$("#city10 option:selected").val(); //获取选中的项
@@ -159,12 +135,12 @@ angular.module('myApp')
                 }
             })
         };
-        vm.edit3=function () {
-            vm.table3=!vm.table3
-        };
-        vm.edit4=function () {
-            vm.table3=!vm.table3
-        };
+        // vm.edit3=function () {
+        //     vm.table3=!vm.table3
+        // };
+        // vm.edit4=function () {
+        //     vm.table3=!vm.table3
+        // };
         // 添加教育经历
         vm.commit3=function (info) {
             vm.table3=!vm.table3
@@ -204,50 +180,35 @@ angular.module('myApp')
                 })
             }
         };
-        vm.commitAdd=function (info) {
-            info.startTime=$("#starttime").val();
-            info.endTime=$("#endtime").val();
-            if(info.startTime==""){
-            modalBox.alert("请填写工作开始时间")
-            }else  if(info.endTime==""){
-                modalBox.alert("请填写工作结束时间")
-            }else  if(info.company==""){
-                modalBox.alert("请填写工作公司名称")
-            }else  if(info.job_name==""){
-                modalBox.alert("请填写工作岗位")
-            }else  if(info.content==""){
-                modalBox.alert("请填写工作内容")
-            }else{
-                var arr=[];
-                var data ={startTime:info.startTime,endTime:info.endTime,company:info.company,job_name:info.job_name,content:info.content};
-                arr.push(data);
-                console.log(arr);
-                common.request('user/show_resume',{}).then(function callback(res){
-                    if(res.data.code===200){
-                        x = res.data.data;
-                        vm.work_history =JSON.parse(x.work_history);
-                        if(x.work_history !=null){
-                            vm.work_history.forEach(function (v) {
-                                arr.push(v)
-                            })
-                            console.log(arr);
-                        }
-                        // 修改用户信息
-                        common.request('user/add_change_resume',{work_history:JSON.stringify(arr)}).then(function callback(res) {
-                            console.log(res.data.data)
-                            if(res.data.code==200){
-                                modalBox.alert(res.data.msg)
-                            }
-                            history.go(0)
-                        })
-                    }
-                })
+        vm.work_history_add=function () {
+            console.log(1212);
+            let newWorkHistory={
+                company: vm.newCompany,
+                job_name: vm.newJob_name,
+                startTime: vm.newStartTime,
+                endTime: vm.newEndTime,
+                content: vm.newContent
+            };
+            vm.work_history.push(newWorkHistory);
+            console.log(newWorkHistory);
+            console.log(vm.work_history);
+            // 修改用户信息
+            common.request('user/add_change_resume',{work_history:JSON.stringify(vm.work_history)}).then(function callback(res) {
+                console.log(res.data.data);
+                if(res.data.code===200){
+                    modalBox.alert(res.data.msg)
                 }
-
-
+            })
         };
-        vm.delete=function () {
-
+        vm.delete=function (e) {
+            vm.work_history.splice(e,1);
+            // 修改用户信息
+            common.request('user/add_change_resume',{work_history:JSON.stringify(vm.work_history)}).then(function callback(res) {
+                console.log(res.data.data);
+                if(res.data.code===200){
+                    modalBox.alert(res.data.msg)
+                }
+            })
         };
 
         //工作经历修改按钮

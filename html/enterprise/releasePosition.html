@@ -8,10 +8,19 @@
         <div class="flex-row row-margin">
             <div class="release-name">
                 <span class="name-title">职位名称：</span>
-                <select name="jobType" id="jobType"
+                <span ng-if="vm.j_id">{{vm.job}}</span>
+                <select ng-if="!vm.j_id" name="jobType" id="jobType"
                         ng-model="vm.job_type"
-                        required
-                        ng-options="x for x in vm.typeList">
+                        ng-change="vm.getJobType(vm.job_type)"
+                        required>
+                    <option value="">请选择行业类型</option>
+                    <option value="{{x}}" ng-repeat="x in vm.typeList">{{x}}</option>
+                </select>
+                <select ng-if="!vm.j_id" name="job" id="job"
+                        ng-model="vm.job"
+                        required>
+                    <option value="">请选择具体岗位</option>
+                    <option value="{{x.name}}" ng-repeat="x in vm.typeDetail">{{x.name}}</option>
                 </select>
                 <!--<input type="text" class="release-input" ng-model="vm.addList.job_type" required="required">-->
             </div>
@@ -76,8 +85,8 @@
                 <textarea type="text" class="intr-textarea" ng-model="vm.position" required="required"></textarea>
             </div>
         </div>
-        <div class="flex-row row-margin">
-            <div>
+        <div style="padding-left: 0.7rem;width: 980px" class="flex-row row-margin">
+            <div style="position: absolute;left: 0">
                 <span class="name-title ">公司亮点：</span>
             </div>
             <div class="light" ng-repeat="x in vm.boonNow track by $index"  ng-click="vm.delete($index) ">
@@ -88,7 +97,7 @@
         </div>
         <div class="flex-row spot-margin">
             <div class="select-spot">
-                <span class="spot select-spot-bc"  ng-repeat="x in vm.baseBoon track by $index" ng-click="vm.add($index)" >{{x.name}}</span>
+                <span class="spot select-spot-bc"  ng-repeat="x in vm.baseBoon" ng-click="vm.add($index)" >{{x.name}}</span>
             </div>
         </div>
     </div>
@@ -102,8 +111,9 @@
         </div>
     </div>
     <div class="release-btn">
-        <button class="release-ok" ng-click="vm.addJob()" >发布职位</button>
-        <button class="release-reset" type="reset">清空重置</button>
+        <button class="release-ok" ng-click="vm.addJob()" >{{vm.buttonLeft}}</button>
+        <button ng-if="!vm.j_id" class="release-reset" type="reset">清空</button>
+        <button ng-if="vm.j_id" class="release-reset" ng-click="vm.deleteJob()">删除</button>
     </div>
 
 </div>

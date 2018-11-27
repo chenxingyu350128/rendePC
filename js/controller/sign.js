@@ -4,6 +4,7 @@ angular.module('myApp')
     .controller('signCtrl',function ($http,$state,$stateParams,common,modalBox) {
         console.log($stateParams);
         let vm=this;
+        let modalAlert=sessionStorage.getItem('modalAlert');
         vm.choice=parseInt($stateParams.choice)||0;// 0登录 1注册
         console.log(vm.choice);
         vm.clientId=parseInt($stateParams.clientId)||1;
@@ -25,7 +26,7 @@ angular.module('myApp')
             common.request('reg/reg',data).then(function callback(res){
                 console.log(res);
                 if(res.data.code===200){
-                    // vm.signSuccess=true;
+                    sessionStorage.removeItem('modalAlert');
                     vm.success=res.data.data;
                     sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
                     sessionStorage.setItem('token',JSON.stringify(vm.success.token));
@@ -41,11 +42,14 @@ angular.module('myApp')
                             break;
                     }
                 }
-                else if(res.data.code===404){
-                    modalBox.alert(res.msg)
-                }
                 else if(res.data.code===202) {
                     modalBox.alert(res);
+                }
+                else{
+                    if(!modalAlert){
+                        sessionStorage.setItem('modalAlert','damn it');
+                        modalBox.alert(res.data.msg)
+                    }
                 }
             });
         };

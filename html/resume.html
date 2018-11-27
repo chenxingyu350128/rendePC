@@ -17,49 +17,65 @@
                     <div>现居地: {{vm.resume.address||"暂无"}}</div>
                 </div>
                 <div class="fill2">
-                    <div style="visibility: hidden;">从事行业: {{vm.resuem.want_job||"暂无"}}</div>
+                    <div style="visibility: hidden;">从事行业: {{vm.resume.want_job||"暂无"}}</div>
                     <div>工作经验: {{vm.resume.years ||"暂无"}}年</div>
                     <div>联系电话: {{vm.resume.phone||"暂无"}}</div>
                     <div>电子邮箱: {{vm.resume.email||"暂无"}}</div>
                 </div>
-                <img ng-show="!vm.table1&&!vm.table2" ng-click="vm.edit1()" class="editIcon" src="image/home/editIcon.png" alt="">
-                <div ng-show="vm.table1" class="editTable">
-                    <form  class="table1" name="table1">
-                        <div>
-                            头像： <img src="image/home/resume_avatar.png" alt="">
-                            <label for="avatarEdit">
-                                <input style="display: none;" id="avatarEdit" type="file"  ng-model="vm.resume.img">
-                                 选择图片
-                            </label>
-                        </div>
-                        <div class="age">
-                            年龄: <input type="number" required ng-model="vm.resume.age">
-                        </div>
-                        <div class="edu">
-                            学历:
-                            <select required ng-model="vm.resume.education">
-                                <option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
-                            </select>
-                        </div>
-                        <div class="residence">
-                            现居地: <input type="text" required ng-model="vm.resume.address">
-                        </div>
-                        <div class="exp">
-                            工作经验:
-                            <input type="text" required ng-model="vm.resume.years">
-                        </div>
-                        <div class="mobile">
-                            联系电话: <input type="tel" required ng-model="vm.resume.phone">
-                        </div>
-                        <div class="email" ng-model="vm.resume.phone">
-                            联系邮箱: <input type="email" required ng-model="vm.resume.email">
-                        </div>
-                        <div class="commit text-center">
-                            <button ng-click="vm.edit1();vm.commit1(vm.resume)" ng-disabled="table1.$invalid" class="resume-btn">提交</button>
-                        </div>
-                        <img ng-click="vm.edit1()" src="image/home/close.png" alt="">
-                    </form>
-               </div>
+                <img  class="editIcon" data-toggle="modal" data-target="#myModal" src="image/home/editIcon.png" alt="">
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">求职意向</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="editTable">
+                                    <form  class="table1" name="table1">
+                                        <div>
+                                            头像： <img src="image/home/resume_avatar.png" alt="">
+                                            <label for="avatarEdit">
+                                                <input style="display: none;" id="avatarEdit" type="file"  ng-model="vm.resume.img">
+                                                选择图片
+                                            </label>
+                                        </div>
+                                        <div class="age">
+                                            年龄: <input type="number" required ng-model="vm.resume.age">
+                                        </div>
+                                        <div class="edu">
+                                            学历:
+                                            <select required ng-model="vm.resume.education">
+                                                <option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="residence">
+                                            现居地: <input type="text" required ng-model="vm.resume.address">
+                                        </div>
+                                        <div class="exp">
+                                            工作经验:
+                                            <input type="text" required ng-model="vm.resume.years">
+                                        </div>
+                                        <div class="mobile">
+                                            联系电话: <input type="tel" required ng-model="vm.resume.phone">
+                                        </div>
+                                        <div class="email" ng-model="vm.resume.phone">
+                                            联系邮箱: <input type="email" required ng-model="vm.resume.email">
+                                        </div>
+                                        <!--<div class="commit text-center">-->
+                                            <!--<button  ng-disabled="table1.$invalid" class="resume-btn">提交</button>-->
+                                        <!--</div>-->
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                                <button type="button" ng-click="vm.commit(vm.resume)" class="btn btn-primary">提交更改</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
             </div>
             <!--求职意向-->
             <div class="infoHeader">
@@ -72,7 +88,7 @@
                    <div>到岗时间: {{vm.resume.come_job}} </div>
                </div>
                <div class="fill2">
-                   <div>从事行业:  {{vm.resume.skill}}</div>
+                   <div>从事行业:  {{vm.resume.f_type}}</div>
                    <!--<div>期望薪资: ￥-->
                        <!--<span>5000</span>- -->
                        <!--<span>8000</span>-->
@@ -80,123 +96,146 @@
                    <div>工作性质:  {{vm.resume.nature}}</div>
                    <div>求职状态:  {{vm.resume.job_type}}</div>
                </div>
-               <img ng-show="!vm.table2&&!vm.table1" ng-click="vm.edit2()" class="editIcon" src="image/home/editIcon.png" alt="">
-               <div ng-show="vm.table2" class="editTable">
-                    <form  class="table2" name="table2">
-                        <div class="aim">
-                            意向岗位: <input type="text"  ng-model="vm.resume.want_job">
-                        </div>
-                        <div class="place">
-                            工作地点:
-                            <div class="form-inline adress-select" >
-                                <div id="distpicker5" style="display:flex;margin-right: 14px;">
-                                    <div class="form-group" style="margin-right: 10px;">
-                                        <label class="sr-only" for="province10">Province</label>
-                                        <select class="form-control" id="province10" ></select>
-                                    </div>
-                                    <div class="form-group" style="margin-right: 10px;">
-                                        <label class="sr-only" for="city10">City</label>
-                                        <select class="form-control" id="city10"></select>
-                                    </div>
-                                    <div class="form-group" style="margin-right: 10px;">
-                                        <label class="sr-only" for="district10">District</label>
-                                        <select class="form-control" id="district10"></select>
-                                    </div>
-                                </div>
+               <img data-toggle="modal" data-target="#myModal2" class="editIcon" src="image/home/editIcon.png" alt="">
+                <!--<button class="btn btn-primary btn-lg" >开始演示模态框</button>-->
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel2">求职意向</h4>
                             </div>
-                            <input type="hidden" id="putadress" value="{{vm.resume.job_address}}">
-                        </div>
-                        <div class="reachTime">
-                            到岗时间:
-                            <select  ng-model="vm.resume.come_job">
-                                <option value="{{comejob.name}}" ng-repeat="comejob in vm.comeJobList">{{comejob.name}}</option>
-                            </select>
-                        </div>
-                        <div class="charactor">
-                            工作性质:
-                            <select  ng-model="vm.resume.nature" >
-                                <option value="{{nature.name}}" ng-repeat="nature in vm.natureList">{{nature.name}}</option>
-                            </select>
-                        </div>
-                        <div class="industy">
-                            从事行业: <input type="text"  ng-model="vm.resume.skill">
-                        </div>
-                        <!--<div class="salary">-->
-                            <!--期望薪资:-->
-                            <!--<div>-->
-                                <!--<input type="text" required>-->
-                                <!--<input type="text" required>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <div class="status">
-                            求职状态:
-                            <select  ng-model="vm.resume.job_type" >
-                                <option value="离职-随时到岗" >离职-随时到岗</option>
-                                <option value="在职-暂不考虑" >在职-暂不考虑</option>
-                                <option value="在职-考虑机会" >在职-考虑机会</option>
-                                <option value="在职-月内到岗" >在职-月内到岗</option>
-                            </select>
-                        </div>
-                        <div class="commit text-center">
-                            <button ng-click="vm.edit2();vm.commit2(vm.resume)" class="resume-btn">提交</button>
-                        </div>
-                        <img ng-click="vm.edit2()" src="image/home/close.png" alt="">
-                    </form>
+                            <div class="modal-body">
+                                <div class="editTable">
+                                    <form  class="table2" name="table2">
+                                        <div class="aim">
+                                            意向岗位: <input type="text"  ng-model="vm.resume.want_job">
+                                        </div>
+                                        <div class="place">
+                                            工作地点:
+                                            <div class="form-inline adress-select" >
+                                                <div id="distpicker5" style="display:flex;margin-right: 14px;">
+                                                    <div class="form-group" style="margin-right: 10px;">
+                                                        <label class="sr-only" for="province10">Province</label>
+                                                        <select class="form-control" id="province10" ></select>
+                                                    </div>
+                                                    <div class="form-group" style="margin-right: 10px;">
+                                                        <label class="sr-only" for="city10">City</label>
+                                                        <select class="form-control" id="city10"></select>
+                                                    </div>
+                                                    <div class="form-group" style="margin-right: 10px;">
+                                                        <label class="sr-only" for="district10">District</label>
+                                                        <select class="form-control" id="district10"></select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="putadress" value="{{vm.resume.job_address}}">
+                                        </div>
+                                        <div class="reachTime">
+                                            到岗时间:
+                                            <select  ng-model="vm.resume.come_job">
+                                                <option value="{{comejob.name}}" ng-repeat="comejob in vm.comeJobList">{{comejob.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="charactor">
+                                            工作性质:
+                                            <select  ng-model="vm.resume.nature" >
+                                                <option value="{{nature.name}}" ng-repeat="nature in vm.natureList">{{nature.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="industy">
+                                            从事行业: <input type="text"  ng-model="vm.resume.f_type">
+                                        </div>
+                                        <div class="status">
+                                            求职状态:
+                                            <select  ng-model="vm.resume.job_type" >
+                                                <option value="离职-随时到岗" >离职-随时到岗</option>
+                                                <option value="在职-暂不考虑" >在职-暂不考虑</option>
+                                                <option value="在职-考虑机会" >在职-考虑机会</option>
+                                                <option value="在职-月内到岗" >在职-月内到岗</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                                <button ng-click="vm.commit(vm.resume)" type="button" class="btn btn-primary">提交更改</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
                 </div>
            </div>
             <!--工作经历-->
             <div class="infoHeader">
                 <span>工作经历</span>
             </div>
-            <div class="info jobExpShell" ng-repeat="work in vm.work_history">
+            <div class="info jobExpShell" ng-repeat="x in vm.resume.work_history track by $index">
                 <div class="jobExp">
                     <div class="major">
                         <div class="duration">
-                            <span>{{work.startTime}}</span>-
-                            <span>{{work.endTime}}</span>
+                            <span>{{x.startTime}}</span>-
+                            <span>{{x.endTime}}</span>
                         </div>
-                        <div class="compName">{{work.company}}</div>
-                        <div class="ocp">{{work.job_name}}</div>
+                        <div class="compName">{{x.company}}</div>
+                        <div class="ocp">{{x.job_name}}</div>
                         <div class="fr">
                             <!--<span class="modify">修改</span>-->
-                            <span class="delete" ng-click="vm.delete()">删除</span>
+                            <span class="delete" ng-click="vm.delete($index)">删除</span>
                         </div>
                     </div>
                     <div class="tails">
-                        {{work.content}}
+                        {{x.content}}
                     </div>
                 </div>
             </div>
             <div class="addExp">
-                <div class="addExpbtn"> 添加工作经历</div>
-                <div style="display: none;" class="editTable">
-                    <form  class="table3" name="tableAdd">
-                        <div class="duration">
-                            起始时间:
-                            <div>
-                                <input type="text"  required="" id="starttime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.work.startTime">
-                                <input type="text"  required="" id="endtime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.work.endTime  ">
+                <div data-toggle="modal" data-target="#myModal3" class="addExpbtn"> 添加工作经历</div>
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel3">工作经历</h4>
                             </div>
-                        </div>
-                        <div class="compName">
-                            公司名称: <input type="text" required="" ng-model="vm.work.company">
-                        </div>
-                        <div class="ocp">
-                            任职岗位:
-                            <select ng-model="vm.work.job_name  ">
-                                <option ng-repeat="type in vm.typeList" value="{{type}}">{{type}}</option>
-                            </select>
-                        </div>
-                        <div class="ocpDetail">
-                            具体工作:
-                            <textarea style="width: 100%;height: 150px"  required=""  id="" cols="30" rows="10" ng-model="vm.work.content " ></textarea>
-                        </div>
-                        <div class="commit text-center">
-                            <button ng-click="vm.commitAdd(vm.work)" class="resume-btn">提交</button>
-                        </div>
-                        <img src="image/home/close.png" alt="">
-                    </form>
+                            <div class="modal-body">
+                                <div class="editTable">
+                                    <div class="table3" name="tableAdd">
+                                        <div class="duration">
+                                            起始时间:
+                                            <div>
+                                                <input type="text"  required="" id="starttime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newStartTime">
+                                                <input type="text"  required="" id="endtime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newEndTime  ">
+                                            </div>
+                                        </div>
+                                        <div class="compName">
+                                            公司名称: <input type="text" required="" ng-model="vm.newCompany">
+                                        </div>
+                                        <div class="ocp">
+                                            任职岗位:
+                                            <select ng-model="vm.newJob_name">
+                                                <option ng-repeat="type in vm.jobType" value="{{type}}">{{type}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="ocpDetail">
+                                            具体工作:
+                                            <textarea style="width: 100%;height: 150px"  required=""  id="" cols="30" rows="10" ng-model="vm.newContent " ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                                <button ng-click="vm.work_history_add()" type="button" class="btn btn-primary">提交更改</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
                 </div>
+
             </div>
             <!--教育经历-->
             <div class="infoHeader">

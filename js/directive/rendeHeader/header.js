@@ -9,6 +9,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
 
         },
         link: function (scope) {
+            let modalAlert=sessionStorage.getItem('modalAlert');
             scope.city=sessionStorage.getItem('city')||'全国';
             scope.cclient=parseInt(sessionStorage.getItem('client'));
             console.log(scope.cclient);
@@ -16,10 +17,10 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             switch(scope.cclient){
                 case 0:
                 case 1:
-                case 2:
+                // case 2:
                     scope.client=0;
                     break;
-                case 3:
+                case 2:
                     scope.client=1;
             }
             //0代表客户端1代表企业端
@@ -41,19 +42,27 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                 console.log('请求获取homeMenu');
                 common.request('boss/network_menu',data).then(function callback(res){
                     if(res.data.code===200){
+                        sessionStorage.removeItem('modalAlert');
                         scope.homeMenu=res.data.data;
                         sessionStorage.setItem('homeMenu',JSON.stringify(scope.homeMenu));
                     }
                     else if(res.data.code===201){
-                        modalBox.alert(res.data.msg,function(){
-                            // sessionStorage.removeItem('signSuccess');
-                            $timeout(function(){
-                                $state.go('signPage')
-                            },300)
-                        });
+                        if(modalAlert){
+                            $state.go('signPage')
+                        }else{
+                            sessionStorage.setItem('modalAlert','damn it');
+                            modalBox.alert(res.data.msg, function () {
+                                $timeout(function () {
+                                    $state.go('signPage')
+                                }, 300)
+                            });
+                        }
                     }
                     else{
-                        modalBox.alert(res.data.msg)
+                        if(!modalAlert){
+                            sessionStorage.setItem('modalAlert','damn it');
+                            modalBox.alert(res.data.msg)
+                        }
                     }
                 });
             }else{
@@ -63,19 +72,27 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                 console.log('请求获取homeMenu');
                 common.request('Boss/show_menu_two',data).then(function callback(res){
                     if(res.data.code===200){
+                        sessionStorage.removeItem('modalAlert');
                         scope.enterHome=res.data.data;
                         sessionStorage.setItem('enterHome',JSON.stringify(scope.enterHome));
                     }
                     else if(res.data.code===201){
-                        modalBox.alert(res.data.msg,function(){
-                            sessionStorage.removeItem('signSuccess');
-                            $timeout(function(){
-                                $state.go('signPage')
-                            },300)
-                        });
+                        if(modalAlert){
+                            $state.go('signPage')
+                        }else{
+                            sessionStorage.setItem('modalAlert','damn it');
+                            modalBox.alert(res.data.msg, function () {
+                                $timeout(function () {
+                                    $state.go('signPage')
+                                }, 300)
+                            });
+                        }
                     }
                     else{
-                        modalBox.alert(res.data.msg)
+                        if(!modalAlert){
+                            sessionStorage.setItem('modalAlert','damn it');
+                            modalBox.alert(res.data.msg)
+                        }
                     }
                 });
             }else{
