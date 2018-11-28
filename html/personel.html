@@ -107,30 +107,30 @@
                 <li class="work-position-l" ui-sref="personel({navType1:0})">所有人才</li>
                 <li class="work-position-l" ui-sref="personel({navType1:1})">精英推荐</li>
             </ul>
-            <div class=" personnel-select-fir">筛选：</div>
-            <ul class="personnel-select">
-                <li class="personnel-select-li">更新时间</li>
-                <li class="personnel-select-li">发布时间</li>
-                <li class="personnel-select-li">身份验证</li>
-                <li class="personnel-select-li">有作品</li>
-            </ul>
+            <!--<div class=" personnel-select-fir">筛选：</div>-->
+            <!--<ul class="personnel-select">-->
+                <!--<li class="personnel-select-li">更新时间</li>-->
+                <!--<li class="personnel-select-li">发布时间</li>-->
+                <!--<li class="personnel-select-li">身份验证</li>-->
+                <!--<li class="personnel-select-li">有作品</li>-->
+            <!--</ul>-->
             <div class="position-list personnel-list " ng-repeat="data in vm.dataList|limitTo:10"  ui-sref="personnel-detail({r_id:data.id})">
                 <div class="personnel-list-div">
                     <img src="{{data.img}}" alt="" class="personnel-img" title="点击查看人才详情">
                     <div class="person-list-intr">
                         <div class="positionname">{{data.nickname}}</div>
                         <div class=" grayF personnel-demo ">
-                            {{data.age}}岁 | {{data.years}}工作经验  | {{data.education}}学历
+                            {{data.age ||"暂无"}}岁 | {{data.years||"暂无"}}工作经验  | {{data.education||"暂无"}}学历
                         </div>
-                        <div class="personnel-demo">期望地点：{{data.job_address}}</div>
+                        <div class="personnel-demo">期望地点：{{data.job_address||"暂无"}}</div>
                     </div>
                 </div>
                 <div style="text-align: center" class="personnel-list-div">
-                    <div class="grayF">期望职位：{{data.want_job}}</div>
+                    <div class="grayF">期望职位：{{data.want_job||"暂无"}}</div>
                     <div class=" grayF personnel-demo">
-                        <span>求职状态：{{data.job_type}}</span>
+                        <span>求职状态：{{data.job_type||"暂无"}}</span>
                     </div>
-                    <div class="personnel-demo grayF ">TA想找<span class="personnel-active">{{data.want_job}}</span>工作</div>
+                    <div class="personnel-demo grayF ">TA想找<span class="personnel-active">{{data.want_job||"暂无"}}</span>工作</div>
                 </div>
                 <div  class="personnel-list-div person-list-btn">
                     <div class="grayF">
@@ -150,8 +150,8 @@
                 <div class="">
                     <img src="{{data.img}}" alt="" class ="headImg">
                 </div>
-                <div class="person-list-money"><span style="color: black">{{data.nickname}}</span></div>
-                <div>{{data.age}}岁 | {{data.education}}工作经验  | {{data.education}}学历</div>
+                <div class="person-list-money"><span style="color: black">{{data.nickname||"用户"}}</span></div>
+                <div>{{data.age||"暂无"}}岁 | {{data.education||"暂无"}}工作经验  | {{data.education ||"暂无"}}学历</div>
                 <div>{{data.job_type}} | 考虑换工作</div>
             </div>
             <div class=" seeMore text-center workmore">

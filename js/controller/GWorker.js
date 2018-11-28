@@ -6,6 +6,7 @@ angular.module('myApp')
         vm.params=$stateParams;
         vm.lists=listsRequest.lists();
         vm.typeList=vm.lists.jobType;
+        vm.expList=vm.lists.expList;
         vm.otherTypes=vm.typeList.slice(6);
         vm.nav=parseInt(vm.params.navType)||0;
         vm.selectedType=vm.params.selectedType;
@@ -67,14 +68,37 @@ angular.module('myApp')
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'border': '3px solid #f61111',
+                    'border': '1px solid #f61111',
                     'color': '#f61111'
                 });
             }else{
                 $('.typeSelect').css({
-                    'border': '3px solid #000',
+                    // 'border': '3px solid #000',
                     'color': '#000'
                 })
             }
         });
+
+        vm.format = "yyyy-MM-dd";
+        vm.popup = {opened: false}
+        vm.open = function () {
+            vm.popup.opened = true
+        };
+
+        vm.resume =function (info) {
+            console.log(info)
+            vm.province=$("#province10 option:selected").val(); //获取选中的项
+            vm.city=$("#city10 option:selected").val(); //获取选中的项
+            vm.district=$("#district10 option:selected").val(); //获取选中的项
+            info.address=vm.province+ vm.city+vm.district;
+            info.end_time=new Date(info.end_time).toLocaleDateString().replace('/','-').replace('/','-');
+            var data = {title:info.title,money:"￥"+info.money,content:info.content,
+                phone:info.phone,name:info.name,address:info.address,years:info.years,sex:info.sex,job_type:info.job_type,end_time:info.end_time}
+            common.request('Boss/add_change_work',data).then(function callback(res){
+                if(res.data.code==200){
+                    modalBox.alert(res.data.msg)
+                    history.go(0)
+                }
+            });
+        }
     });

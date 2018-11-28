@@ -5,12 +5,14 @@
 <div id="header_top" class="container-fluid topShell">
     <div class="top container">
         <!--<div class="row">-->
-        <div  class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 types">
+        <div class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 types" ng-mouseleave="vm.mouseLeave($index)" >
             <div ng-repeat="x in vm.jobType"
                  ng-mouseenter="vm.mouseEnter(x.id,$index)"
+                 ng-mouseleave="vm.indexLeave($index)"
                  ui-sref="WorkCtrl({jobType: {{$index}}})"
-                 class="type" ng-mouseleave="vm.mouseLeave($index)">
-                <img src="image/icon/icon{{$index+1}}.png" alt="" class="changeImg">
+                 class="type"
+                 on-finish-render-filters2>
+                <img src="image/icon/icon{{$index+1}}.png" alt="" class="changeImg"  >
                 {{x.name}}
             </div>
             <div ng-if="vm.showCates" class="typeDetails">

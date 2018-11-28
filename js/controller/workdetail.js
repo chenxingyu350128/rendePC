@@ -19,6 +19,7 @@ angular.module('myApp')
                 }else if(res.data.data[1]==0){
                     vm.colText="收藏";
                 }
+                // vm.info.boonarr = JSON.parse(vm.info.boonarr)
                 console.log(vm.info);
                 cinfo(vm.info.c_id);
                 like(vm.info.job_type);
@@ -75,6 +76,7 @@ angular.module('myApp')
 
         //查看相似职位列表
         function like(type){
+            console.log(type)
             common.request("Boss/resemble_job",{job_type:type}).then(function callback(res){
                 vm.like=res.data.data;
                 console.log("查看相似职位列表:", vm.like)

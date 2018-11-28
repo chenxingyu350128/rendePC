@@ -3,7 +3,6 @@
     display: inline-block;
     background-color: white;
     padding: 0.1rem 0;
-    font-weight: 600;
     font-family: 黑体;
     font-size: 16px;
     width: 100%;
@@ -25,8 +24,12 @@
 
 }
 .cinfo{
-    margin: .4rem auto;
+    margin: .4rem auto .05rem auto;
     text-align: center;
+}
+.cinfo img{
+    width: 1.5rem;
+    height: 1.5rem;
 }
 .detail-right{
     float: left;
@@ -36,7 +39,7 @@
     padding-bottom: .2rem;
 }
 .detail-position{
-    padding: 0.1rem;
+    padding:0.1rem 0.2rem;
     background-color: white;
 }
 .detail-position-name{
@@ -91,7 +94,7 @@
     padding: .1rem 0;
 }
 .span-r{
-    margin-right: .3rem;
+    margin-left: .3rem;
 }
 .detail-position-put-button{
     color: white;
@@ -109,13 +112,20 @@
 .detail-position-finish-button{
     color: red;
     border: 1px solid red;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 600;
     padding: .08rem 0.3rem;
     outline: 0px;
     background-color: white;
     margin-left: .1rem;
     border-radius: 5px;
+}
+.detail-position-finish-button:hover{
+    background: -webkit-linear-gradient(left, rgb(254,48,1) , rgb(226,28,25)); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, rgb(254,48,1) , rgb(226,28,25)); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, rgb(254,48,1) , rgb(226,28,25)); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,rgb(254,48,1) , rgb(226,28,25)); /* 标准的语法 */
+    color: white;
 }
 .detail-position-put-r {
     margin-top: .1rem;
@@ -125,14 +135,19 @@
     font-size: 14px;
     margin: 0 .2rem 0 .1rem;
 }
-.detail-position-put-r img{
-    width: 0.22rem;
-}
 .detail-position-hr{
-    margin: .1rem 0;
+    margin: .1rem 0 0 0;
     background-color: white;
     display: inline-block;
     width: 100%;
+}
+.work-recImg{
+    width: .14rem;
+    height: .14rem;
+}
+.work-wxImg{
+    width: .18rem;
+    height: .14rem;
 }
 .position-hr-top{
     padding: .1rem 0 0 0;
@@ -201,6 +216,10 @@
     margin-bottom: .2rem;
     display: inline-block;
     width: 95%;
+    padding: 0 10px;
+}
+.hr-content-other:hover{
+    border: 1px solid #f61111;
 }
 .detail-right-company{
     width: 27%;
@@ -219,6 +238,9 @@
     text-align: center;
     margin: 0 .4rem .3rem;
 }
+.detail-right-company-name:hover{
+    color: #f61111;
+}
 .company-intr{
     width: 100%;
 }
@@ -230,6 +252,7 @@
 }
 .company-intr li img{
     width: .23rem;
+    margin-right: 5px
 }
 .company-intr li span{
     color: gray;
@@ -259,7 +282,7 @@
 }
 .detail-right-other{
     margin: .2rem 0;
-    padding:.2rem 0 1rem 0;
+    padding:.2rem 0 .5rem 0;
     background-color: white;
     float: left;
     width: 30%;
@@ -289,10 +312,10 @@
     padding: 0rem .2rem;
 }
 .detail-right-other-name-intr div:first-child{
-    padding-top: 0.2rem;
+    padding: 0.2rem;
 }
 .similar-position{
     font-family: 黑体;
-    font-size: 21px;
+    font-size: 19px;
     font-weight: 600;
 }

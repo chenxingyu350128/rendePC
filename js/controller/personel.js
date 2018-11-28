@@ -199,7 +199,7 @@ angular.module('myApp')
             })
         }else{
             $('#nature').css({
-                'border': '1px solid #000',
+                'border': '1px solid gainsboro',
                 'color': '#000'
             })
         }
@@ -210,7 +210,7 @@ angular.module('myApp')
             })
         }else{
             $('#education').css({
-                'border': '1px solid #000',
+                'border': '1px solid gainsboro',
                 'color': '#000'
             })
         }
@@ -221,7 +221,7 @@ angular.module('myApp')
             })
         }else{
             $('#experience').css({
-                'border': '1px solid #000',
+                'border': '1px solid gainsboro',
                 'color': '#000'
             })
         }
@@ -232,7 +232,7 @@ angular.module('myApp')
             })
         }else{
             $('#gender').css({
-                'border': '1px solid #000',
+                'border': '1px solid gainsboro',
                 'color': '#000'
             })
         }
@@ -243,7 +243,7 @@ angular.module('myApp')
             })
         }else{
             $('#arrival').css({
-                'border': '1px solid #000',
+                'border': '1px solid gainsboro',
                 'color': '#000'
             })
         }

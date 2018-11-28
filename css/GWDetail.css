@@ -1,157 +1,325 @@
 .boxTitle {
-  display: flex;
-  align-items: center;
-  margin-bottom: .1rem;
-  padding: .15rem 0 .2rem; }
-  .boxTitle .stick {
+    display: flex;
+    align-items: center;
+    margin-bottom: .1rem;
+    padding: .15rem 0 .2rem;
+}
+
+.boxTitle .stick {
     width: .04rem;
     height: .2rem;
     margin-right: .1rem;
-    background: #f00; }
+    background: #f00;
+}
 
 .GWTop {
-  line-height: .36rem; }
-  .GWTop > div {
+    line-height: .36rem;
+}
+
+.GWTop > div {
     width: 100%;
     float: left;
     background: #fff;
-    margin-bottom: .1rem; }
-    .GWTop > div .redF {
-      border-left: 4px solid #f00;
-      padding-left: .1rem; }
+    margin: .1rem 0;
+}
+
+.GWTop > div .redF {
+    border-left: 4px solid #f00;
+    padding-left: .1rem;
+}
 
 .main {
-  overflow: hidden; }
+    overflow: hidden;
+}
 
 .leftSide {
-  width: calc((100% - 15px)*.75);
-  float: left; }
-  .leftSide > div {
+    width: calc((100% - 15px) * .75);
+    float: left;
+}
+
+.leftSide > div {
     background: #fff;
-    margin-bottom: .1rem; }
-    .leftSide > div .boxTitle {
-      font-size: 20px;
-      font-weight: 600; }
-  .leftSide .intro {
+    margin-bottom: .1rem;
+}
+
+.leftSide > div .boxTitle {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.leftSide .intro {
     font-size: 20px;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 19px 20px 28px 9px;
+    padding: 20px 15px 28px 15px;
     background: #fff;
-    margin-bottom: .1rem; }
-    .leftSide .intro .left .ocp {
-      margin-bottom: .3rem; }
-    .leftSide .intro .left .salary {
-      margin-bottom: .32rem; }
-    .leftSide .intro .left .endAt {
-      margin-bottom: .28rem; }
-    .leftSide .intro .left .address {
-      margin-bottom: .28rem; }
-    .leftSide .intro .left .contactMethod + .contactMethod {
-      margin-left: .67rem; }
-    .leftSide .intro .right {
-      font-size: 14px; }
-      .leftSide .intro .right .updateAt {
-        margin-bottom: .21rem; }
-      .leftSide .intro .right .viewCount {
-        margin-bottom: 1.38rem; }
-      .leftSide .intro .right .icons {
-        display: flex; }
-        .leftSide .intro .right .icons > div {
-          display: flex;
-          align-items: center; }
-          .leftSide .intro .right .icons > div img {
-            margin-right: .06rem; }
-        .leftSide .intro .right .icons .rec img {
-          width: .14rem;
-          height: .14rem; }
-        .leftSide .intro .right .icons .weChat {
-          margin-left: .22rem; }
-          .leftSide .intro .right .icons .weChat img {
-            width: .18rem;
-            height: .14rem; }
-  .leftSide .demands .demand {
+    margin-bottom: .1rem;
+}
+
+.leftSide .intro .left .ocp {
+    margin-bottom: .3rem;
+}
+
+.leftSide .intro .left .salary {
+    margin-bottom: .32rem;
+}
+
+.leftSide .intro .left .endAt {
+    margin-bottom: .28rem;
+}
+
+.leftSide .intro .left .address {
+    margin-bottom: .28rem;
+}
+
+.leftSide .intro .left .contactMethod + .contactMethod {
+    margin-left: .67rem;
+}
+
+.leftSide .intro .right {
+    font-size: 14px;
+}
+
+.leftSide .intro .right .updateAt {
+    margin-bottom: .21rem;
+}
+
+.leftSide .intro .right .viewCount {
+    margin-bottom: 1.38rem;
+}
+
+.leftSide .intro .right .icons {
+    display: flex;
+}
+
+.leftSide .intro .right .icons > div {
+    display: flex;
+    align-items: center;
+}
+
+.leftSide .intro .right .icons > div img {
+    margin-right: .06rem;
+}
+
+.leftSide .intro .right .icons .rec img {
+    width: .14rem;
+    height: .14rem;
+}
+
+.leftSide .intro .right .icons .weChat {
+    margin-left: .22rem;
+}
+
+.leftSide .intro .right .icons .weChat img {
+    width: .18rem;
+    height: .14rem;
+}
+
+.leftSide .demands .demand {
     margin: 0 .17rem;
     padding: .28rem 0 .23rem;
-    border-top: 1px solid #e3e3e4; }
-    .leftSide .demands .demand span {
-      font-size: 16px;
-      text-indent: 2em;
-      padding: .28rem .16rem 0; }
-  .leftSide .edit .options {
+    border-top: 1px solid #e3e3e4;
+}
+
+.leftSide .demands .demand span {
+    font-size: 16px;
+    text-indent: 2em;
+    /*padding: .28rem .16rem 0;*/
+}
+
+.leftSide .edit .options {
     padding: 0 .31rem;
-    display: flex; }
-    .leftSide .edit .options > div {
-      width: 1.58rem;
-      line-height: .49rem;
-      font-size: 20px;
-      font-weight: 600;
-      color: #fff;
-      border-radius: .25rem;
-      text-align: center; }
-    .leftSide .edit .options .button + .button {
-      margin-left: .22rem; }
-    .leftSide .edit .options .refresh {
-      background: linear-gradient(-9deg, #725ae3, #b73be6); }
-    .leftSide .edit .options .modify {
-      background: linear-gradient(-9deg, #48f7a2, #1db5cc); }
-    .leftSide .edit .options .delete {
-      background: linear-gradient(-9deg, #e35a5a, #e6943b); }
-  .leftSide .edit .desc {
+    display: flex;
+}
+
+.leftSide .edit .options > div {
+    width: 1.58rem;
+    line-height: .49rem;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: .25rem;
+    text-align: center;
+}
+
+.leftSide .edit .options .button + .button {
+    margin-left: .22rem;
+}
+
+.leftSide .edit .options .refresh {
+    background: linear-gradient(-9deg, #725ae3, #b73be6);
+}
+
+.leftSide .edit .options .modify {
+    background: linear-gradient(-9deg, #48f7a2, #1db5cc);
+}
+
+.leftSide .edit .options .delete {
+    background: linear-gradient(-9deg, #e35a5a, #e6943b);
+}
+
+.leftSide .edit .desc {
     padding: .3rem .16rem .18rem;
-    font-size: 16px; }
-  .leftSide .recommend {
-    background: none; }
-    .leftSide .recommend .boxTitle {
-      margin-bottom: 0;
-      background: #fff; }
-    .leftSide .recommend .ocp {
-      margin-top: .03rem;
-      display: flex; }
-      .leftSide .recommend .ocp .card {
-        padding: .31rem .27rem .31rem .27rem;
-        background: #fff;
-        width: calc((100% - .09rem)/2);
-        font-size: 16px; }
-        .leftSide .recommend .ocp .card:nth-child(odd) {
-          margin-right: .09rem; }
-        .leftSide .recommend .ocp .card .ocpAndSalary {
-          margin-bottom: .33rem;
-          font-size: 20px; }
-        .leftSide .recommend .ocp .card .desc {
-          color: #808080;
-          margin-bottom: .41rem;
-          max-width: 20em;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden; }
-        .leftSide .recommend .ocp .card .tel {
-          margin-bottom: .31rem; }
-        .leftSide .recommend .ocp .card .addressAndDate .grayF {
-          margin-left: .3rem; }
+    font-size: 16px;
+}
+
+.leftSide .recommend {
+    background: none;
+}
+
+.leftSide .recommend .boxTitle {
+    margin-bottom: 0;
+    background: #fff;
+}
+
+.leftSide .recommend .ocp {
+    margin-top: .03rem;
+    display: flex;
+}
+
+.leftSide .recommend .ocp .card {
+    padding: .31rem .27rem .31rem .27rem;
+    background: #fff;
+    width: calc((100% - .09rem) / 2);
+    font-size: 16px;
+}
+
+.leftSide .recommend .ocp .card:nth-child(odd) {
+    margin-right: .09rem;
+}
+
+.leftSide .recommend .ocp .card .ocpAndSalary {
+    margin-bottom: .33rem;
+    font-size: 20px;
+}
+
+.leftSide .recommend .ocp .card .desc {
+    color: #808080;
+    margin-bottom: .41rem;
+    max-width: 20em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.leftSide .recommend .ocp .card .tel {
+    margin-bottom: .31rem;
+}
+
+.leftSide .recommend .ocp .card .addressAndDate .grayF {
+    margin-left: .3rem;
+}
 
 .rightSide {
-  width: calc((100% - 15px)*.25);
-  margin-left: .15rem;
-  float: left;
-  padding: 0 .18rem .32rem .12rem;
-  background: #fff; }
-  .rightSide .redF {
+    width: calc((100% - 15px) * .25);
+    margin-left: .15rem;
+    float: left;
+    padding: 0 .18rem .32rem .12rem;
+    background: #fff;
+}
+
+.rightSide .redF {
     font-size: 20px;
-    font-weight: 600; }
-  .rightSide .notice {
+    font-weight: 600;
+}
+
+.rightSide .notice {
     font-size: 16px;
     color: #727272;
-    margin-bottom: .49rem; }
-  .rightSide .release {
-    line-height: .65rem;
+    margin-bottom: .3rem;
+    line-height: 30px;
+}
+
+.rightSide .release {
+    line-height: .55rem;
     width: 82.7%;
     margin: 0 auto;
     font-size: 20px;
     color: #fff;
     background: #E21C19;
     border-radius: .1rem;
-    text-align: center; }
-
-/*# sourceMappingURL=GWDetail.css.map */
+    text-align: center;
+}
+.resume-bt{
+    text-align: center;
+}
+.resume-bt button{
+    width:272px;
+    height:56px;
+    background:#f61111;
+    border:1px solid #f61111;
+    border-radius:4px;
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(255,254,254,1);
+    margin: 25px 0;
+}
+.shop-resume{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 30px;
+}
+.resume-title{
+    padding: 13px;
+    background: rgba(255,255,255,1);
+    border-bottom: 1px solid gainsboro;
+    font-size: 20px;
+    font-family: MicrosoftYaHei-Bold;
+    font-weight: bold;
+    color: rgba(226,28,25,1);
+}
+.resume-title-banner{
+    padding: 10px 0;
+}
+.resume-title-banner img{
+    width:31px;
+    height:19px;
+    margin-right: 5px;
+}
+.resume-title-banner span{
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+}
+.resume-title-part{
+    display: flex;
+    flex-direction: row;
+}
+.resume-part1{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-right: .4rem;
+}
+.resume-part1 span{
+    font-size:14px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(0,0,0,1);
+    padding: 11px 0;
+}
+.resume-part1 input,
+.resume-part1 select{
+    width:225px;
+    height:36px;
+    border: 1px solid gainsboro;
+    background:rgba(244,244,244,1);
+    border-radius:4px;
+    padding:10px;!important;
+}
+.resume-part1 input:focus,.resume-part1 textarea:focus,form-group select:focus{
+    border:1px solid rgba(226,28,25,1);
+    box-shadow:1px 1px 6px 0px rgba(226,28,25,1), 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+}
+.resume-part1 textarea{
+    height: 165px;
+    background: rgba(244,244,244,1);
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    padding: 10px;
+    resize: none;
+    width: 100%;
+}

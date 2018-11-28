@@ -45,7 +45,7 @@
       justify-content: space-between; }
       .signPage .main .table .pickers span {
         padding-bottom: .09rem;
-        color: #ddd;
+        color: gray;
         border-bottom: 2px solid #b2b2b2; }
 
 .inputs label {
@@ -101,4 +101,6 @@
   .login span {
     cursor: pointer; }
 
-/*# sourceMappingURL=sign.css.map */
+.agreement{
+  padding: 20px;
+}

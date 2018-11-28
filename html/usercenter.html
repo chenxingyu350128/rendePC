@@ -2,7 +2,6 @@
 <common-search></common-search>
 <!--人才详情-->
 <div class="work-body">
-    <!--搜索-->
     <div class="workdetail-body">
         <div class="usercenterR">
             <div class="">
@@ -11,7 +10,7 @@
                     <img src="{{vm.userList.img}}" alt="" class="user-img mt fl">
                     <div class="personnel-intr" style="width: 83%">
                         <div style="width: 100%">
-                            <span class="personnel-name">{{vm.userList.name||"信息未完善"}}</span>
+                            <span class="personnel-name" style="font-weight: 600;">{{vm.userList.name||"信息未完善"}}</span>
                             <br>
                         </div>
                         <div style="width: 100%;">
@@ -25,11 +24,6 @@
                                 <span>联系邮箱：{{vm.userList.email||"信息未完善"}}</span><br>
                                 <span>联系电话：{{vm.userList.hand_phone||"信息未完善"}}</span>
                             </div>
-                            <div class="personnel-detail-intr">
-                                <!--<span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：1次</span>-->
-                                <br>
-                                <button class="position-btn fr" ng-click="vm.face(vm.x.id)" id="face" ng-show="client==2">邀请面试</button>
-                            </div>
                         </div>
 
                     </div>
@@ -39,50 +33,49 @@
             <div class="detail-position-hr">
                 <div class="detail-position top-flex">
                     <div class="resume-num top-border">
-                        <div style="color: red">888{{vm.cardData.length}}</div>
+                        <div style="color: red">{{vm.cardData.length ||0}}</div>
                         <div>收到的简历</div>
                     </div>
                     <div class="resume-num">
-                        <div style="color: red">88{{vm.faceData.length}}</div>
-                        <div>邀请面试</div>
+                        <div style="color: red">{{vm.faceData.length||0}}</div>
+                        <div>被邀请面试</div>
                     </div>
                 </div>
             </div>
             <!--求职经历-->
             <div class="detail-position-hr">
-                <div class="position-hr-top">
+                <div class="position-hr-top bannerline" style="padding: 14px 0px;">
                     <span > 推荐职位</span>
                 </div>
                 <div class="intention">
-                    <div class="position-list" ng-repeat="data in vm.dataList" on-finish-render-filters2>
-                        <div class="position-name" style="padding: 0px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
-                            <img src="{{data.img}}" style="width: 89px;height: 87px">
+                    <div class="userList" ng-repeat="data in vm.dataList" on-finish-render-filters2>
+                        <div class="position-name userimg-box"  ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
+                            <img src="{{data.img}}" >
                         </div>
-                        <div  class="position-list-right flex-column" >
-                            <div class="positionname fl" style="margin-bottom: 9px;">{{data.job_type}}</div>
-                            <div class="worksalary redF fl">￥{{data.start_money}}-{{data.end_money}}</div>
-                            <div class="demand grayF workdemand">
-                                <span>{{data.experience}}|</span>
-                                <span >{{data.education}}|</span>
-                                <span>{{data.area}}</span>
+                        <div  class=" flex-column " style="margin: 0 15px;width: 19%;">
+                            <div class="positionname fl overhide" >{{data.job_type}}</div>
+                            <div class="worksalary redF fl overhide" style="font-size: 24px">￥{{data.start_money ||"面议"}}-{{data.end_money}}</div>
+                            <div class=" grayF userdemand overhide">
+                                <span>{{data.experience ||"不限"}}经验 |</span>
+                                <span >{{data.education ||"不限"}}学历 |</span>
+                                <span>{{data.area ||"不限"}}</span>
                             </div>
                         </div>
-                        <div class="position-list-center flex-column" style="margin-top: 28px;">
-                            <div class="positionname fl">{{data.name}}</div>
-                            <div class="demand grayF workdemand" style="margin-top: 8px;">
-                                <span>{{data.c_type}}</span>
-                                <span>|{{data.nature}}</span>
-                                <span>{{data.size}}</span>
+                        <div class="position-list-center flex-column " style="margin-top: 35px;width: 39%;">
+                            <div class="positionname fl" style="margin-bottom: 4px">{{data.name||"暂无"}}</div>
+                            <div class="grayF workdemand overhide" style="margin-top: 8px;">
+                                <span>{{data.c_type  ||"暂无"}}</span>
+                                <span>|{{data.nature  ||"暂无"}}</span>
+                                <span>{{data.size  ||"暂无"}}</span>
                             </div>
                         </div>
-                        <div class="fr">
+                        <div class="fr flex-column" style="align-items: center;">
                             <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
-                            <br>
-                            <div class="demand grayF workdemand">
+                            <div class="grayF updatatime">
                                 <span>更新时间：{{data.time}}</span>
                             </div>
                         </div>
-                        <div class="position-hr"></div>
+                        <!--<div class="position-hr"></div>-->
                     </div>
                 </div>
             </div>
@@ -104,7 +97,7 @@
                         <span>积分说明</span>
                     </div>
                     <div class="text-center">
-                        <img src="image/store/exchange.png" alt=""> <br>
+                        <img src="image/store/exchange.png" alt="" ui-sref="store({type:1})"> <br>
                         <span>我的兑换</span>
                     </div>
                 </div>
@@ -114,12 +107,12 @@
                     <span>推荐企业</span>
                 </div>
             </div>
-            <div ui-sref="enterpriseInfo({id:data.id})" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
-                <div class="row1">
-                    <img class="companyName company-logo" src="{{data.img}}" style="padding: 0;margin: .2rem auto .25rem;">
+            <div ui-sref="enterpriseInfo({id:data.id})" class="user-prise"  ng-repeat="data in vm.dataList|limitTo:3" >
+                <div class="">
+                    <img class=" company-logo" src="{{data.img}}" style="padding:1px;margin: .2rem auto .25rem;">
                 </div>
                 <div class="text-center" style="display: block">
-                    <div>{{data.name}}</div>
+                    <div class="user-prise-name">{{data.name}}</div>
                 </div>
             </div>
         </div>

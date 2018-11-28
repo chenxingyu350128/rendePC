@@ -17,6 +17,7 @@ angular.module('myApp')
             }
         };
         vm.companyjob=companyjob;//邀请面试
+
         // 获取收到简历接口
         let url1 ='Boss/show_resumelist';
         var data1= {interview: ''};
@@ -28,6 +29,11 @@ angular.module('myApp')
         var data2= {interview: '1'};
         common.request(url2,data2).then(function callback(res){
             vm.faceData = res.data.data;
+        })
+
+        // 获取收到简历接口
+        common.request('Boss/company_job_list',{}).then(function callback(res){
+            vm.jobData = res.data.data;
         })
 
         // 获取收到简历接口
@@ -59,5 +65,13 @@ angular.module('myApp')
             }),function errorCallback(response) {
             };
         }
+
+        // 获取商品列表
+        let timeurl='boss/shopping_list';
+        let timedata={typeid:0,desc:''};
+        common.request(timeurl,timedata).then(function callback(res){
+            vm.timeList = res.data.data
+            console.log("商品",vm.timeList)
+        })
 
     });

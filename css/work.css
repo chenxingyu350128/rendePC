@@ -3,6 +3,7 @@
     overflow: hidden;
     max-width: 1366px;
     margin: 0 auto;
+    font-family: 微软雅黑;
 }
 .work-search{
     padding: 20px 10px 0px 10px;
@@ -140,7 +141,8 @@
     line-height: .28rem;
     height: .28rem;
     margin-left: 20px;
-    padding: 1px 10px;
+    /*padding: 1px 10px;*/
+    padding: 0px 13px
 }
 .work-position{
     display: inline-block;
@@ -169,12 +171,18 @@
 }
 .position-list{
     padding: 20px 30px 0px 30px;
-    width: 99%;
+    width: 100%;
     float: left;
 
 }
 .position-list:hover {
     border: 1px solid #f61111;
+}
+.position-list:hover img {
+    box-shadow: 2px 2px 5px #999;
+}
+.position-list:hover .position-btn {
+   background-color: #f61111;
 }
 .position-name{
     width: 89px;
@@ -186,7 +194,6 @@
     font-size: 24px;
     border-radius: 13px;
     font-weight: 600;
-    box-shadow: 2px 2px 5px #999;
     float: left;
 }
 .position-list-right{
@@ -209,10 +216,15 @@
 }
 .positionname{
     font-size: 18px;
+
+}
+.bolder{
     font-weight: bolder;
 }
 .worksalary{
-    font-size: 21px;
+    font-size: 24px;
+    margin: 8px 0;
+    font-weight: 100;
 }
 .fl{
     float: left;
@@ -231,11 +243,11 @@
 }
 .position-btn{
     border: none;
-    background-color: #f61111;
+    background-color: #c20c0c;
     color: white;
     padding: 7px 6px;
     width: 1.5rem;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     margin-bottom: 8px;
     text-align: center;
@@ -285,9 +297,13 @@
 }
 .hot-position-list div{
     margin: 5px 0 ;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .type-name{
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 }
 .type-pay{
@@ -305,6 +321,7 @@
 .flex-column{
     display: flex;
     flex-direction: column;
+    margin: 0 11px;
 }
 /*剪切自找企业*/
 .checkBox{
@@ -312,7 +329,8 @@
 }
 .checkBox>div{
     background: #fff;
-    padding: .28rem .09rem .35rem .18rem;
+    /*padding: .28rem .09rem .35rem .18rem;*/
+    padding: .28rem .2rem .35rem 0rem;
 }
 .checkBox .row{
     display: flex;
@@ -372,14 +390,15 @@
     margin-left: .18rem; }
 .demand .select {
     box-sizing: border-box;
-    -moz-appearance: none;
-    /* Firefox */
-    -webkit-appearance: none;
+    /*-moz-appearance: none;*/
+    /*!* Firefox *! 选择框箭头样式*/
+    /*-webkit-appearance: none;*/
     /* Safari and Chrome */
-    background: url("../image/home/selectIcon.png") no-repeat right center transparent;
-    -webkit-background-size: .28rem 100%;
-    background-size: .28rem 100%;
-    padding: 0 .5rem 0 .19rem; }
+    /*background: url("../image/home/jt.png") no-repeat right center transparent;*/
+    /*-webkit-background-size: .28rem 100%;*/
+    /*background-size: .15rem .1rem;*/
+    padding: 0 .5rem 0 .19rem;
+}
 .demand select + select {
     margin-left: .5rem; }
 

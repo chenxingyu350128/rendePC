@@ -28,23 +28,158 @@
         </select>
     </div>
 </div>
-<div ng-if="!vm.noResult" class="container recruitment">
-    <div ng-repeat="x in vm.cardData" ui-sref="GWDetail({id:x.id})" class="card">
-        <div class="salary">
-            <span>{{x.title}}</span>
+<div class="container main">
+    <div class="recruitleft">
+        <div ng-if="!vm.noResult" class=" recruitment">
+            <div ng-repeat="x in vm.cardData" ui-sref="GWDetail({id:x.id})" class="card">
+                <div class="salary">
+                    <span>{{x.title}}</span>
+                </div>
+                <div class="desc grayF">{{x.job_type}} / {{x.money}} / {{x.sex}} / {{x.years}}工作经验 / {{x.content}}</div>
+                <div class="tel">{{x.phone}}</div>
+                <div class="address">
+                    <span>{{x.address}}</span>
+                    <span class="grayF pull-right">{{x.time}}</span>
+                </div>
+            </div>
         </div>
-        <div class="desc grayF">{{x.job_type}} / {{x.money}} / {{x.sex}} / {{x.years}}工作经验 / {{x.content}}</div>
-        <div class="tel">{{x.phone}}</div>
-        <div class="address">
-            <span>{{x.address}}</span>
-            <span class="grayF pull-right">{{x.time}}</span>
+        <div style="margin: .2rem 0;font-size: 18px" ng-if="vm.noResult" class="nothing text-center">无匹配结果</div>
+        <div ng-if="!vm.noResult" class="container">
+            <div class="seeMore text-center">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="rightSide" style="margin-top: 10px;">
+        <div class="boxTitle">
+            <div class="stick"></div>
+            <span class="redF">温馨提示</span>
+        </div>
+        <div class="notice">
+            为方便一些普工类企业(如饭店,店面,个体户等)发布招聘信息,特设定了无需注册,即可发布简短招聘的功能,在给大家提供了更多的信息的同时也存在的问题是,我们无法对这些发布者做核实. ★以下信息由企业或个体工商户自行提供，该企业或个体工商户负责信息内容的真实性、准确性和合法性。网站对此不承担任何保证或连带责任.
+        </div>
+        <div class="release" data-toggle="modal" data-target="#resume">
+            发布普工简历
         </div>
     </div>
 </div>
-<div style="margin: .2rem 0;font-size: 18px" ng-if="vm.noResult" class="nothing text-center">无匹配结果</div>
-<div ng-if="!vm.noResult" class="container">
-    <div class="seeMore text-center">
-        <img src="image/home/seeMore.png" alt="">
-    </div>
-</div>
+
 <rd-footer></rd-footer>
+
+
+
+<!--模态框-->
+<div class="modal fade" id="resume" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 53%;">
+        <div class="modal-content">
+            <div class="modal-body shop-resume">
+                <div class="resume-title">发布简历信息</div>
+                <div class="resume-title-banner">
+                    <img src="image/shopicon2.png">
+                    <span> 个人信息</span>
+                </div>
+                <form class="infoForm">
+                    <div class="resume-title-part">
+                        <div class="resume-part1">
+                            <span>联系人：</span>
+                            <input type="text" ng-model="vm.info.name" required="required" >
+                        </div>
+                        <div class="resume-part1">
+                            <span>期望薪资：</span>
+                            <input type="text" ng-model="vm.info.money" required="">
+                        </div>
+                        <div class="resume-part1">
+                            <span>有效日期：</span>
+                            <input type="text"
+                                   required=""
+                                   class="form-control col-md-8"
+                                   uib-datepicker-popup="yyyy-MM-dd"
+                                   ng-model="vm.info.end_time"
+                                   is-open="vm.popup.opened"
+                                   datepicker-options={showWeeks:false,maxDate:vm.endAt}
+                                   ng-required="true"
+                                   close-text="关闭"
+                                   clear-text="清空"
+                                   current-text="今天"
+                                   alt-input-formats="altInputFormats"
+                                   ng-click="vm.open()"/>
+                        </div>
+                            <div class="resume-part1">
+                                <span>性别：</span>
+                                <select type="text" style="width: 86px;padding: 0px 10px;" ng-model="vm.info.sex"required="" >
+                                    <option value="">选择性别</option>
+                                    <option value="男">男</option>
+                                    <option value="女">女</option>
+                                </select>
+                            </div>
+                    </div>
+                    <div class="resume-title-part">
+                        <div class="resume-part1">
+                            <span>联系电话：</span>
+                            <input type="text"  ng-model="vm.info.phone" required="">
+                        </div>
+                    </div>
+                    <div class="resume-title-part">
+                        <div class="resume-part1">
+                            <span>自我介绍：</span>
+                            <textarea type="text" ng-model="vm.info.content" required=""></textarea>
+                        </div>
+                    </div>
+                    <div class="resume-title-banner">
+                        <img src="image/shopicon.png" style="width: 21px;height: 21px" required="">
+                        <span>职位信息</span>
+                    </div>
+                    <div class="resume-title-part">
+                        <div class="resume-part1">
+                            <span>想找什么类型的工作：</span>
+                            <select type="text" ng-model="vm.info.job_type"style=" padding: 0 10px;" >
+                                <option value="{{data}}"ng-repeat="data in vm.typeList" >{{data}}</option>
+                            </select>
+                        </div>
+                        <div class="resume-part1">
+                            <span>期望工作：</span>
+                            <input type="text" ng-model="vm.info.title" required="">
+                        </div>
+                        <div class="resume-part1">
+                            <span>工作年限：</span>
+                            <select type="text" ng-model="vm.info.years" style=" padding: 0 10px;">
+                                <option value="{{data.years}}"ng-repeat="data in  vm.expList" >{{data.years}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="resume-title-part">
+                        <div class="resume-part1">
+                            <span>工作地址：</span>
+                            <div class="form-inline adress-select" >
+                                <div id="distpicker5" style="display:flex;margin-right: 14px;">
+                                    <div class="form-group" style="margin-right: 10px;">
+                                        <label class="sr-only" for="province10">Province</label>
+                                        <select class="form-control" id="province10" style=" padding: 0 10px;"></select>
+                                    </div>
+                                    <div class="form-group" style="margin-right: 10px;">
+                                        <label class="sr-only" for="city10">City</label>
+                                        <select class="form-control" id="city10" style=" padding: 0 10px;"></select>
+                                    </div>
+                                    <div class="form-group" style="margin-right: 10px;">
+                                        <label class="sr-only" for="district10">District</label>
+                                        <select class="form-control" id="district10" style=" padding: 0 10px;"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="resume-bt">
+                <input ng-click="vm.resume(vm.info)" type="submit">确定</input>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<script src="js/adresspicker/distpicker.data.js"></script>
+<script src="js/adresspicker/distpicker.js"></script>
+<script src="js/adresspicker/main.js"></script>

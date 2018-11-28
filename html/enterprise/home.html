@@ -21,37 +21,48 @@
                     <div>邀请面试</div>
                 </div>
             </div>
+
+            <!--//广告位1-->
+            <div  class="enterban">
+                <img src="image/enterban.png">
+            </div>
             <!--求职人才-->
             <div class="detail-position-hr">
                 <div class="enterprise-top">
-                    <span > 求职人才</span>
-                    <div class="manage-list bc look-jl-br" ng-repeat="data in vm.cardData | filter:mSearch |limitTo:4">
-                        <div class="position-list-right " style="margin-bottom: .2rem;">
-                            <div class="positionname fl">{{data.job_type}}</div>
-                            <div class="money">￥3000-5000</div>
-                            <br>
-                            <div class=" grayF personnel-demo ">
-                                {{data.age}}岁| {{data.years }}年以上经验|{{data.education }}学历
+                    <span > 职位管理</span>
+                    <div style="margin-top: 10px">
+                        <div class=" bc prise-resume"  ng-repeat="data in vm.jobData">
+                            <div class=" enter-resume-info" >
+                                <div>
+                                    <div class="info-name fl">{{data.job_type}} </div>
+                                    <div class="info-momey">￥{{data.start_money}}-{{data.end_money}}</div>
+                                </div>
+                                <div class="grayF" style="margin: 15px 0;">
+                                    {{data.experience ||"不限"}} | {{data.education||"暂无" }}学历 | {{data.area||"不限"}}
+                                </div>
+                                <div class=" grayF" >
+                                    <div class="fl">更新时间：{{data.time}}</div>
+                                </div>
                             </div>
-                            <div class="personnel-demo grayF" style="margin-top: 0.22rem;">
-                                <div class="fl">更新时间：{{data.time}}</div>
+                            <div class="enter-resume-bt">
+                                <button class="detail-position-finish-button fr">查看简历</button>
+                                <button class="detail-position-finish-button fr">完成招聘</button>
                             </div>
                         </div>
-                        <div class="look-jl">
-                            <button class="detail-position-finish-button fr">完成招聘</button>
-                            <button class="detail-position-put-button fr">查看简历</button>
+                        <div ng-show="vm.jobData.length==0" style="text-align: center">
+                            <img src="image/no_data.png" alt="" style="height: 400px;margin-bottom: 20px;">
                         </div>
                     </div>
                 </div>
-                <div class=" seeMore text-center workmore">
+                <div class=" seeMore text-center workmore" ng-hide="vm.jobData.length==0">
                     <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
 
 
-            <!--其他职位-->
+            <!--人才推荐-->
             <div class="detail-position-hr">
-                <div class="enterprise-top"><span>查看其TA职位</span></div>
+                <div class="enterprise-top"><span>人才推荐</span></div>
                 <div class="position-content">
                     <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4">
                         <div class="outstandings talentlist">
@@ -62,14 +73,67 @@
                             <button class="meeting" ng-click="vm.companyjob(data.id)">邀请面试</button>
                         </div>
                     </div>
-
-
                     <div class=" seeMore text-center workmore">
                         <img src="image/home/seeMore.png" alt="">
                     </div>
                 </div>
             </div>
+            <!--积分兑换-->
+            <div class="detail-position-hr">
+                <div class="enterprise-top"><span>积分兑换</span></div>
+                <div class="store">
+                    <div class="storeinfo text-center" ng-repeat="time in vm.timeList |limitTo:3" ui-sref="shop-detail({id:time.id})">
+                        <img src="{{time.img}}" alt="">
+                        <div class="productName">{{time.name}}</div>
+                        <div class="scoreNeed">
+                            所需积分: <span>{{time.integral}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class=" seeMore text-center workmore"  style="margin-bottom: 35px">
+                    <img src="image/home/seeMore.png" alt="">
+                </div>
+            </div>
+            <!--//广告位-->
+            <div  class="enterban">
+                <img src="image/enterban.png">
+            </div>
+            <!--仁德人力代理-->
+            <div class="">
+                <div class="enterprise-top" style="background: white;padding: 10px;"><span>仁德人力代理</span></div>
+                <div class="store">
+                    <div class=" services">
+                        <div class="theCard">
+                            <div class="cardTitle card1">人才外包服务套餐</div>
+                            <div class="priceContent">
+                                    通过我们仁德直聘专业和资深的招聘团队，我们为企业客户您定制个性化的招聘方案；用我们仁德直聘先进的网络信息招聘系统，
+                                    并结合各大同行业的网络招聘系统，互相筛选，迅速为企业客户做出合理有效的招聘决策,提升招聘质量，
+                                    迅速找出合适的人才为企业发展助力。
+                            </div>
+                        </div>
+                        <div class="theCard" >
+                            <div class="cardTitle card2">人力资源管理外包服务套餐</div>
+                            <div class="priceContent">
+            <span>仁德人力资源代理服务为企业提供人力资源管理外包服务，服务内容包括：
+                <br>人力资源薪酬福利管理服务;
+                <br>人力资源绩效管理服务;
+                <br>人力资源培训管理服务;
+                <br>人力资源测评管理服务.
+            </span>
+                            </div>
+                        </div>
+                        <div class="theCard">
+                            <div class="cardTitle card3">人才、劳务派遣服务套餐</div>
+                            <div class="priceContent">
+                                <span>    又称人才派遣、人才租赁、劳动力派遣、劳动力租赁，是指由仁德直聘公司委托第三方有资质的劳务派遣公司与派遣员工签订劳动合同，劳务派遣公司需为仁德直聘的入库筛选公司，经过考核完由劳务派遣公司派遣员工向用工企业客户提供劳务的一种新型用工模式。劳务派遣的员工劳动合同关系存在于劳务派遣公司与派遣员工之间，但派遣员工的劳动力则发生于派遣员工与用工企业之间。</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
+
 
         <div class="detail-right">
             <div class="enterprise-top"><span>公司信息</span></div>

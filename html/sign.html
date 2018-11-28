@@ -28,7 +28,7 @@
             </div>
             <div class="deal text-center">
                 点击注册即同意
-                <span class="redF">用户协议及隐私政策</span>
+                <span class="redF"  data-toggle="modal" data-target="#agreerment">用户协议及隐私政策</span>
             </div>
             <div class="login text-center">已有账号
                 <span class="redF" ui-sref="signPage({choice:0})">直接登录</span>
@@ -38,14 +38,14 @@
             <h3 class="text-center">登录仁德直聘</h3>
             <div style="visibility: hidden" class="tip1 text-center">使用手机号注册</div>
             <div class="table">
-                <div class="pickers text-center">
-                    <span class="navLogin" ui-sref="signPage({method:2})" ng-click="vm.msgLogin()">短信登录</span>
-                    <span class="navLogin" ui-sref="signPage({method:1})" ng-click="vm.codeLogin()">密码登录</span>
+                <div class="pickers text-center" style="justify-content: center">
+                    <span class="navLogin" ui-sref="signPage({method:2})" ng-click="vm.msgLogin()" >短信登录</span>
+                    <!--<span class="navLogin" ui-sref="signPage({method:1})" ng-click="vm.codeLogin()">密码登录</span>-->
                 </div>
                 <div class="inputs">
                     <label class="label1" for="Lmobile">
                         <img src="image/home/signIcon_gray.png" alt="">
-                        <input id="Lmobile" ng-model="vm.phone" type="text" placeholder="手机号" value="13328942165">
+                        <input id="Lmobile" ng-model="vm.phone" type="text" placeholder="手机号" >
                     </label>
                     <label ng-if="vm.method==1" class="label2" for="Ecode2">
                         <img src="image/home/signIcon_gray.png" alt="">
@@ -61,16 +61,27 @@
                 <div ng-click="vm.getECode()" class="signBtn text-center">登录</div>
             </div>
             <div class="login text-center">
-                <span>
-                    <img src="" alt="">
-                    微信登录
-                </span>
+                <!--<span>-->
+                    <!--<img src="" alt="">-->
+                    <!--微信登录-->
+                <!--</span>-->
                 <span class="redF" ui-sref="signPage({choice:1})">立即注册</span>
             </div>
         </div>
     </div>
 </div>
 
+
+<!--模态框-->
+<div class="modal fade" id="agreerment" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 53%;">
+        <div class="modal-content">
+            <div class="modal-body agreement" id="g">
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

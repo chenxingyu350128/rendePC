@@ -127,7 +127,7 @@ angular.module('myApp')
             $('.modal-backdrop').remove();
             common.request('user/add_change_resume',data).then(function callback(res) {
                 if(res.data.code===200){
-                    $state.go('resume');
+                    $state.go('.',{},{reload:true});
                     modalBox.alert('修改成功');
                 }
                 // modalBox.alert(res.data.msg,function(){

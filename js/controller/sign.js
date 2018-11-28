@@ -61,4 +61,12 @@ angular.module('myApp')
         vm.msgLogin=function () {
             vm.loginMethod=2;
         };
+
+        common.request('reg/show_agreement',{}).then(function callback(res){
+            if(res.data.code==200){
+                vm.agreement=JSON.parse(res.data.data);
+                $("#g").html(vm.agreement)
+            console.log(res.data.data.content)
+            }
+        });
     });

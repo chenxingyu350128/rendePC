@@ -18,20 +18,20 @@
                     <span>￥{{vm.info.start_money}}-{{vm.info.end_money}}</span> | <span>{{vm.info.c_address}}</span> | <span>{{vm.info.experience}}工作经验</span> | <span>{{vm.info.education}}学历</span>
                 </div>
                 <div class="detail-position-fuli ">
-                    <span ng-repeat="x in vm.info.boonarr">{{x}}</span>
+                    <span ng-repeat="x in vm.info.boonarr">{{x.name}}</span>
                 </div>
                 <div class="detail-position-time">
                     <span>{{vm.info.time}} 更新</span>
                     <span>被浏览： {{vm.info.look_num}} 次</span>
-                    <span class="span-r" id="collect"  ng-click="vm.collect(vm.info.id)">被收藏： {{vm.browse.likejob}} 次</span>
+                    <span class="span-r" >被收藏： {{vm.browse.likejob}} 次</span>
                 </div>
                 <div class="detail-position-put">
-                    <button class="detail-position-put-button" ng-click="vm.throwResum(vm.info.id,'me')" id="meresume">投递简历</button>
-                    <!--<button class="detail-position-put-button" ng-click="vm.throw(vm.info.id)" ng-if=" vm.throw==1">已投递</button>-->
+                    <button class="detail-position-put-button" ng-click="vm.throwResum(vm.info.id,'me')" id="meresume" ng-if=" vm.throw==0">投递简历</button>
+                    <button class="detail-position-put-button"  ng-if=" vm.throw==1" disabled="disabled">已投递</button>
                     <div class="detail-position-put-r fr">
-                        <img src="image/work/tjicon1.jpg" alt="">
+                        <img src="image/home/rec.png" alt="" class="work-recImg">
                         <span>推荐</span>
-                        <img src="image/work/wxicon.jpg" alt="">
+                        <img src="image/home/wechat.png" alt="" class="work-wxImg">
                         <span>微信</span>
                     </div>
                 </div>
@@ -82,13 +82,13 @@
                 <div class="position-hr-content hr-content-other"  ui-sref="workDetail({id:vm.other.id})" ng-hide="vm.others.length==0">
                     <div class="hr-content-describe" ng-repeat="other in  vm.others |limitTo :2" >
                         <div class="">
-                            <span>{{ other.job_type}}</span>
+                            <span >{{ other.job_type}}</span>
                             <button class="detail-position-put-button fr " ng-click="vm.throwResum(other.id,$index)" >投递简历</button>
                             <!--<button class="detail-position-put-button fr " ng-click="vm.throw(other.id)"ng-if=" vm.throw==1" >已投递</button>-->
                         </div>
                         <div class="detail-position-intr">
-                            <span>{{other.area}}</span> | <span>薪水： {{ other.start_money}}-{{ other.end_money}}</span>
-                            | <span>学历： {{other.education}}</span> | <span>经验 ：{{other.experience}}</span>
+                            <span style="color: #0C0C0C;">{{other.area}}</span> | <span style="color: #f61111;">薪水： {{ other.start_money||"面议"}}-{{ other.end_money}}</span>
+                            | <span>学历： {{other.education||"不限"}}</span> | <span>经验 ：{{other.experience||"不限"}}</span>
                         </div>
                     </div>
                 </div>
@@ -99,30 +99,30 @@
 
         <div  class="detail-right">
             <div class="cinfo">
-             <img src="{{vm.cinfo.img}}">
+             <img src="{{vm.info.img}}">
             </div>
             <div class="detail-right-company-name" ui-sref="enterpriseInfo({id:vm.info.id})">{{  vm.cinfo.name}}</div>
             <ul class="company-intr">
                <li>
                    <img src="image/work/type.png" alt="">
-                   <span>{{  vm.cinfo.job_type}}</span>
+                   <span>{{  vm.cinfo.job_type||"暂无信息"}}</span>
                </li>
                 <li>
                     <img src="image/work/nature.png" alt="">
-                    <span>{{vm.cinfo.nature}}</span>
+                    <span>{{vm.cinfo.nature||"暂无信息"}}</span>
                 </li>
                 <li>
                     <img src="image/work/area.png" alt="">
-                    <span>{{vm.cinfo.area}}</span>
+                    <span>{{vm.cinfo.area ||"暂无信息"}}</span>
                 </li>
                 <li>
-                    <img src="image/work/size.png" alt="">
-                    <span>{{vm.cinfo.size}}</span>
+                    <img src="image/work/size.png" alt="" style="width: .24rem;height: 0.18rem;">
+                    <span>{{vm.cinfo.size||"暂无信息"}}</span>
                 </li>
             </ul>
         </div>
         <ul class="company-work-manage">
-           <li><span> {{vm.browse.get_resume}} 份</span> <br>简历投递 </li>
+           <li><span> {{vm.browse.get_resume ||0}} 份</span> <br>简历投递 </li>
            <li><span>0 %</span> <br>平均回复率 </li>
            <li><span>0 </span> <br>回复时长 </li>
         </ul>

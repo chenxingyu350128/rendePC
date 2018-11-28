@@ -3,14 +3,14 @@
     width: 70%;
     float: left;
     margin-right: 15px;
-    background-color: white;
+    /*background-color: white;*/
     margin-top: 15px;
     margin-bottom: 15px;
 }
 .usercenterL{
     width: calc(30% - 15px);
     float: left;
-    background-color: white;
+    /*background-color: white;*/
     margin-top: 15px;
 }
 .user-img{
@@ -19,4 +19,70 @@
     border-radius: 50%;
     margin-right: .18rem;
     border: 1px solid gainsboro;
+}
+.userList{
+    display: flex;
+    flex-direction: row;
+    /*margin: 25px 10px;*/
+    padding: 20px 0;
+    border-bottom: 1px solid gainsboro;
+    cursor: pointer;
+}
+.userList img{
+    width: 89px;height: 87px;border: 1px solid gainsboro;
+}
+.userimg-box{
+    padding: 0px;margin-left: 15px;
+}
+.userList:hover{
+    border: 1px solid #f61111;
+}
+.userList:hover img{
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+}
+.userList:hover button{
+    background: #f61111;
+}
+.overhide{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.updatatime{
+    margin-top: 15px;
+}
+.userdemand{
+    font-size: 14px;
+}
+.bannerline{
+    border-bottom: 1px solid gainsboro;
+    padding: 14px 0px;
+}
+.company-logo{
+    border: 1px solid gainsboro;
+    width: 1.98rem;
+    height: 2rem;
+    text-space: .5em;
+    padding: .17rem .25rem;
+    color: #fff;
+    font-size: 30px;
+    font-weight: 600;
+}
+.user-prise{
+    border: none;
+    background: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin: 10px 0;
+    text-align: center;
+    cursor: pointer;
+}
+.user-prise:hover img{
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+}
+.user-prise:hover .user-prise-name{
+    color: #f61111;
+}
+.user-prise-name{
+    margin-bottom: 10px;font-size: 16px
 }

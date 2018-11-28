@@ -71,7 +71,7 @@
 </div>
 <div class="container enterNav">
     <div class="row">
-        <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
+        <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12" style="background: white;padding: 0;margin-bottom: 15px;">
             <div class="leftNav">
                 <div ui-sref="enterprise({nav0:0})" class="{{vm.nav==0?'checkedNav':''}}">
                     <span>企业列表</span>
@@ -82,12 +82,11 @@
                     <img style="width: 12px;height: 8px" src="image/home/arrowBottom_white.png" alt="">
                 </div>
             </div>
-            <div ui-sref="enterpriseInfo({id:data.id})" class="occupation" ng-repeat="data in vm.dataList|limitTo:8">
+            <div ui-sref="enterpriseInfo({id:data.id})" ng-repeat="data in vm.dataList|limitTo:8" style="border: none;
+    border-bottom: 1px solid gainsboro;">
                 <div class="row1">
                     <div class="leftTwo">
                         <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
-                        <!--博&nbsp;业<br>建&nbsp;设-->
-
                         <div class="sec">
                             <div class="position">
                                 {{data.name}}
@@ -128,7 +127,7 @@
                     <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
                 </div>
                 <div class="text-center" style="display: block">
-                 <div>{{data.name}}</div>
+                 <div style="margin-bottom: 10px;">{{data.name}}</div>
                 </div>
             </div>
         </div>

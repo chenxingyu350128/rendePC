@@ -1,5 +1,4 @@
 <!--页眉-->
-<!--页眉-->
 <rende-header></rende-header>
 <div class="BG container-fluid text-center">
     欢迎来到积分商城，你想要的这里都有！！
@@ -7,6 +6,39 @@
 <div class="main container">
     <div class="row">
         <div class="col-lg-8 content1">
+            <div class="storeSelect">
+                <span class=" ">积分筛选:
+                    <span ng-click="vm.clearOthers()" class="opt1 ocp allOptions" id="all">全部</span>
+                </span>
+                <!--<select class=""-->
+                        <!--id="integral"-->
+                        <!--ng-change="vm.getintegral(vm.integral)"-->
+                        <!--ng-model="vm.integral">-->
+                    <!--<option value="">综合排序</option>-->
+                    <!--<option value="">积分值排序</option>-->
+                    <!--<option value="1">降序</option>-->
+                <!--</select>-->
+
+            </div>
+
+            <!--<div class="hotOcp">-->
+                <!--<span class="underNav">职位: </span>-->
+                <!--<span class="job_type btn" ng-click="vm.clearType()">全部</span>-->
+                <!--<span class="job_type btn"-->
+                      <!--ng-click="vm.getJobType(x,$index+1)"-->
+                      <!--on-finish-render-filters-->
+                      <!--ng-repeat="x in vm.typeList |limitTo :6">{{x}}-->
+                <!--</span>-->
+                <!--<select class="underNav job_type typeSelect"-->
+                        <!--name="kind"-->
+                        <!--ng-change="vm.getType(vm.selectedType)"-->
+                        <!--ng-model="vm.selectedType" >-->
+                    <!--<option value="">更多</option>-->
+                    <!--<option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>-->
+                <!--</select>-->
+            <!--</div>-->
+
+
             <div class="productTitle">
                 <span ng-hide="vm.type==1">推荐商品</span>
                 <span ng-show="vm.type==1">我的兑换</span>
@@ -87,4 +119,5 @@
         </div>
     </div>
 </div>
+<div style="margin-top: -2.2rem;height: 100px;width: 100%"></div>
 <rd-footer></rd-footer>

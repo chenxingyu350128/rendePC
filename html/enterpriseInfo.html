@@ -7,18 +7,18 @@
 </div>
 <div class="enterDesc container">
     <div ng-click="vm.companyInfo()" class="enterLeft" style="margin-right: 1.5rem;">
-        <img src="{{vm.dataList.img}}" alt="" style="width: 2.5rem;height: 2.5rem;">
+        <img src="{{vm.dataList.img}}" alt="" class="prise-logo">
         <div>
             <div class="enterName">{{vm.dataList.name}}</div>
             <div class="about">
-                {{vm.dataList.job_type}}&emsp;|&emsp;{{vm.dataList.nature}}&emsp;|&emsp;{{vm.dataList.size}}&emsp;|&emsp;{{vm.dataList.area}}
+                {{vm.dataList.job_type ||"暂无"}}&emsp;|&emsp;{{vm.dataList.nature||"暂无"}}&emsp;|&emsp;{{vm.dataList.size||"暂无"}}&emsp;|&emsp;{{vm.dataList.area||"暂无"}}
             </div>
             <div class="happy">
-                <span ng-repeat="item in vm.boonarr">{{item}}</span>
+                <span ng-repeat="item in vm.boonarr">{{item.name}}</span>
             </div>
             <div class="count">
                 <div>
-                    <div class="number">{{vm.jobList.length}}</div>
+                    <div class="number">{{vm.jobList.length ||0}}</div>
                     <span>招聘岗位</span>
                 </div>
                 <div>
@@ -70,14 +70,14 @@
             <img src="image/home/emailIcon.png" alt="">
         </div>
         <span>企业邮箱：</span>
-        <span class="inner">{{vm.dataList.mail}}</span>
+        <span class="inner">{{vm.dataList.mail||"暂无"}}</span>
     </div>
     <div class="address">
         <div class="imgShell">
             <img src="image/home/addressIcon.png" alt="">
         </div>
         <span>企业地址：</span>
-        <span class="inner">{{vm.dataList.address}}</span>
+        <span class="inner">{{vm.dataList.address ||"暂无"}}</span>
     </div>
 </div>
 <div class="introduction container">
@@ -85,7 +85,7 @@
         <span>企业介绍</span>
     </div>
     <div class="text">
-        {{vm.dataList.introduce}}
+        {{vm.dataList.introduce ||"暂无详情"}}
     </div>
     <div class="container seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
@@ -96,18 +96,18 @@
         <span>招聘职位</span>
     </div>
     <div class="occupation" ng-repeat="job in vm.jobList |limitTo:8">
-        <div class="row ">
+        <div class=" ">
             <div class="leftTwo">
                 <div class="infoImg"  ui-sref="workDetail({id:job.id,index})"><img src="{{job.img}}" alt="" style="width: 100%"></div>
                 <div class="sec" style="margin: 0 23px;">
                     <div>
-                        {{job.job_type}}
-                        <span class="salary redF">￥{{job.pay}}</span>
+                        {{job.job_type ||"暂无信息"}}
+                        <span class="salary redF">￥{{job.pay||"面议"}}</span>
                     </div>
                     <div class="demand grayF">
-                        <span>{{job.experience}}|</span>
-                        <span>{{job.education}}|</span>
-                        <span>{{job.address}}</span>
+                        <span>{{job.experience ||"不限"}}|</span>
+                        <span>{{job.education||"不限"}}|</span>
+                        <span>{{job.address||"不限"}}</span>
                     </div>
                 </div>
             </div>
@@ -117,13 +117,13 @@
                         {{job.name}}
                     </div>
                     <div class="demand grayF">
-                        <span>{{job.nature}}</span>
-                        <span>|{{job.nature}}</span>
-                        <span>{{job.size}}</span>
+                        <span>{{job.nature||"暂无信息"}}</span>
+                        <span>|{{job.nature||"暂无信息"}}</span>
+                        <span>{{job.size||"暂无信息"}}</span>
                     </div>
                 </div>
                 <div class="thi_R">
-                    <span ng-click="vm.throw(job.id,$index)" class="position-btn" on-finish-render-filters2>投个简历</span>
+                    <span ng-click="vm.throw(job.id,$index)" class="position-btn" style="background-color: " on-finish-render-filters2>投个简历</span>
                     <div class="update">
                         更新时间：{{job.time}}
                     </div>

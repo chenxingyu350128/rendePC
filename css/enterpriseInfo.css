@@ -128,17 +128,17 @@
     font-weight: 600;
     border: none
 }
-
 .contact {
     padding: .3rem .45rem;
     margin-bottom: .1rem;
     background: #fff;
 }
-
 .contact .email {
-    padding: .42rem 0;
+    padding: 0 0 .2rem 0;
 }
-
+.prise-logo{
+    border: 1px solid gainsboro;width: 2.5rem;height: 2.5rem;
+}
 .contact > div {
     display: flex;
     align-items: center;
@@ -187,12 +187,19 @@
     align-items: center;
     width: 50%
 }
+.occupation :hover .jobs .thi .thi_R span{
+    background-color: #f61111;
+}
 .infoImg{
-    height: 91px;width: 89px;border-radius: 5px;margin-right: 20px;border: 1px solid gainsboro;margin-left: 10px;
+    height: 91px;
+    width: 89px;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    margin: 10px 0px 0 15px;
 }
-.jobs .leftTwo img {
-    margin: 0 .27rem;
-}
+/*.jobs .leftTwo img {*/
+    /*margin: 0 .27rem;*/
+/*}*/
 
 .jobs .demand {
     margin-top: .3rem;
@@ -216,7 +223,7 @@
 }
 
 .jobs .thi .thi_R span {
-    background: #f00;
+    background: #f61111;
     color: #fff;
     font-weight: 600;
     font-size: 18px;

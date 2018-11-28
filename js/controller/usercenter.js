@@ -34,17 +34,19 @@ angular.module('myApp')
                     else  if(res.data.code==404){
                         modalBox.alert(res.data.msg);
                     }
-
-
                 });
             }
         });
 
         // 获取用户信息
-        let userurl='user/get_userinfo';
-        let userdata={network:1};
-        common.request(userurl,userdata).then(function callback(res) {
+        common.request('user/get_userinfo',{network:1}).then(function callback(res) {
             vm.userList = res.data.data
             console.log("{userinfo}",vm.userList)
+        })
+
+        // 用户端查看发出简历 和被邀请
+        common.request('Boss/user_resume_num',{}).then(function callback(res) {
+            vm.cardData=res.data.data
+            console.log("{resume_list}",res.data.data)
         })
     })

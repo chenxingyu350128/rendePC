@@ -179,12 +179,12 @@ angular.module('myApp')
                     'color': '#000'
                 });
                 $('.typeSelect').css({
-                    'border': '3px solid #f61111',
-                    'color': '#f61111'
+                    'padding': '0 10px',
+                    'border-color': '#f61111'
                 })
             }else{
                 $('.typeSelect').css({
-                    'border': '3px solid #848484',
+                    'padding': '0 10px',
                     'color': '#000'
                 })
             }
@@ -195,20 +195,21 @@ angular.module('myApp')
 
         });
         let url='';
-        vm.navType=0;
-        if(!vm.navType){
+        // vm.navType=0;
+
+        if(vm.navType==0){
             url='Boss/find_job';
-        }else{
+        }else if(vm.navType==1){
             url='Boss/new_job';
         }
         if(vm.nature){
             $('#nature').css({
-                'border': '1px solid #f61111',
+                // 'border': '1px solid #f61111',
                 'color': '#f61111'
             })
         }else{
             $('#nature').css({
-                'border': '1px solid #000',
+                // 'border': '1px solid #000',
                 'color': '#000'
             })
         }
@@ -219,7 +220,7 @@ angular.module('myApp')
             })
         }else{
             $('#education').css({
-                'border': '1px solid #000',
+                // 'border': '1px solid #000',
                 'color': '#000'
             })
         }
@@ -230,7 +231,7 @@ angular.module('myApp')
             })
         }else{
             $('#experience').css({
-                'border': '1px solid #000',
+                // 'border': '1px solid #000',
                 'color': '#000'
             })
         }
@@ -241,7 +242,7 @@ angular.module('myApp')
             })
         }else{
             $('#gender').css({
-                'border': '1px solid #000',
+                // 'border': '1px solid #000',
                 'color': '#000'
             })
         }
@@ -252,7 +253,7 @@ angular.module('myApp')
             })
         }else{
             $('#arrival').css({
-                'border': '1px solid #000',
+                // 'border': '1px solid #000',
                 'color': '#000'
             })
         }

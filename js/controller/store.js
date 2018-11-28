@@ -3,8 +3,11 @@
 angular.module('myApp')
     .controller('storeCtrl',function ($http,$state,$stateParams,common,$timeout,modalBox) {
         let vm=this;
+        vm.params=$stateParams;
+        console.log(vm.params);
+        let postData={};
+        let paramsData={};
         vm.type = $stateParams.type;
-        console.log(vm.type)
         vm.homePage=function(){
             $state.go('home')
         };
@@ -16,9 +19,47 @@ angular.module('myApp')
             'border-bottom':'5px solid #e11c19'
         })
 
+        //清除筛选条件等
+        vm.clearOthers=function(){
+            paramsData['idx1']=0;
+            paramsData['integral1']='';
+            paramsData['time1']='';
+            $state.go('store',paramsData,{reload:true})
+        };
+        vm.getintegral=function(e){
+            vm.integral=postData['integral']=paramsData['integral1']=e;
+            console.log(e)
+            $state.go('store',paramsData,{reload:true})
+        };
+
+        if(vm.params.integral1){
+            $('#integral').css({
+                'border': '1px solid #f61111',
+                'color': '#f61111'
+            })
+        }else{
+            $('#integral').css({
+                'border': '1px solid #000',
+                'color': '#000'
+            })
+        }
+
+        if(vm.params.idx1){
+            $('#all').css({
+                'background': ' #f61111',
+                'color': '#fff',
+                'border-radius': '10px'
+            })
+        }else{
+            $('#integral').css({
+                'background': ' #fff',
+                'color': '#000',
+            })
+        }
+
 
         vm.getList=function(url){
-            let shopdata={typeid:0,desc:''};
+            let shopdata={typeid:0,desc:vm.params.integral1};
             common.request(url,shopdata).then(function callback(res){
                 if(res.data.code===200){
                     vm.shoppingList = res.data.data;

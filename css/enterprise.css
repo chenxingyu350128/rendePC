@@ -50,7 +50,7 @@
 /*}*/
 .getMore{
     padding: .05rem .1rem;
-    border: 1px solid #f00;
+    /*border: 1px solid #f00;*/
 }
 .leftNav{
     background: #fff;
@@ -60,7 +60,7 @@
     display: inline;
     align-items: center;
     line-height: .5rem;
-    padding: .1rem .14rem;
+    padding: .12rem .14rem;
     font-size: 20px;
     font-weight: 600;
 }
@@ -74,6 +74,7 @@
     position: relative;
     margin-bottom: 0;
     justify-content: flex-start;
+    padding: 15px;
 }
 .enterNav .row1 .sec{
     margin-left: .25rem;
@@ -82,16 +83,29 @@
     padding: .08rem;
     background: #fff;
 }
+
 .leftTwo{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+.row1:hover{
+    border: 1px solid #f61111;
+}
+.row1:hover img{
+    box-shadow:2px 2px 5px rgba(0,0,0, 0.15);
+}
+.row1 img{
+    padding: 0;
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 1px solid gainsboro;
+}
 .row1 .thi{
     position: absolute;
     width: 33%;
     margin-left: 1.27rem;
-    right: 0;
+    right: 20px;
 }
 .thi .line1{
 
@@ -132,11 +146,11 @@
     border-left: 3px solid #f00;
 }
 .recommend .companyName{
-    width: 2rem;
+    width: 1.98rem;
     height: 2rem;
     font-size: 50px;
     text-align: center;
-    margin: .2rem auto .25rem;
+    margin: .1rem auto 0rem
 }
 .recommend .occupation{
     border: none;

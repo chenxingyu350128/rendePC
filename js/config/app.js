@@ -313,7 +313,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store?type',
+                url: '/store?type?integral1?idx1',
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -398,6 +398,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/GWorker.css',
                         'js/controller/GWorker.js',
+                        'css/GWDetail.css',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
@@ -414,6 +415,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 controllerAs: 'vm',
                 resolve: {
                     loadMyFile: _ocLazy([
+                        'css/GWDetail.css',
                         'css/recruit.css',
                         'js/controller/recruit.js',
                         'css/lib/header.css',
@@ -532,6 +534,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/home.css',
                         'js/controller/enterprise/home.js',
                         'css/work.css',
+                        'css/proxy.css',
                         'css/personel.css',
                         'css/workdetail.css',
                         'css/position-modify.css',

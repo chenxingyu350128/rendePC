@@ -15,7 +15,7 @@
     margin: .2rem;
     border-left: 1px solid gainsboro;
     padding: 0 .4rem;
-    width: 62%;
+    width: 60%;
 }
 .shop-intr div{
     margin-bottom: .2rem;
@@ -71,14 +71,19 @@
 .shop-detail-likeintr{
     width: 65%;
 }
+.integral{
+    margin-top: 54px;
+}
 .shop-detail-likeintr div:first-child{
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 600;
     margin-bottom: .2rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    line-height: 27px;
+    height: 72px;
 }
 .likeRed{
     color: red;
@@ -142,11 +147,12 @@
 .exchange-bt button{
     width:309px;
     height:58px;
-    background:rgba(193,5,2,1);
-    border:1px solid rgba(255,0,0,1);
+    background:#f61111;
+    border:1px solid #f61111;
     border-radius:10px;
     font-size:20px;
     font-family:微软雅黑;
     font-weight:bold;
     color:rgba(255,255,255,1);
 }
+

@@ -92,7 +92,6 @@
     width: 100%;
     margin: 0;
     overflow: hidden;
-    position: relative;
 }
 
 .logo{
@@ -129,7 +128,7 @@
     border-bottom: 5px solid #31bdfd;
 }
 /*.nav div:hover{*/
-    /*border-bottom: 3px solid #e11c19;*/
+/*border-bottom: 3px solid #e11c19;*/
 /*}*/
 .line1st{
     display: flex;
@@ -184,15 +183,9 @@
     flex-direction: column;
 }
 .loginInfo{
-    position: fixed;
-    top: .05rem;
-    right: calc((100% - 1366px)/2);
     display: flex;
     flex-direction: column;
     float: right;
-}
-.loginInfo span{
-    width: 164px;
 }
 .loginInfo span:first-child{
     margin-top: 10px;
@@ -220,7 +213,7 @@
 .usercenter{
     position: absolute;
     z-index: 2;
-    right: 0;
+    right: 14%;
     border: 1px solid red;
     border-radius: 5px;
     background: white

@@ -196,8 +196,8 @@ body{
 }
 .search .hot{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    /*flex-wrap: wrap;*/
+    /*justify-content: space-around;*/
     margin-top: .15rem;
 }
 .hot span{
@@ -206,6 +206,7 @@ body{
 }
 .hot .redF{
     clear: both;
+    margin-right: 12px;
 }
 .redF{
     color: #f61111;
@@ -350,6 +351,9 @@ body{
 .occupation:hover {
     border: 1px solid #f61111;
 }
+.occupation:hover .companyName{
+    box-shadow: 2px 2px 5px rgba(0,0,0, 0.15);
+}
 .occupation>div{
     display: flex;
     justify-content: space-between;
@@ -425,7 +429,7 @@ body{
     font-size: 30px;
     font-weight: 600;
     /*background: powderblue;*/
-    box-shadow:2px 2px 5px rgba(0,0,0, 0.15)
+
 }
 
 .occupation .position{
