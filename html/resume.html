@@ -1,14 +1,13 @@
 <!--页眉-->
 <rende-header></rende-header>
 <common-search></common-search>
-<!--xuanze-->
 <div class="container enterNav">
     <div class="row" style="margin-bottom: 15px;">
         <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
             <!--基本资料-->
-            <div class="info">
+            <div class="info info_mb">
                 <div class="avatar">
-                    <img src="im{{vm.resume.img}}" alt="">
+                    <img ng-src="{{vm.resume.img}}" alt="">
                 </div>
                 <div class="fill1">
                     <div class="real_name">{{vm.resume.name ||"暂无用户名"}}</div>
@@ -29,17 +28,54 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">求职意向</h4>
+                                <h4 class="modal-title" id="myModalLabel">基本信息</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="editTable">
                                     <form  class="table1" name="table1">
                                         <div>
-                                            头像： <img src="image/home/resume_avatar.png" alt="">
-                                            <label for="avatarEdit">
-                                                <input style="display: none;" id="avatarEdit" type="file"  ng-model="vm.resume.img">
-                                                选择图片
+                                            <span>头像：</span>
+                                            <label for="uploadImg">
+                                                <input id="uploadImg"
+                                                       type="file"
+                                                       style="display: none;width: 0;height: 5px"
+                                                       ng-model="vm.avatar"
+                                                       accept="image/png,image/jpeg,image/gif"
+                                                       onchange="angular.element(this).scope().uploadImage(this)">
+                                                <img style="width: 1.2rem;height: 1.2rem" id="previewImg" ng-src="{{vm.resume.img}}" >
                                             </label>
+                                            <div>
+                                                <div class="text-center">
+                                                    <table style="display: table" class="btn-block">
+                                                        <tr ng-if="vm.file0">
+                                                            <td>
+                                                                <div class="progress" style="margin-bottom: 0!important;">
+                                                                    <div style="width:{{vm.progress}}%;background-color: #337ab7;border-radius: 3px;"
+                                                                         ng-bind="vm.progress+'%'"
+                                                                         class="progress-bar">
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td>
+                                                                <span class="glyphicon glyphicon-ok" ng-show="vm.progress==100"></span>
+                                                            </td>
+                                                        </tr>
+                                                        <tr ng-if="vm.file0">
+                                                            <td>
+                                                                <button class="btn btn-sm btn-success" ng-click="vm.upload()" ng-disabled="vm.progress">
+                                                                    <span class="glyphicon glyphicon-upload"></span>上传
+                                                                </button>
+                                                                <button class="btn btn-sm btn-danger" ng-click="vm.deleteImg()">
+                                                                    <span class="glyphicon glyphicon-trash"></span>删除
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="name">
+                                            姓名: <input type="text" required ng-model="vm.resume.name">
                                         </div>
                                         <div class="age">
                                             年龄: <input type="number" required ng-model="vm.resume.age">
@@ -69,9 +105,15 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer" style="text-align: center">
                                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
-                                <button type="button" ng-click="vm.commit(vm.resume)" class="btn btn-primary">提交更改</button>
+                                <button type="button"
+                                        data-dismiss="modal"
+                                        ng-click="vm.commit(vm.resume)"
+                                        ng-disabled="!vm.resume.img||!vm.resume.age||!vm.resume.education||!vm.resume.address||!vm.resume.years||!vm.resume.phone||!vm.resume.email"
+                                        class="btn btn-danger">
+                                    提交
+                                </button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
@@ -81,7 +123,7 @@
             <div class="infoHeader">
                 <span>求职意向</span>
             </div>
-            <div class="info">
+            <div class="info info_mb">
                <div class="fill1">
                    <div>意向岗位：{{vm.resume.want_job}}</div>
                    <div>工作地点: {{vm.resume.job_address}}</div>
@@ -96,7 +138,7 @@
                    <div>工作性质:  {{vm.resume.nature}}</div>
                    <div>求职状态:  {{vm.resume.job_type}}</div>
                </div>
-               <img data-toggle="modal" data-target="#myModal2" class="editIcon" src="image/home/editIcon.png" alt="">
+               <img data-toggle="modal" data-target="#myModal2" class="editIcon1" src="image/home/editIcon.png" alt="">
                 <!--<button class="btn btn-primary btn-lg" >开始演示模态框</button>-->
                 <!-- 模态框（Modal） -->
                 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
@@ -109,28 +151,44 @@
                             <div class="modal-body">
                                 <div class="editTable">
                                     <form  class="table2" name="table2">
-                                        <div class="aim">
-                                            意向岗位: <input type="text"  ng-model="vm.resume.want_job">
+                                        <div class="industy">
+                                            从事行业:
+                                            <select ng-change="vm.getType(vm.resume.f_type)" ng-model="vm.resume.f_type">
+                                                <option value="">请选择行业类型</option>
+                                                <option value="{{x}}" ng-repeat="x in vm.jobType">{{x}}</option>
+                                            </select>
+                                            <!--<input type="text"  ng-model="vm.resume.f_type">-->
                                         </div>
-                                        <div class="place">
-                                            工作地点:
-                                            <div class="form-inline adress-select" >
-                                                <div id="distpicker5" style="display:flex;margin-right: 14px;">
-                                                    <div class="form-group" style="margin-right: 10px;">
-                                                        <label class="sr-only" for="province10">Province</label>
-                                                        <select class="form-control" id="province10" ></select>
-                                                    </div>
-                                                    <div class="form-group" style="margin-right: 10px;">
-                                                        <label class="sr-only" for="city10">City</label>
-                                                        <select class="form-control" id="city10"></select>
-                                                    </div>
-                                                    <div class="form-group" style="margin-right: 10px;">
-                                                        <label class="sr-only" for="district10">District</label>
-                                                        <select class="form-control" id="district10"></select>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <input type="hidden" id="putadress" value="{{vm.resume.job_address}}">
+                                        <div class="aim">
+                                            意向岗位:
+                                            <select  ng-model="vm.resume.want_job">
+                                                <option value="">请选择具体岗位</option>
+                                                <option value="{{x.name}}" ng-repeat="x in vm.detailList">{{x.name}}</option>
+                                            </select>
+                                            <!--<input type="text"  ng-model="vm.resume.want_job">-->
+                                        </div>
+                                        <!--<div class="place">-->
+                                            <!--工作地点:-->
+                                            <!--<div class="form-inline adress-select" >-->
+                                                <!--<div id="distpicker5" style="display:flex;margin-right: 14px;">-->
+                                                    <!--<div class="form-group" style="margin-right: 10px;">-->
+                                                        <!--<label class="sr-only" for="province10">Province</label>-->
+                                                        <!--<select class="form-control" id="province10" ></select>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="form-group" style="margin-right: 10px;">-->
+                                                        <!--<label class="sr-only" for="city10">City</label>-->
+                                                        <!--<select class="form-control" id="city10"></select>-->
+                                                    <!--</div>-->
+                                                    <!--<div class="form-group" style="margin-right: 10px;">-->
+                                                        <!--<label class="sr-only" for="district10">District</label>-->
+                                                        <!--<select class="form-control" id="district10"></select>-->
+                                                    <!--</div>-->
+                                                <!--</div>-->
+                                            <!--</div>-->
+                                            <!--<input type="hidden" id="putadress" value="{{vm.resume.job_address}}">-->
+                                        <!--</div>-->
+                                        <div>
+                                            工作地点: <input type="text"  ng-model="vm.resume.job_address">
                                         </div>
                                         <div class="reachTime">
                                             到岗时间:
@@ -143,9 +201,6 @@
                                             <select  ng-model="vm.resume.nature" >
                                                 <option value="{{nature.name}}" ng-repeat="nature in vm.natureList">{{nature.name}}</option>
                                             </select>
-                                        </div>
-                                        <div class="industy">
-                                            从事行业: <input type="text"  ng-model="vm.resume.f_type">
                                         </div>
                                         <div class="status">
                                             求职状态:
@@ -160,9 +215,15 @@
                                 </div>
 
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer" style="text-align: center">
                                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
-                                <button ng-click="vm.commit(vm.resume)" type="button" class="btn btn-primary">提交更改</button>
+                                <button ng-click="vm.commit(vm.resume)"
+                                        data-dismiss="modal"
+                                        ng-disabled="!vm.resume.f_type||!vm.resume.want_job||!vm.resume.job_address||!vm.resume.come_job||!vm.resume.nature||!vm.resume.job_type"
+                                        type="button"
+                                        class="btn btn-danger">
+                                    提交
+                                </button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
@@ -183,7 +244,7 @@
                         <div class="ocp">{{x.job_name}}</div>
                         <div class="fr">
                             <!--<span class="modify">修改</span>-->
-                            <span class="delete" ng-click="vm.delete($index)">删除</span>
+                            <span class="delete" ng-click="vm.deleteWork($index)">删除</span>
                         </div>
                     </div>
                     <div class="tails">
@@ -191,10 +252,10 @@
                     </div>
                 </div>
             </div>
-            <div class="addExp">
-                <div data-toggle="modal" data-target="#myModal3" class="addExpbtn"> 添加工作经历</div>
+            <div class="addExp info_mb">
+                <div data-toggle="modal" data-target="#myModal3" class="addExpbtn text-center"> 添加工作经历</div>
                 <!-- 模态框（Modal） -->
-                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -207,18 +268,40 @@
                                         <div class="duration">
                                             起始时间:
                                             <div>
-                                                <input type="text"  required="" id="starttime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newStartTime">
-                                                <input type="text"  required="" id="endtime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newEndTime  ">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                       ng-model="vm.newStartTime"
+                                                       is-open="vm.popup.opened"
+                                                       datepicker-options={showWeeks:false,maxDate:vm.newEndTime}
+                                                       ng-required="true"
+                                                       close-text="关闭"
+                                                       clear-text="清空"
+                                                       current-text="今天"
+                                                       alt-input-formats="vm.format"
+                                                       ng-click="vm.open()"/>
+                                                结束时间:
+                                                <input type="text"
+                                                       class="form-control col-md-8"
+                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                       ng-model="vm.newEndTime"
+                                                       is-open="vm.popup1.opened"
+                                                       datepicker-options={showWeeks:false,minDate:vm.newStartTime,maxDate:vm.dateNow}
+                                                       ng-required="true"
+                                                       close-text="关闭"
+                                                       clear-text="清空"
+                                                       current-text="今天"
+                                                       alt-input-formats="vm.format"
+                                                       ng-click="vm.open1()"/>
+                                                <!--<input type="text"  required=""  placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newStartTime">-->
+                                                <!--<input type="text"  required=""  placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.newEndTime  ">-->
                                             </div>
                                         </div>
                                         <div class="compName">
                                             公司名称: <input type="text" required="" ng-model="vm.newCompany">
                                         </div>
                                         <div class="ocp">
-                                            任职岗位:
-                                            <select ng-model="vm.newJob_name">
-                                                <option ng-repeat="type in vm.jobType" value="{{type}}">{{type}}</option>
-                                            </select>
+                                            职位名称: <input type="text" required="" ng-model="vm.newJob_name">
                                         </div>
                                         <div class="ocpDetail">
                                             具体工作:
@@ -228,79 +311,131 @@
                                 </div>
 
                             </div>
-                            <div class="modal-footer">
+                            <div class="modal-footer" style="text-align: center">
                                 <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
-                                <button ng-click="vm.work_history_add()" type="button" class="btn btn-primary">提交更改</button>
+                                <button ng-click="vm.work_history_add()"
+                                        type="button"
+                                        data-dismiss="modal"
+                                        ng-disabled="!vm.newCompany||!vm.newJob_name||!vm.newStartTime||!vm.newEndTime||!vm.newContent"
+                                        class="btn btn-danger">提交</button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                </div>
+            </div>
+            <!--教育经历-->
+            <div class="infoHeader">
+                <span>教育经历</span>
+            </div>
+            <div class="info eduShell"  ng-repeat="x in vm.resume.allshool track by $index">
+                <div class="eduExp">
+                    <div class="major">
+                        <div class="duration">
+                            <span>{{x.time}}</span>
+                        </div>
+                        <div class="campName quarter">{{x.School }}</div>
+                        <div class="education quarter">学历:{{x.education }}</div>
+                        <div class="profession quarter">专业: {{x.major }}</div>
+                        <div class="deleteEdu" ng-click="vm.deleteEdu($index)">删除</div>
+                    </div>
+                </div>
+            </div>
+            <div class="addEdu info_mb">
+                <div data-toggle="modal" data-target="#myModal4" class="addEduBtn text-center"> 添加教育经历</div>
+                <!-- 模态框（Modal） -->
+                <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel4">工作经历</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div  class="editTable">
+                                    <form  class="table3" name="eduAdd">
+                                        <div class="duration">
+                                            起始时间:
+                                            <div>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                       ng-model="vm.eduTime"
+                                                       is-open="vm.popup2.opened"
+                                                       datepicker-options={showWeeks:false}
+                                                       ng-required="true"
+                                                       close-text="关闭"
+                                                       clear-text="清空"
+                                                       current-text="今天"
+                                                       alt-input-formats="vm.format"
+                                                       ng-blur="vm.showData(vm.eduTime)"
+                                                       ng-click="vm.open2()"/>                                            </div>
+                                        </div>
+                                        <div class="campName">
+                                            学校名称: <input type="text" required="" ng-model="vm.eduSchool  ">
+                                        </div>
+                                        <div class="ocp">
+                                            学历:
+                                            <select  ng-model="vm.EDU" >
+                                                <option value="{{edu.name}}" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
+                                            </select>
+                                        </div>
+                                        <div class="ocpDetail">
+                                            专业: <input type="text" required="" ng-model="vm.eduMajor  ">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="text-align: center">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                                <button ng-click="vm.education_history_add()"
+                                        type="button"
+                                        data-dismiss="modal"
+                                        ng-disabled="!vm.eduTime||!vm.eduSchool||!vm.EDU||!vm.eduMajor"
+                                        class="btn btn-danger">
+                                    提交
+                                </button>
                             </div>
                         </div><!-- /.modal-content -->
                     </div><!-- /.modal -->
                 </div>
 
             </div>
-            <!--教育经历-->
-            <div class="infoHeader">
-                <span>教育经历</span>
-            </div>
-            <div class="info eduShell"  ng-repeat="edu in vm.allshool">
-                <div class="eduExp">
-                    <div class="major">
-                        <div class="duration">
-                            <span>{{edu.time}}</span>
-                        </div>
-                        <div class="campName">{{edu.School }}</div>
-                        <div class="education">学历:{{edu.education }}</div>
-                        <div class="profession">专业: {{edu.major }}</div>
-                    </div>
-                </div>
-            </div>
-            <div class="addEdu">
-                <div class="addEduBtn"> 添加教育经历</div>
-                <div style="display: none;" class="editTable">
-                    <form  class="table3" name="eduAdd">
-                        <div class="duration">
-                            起始时间:
-                            <div>
-                                <input type="text"  required="" id="edustarttime" placeholder="yyyy-MM-dd"  class="layui-input" ng-model="vm.edu.time">
-                            </div>
-                        </div>
-                        <div class="campName">
-                            学校名称: <input type="text" required="" ng-model="vm.edu.School  ">
-                        </div>
-                        <div class="ocp">
-                            学历:
-                            <select  ng-model="vm.resume.education" >
-                                <option value="离职-随时到岗" ng-repeat="edu in vm.eduList">{{edu.name}}</option>
-                            </select>
-                        </div>
-                        <div class="ocpDetail">
-                            专业: <input type="text" required="" ng-model="vm.edu.major  ">
-                        </div>
-                        <div class="commit text-center">
-                            <button ng-click="vm.commit3(vm.edu)" class="resume-btn">提交</button>
-                        </div>
-                        <img ng-click="vm.edit3()" src="image/home/close.png" alt="">
-                    </form>
-                </div>
-            </div>
             <!--自我评价-->
             <div class="infoHeader">
                 <span>自我评价</span>
             </div>
-            <div class="info">
+            <div class="info info_mb">
                 <div class="evaluation">
                   {{vm.resume.recommend ||"未填写"}}
                 </div>
-                <img ng-show="!vm.evaluation" ng-click="vm.editEval()" class="editIcon" src="image/home/editIcon.png" alt="">
-                <div ng-show="vm.evaluation" class="editTable">
-                    <form  class="table2" name="table2">
-                        自我评价：
-                        <textarea style="width: 100%; margin-top: .25rem;" name="evaluation" id="eval" cols="30" rows="10" ng-model="vm.resume.recommend  "></textarea>
-                        <div class="commit text-center">
-                            <button ng-click="vm.editEval();vm.commitEval()" ng-disabled="table2.$invalid" class="resume-btn">提交</button>
-                        </div>
-                        <img ng-click="vm.editEval(vm.resume)" src="image/home/close.png" alt="">
-                    </form>
+                <img data-toggle="modal" data-target="#myModal5" class="editIcon1" src="image/home/editIcon.png" alt="">
+                <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel5" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel5">自我评价</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div  class="editTable">
+                                    <form  class="table2" name="table2">
+                                        <textarea style="width: 100%; margin-top: .25rem;padding: .2rem;" name="evaluation" id="eval" cols="30" rows="10" ng-model="vm.resume.recommend"></textarea>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="text-align: center">
+                                <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
+                                <button ng-click="vm.evaluation()"
+                                        data-dismiss="modal"
+                                        type="button"
+                                        class="btn btn-danger">
+                                    提交
+                                </button>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
                 </div>
+
             </div>
         </div>
         <div class="recommend col-lg-3 col-md-3 col-sm-12 col-xs-12">
@@ -326,17 +461,6 @@
                     <span>推荐企业</span>
                 </div>
             </div>
-            <!--<div class="occupation">-->
-                <!--<div class="row1">-->
-                     <!--<span class="companyName">-->
-                     <!--博&nbsp;业<br>建&nbsp;设-->
-                     <!--</span>-->
-                <!--</div>-->
-                <!--<div class="enterName text-center">-->
-                    <!--福建博业建设集团有限公司福州分公司-->
-                <!--</div>-->
-            <!--</div>-->
-
             <div ui-sref="enterpriseInfo" class="occupation"  ng-repeat="data in vm.companylist|limitTo:3" >
                 <div class="row1">
                     <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">

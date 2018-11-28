@@ -17,6 +17,11 @@
   position: relative;
   .avatar{
     margin-right: .5rem;
+    img{
+      width: 111px;
+      height: 111px;
+      border-radius: 50%;
+    }
   }
   .fill1 .real_name{
     font-size: 22px;
@@ -25,7 +30,7 @@
   }
   .fill1,
   .fill2{
-    margin-right: 1.26rem;
+    width: 50%;
     div{
       padding-bottom: .32rem;
     }
@@ -34,12 +39,16 @@
     position: absolute;
     right: .28rem;
     top: .35rem;
+    cursor: pointer;
+  }
+  .editIcon1{
+    position: absolute;
+    right: .28rem;
+    top: -.55rem;
+    cursor: pointer;
   }
   .editTable{
     z-index: 333;
-    top: .23rem;
-    left: .4rem;
-    right: .4rem;
     background: #fff;
     padding: .25rem;
     form{
@@ -60,9 +69,6 @@
         }
       }
     }
-    .aim{
-      padding-top: .3rem;
-    }
     .table2 .salary div{
       display: flex;
       justify-content: space-between;
@@ -77,6 +83,7 @@
     }
   }
   .jobExp{
+    width: 100%;
     .tails{
       padding-bottom: .15rem;
       border-bottom: 1px solid #e8e8e8;
@@ -88,9 +95,14 @@
       font-size: 18px;
       margin-bottom: .27rem;
       padding-top: .2rem;
+      &>div{
+        width: 25%;
+        font-weight: 600;
+      }
       .compName,
       .ocp{
         font-weight: 600;
+        text-align: center;
       }
       .modify{
         color: #fff;
@@ -100,14 +112,19 @@
         line-height: .2rem;
       }
       .delete{
+        float: right;
         color: #fff;
         background: #ef5f5f;
         font-size: 12px;
         padding: .1rem .2rem;
         line-height: .2rem;
+        cursor: pointer;
       }
     }
   }
+}
+.info_mb{
+  margin-bottom: .1rem;
 }
 .jobExpShell{
   padding-top: 0;
@@ -122,11 +139,6 @@
     display: block;
     text-align: center;
     width: 100%;
-  }
-  .editTable{
-    z-index: 333;
-    background: #fff;
-    padding: .25rem;
   }
   form{
     position: relative;
@@ -167,28 +179,36 @@
     font-size: 18px;
     margin-bottom: .27rem;
     padding-top: .2rem;
+    &>.quarter{
+      width: 25%;
+      text-align: center;
+    }
     .campName{
       font-weight: 600;
+    }
+    .deleteEdu{
+      color: #fff;
+      background: #ef5f5f;
+      font-size: 12px;
+      padding: .1rem .2rem;
+      line-height: .2rem;
+      cursor: pointer;
     }
   }
 }
 .addEdu{
   position: relative;
-  &>span{
+  .addEduBtn{
     padding: .3rem 0;
     display: block;
     text-align: center;
+    font-size: 16px;
     width: 100%;
     background: #fff;
   }
   .editTable{
     z-index: 333;
-    position: absolute;
-    top: -4rem;
-    left: .4rem;
-    right: .4rem;
     background: #fff;
-    border: 1px solid #f00;
     padding: .25rem;
   }
   form{
@@ -207,12 +227,28 @@
       &>div{
         display: flex;
         justify-content: space-between;
-        input{
-          width: 45%;
-        }
+        //input{
+        //  width: 45%;
+        //}
       }
     }
   }
+}
+.editTable{
+  z-index: 333;
+  background: #fff;
+  padding: .25rem;
+  .table3{
+    input,select{
+      width: 100%;
+      height: .34rem;
+      line-height: .34rem;
+      border-radius: 4px;
+      outline: 0;
+      border: 1px solid #ccc;
+    }
+  }
+
 }
 .docName{
   padding: .25rem;

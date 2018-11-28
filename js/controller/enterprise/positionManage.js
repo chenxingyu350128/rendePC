@@ -21,16 +21,6 @@ angular.module('myApp')
         if(vm.nav){
             data= {complete:1};
         }
-        // vm.positionList=function (e) {
-        //     console.log(e);
-        //     if(e==1){
-        //         vm.data= {};
-        //         get(data)
-        //     }else if(e==2){
-        //
-        //         get(data)
-        //     }
-        // };
         common.request('Boss/company_job_list',data).then(function callback(res){
             if(res.data.code===200){
                 vm.position = res.data.data;
