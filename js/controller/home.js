@@ -341,10 +341,10 @@ angular.module('myApp')
             }
         });
         //资讯列表
-        common.request('Boss/show_news',data).then(function callback(res){
+        common.request('Boss/show_news',{page:1}).then(function callback(res){
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
-                vm.newsList=res.data.data;
+                vm.newsList=res.data.data[0].data;
                 // console.log(res.data.data);
             }
             else if(res.data.code===201){
@@ -367,13 +367,14 @@ angular.module('myApp')
             }
         });
         //名企招聘
-        common.request('boss/show_company_recruit',data).then(function callback(res){
+        common.request('boss/show_company_recruit',{page:1}).then(function callback(res){
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
-                for(let i=0;i<res.data.data.length;i++){
-                    res.data.data[i].boonarr=JSON.parse(res.data.data[i].boonarr);
+                vm.famousEnter=res.data.data[0].data;
+                for(let i=0;i<vm.famousEnter.length;i++){
+                    vm.famousEnter[i].boonarr=JSON.parse(vm.famousEnter[i].boonarr);
                 }
-                vm.famousEnter=res.data.data;
+
             }
             else if(res.data.code===201){
                if(!modalAlert){
@@ -395,10 +396,10 @@ angular.module('myApp')
             }
         });
         //人才推荐-所有的简历
-        common.request('boss/all_resume',data).then(function callback(res){
+        common.request('boss/all_resume',{page:1}).then(function callback(res){
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
-                vm.allResume=res.data.data;
+                vm.allResume=res.data.data[0].data;
             }
             else if(res.data.code===201){
                if(!modalAlert){
@@ -430,7 +431,7 @@ angular.module('myApp')
         });
         $('.toBottom').on('click',function () {
             window.location.hash="#footer_bottom";
-        })
+        });
 
         //赏金职位
         common.request('Boss/show_money_job',{}).then(function callback(res){
@@ -445,7 +446,7 @@ angular.module('myApp')
         });
 
         // 获取工作列表接口
-        common.request('boss/find_job',{}).then(function callback(res){
+        common.request('boss/find_job',{page:1}).then(function callback(res){
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
                 vm.workList = res.data.data;

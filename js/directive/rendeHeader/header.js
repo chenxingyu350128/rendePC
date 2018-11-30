@@ -12,7 +12,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             let modalAlert=sessionStorage.getItem('modalAlert');
             scope.city=sessionStorage.getItem('city')||'全国';
             scope.cclient=parseInt(sessionStorage.getItem('client'));
-            console.log(scope.cclient);
             scope.username=JSON.parse(sessionStorage.getItem('phone'));   // 获取用户名
             switch(scope.cclient){
                 case 0:
@@ -26,12 +25,10 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             //0代表客户端1代表企业端
             scope.hideNav=sessionStorage.getItem('hideNav');
             scope.showEx=false;
-            console.log(scope.cclient);
             scope.showExit=function(){
                 scope.showEx=!scope.showEx;
             };
             scope.Exit=function(){
-                console.log('fake');
                 sessionStorage.clear();
                 sessionStorage.setItem('client',"0");
                 $state.go('home',{},{reload:true});
@@ -39,7 +36,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             let data={};
             //客户端homeMenu，企业端enterHome菜单栏
             if(!homeMenu){
-                console.log('请求获取homeMenu');
                 common.request('boss/network_menu',data).then(function callback(res){
                     if(res.data.code===200){
                         sessionStorage.removeItem('modalAlert');
@@ -69,7 +65,6 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                 scope.homeMenu=homeMenu;
             } // 企业端homeMenu
             if(!enterHome){
-                console.log('请求获取homeMenu');
                 common.request('Boss/show_menu_two',data).then(function callback(res){
                     if(res.data.code===200){
                         sessionStorage.removeItem('modalAlert');
@@ -179,11 +174,9 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
             // 用户中心显示和隐藏
             scope.mouseEnter=function(){
                 scope.showCates=true;
-                console.log( scope.showCates)
             };
             scope.mouseLeave=function(){
                 scope.showCates=false;
-                console.log( scope.showCates)
             };
         }
     }

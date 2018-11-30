@@ -11,6 +11,8 @@ angular.module('myApp')
         vm.nav=parseInt(vm.params.navType)||0;
         vm.selectedType=vm.params.selectedType;
         let postData={};
+        postData['city']=sessionStorage.getItem('city');
+        vm.page=postData['page']=parseInt(vm.params.page);
         let paramsData={};
         if(vm.nav){
             postData['time']='anything';

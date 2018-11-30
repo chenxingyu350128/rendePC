@@ -7,6 +7,7 @@ angular.module('myApp')
         vm.nav=parseInt(vm.params.nav0)||0;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
+        vm.page=postData['page']=parseInt(vm.params.page)||1;
         let paramsData={};
         // 获取福利待遇接口
         vm.lists=listsRequest.lists();
@@ -204,11 +205,11 @@ angular.module('myApp')
         //请求放最后，先选条件
         common.request(url,postData).then(function callback(res){
             if(res.data.code===200){
-                if(res.data.data.length){
-                    vm.dataList =res.data.data
-                    for(let i=0;i<vm.dataList.length;i++){
-                        vm.dataList[i].boonarr=JSON.parse(vm.dataList[i].boonarr);
-                    }
+                vm.dataList=res.data.data[0].data;
+                vm.total=res.data.data[1];
+                vm.size=res.data.data[0].per_page;
+                for(let i=0;i<vm.dataList.length;i++){
+                    vm.dataList[i].boonarr=JSON.parse(vm.dataList[i].boonarr);
                 }
             }else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){

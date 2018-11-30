@@ -6,6 +6,7 @@ angular.module('myApp')
         vm.params=$stateParams;
         console.log(vm.params);
         let postData={};
+        vm.page=postData['page']=vm.params.page;
         let paramsData={};
         vm.type = $stateParams.type;
         vm.homePage=function(){
@@ -17,7 +18,7 @@ angular.module('myApp')
         let navList=$('.nav').find('div').eq(4);
         navList.css({
             'border-bottom':'5px solid #e11c19'
-        })
+        });
 
         //清除筛选条件等
         vm.clearOthers=function(){
@@ -73,7 +74,7 @@ angular.module('myApp')
                     modalBox.alert(res.data.msg)
                 }
             })
-        }
+        };
         if(vm.type==1){
             let url='boss/show_exchange';  // 获取我的兑换列表接口
             vm.getList(url)

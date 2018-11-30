@@ -5,15 +5,14 @@ app.directive('pageModel',function ($state,$stateParams) {
         templateUrl: 'js/directive/pagination/pagination.html',
         scope: {
             total: '=',
-            // size: '=',
+            size: '=',
             page: '='
         },
         link: function (scope) {
             //点击页码
-            scope.pageChange=function () {
-                scope.page=parseInt(scope.page)||1;
-                console.log('directive_page',scope.page);
-                console.log("测试");
+            scope.pageChange=function (e) {
+                console.log('model',e);
+                console.log("测试",scope.page);
                 $state.go('.', {page: scope.page},{reload: true});
             };
             //change size/page

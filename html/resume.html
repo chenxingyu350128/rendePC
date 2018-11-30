@@ -196,7 +196,11 @@
                                         <div class="charactor">
                                             工作性质:
                                             <select  ng-model="vm.resume.nature" >
-                                                <option value="{{nature.name}}" ng-repeat="nature in vm.natureList">{{nature.name}}</option>
+                                                <!--<option value="{{nature.name}}" ng-repeat="nature in vm.natureList">{{nature.name}}</option>-->
+                                                <option value="全职">全职</option>
+                                                <option value="兼职">兼职</option>
+                                                <option value="临时工">临时工</option>
+                                                <option value="钟点工">钟点工</option>
                                             </select>
                                         </div>
                                         <div class="status">

@@ -1,4 +1,7 @@
 'use strict';//模态框和签名、请求
+var aa;
+var bb;
+var cc;
 angular.module('myApp')
     .factory('modalBox', function () {
         return {
@@ -65,7 +68,7 @@ angular.module('myApp')
             sign: function(postData,key){
                 let that=this;
                 let strData = that.jsonSort(postData);
-                let sign =md5(strData+key);
+                let sign = md5(strData+key);
                 return sign
             },
             request: function(url,data){
@@ -77,13 +80,13 @@ angular.module('myApp')
                 if(!sessionStorage.getItem('uid')){
                     $state.go('signPage')
                 }else{
-                    data['uid']=JSON.parse(sessionStorage.getItem('uid'));
-                    data['token']=JSON.parse(sessionStorage.getItem('token'));
+                    aa=data['uid']=JSON.parse(sessionStorage.getItem('uid'));
+                    bb=data['token']=JSON.parse(sessionStorage.getItem('token'));
                 }
                 postData['app_id'] = appid;
                 postData['data'] = JSON.stringify(data);
                 postData['timestrap'] = Date.parse(new Date()) / 1000;
-                postData['sign'] = that.sign(postData,appsecret);
+                cc=postData['sign'] = that.sign(postData,appsecret);
                 return $http({
                     method: 'POST',
                     url: real_url,
@@ -98,8 +101,6 @@ angular.module('myApp')
                     data: data,
                 })
             }
-
-
         }
     })
     .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,boon){

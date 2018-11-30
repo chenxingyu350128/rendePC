@@ -12,6 +12,8 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType;
         let postData={};
         postData['types']='anything';//普工简历=求职
+        postData['city']=sessionStorage.getItem('city');
+        vm.page=postData['page']=parseInt(vm.params.page)||1;
         let paramsData={};
         if(vm.nav){
             postData['time']='anything';
@@ -38,9 +40,10 @@ angular.module('myApp')
         };
         common.request('Boss/show_work',postData).then(function callback(res){
             if(res.data.code===200){
-                if(res.data.data.length){
-                    vm.cardData=res.data.data;
-                }else{
+                vm.cardData=res.data.data[0].data;
+                vm.total=res.data.data[1];
+                vm.size=res.data.data[0].per_page;
+                if(!vm.cardData.length){
                     vm.noResult=true;
                 }
 
