@@ -105,7 +105,6 @@ angular.module('myApp')
     .factory('listsRequest',function($http,$state,$timeout,common,modalBox,devJobType,jobType,innerType,arrival,expList,eduList,natureList,sizeList,boon){
         return {
             lists: function() {
-                let modalAlert=sessionStorage.getItem('modalAlert');
                 console.log('最外端位置');
                 // 获取行业类型接口
                 let vm = this;
@@ -114,7 +113,6 @@ angular.module('myApp')
                 if (!jobType) {
                     common.request('Boss/show_jobtype_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.types = res.data.data;
                             vm.devJobType = [];
                             vm.innerType = [];
@@ -141,22 +139,21 @@ angular.module('myApp')
                             sessionStorage.setItem('innerType', JSON.stringify(vm.innerType));//各分类详细
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
-                            }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
-                            }
+                            vm.showAlert=true;
+                            // modalBox.alert(res.data.msg,function () {
+                            //     $timeout(function () {
+                            //         $state.go('signPage')
+                            //     }, 300)
+                            // });
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
-                            }
+                        else {
+                            vm.showAlert=true;
+                            $state.go('signPage')
+                            // modalBox.alert(function () {
+                            //     $timeout(function () {
+                            //         $state.go('signPage')
+                            //     }, 300)
+                            // });
                         }
                     });
                 }
@@ -169,26 +166,31 @@ angular.module('myApp')
                 if (!boon) {
                     common.request('Boss/show_boon', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.boon = res.data.data;
                             sessionStorage.setItem('boon', JSON.stringify(vm.boon));
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                        else if (res.data.code === 404) {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
                     });
@@ -199,26 +201,31 @@ angular.module('myApp')
                 if (!arrival) {
                     common.request('Boss/come_job_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.comeJobList = res.data.data;
                             sessionStorage.setItem('arrival', JSON.stringify(vm.comeJobList));
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                        else {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
                     });
@@ -229,26 +236,31 @@ angular.module('myApp')
                 if (!expList) {
                     common.request('Boss/show_job_years', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.expList = res.data.data;
                             sessionStorage.setItem('expList', JSON.stringify(vm.expList));
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                        else {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
                     })
@@ -260,28 +272,43 @@ angular.module('myApp')
                 if (!eduList) {
                     common.request('Boss/show_education_list', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.eduList = res.data.data;
                             sessionStorage.setItem('eduList', JSON.stringify(vm.eduList));
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                if(!vm.showAlert){
+                                    vm.showAlert=!vm.showAlert;
+                                    // modalBox.alert(res.data.msg,function () {
+                                    //     $timeout(function () {
+                                    //         $state.go('signPage')
+                                    //     }, 300);
+                                    // })
+                                }else{
+                                    $state.go('signPage')
+                                }
                             }
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                        else {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
+
                     });
                 }
                 else{
@@ -294,24 +321,31 @@ angular.module('myApp')
                             vm.natureList = res.data.data;
                             sessionStorage.setItem('natureList',JSON.stringify(vm.natureList));
                         }
-                        else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                        else if(res.data.code===201){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
                         else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
+
                     });
                 }
                 else{
@@ -321,28 +355,34 @@ angular.module('myApp')
                 if (!sizeList) {
                     common.request('Boss/show_job_size', data).then(function callback(res) {
                         if (res.data.code === 200) {
-                            sessionStorage.removeItem('modalAlert');
                             vm.sizeList = res.data.data;
                             sessionStorage.setItem('sizeList', JSON.stringify(vm.sizeList));
                         }
                         else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
-                        else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                        else {
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
+
                     });
                 }
                 else {
@@ -365,7 +405,6 @@ angular.module('myApp')
     .factory('changed',function($http,$state,$timeout,hotSearch,bannerImg,common,modalBox){
         return {
             hotSearchList: function(){
-                let modalAlert=sessionStorage.getItem('modalAlert');
                 let vm=this;
                 let data={};
                 data['city']=sessionStorage.getItem('city');
@@ -375,22 +414,28 @@ angular.module('myApp')
                             vm.hotSearch = res.data.data;
                             sessionStorage.setItem('hotSearch',JSON.stringify(vm.hotSearch));
                         }
-                        else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                        else if(res.data.code===201){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
                         else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
                     })
@@ -400,7 +445,6 @@ angular.module('myApp')
                 return vm.hotSearch
             },
             bannerList: function(){
-                let modalAlert=sessionStorage.getItem('modalAlert');
                 let vm=this;
                 let data={};
                 data['city']=sessionStorage.getItem('city');
@@ -410,22 +454,28 @@ angular.module('myApp')
                             vm.banner = res.data.data;
                             sessionStorage.setItem('bannerImg',JSON.stringify(vm.banner));
                         }
-                        else if (res.data.code === 201) {
-                            if(!modalAlert){
-                                $state.go('signPage')
+                        else if(res.data.code===201){
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
                             }else{
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg, function () {
-                                    $timeout(function () {
-                                        $state.go('signPage')
-                                    }, 300)
-                                });
+                                $state.go('signPage')
                             }
                         }
                         else{
-                            if(!modalAlert){
-                                sessionStorage.setItem('modalAlert','damn it');
-                                modalBox.alert(res.data.msg)
+                            if(!vm.showAlert){
+                                vm.showAlert=!vm.showAlert;
+                                // modalBox.alert(res.data.msg,function () {
+                                //     $timeout(function () {
+                                //         $state.go('signPage')
+                                //     }, 300);
+                                // })
+                            }else{
+                                $state.go('signPage')
                             }
                         }
                     })

@@ -1,0 +1,75 @@
+<rende-header></rende-header>
+<common-search></common-search>
+<!--找工作-->
+<div class="work-body container">
+    <!--我的收藏-->
+    <div style="margin:10px;width: 100%">
+        <div class="positionLeft ">
+            <div class="collectBanner">
+                <div class="work-position-l {{vm.navType==0?'checkedNav':'write'}}"  ui-sref="collection({navType:0})">我的投递</div>
+                <div class="work-position-l  {{vm.navType==1?'checkedNav':'write'}}" ui-sref="collection({navType:1})">邀请面试</div>
+                <div class="work-position-l  {{vm.navType==2?'checkedNav':'write'}}" ui-sref="collection({navType:2})">我的收藏</div>
+            </div>
+
+            <div class="position-list write" ng-repeat="data in vm.dataList" on-finish-render-filters2>
+                <div class="position-name" style="padding-top: 10px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
+                    <img src="{{data.img}}" style="width: 86px;height: 83px; border: 1px solid gainsboro;">
+                </div>
+                <div  class="fl flex-column" style="width: 20%;">
+                    <div class="positionname fl" style="margin-bottom: 9px;margin-left: 17px;">
+                        <div style="font-size: 18px;" class="bolder overhide">{{data.c_job_type ||"暂无"}}</div>
+                        <div class="worksalary redF bolder overhide">￥{{data.start_money||"面议"}}-{{data.end_money||"面议"}}</div>
+                        <div class=" grayF workdemand overhide" style="font-size: 14px;width: 100%;">
+                            <span>{{data.experience||"暂无"}} | </span>
+                            <span >{{data.education||"暂无"}} | </span>
+                            <span>{{data.address ||"暂无"}}</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="fl flex-column overhide" style="margin-top: 23px;margin-left: 30px;width: 45%" ng-if="vm.navType==0||vm.navType==2">
+                    <div class="positionname fl bolder overhide" style="margin: 11px 0;font-size: 16px;font-weight: 100;">{{data.c_name ||"暂无"}}</div>
+                    <div class=" grayF workdemand overhide" style="margin-top: 8px;">
+                        <span>{{data.c_type ||"不限"}}</span>
+                        <span>|{{data.nature ||"不限"}} | </span>
+                        <span>{{data.size ||"不限"}}</span>
+                    </div>
+                </div>
+                <div class="fr lookbtn"  style="margin-top: 21px" ng-if="vm.navType==0">
+                    <div class="lookstatu" ng-if="data.status==0">待查看</div>
+                    <div class="lookstatu" ng-if="data.status==1">已查看</div>
+                </div>
+                <div class="fr lookbtn" ng-if="vm.navType==1" style="width: 45%;">
+                   <div class="face overhide">面试时间：2018：2018年3月3日 9点10分</div>
+                   <div class="face overhide">联系人：张珊</div>
+                   <div class="face overhide">福建省福州市仓山区汇川名句29号楼{{data.address}}</div>
+                </div>
+                <div class="fr lookbtn" style="margin-top: 21px" ng-if="vm.navType==2">
+                    <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
+                    <div class=" grayF workdemand" style="font-size: 12px;">
+                        <span>更新时间：{{data.time}}</span>
+                    </div>
+                </div>
+                <div class="position-hr"></div>
+            </div>
+
+            <div class=" seeMore text-center workmore">
+                <img src="image/home/seeMore.png" alt="">
+            </div>
+        </div>
+        <div class="positionRight write">
+            <div class="hot-position"><span >推荐职位</span></div>
+            <div class="hot-position-list" ng-repeat="data in vm.recommendList |limitTo : 4" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
+                <div class="type-name">{{data.job_type||"暂无"}}</div>
+                <div class="type-pay">￥{{data.start_money ||"面议"}}-{{data.end_money ||"面议"}}</div>
+                <div class="type-intr">{{data.experience ||"不限"}}经验 | {{data.education ||"不限"}}学历 | {{data.address ||"暂无"}}</div>
+            </div>
+            <div class=" seeMore text-center workmore">
+                <img src="image/home/seeMore.png" alt="" ui-sref="WorkCtrl({navType:0})">
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<rd-footer></rd-footer>

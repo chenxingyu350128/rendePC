@@ -159,7 +159,7 @@
     list-style: none;
     float: left;
     font-size: 20px;
-    color: black;
+    /*color: black;*/
     padding: 15px;
     width: 155px;
     font-weight: 600;
@@ -256,6 +256,8 @@
     font-weight: 600;
     margin-bottom: 8px;
     text-align: center;
+    outline: 0px;
+    cursor: pointer;
 }
 .position-hr{
     float: left;

@@ -1,0 +1,38 @@
+.collectBanner{
+    display: flex;
+    flex-direction: row;
+}
+.collectBanner div{
+    width: calc(100% - 30px/3);
+    margin-bottom: 5px;
+}
+.collectBanner div:nth-child(2){
+    margin: 0 5px 5px 5px;
+}
+.checkedNav{
+    background-color:#f61111;
+    color: rgb(255, 255, 255);
+}
+.lookstatu{
+    font-size:20px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(226,28,25,1);
+    padding: 12px 20px;
+}
+.lookbtn{
+    display: flex;
+    flex-direction: column;
+}
+.face{
+    font-size:16px;
+    font-family:微软雅黑;
+    font-weight:400;
+    color:rgba(1,1,1,1);
+    margin-bottom: 13px;
+}
+.overhide{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

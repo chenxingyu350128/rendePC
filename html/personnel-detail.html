@@ -11,7 +11,7 @@
                     <img src="image/home/out_avatar.png" alt="" class="personnel-img mt fl">
                     <div class="personnel-intr">
                             <div style="width: 100%">
-                                <span class="personnel-name">{{vm.x.name}}</span>
+                                <span class="personnel-name">{{vm.x.name||"用户"}}</span>
                                 <span class="fr grayF">更新时间：{{vm.x.time}}</span><br>
                             </div>
                         <div style="width: 100%;">
@@ -26,8 +26,9 @@
                                 <span>联系电话：{{vm.x.phone}}</span>
                             </div>
                             <div class="personnel-detail-intr">
-                                <span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：1次</span><br>
-                                <button class="position-btn fr" ng-click="vm.face(vm.x.id)" id="face">邀请面试</button>
+                                <span class="grayF fr personel-look-times" style="font-size: 14px">浏览次数：{{vm.x.looknum}}次</span><br>
+                                <button class="position-btn fr"id="face" data-toggle="modal" data-target="#invitation" ng-if="vm.x.c_id==null">邀请面试</button>
+                                <button class="position-btn fr" ng-if="vm.x.c_id!=null" style="background-color: grey" disabled="disabled">已邀请面试</button>
                             </div>
                         </div>
 
@@ -108,4 +109,41 @@
         </div>
     </div>
 </div>
+<!--邀请面试模态框-->
+<div class="modal fade" id="invitation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 20%;">
+        <div class="modal-content">
+            <div class="modal-body ">
+                <div class="invitation-title">邀请面试</div>
+                <div class="invitation">
+                  <div class="invitation-name">
+                      <span>联系人：</span>
+                      <span>联系电话：</span>
+                      <span>面试时间：</span>
+                  </div>
+                    <div>
+                        <input type="text" placeholder="请输入联系人~" ng-model="vm.info.name">
+                        <input type="text" placeholder="请输入联系电话~" ng-model="vm.info.phone" >
+                        <input type="text"
+                               value="2017-07-31 17:58"
+                               id="datetimepicker"
+                               class="form_datetime"
+                               data-date-format="yyyy-mm-dd hh:ii"
+                               ng-model="vm.info.time">
+                    </div>
+                </div>
+                <div class="invitation-btn">
+                    <button  ng-click="vm.face(vm.x.id,vm.info)" >确认邀请</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <rd-footer></rd-footer>
+
+<script src="js/laydate/laydate.js"></script>
+<script>
+
+</script>

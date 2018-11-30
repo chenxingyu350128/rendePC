@@ -266,7 +266,6 @@ angular.module('myApp')
         }
         common.request(url,postData).then(function callback(res){
             console.log(postData);
-            console.log(res);
             if(res.data.code===200){
                 // if(res.data.data.length){
                     vm.dataList=res.data.data[0].data;

@@ -712,6 +712,26 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     ])
                 }
             })
+            .state('collection',{
+                url: '/collection?navType',
+                templateUrl: 'html/collection.html',
+                controller: 'collection',
+                controllerAs: 'vm',
+                resolve: {
+                    loadMyFile: _ocLazy([
+                        'css/collection.css',
+                        'css/work.css',
+                        'css/enterprise.css',
+                        'js/controller/collection.js',
+                        'css/lib/header.css',
+                        'css/lib/footer.css',
+                        'js/directive/rendeHeader/header.js',
+                        'js/directive/rendeFooter/footer.js',
+                        'js/directive/common_search/common_search.js',
+                        'css/lib/search_common.css'
+                    ])
+                }
+            })
     });
 app.run(function($state){
     $state.go('home');

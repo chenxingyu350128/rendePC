@@ -66,8 +66,7 @@
         <div class="serve-item-info" >
             <img src="image/hunt/hunticon3.png" alt="" class="serve-item-img">
              <div class="serve-item-name">专业效率</div>
-             <div  class="serve-item-title">人才争夺战，为快不破！1-3天
-                 推荐首批候选人</div>
+             <div  class="serve-item-title">人才争夺战，为快不破！快速推荐首批候选人</div>
         </div>
         <div class="serve-item-info" >
             <img src="image/hunt/hunticon4.png" alt="" class="serve-item-img">
@@ -93,22 +92,19 @@
     <div class="container">
         <div class="ouradvan">我们的优势</div>
         <div class="advan-info">
-             <div class="advan-title">优质专业的猎头服务</div>
-             <div class="advan-content">作为一家有着专业及成熟猎头经验的公司，已然形成自己的一整套成熟、科学的工作模式，十载如一日地精根细作，为企业提供优质的服务。</div>
+             <div class="advan-title">有“仁心”的猎头服务</div>
+             <div class="advan-content">本着“立仁为本，仁礼存心”的理念，用自己形成的一整套成熟、科学的工作模式，十载如一日地精根细作，为企业提供优质和真诚的服务。 </div>
+        <div class="advan-info">
+            <div class="advan-title">
+                全国海量的人才库
+            </div>
+            <div class="advan-content">国内海量的高级精英人才库，涉及了大多细分行业，著名企业。按行业分类，涉及制造业、房地产、金融、消费品、高新技术、医药、化工等行业；按职位分类，涉及总裁、总经理、人力资源总监、财务总监、市场总监、销售总监、技术总监等。</div>
         </div>
         <div class="advan-info">
             <div class="advan-title">
-                百万人才库,满足企业所需
+                认真严格的素质
             </div>
-            <div class="advan-content">具有福建省内数百万人的高级精英人才库,涉及了三十多个细分行业,上万家著名企业。按行业分类，涉及制造业、房地产、金融、消费品、高新技术、医药、化工等行业；按职位分类，涉及总裁、总经理、人力资源总监、财务总监、市场总监、销售总监、技术总监等。
-            </div>
-        </div>
-        <div class="advan-info">
-            <div class="advan-title">
-                优秀的口碑和声誉
-            </div>
-            <div class="advan-content">我们严格按照国际惯例及市场规则，坚持做到对合作客户信息完全保密，快、精、准地为客户推荐最合适的候选人。在操作过程中，我们高效与负责的工作作风赢得了客户的赞誉。
-            </div>
+            <div class="advan-content">我们严格按照国际惯例及市场规则，坚持做到对合作客户信息完全保密，快、精、准地为客户推荐最合适的候选人。</div>
         </div>
         <div class="advan-info">
             <div class="advan-title">
@@ -118,84 +114,28 @@
         </div>
         <div class="advan-info">
             <div class="advan-title">
-                量身定制，定向挖掘
+                换位思考，定向挖掘
             </div>
             <div class="advan-content">针对较偏的行业和职位，我们根据客户的实际情况，量身定制服务方案，定向为客户深入挖掘最合适的人才。</div>
         </div>
-        <div class="btn-img" ><img src="image/hunt/but.png"></div>
+        <div class="btn-img" ><img src="image/hunt/but.png" data-toggle="modal" data-target="#line"></div>
 </div>
-<!--仁德猎头-->
-<div class="work-body">
-    <!--悬赏招聘-->
-    <!--<div class="hunt-part1">-->
-        <!--<div class="hunt-title"><span>悬赏招聘</span></div>-->
-        <!--<div class="hunt-list1" ng-repeat="hunt in vm.huntData|limitTo :4"  ui-sref="workDetail({id:hunt.id,index})" title="点击查看职位详情">-->
-            <!--<div class="fl"><img src="image/work/huntmoney.png" ></div>-->
-            <!--<div class="hunt-list-right">-->
-                <!--<div class="positionname fl">{{hunt.job_type}}</div>-->
-                <!--<div class="worksalary redF fl">￥{{hunt.start_money}}-{{hunt.end_money}}</div><br>-->
-                <!--<div class="demand grayB">-->
-                    <!--<span>{{hunt.c_name}}</span>-->
-                <!--</div>-->
-                <!--<div class="demand grayB">-->
-                    <!--<span>{{hunt.experience}}|</span>-->
-                    <!--<span>{{hunt.education}}|</span>-->
-                    <!--<span>{{hunt.address}}</span>-->
-                <!--</div>-->
-                <!--<div class="demand grayF ">-->
-                    <!--<span>更新时间：{{hunt.time}}</span>-->
-                    <!--<button class="hunt-btn">立即推荐</button>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="container  text-center workmore">-->
-            <!--<img src="image/home/seeMore.png" alt="" style="" class="moreimg">-->
-        <!--</div>-->
-    <!--</div>-->
 
-    <!--&lt;!&ndash;推荐职位&ndash;&gt;-->
-    <!--<div class="hunt-part1">-->
-        <!--<div class="hunt-title"><span>推荐职位</span></div>-->
-        <!--<div class="hunt-list2" ng-repeat="job in vm.newJob |limitTo:4" ui-sref="workDetail({id:job.id,index})" title="点击查看职位详情">-->
-            <!--<div class="hunt-list2-name hunt-part-bg1" >-->
-                <!--{{job.job_type}}-->
-                <!--<span class="fr border-go" > > </span>-->
-            <!--</div>-->
-            <!--<div class="hunt-list2-money">-->
-                <!--<span>￥ {{job.start_money}} - {{job.end_money}}</span>-->
-            <!--</div>-->
-            <!--<div class="hunt-list2-intr">{{job.zone}} / {{job.experience}}经验 / {{job.education}}</div>-->
-            <!--<div class="hunt-list2-intr">{{job.time}}发布</div>-->
-        <!--</div>-->
-        <!--<div class="container  text-center workmore">-->
-            <!--<img src="image/home/seeMore.png" alt="" style="" class="moreimg">-->
-        <!--</div>-->
-    <!--</div>-->
-
-    <!--&lt;!&ndash;猎头服务&ndash;&gt;-->
-    <!--<div class="hunt-part1">-->
-        <!--<div class="hunt-title"><span>猎头服务</span></div>-->
-        <!--<div class=" hunt-list3"  ng-repeat="recommend in vm.recommend |limitTo:4" ui-sref=" headhunt-detail({id:recommend.id})">-->
-            <!--<div class="hunt-serve">-->
-                <!--<img src="{{recommend.img }}" alt="">-->
-                <!--<div class="hunt-serve-name">-->
-                    <!--<span>{{recommend.name || '匿名'}}</span><br>-->
-                    <!--<span>推荐率：暂无</span>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<div class="hunt-serve-content">-->
-                <!--<div>从业年限：<span>2</span>年</div>-->
-                <!--<div class="font-hidden">擅长行业：不限</div>-->
-                <!--<div>所在地区：{{recommend.loginname ||'暂无'}}</div>-->
-                <!--<div>正在招聘：<span>{{recommend.count || 0}}</span>个职位</div>-->
-                <!--<button ui-sref=" headhunt-detail({id:recommend.id})">委托</button>-->
-                <!--&lt;!&ndash;<button>委托</button>&ndash;&gt;-->
-            <!--</div>-->
-
-        <!--</div>-->
-        <!--<div class="container  text-center workmore">-->
-            <!--<img src="image/home/seeMore.png" alt="" style="" class="moreimg">-->
-        <!--</div>-->
-    <!--</div>-->
 </div>
+<!--联系我们模态框-->
+<div class="modal fade" id="line" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 30%;">
+        <div class="modal-content">
+            <div class="modal-body shop-resume">
+               <div class="line">
+                   联系我们
+               </div>
+                <div class="line-div"><img src="image/home/telIcon.png" alt="">电话 ：400-832-0023</div>
+                <div class="line-div"><img src="image/home/qqIcon.png" alt="">QQ ： 991986182</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <rd-footer></rd-footer>

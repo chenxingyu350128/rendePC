@@ -51,17 +51,17 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                             $state.go('signPage')
                         }else{
                             sessionStorage.setItem('modalAlert','damn it');
-                            modalBox.alert(res.data.msg, function () {
-                                $timeout(function () {
-                                    $state.go('signPage')
-                                }, 300)
-                            });
+                            // modalBox.alert(res.data.msg, function () {
+                            //     $timeout(function () {
+                            //         $state.go('signPage')
+                            //     }, 300)
+                            // });
                         }
                     }
                     else{
                         if(!modalAlert){
                             sessionStorage.setItem('modalAlert','damn it');
-                            modalBox.alert(res.data.msg)
+                            // modalBox.alert(res.data.msg)
                         }
                     }
                 });
@@ -81,17 +81,17 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                             $state.go('signPage')
                         }else{
                             sessionStorage.setItem('modalAlert','damn it');
-                            modalBox.alert(res.data.msg, function () {
-                                $timeout(function () {
-                                    $state.go('signPage')
-                                }, 300)
-                            });
+                            // modalBox.alert(res.data.msg, function () {
+                            //     $timeout(function () {
+                            //         $state.go('signPage')
+                            //     }, 300)
+                            // });
                         }
                     }
                     else{
                         if(!modalAlert){
                             sessionStorage.setItem('modalAlert','damn it');
-                            modalBox.alert(res.data.msg)
+                            // modalBox.alert(res.data.msg)
                         }
                     }
                 });

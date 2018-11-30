@@ -157,6 +157,9 @@ angular.module('myApp')
                 endTime: vm.newEndTime,
                 content: vm.newContent
             };
+            if(vm.resume.work_history==null){
+                vm.resume.work_history=[];
+            }
             vm.resume.work_history.push(newWorkHistory);
             console.log(newWorkHistory);
             console.log( vm.resume.work_history);
@@ -194,6 +197,9 @@ angular.module('myApp')
                 education: vm.EDU,
                 major: vm.eduMajor,
             };
+            if(vm.resume.allshool==null){
+                vm.resume.allshool=[];
+            }
             vm.resume.allshool.push(newEdu);
             console.log(vm.resume.allshool);
             // 修改用户信息

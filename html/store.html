@@ -7,9 +7,18 @@
 <div class="main container">
     <div class="row">
         <div class="col-lg-8 content1">
+            <span>积分筛选:</span>
             <div class="storeSelect">
-                <span class=" ">积分筛选:
-                    <span ng-click="vm.clearOthers()" class="opt1 ocp allOptions" id="all">全部</span>
+
+                    <span ng-click="vm.clearOthers()" class="" id="all">全部</span>
+                    <span>0 - 5000</span>
+                    <span>5000 - 10000</span>
+                    <span>10000 - 50000</span>
+                    <span>50000 - 100000</span>
+                <span>
+                 <input type="text">
+                -
+                   <input type="text">
                 </span>
             </div>
             <div class="productTitle">
@@ -17,7 +26,7 @@
                 <span ng-show="vm.type==1">我的兑换</span>
             </div>
             <div class="blockCard">
-                <div ui-sref="shop-detail({id:shop.id})" class="cardUnit text-center storeList" ng-repeat="shop in vm.shoppingList|limitTo:9">
+                <div ui-sref="shop-detail({id:shop.id})" class="cardUnit text-center storeList" ng-repeat="shop in vm.shoppingList">
                     <img src="{{shop.img}}" alt="">
                     <div class="productName">{{shop.name}}</div>
                     <div class="scoreNeed">
@@ -47,9 +56,6 @@
                     <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
-            <!--<div class=" content1">-->
-               <!---->
-            <!--</div>-->
         </div>
 
         <div class="col-lg-4" style="padding-right: 0;">

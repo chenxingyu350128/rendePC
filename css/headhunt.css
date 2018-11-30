@@ -413,4 +413,24 @@ margin-bottom: 35px;
 .btn-img{
     text-align: center;
     margin-bottom: 20px;
+    position: relative;
+}
+.line{
+    font-size: 24px;
+    color: #f61111;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.line-div{
+    font-size: 20px;
+    margin: 15px;
+}
+.line-div img{
+    margin-right: 15px;
+}
+.line-div img:last-child{
+    width: 15px;
+    height: 21px;
 }
