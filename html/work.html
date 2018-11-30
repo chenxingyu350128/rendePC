@@ -107,7 +107,7 @@
                 <li class="work-position-l" ui-sref="WorkCtrl({navType:1})">最新职位</li>
             </ul>
 
-            <div class="position-list" ng-repeat="data in vm.dataList |filter:type|limitTo : 8" on-finish-render-filters2>
+            <div class="position-list" ng-repeat="data in vm.dataList" on-finish-render-filters2>
                 <div class="position-name" style="padding-top: 10px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
                     <img src="{{data.img}}" style="width: 86px;height: 83px; border: 1px solid gainsboro;">
                 </div>
@@ -125,14 +125,15 @@
                 </div>
                 <div class="fl flex-column" style="margin-top: 23px;margin-left: 30px;" >
                     <div class="positionname fl bolder" style="margin: 11px 0;font-size: 16px;font-weight: 100;">{{data.name ||"暂无"}}</div>
-                    <div class="demand grayF workdemand" style="margin-top: 8px;">
+                    <div class=" grayF workdemand" style="margin-top: 8px;">
                         <span>{{data.c_type ||"不限"}}</span>
                         <span>|{{data.nature ||"不限"}} | </span>
                         <span>{{data.size ||"不限"}}</span>
                     </div>
                 </div>
                 <div class="fr" style="margin-top: 21px;display: flex;flex-direction: column;">
-                    <button class="position-btn" ng-click="vm.throw(data.id,$index)">投个简历</button>
+                    <button class="position-btn" ng-click="vm.throw(data.id,$index)" ng-hide="data.c_id">投个简历</button>
+                    <button class="position-btn" ng-if="data.c_id" style="background-color: grey" disabled="disabled">已投递</button>
                     <div class=" grayF workdemand" style="font-size: 12px;">
                         <span>更新时间：{{data.time}}</span>
                     </div>
@@ -141,7 +142,7 @@
             </div>
 
             <div class=" seeMore text-center workmore">
-                <img src="image/home/seeMore.png" alt="">
+                <img src="image/home/seeMore.png" alt="" ui-sref="WorkCtrl({navType:0,page:2})">
             </div>
         </div>
         <div class="positionRight write">

@@ -26,6 +26,8 @@ angular.module('myApp')
         vm.salaryList=salaryList;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
+        postData['page']=1;
+        // console.log(vm.params.page)
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
@@ -264,10 +266,11 @@ angular.module('myApp')
             })
         }
         common.request(url,postData).then(function callback(res){
-            console.log(postData);
+            console.log(res.data.data.length);
             if(res.data.code===200){
-                if(res.data.data.length){
-                    vm.dataList=res.data.data;
+                if(res.data.data!=null){
+                    vm.dataList=res.data.data.data;
+                    console.log("【职位分页】",vm.dataList)
                 }
                 else{
                     modalBox.alert('该关键词无搜索结果，请重试')

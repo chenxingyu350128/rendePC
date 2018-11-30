@@ -71,3 +71,53 @@
 .self-pj{
     margin-left:  8%;
 }
+.invitation-title{
+    font-size: 24px;
+    color: #f61111;
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.invitation{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+}
+.invitation div{
+    display: flex;
+    flex-direction: column;
+}
+.invitation-name span{
+    margin-bottom: 44px;
+    text-align: right;
+}
+.invitation-btn{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.invitation-btn button{
+    border-radius: 3px;
+    border: none;
+    background-color: #f61111;
+    font-size: 18px;
+    color: white;
+    padding: 10px 20px;
+}
+.invitation input{
+    width:240px;
+    height:36px;
+    border:1px solid gainsboro;
+    background:rgba(244,244,244,1);
+    border-radius:4px;
+    padding:10px;
+    margin: 0px 0 20px 0;
+}
+.invitation button {
+    border-radius: 3px;
+    border: none;
+    background-color: #f61111;
+    font-size: 17px;
+    color: white;
+    padding: 10px 20px;
+ }

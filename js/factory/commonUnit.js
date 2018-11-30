@@ -140,11 +140,11 @@ angular.module('myApp')
                         }
                         else if (res.data.code === 201) {
                             vm.showAlert=true;
-                            modalBox.alert(res.data.msg,function () {
-                                $timeout(function () {
-                                    $state.go('signPage')
-                                }, 300)
-                            });
+                            // modalBox.alert(res.data.msg,function () {
+                            //     $timeout(function () {
+                            //         $state.go('signPage')
+                            //     }, 300)
+                            // });
                         }
                         else {
                             vm.showAlert=true;

@@ -19,7 +19,7 @@ angular.module('myApp')
                 }else if(res.data.data[1]==0){
                     vm.colText="收藏";
                 }
-                // vm.info.boonarr = JSON.parse(vm.info.boonarr)
+                vm.info.boonarr = JSON.parse(vm.info.boonarr)
                 console.log(vm.info);
                 cinfo(vm.info.c_id);
                 like(vm.info.job_type);

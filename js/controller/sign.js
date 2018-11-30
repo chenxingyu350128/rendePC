@@ -2,22 +2,21 @@
 
 angular.module('myApp')
     .controller('signCtrl',function ($http,$state,$stateParams,common,modalBox) {
-        console.log($stateParams);
         let vm=this;
         let modalAlert=sessionStorage.getItem('modalAlert');
         vm.choice=parseInt($stateParams.choice)||0;// 0登录 1注册
-        console.log(vm.choice);
         vm.clientId=parseInt($stateParams.clientId)||1;
+        console.log($stateParams)
         vm.method=parseInt($stateParams.method)||2;
         let nav=$('.navSign');
         let method=$('.navLogin');
         nav.eq(vm.clientId-1).css({
-            'border-bottom':'2px solid #f00',
+            'border-bottom':'2px solid #1C1291',
             'color': '#000',
             'font-weight': '600'
         });
         method.eq(vm.method-2).css({
-            'border-bottom':'2px solid #f00',
+            'border-bottom':'2px solid #1C1291',
             'color': '#000',
             'font-weight': '600'
         });
@@ -46,10 +45,10 @@ angular.module('myApp')
                     modalBox.alert(res);
                 }
                 else{
-                    if(!modalAlert){
-                        sessionStorage.setItem('modalAlert','damn it');
-                        modalBox.alert(res.data.msg)
-                    }
+                    // if(!modalAlert){
+                    //     sessionStorage.setItem('modalAlert','damn it');
+                    //     modalBox.alert(res.data.msg)
+                    // }
                 }
             });
         };
