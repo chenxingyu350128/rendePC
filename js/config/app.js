@@ -210,6 +210,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/common_search/common_search.js',
                         'css/lib/search_common.css'
                     ])
@@ -276,6 +278,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/common_search/common_search.js',
                         'css/lib/search_common.css'
                     ])
@@ -379,8 +383,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/proxy.css',
                         'js/controller/proxy.js',
-                        // 'js/directive/sidebar/sidebar.js',
-                        // 'css/sideBar.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
@@ -422,6 +426,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/common_search/common_search.js',
                         'css/lib/search_common.css'
                     ])

@@ -10,9 +10,7 @@
   background-size: cover; }
 
 .main {
-  position: relative;
-  top: -1.38rem;
-  left: 0; }
+  margin-top: -1.38rem; }
 
 .main .row {
   padding: 0; }
@@ -63,10 +61,8 @@
     margin-bottom: .2rem; }
 
 .blockCard {
-  overflow: hidden; }
-
-.blockCard + .productTitle {
-  margin-top: .2rem; }
+  overflow: hidden;
+  margin-bottom: .1rem; }
 
 .seeMorePng {
   width: 100%;
@@ -142,26 +138,3 @@
   border-bottom: 1px solid #f7f7f7; }
 
 /*# sourceMappingURL=store.css.map */
-.no-List {
-    text-align: center;
-    font-size: 20px;
-    padding: 125px;
-    color: gray;
-    height: 300px;
-}
-.storeSelect{
-    display: flex;
-    flex-direction: row;
-    font-size: 18px;
-    color: #000;
-    margin: 20px;
-}
-.storeSelect span{
-    font-size: 16px;
-    width: calc(100%/7);
-}
-.storeSelect select{
-    margin: 0 0.6rem 0 0;
-    width: 125px;
-    padding: 0px 5px;
-}

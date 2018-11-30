@@ -1,4 +1,4 @@
-<rende-header></rende-header>
+<rende-header id="header_top"></rende-header>
 <sus-box></sus-box>
 <div class="cityMap">
     <div class="container-fluid letter_row">
@@ -19,10 +19,33 @@
     </div>
     <div class="container-fluid detail_letter_row">
         <div class="container">
-            <div class="single">默认</div>
             <div>
-                <div class="letterBox">
-                    <span ng-click="vm.getCity('全国')" class="unit">全国</span>
+                <div class="single">默认</div>
+                <div>
+                    <div class="letterBox">
+                        <span ng-click="vm.getCity('全国')" class="unit">全国</span>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="single">热门城市</div>
+                <div>
+                    <div class="letterBox">
+                        <span ng-click="vm.getCity('北京')" class="unit">北京</span>
+                        <span ng-click="vm.getCity('上海')" class="unit">上海</span>
+                        <span ng-click="vm.getCity('广州')" class="unit">广州</span>
+                        <span ng-click="vm.getCity('深圳')" class="unit">深圳</span>
+                        <span ng-click="vm.getCity('杭州')" class="unit">杭州</span>
+                        <span ng-click="vm.getCity('天津')" class="unit">天津</span>
+                        <span ng-click="vm.getCity('西安')" class="unit">西安</span>
+                        <span ng-click="vm.getCity('苏州')" class="unit">苏州</span>
+                        <span ng-click="vm.getCity('武汉')" class="unit">武汉</span>
+                        <span ng-click="vm.getCity('厦门')" class="unit">厦门</span>
+                        <span ng-click="vm.getCity('长沙')" class="unit">长沙</span>
+                        <span ng-click="vm.getCity('成都')" class="unit">成都</span>
+                        <span ng-click="vm.getCity('郑州')" class="unit">郑州</span>
+                        <span ng-click="vm.getCity('重庆')" class="unit">重庆</span>
+                    </div>
                 </div>
             </div>
             <div id="{{x[0].key}}" ng-repeat="x in vm.newCityArr">

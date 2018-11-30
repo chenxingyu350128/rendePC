@@ -15,7 +15,7 @@
                 <img src="image/icon/icon{{$index+1}}.png" alt="" class="changeImg"  >
                 {{x.name}}
             </div>
-            <div ng-if="vm.showCates" class="typeDetails">
+            <div ng-if="vm.showCates" class="typeDetails" ng-style="vm.top">
                 <span class="category" ng-repeat="x in vm.typeDetail" ng-click="vm.category(x.id)">{{x.name}}</span>
             </div>
         </div>

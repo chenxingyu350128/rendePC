@@ -1,4 +1,4 @@
-<rende-header></rende-header>
+<rende-header id="header_top"></rende-header>
 <sus-box></sus-box>
 <!--职场资讯-->
 <div class="container-fluid">
@@ -29,15 +29,15 @@
             </div>
             <div class="banner"><span>热搜排行</span></div>
             <div class="hotnewList" ng-repeat=" x in vm.dataList|filter:search|limitTo : 10">
-                <span class="{{$index<3 ? 'span-bg1':'span-bg2'}}" >{{$index+1}}</span>
-                <span style="" ui-sref="new-detail({id:x.id,index:$index+1})">{{x.title}}</span>
+                <span class="numberic {{$index<3 ? 'span-bg1':'span-bg2'}}" >{{$index+1}}</span>
+                <span class="newsTitle" style="" ui-sref="new-detail({id:x.id,index:$index+1})">{{x.title}}</span>
             </div>
         </div>
     <div class="newlistRight">
         <div class="banner"><span>今日推荐</span></div>
         <div class="hotnewList"  ng-repeat=" x in vm.dataList| limitTo : 5">
             <div class="tj-content">
-                {{x.content}}
+                {{x.title}}
             </div>
         </div>
     </div>

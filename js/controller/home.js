@@ -22,6 +22,10 @@ angular.module('myApp')
                 vm.cateIdx=e-1;
                 vm.showCates=true;
                 vm.typeIdx=index+1;
+                vm.top={
+                    'top': index*40 + 'px',
+                    'transform': 'translate(0,'+'-'+(index*8)+'px)'
+                };
                 $('.type').removeClass('hoveredType');
                 $('.type').eq(index).addClass('hoveredType');
                 let a=$('.type img');
