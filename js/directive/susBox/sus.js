@@ -19,7 +19,14 @@ app.directive('susBox',function ($http,$state,$stateParams) {
             });
             $('.toBottom').on('click',function () {
                 window.location.hash="#footer_bottom";
-            })
+            });
+            let realQR=$('.real_QRCode');
+            scope.showQR=function(){
+                realQR.show();
+            };
+            scope.hideQR=function(){
+                realQR.hide();
+            };
         }
     }
 });

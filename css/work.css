@@ -170,7 +170,8 @@
     background-color: #f61111;
 }
 .position-list{
-    padding: 20px 30px 0px 30px;
+    padding: 20px 30px 0 30px;
+    border: 1px solid #fff;
     width: 100%;
     float: left;
 
@@ -178,8 +179,11 @@
 .position-list:hover {
     border: 1px solid #f61111;
 }
-.position-list:hover img {
+.position-list:hover .position-name {
     box-shadow: 2px 2px 5px #999;
+}
+.position-list:hover .position-hr {
+    visibility: hidden;
 }
 .position-list:hover .position-btn {
    background-color: #f61111;
@@ -189,10 +193,11 @@
     box-sizing: border-box;
     height: 87px;
     text-space: .5em;
-    /*padding: 9px 20px;*/
+    border: 1px solid gainsboro;
     color: #fff;
     font-size: 24px;
     border-radius: 13px;
+    overflow: hidden;
     font-weight: 600;
     float: left;
 }
@@ -255,8 +260,9 @@
 .position-hr{
     float: left;
     width: 94%;
-    margin: 1% 0 0 5%;
-    border-bottom: 1px solid gainsboro;
+    /*margin: 1% 0 0 5%;*/
+    padding-bottom: .1rem;
+    border-top: 1px solid gainsboro;
 }
 .workmore{
     display: inline-block;

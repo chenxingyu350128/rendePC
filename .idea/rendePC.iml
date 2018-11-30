@@ -21,5 +21,7 @@
     <orderEntry type="library" name="angular-messages" level="application" />
     <orderEntry type="library" name="swiper" level="application" />
     <orderEntry type="library" name="angular-file-upload" level="application" />
+    <orderEntry type="library" name="jquery-weui" level="application" />
+    <orderEntry type="library" name="ui-bootstrap" level="application" />
   </component>
 </module>

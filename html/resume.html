@@ -1,6 +1,7 @@
 <!--页眉-->
 <rende-header></rende-header>
 <common-search></common-search>
+<sus-box></sus-box>
 <div class="container enterNav">
     <div class="row" style="margin-bottom: 15px;">
         <div class="wantedBlock col-lg-9 col-md-9 col-sm-12 col-xs-12">
@@ -16,7 +17,7 @@
                     <div>现居地: {{vm.resume.address||"暂无"}}</div>
                 </div>
                 <div class="fill2">
-                    <div style="visibility: hidden;">从事行业: {{vm.resume.want_job||"暂无"}}</div>
+                    <div style="visibility: hidden" class="real_name">{{vm.resume.name ||"暂无用户名"}}</div>
                     <div>工作经验: {{vm.resume.years ||"暂无"}}年</div>
                     <div>联系电话: {{vm.resume.phone||"暂无"}}</div>
                     <div>电子邮箱: {{vm.resume.email||"暂无"}}</div>
@@ -125,18 +126,14 @@
             </div>
             <div class="info info_mb">
                <div class="fill1">
-                   <div>意向岗位：{{vm.resume.want_job}}</div>
-                   <div>工作地点: {{vm.resume.job_address}}</div>
-                   <div>到岗时间: {{vm.resume.come_job}} </div>
+                   <div>意向岗位&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.want_job}}</span></div>
+                   <div>工作地点&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.job_address}}</span></div>
+                   <div>到岗时间&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.come_job}} </span></div>
                </div>
                <div class="fill2">
-                   <div>从事行业:  {{vm.resume.f_type}}</div>
-                   <!--<div>期望薪资: ￥-->
-                       <!--<span>5000</span>- -->
-                       <!--<span>8000</span>-->
-                   <!--</div>-->
-                   <div>工作性质:  {{vm.resume.nature}}</div>
-                   <div>求职状态:  {{vm.resume.job_type}}</div>
+                   <div>从事行业&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.f_type}}</span></div>
+                   <div>工作性质&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.nature}}</span></div>
+                   <div>求职状态&nbsp;:&nbsp;<span style="font-weight: 600"> {{vm.resume.job_type}}</span></div>
                </div>
                <img data-toggle="modal" data-target="#myModal2" class="editIcon1" src="image/home/editIcon.png" alt="">
                 <!--<button class="btn btn-primary btn-lg" >开始演示模态框</button>-->
@@ -146,7 +143,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel2">求职意向</h4>
+                                <h4 class="modal-title" id="myModalLabel2">个人简历信息</h4>
                             </div>
                             <div class="modal-body">
                                 <div class="editTable">
@@ -334,8 +331,8 @@
                             <span>{{x.time}}</span>
                         </div>
                         <div class="campName quarter">{{x.School }}</div>
-                        <div class="education quarter">学历:{{x.education }}</div>
-                        <div class="profession quarter">专业: {{x.major }}</div>
+                        <div class="education quarter">学历&nbsp;:&nbsp;{{x.education }}</div>
+                        <div class="profession quarter">专业&nbsp;:&nbsp;{{x.major }}</div>
                         <div class="deleteEdu" ng-click="vm.deleteEdu($index)">删除</div>
                     </div>
                 </div>

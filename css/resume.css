@@ -20,7 +20,8 @@
       width: 111px;
       height: 111px;
       border-radius: 50%; }
-  .info .fill1 .real_name {
+  .info .fill1 .real_name,
+  .info .fill2 .real_name {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 0; }
@@ -225,5 +226,10 @@
 
 .recommend .fileUp {
   margin-bottom: 0; }
+
+.modal-title {
+  font-size: 20px;
+  color: #c20c20;
+  font-weight: 600; }
 
 /*# sourceMappingURL=resume.css.map */

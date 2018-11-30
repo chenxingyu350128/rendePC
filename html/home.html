@@ -1,9 +1,9 @@
 
-<rende-header></rende-header>
+<rende-header id="header_top"></rende-header>
 <!--右悬浮栏-->
 <sus-box></sus-box>
 <div class="clientShell">
-    <div id="header_top" class="container-fluid topShell">
+    <div  class="container-fluid topShell">
         <div class="top container">
             <!--<div class="row">-->
             <div ng-mouseleave="vm.mouseLeave($index)" class="topDiv col-md-3 col-lg-3 col-sm-3 col-xs-12 types">
@@ -72,7 +72,7 @@
     <div class="container content">
         <div class="row companyCard">
             <div ng-repeat="x in vm.famousEnter|limitTo:24" ui-sref="enterpriseInfo({id:x.id})" class="companyBlock col-lg-2 col-md-3 col-sm-4 col-xs-6">
-                <div class="company" style="background-image: url('{{x.img}}');background-repeat:no-repeat; ">
+                <div class="company" style="background-image: url('{{x.img}}');background-repeat:no-repeat;background-position: center ">
                     <div class="text-center" style="margin-bottom: 15px;font-size: 15px;">{{x.name}}</div>
                     <!--<img ng-src="{{x.img}}" alt="">-->
                 </div>
@@ -144,7 +144,7 @@
             <div ui-sref="workDetail({id:work.id})" class="wantedBlock col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="work in vm.workList|limitTo:6">
                 <div class="occupation">
                     <div class="row1">
-                        <img class="companyName" src="{{work.img}}" style="padding: 0">
+                        <img class="companyName" src="{{work.img}}" style="padding: 1px">
                         <div>
                             <div class="position">{{work.job_type}}</div>
                             <div class="salary redF">￥{{work.start_money}}-{{work.end_money}}</div>
@@ -229,9 +229,13 @@
         <div>友情链接</div>
     </div>
     <div class="container links">
-        <span>百度</span>
-        <span>阿里</span>
-        <span>腾讯</span>
+        <span><a href="https://www.baidu.com">百度</a></span>
+        <span><a href="https://www.alibabagroup.com">阿里</a></span>
+        <span><a href="https://www.sina.com.cn">新浪</a></span>
+        <span><a href="https://www.163.com">网易</a></span>
+        <span><a href="https://www.sohu.com">搜狐</a></span>
+        <span><a href="https://www.ctrip.com">携程</a></span>
+        <span><a href="https://www.ifeng.com">凤凰</a></span>
     </div>
 </div>
 <rd-footer></rd-footer>

@@ -23,7 +23,8 @@
       border-radius: 50%;
     }
   }
-  .fill1 .real_name{
+  .fill1 .real_name,
+  .fill2 .real_name{
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 0;
@@ -280,4 +281,10 @@
 }
 .recommend .fileUp{
   margin-bottom: 0;
+}
+//modalBox
+.modal-title{
+  font-size: 20px;
+  color: #c20c20;
+  font-weight: 600;
 }

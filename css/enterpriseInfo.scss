@@ -101,8 +101,11 @@
   padding: .3rem .45rem;
   margin-bottom: .1rem;
   background: #fff;
+  display: flex;
+  align-items: center;
   .email{
-    padding: .42rem 0;
+    margin-right: .2rem;
+    //padding: .42rem 0;
     //background: #f00;
   }
   &>div{
@@ -149,6 +152,9 @@
     align-items: center;
     img{
       margin-right: .27rem;
+      border-radius: .1rem;
+      border: 1px solid #eee;
+      padding: 1px;
     }
   }
   .demand{
@@ -158,7 +164,7 @@
     display: flex;
     align-items: center;
     .thi_L{
-      margin-right: 1.6rem
+      margin-right: 3.6rem
     }
     .thi_R{
       display: flex;

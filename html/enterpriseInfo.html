@@ -87,7 +87,7 @@
     <div class="text">
         {{vm.dataList.introduce ||"暂无详情"}}
     </div>
-    <div class="container seeMore text-center">
+    <div class="seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
     </div>
 </div>
@@ -100,7 +100,7 @@
             <div class="leftTwo">
                 <div class="infoImg"  ui-sref="workDetail({id:job.id,index})"><img src="{{job.img}}" alt="" style="width: 100%"></div>
                 <div class="sec" style="margin: 0 23px;">
-                    <div>
+                    <div style="font-size: 18px;font-weight: 600">
                         {{job.job_type ||"暂无信息"}}
                         <span class="salary redF">￥{{job.pay||"面议"}}</span>
                     </div>
@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="thi">
-                <div class="" style="">
+                <div class="thi_L" style="">
                     <div>
                         {{job.name}}
                     </div>

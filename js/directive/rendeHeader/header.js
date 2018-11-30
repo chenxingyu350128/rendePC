@@ -47,7 +47,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                         sessionStorage.setItem('homeMenu',JSON.stringify(scope.homeMenu));
                     }
                     else if(res.data.code===201){
-                        if(modalAlert){
+                        if(!modalAlert){
                             $state.go('signPage')
                         }else{
                             sessionStorage.setItem('modalAlert','damn it');
@@ -77,7 +77,7 @@ app.directive('rendeHeader',function ($http,$state,$stateParams,$timeout,common,
                         sessionStorage.setItem('enterHome',JSON.stringify(scope.enterHome));
                     }
                     else if(res.data.code===201){
-                        if(modalAlert){
+                        if(!modalAlert){
                             $state.go('signPage')
                         }else{
                             sessionStorage.setItem('modalAlert','damn it');

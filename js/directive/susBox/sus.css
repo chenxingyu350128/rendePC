@@ -1,0 +1,40 @@
+.rightFix {
+    position: relative;
+    z-index: 999;
+}
+.rightFix>div{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    right: calc(50% - 7.46rem);
+    bottom: .5rem;
+    background: #fff;
+
+}
+.rightFix>div>div{
+    width: .58rem;
+    height: .58rem;
+    line-height: .58rem;
+    text-align: center;
+}
+.rightFix>div>div:hover{
+    background: #ddd;
+}
+.rightFix .show{
+    display: inline;
+    background: #fff;
+    position: absolute;
+    left: -1.44rem;
+}
+.qrCode_home{
+    position: relative;
+}
+.qrCode_home .real_QRCode{
+    position: absolute;
+    right: .58rem;
+    top: 36%;
+    transform: translate(0,-50%);
+}
+.rightFix .show img{
+    z-index: 66;
+}

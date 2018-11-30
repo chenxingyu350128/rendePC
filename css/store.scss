@@ -9,18 +9,16 @@
   -webkit-background-size: cover;
   background-size: cover;
 }
-main{
+.main{
   position: relative;
-  top: .138rem;
+  top: -1.38rem;
+  left: 0;
 }
 .main .row{
   padding: 0;
-  position: relative;
-  top: -1.38rem;
   .blockCard{
     .col-lg-4{
       background: #fff;
-      //border: 1px solid #ddd;
     }
   }
   .cardUnit{
@@ -66,7 +64,22 @@ main{
   }
 }
 .content1{
-  background: #fff;
+  //background: #fff;
+  padding: 0;
+  &>div{
+    padding: .2rem .15rem;
+    background: #fff;
+    //margin-bottom: .2rem;
+  }
+  .storeSelect{
+    margin-bottom: .2rem;
+  }
+}
+.blockCard{
+  overflow: hidden;
+}
+.blockCard+.productTitle{
+  margin-top: .2rem;
 }
 .seeMorePng{
   width: 100%;

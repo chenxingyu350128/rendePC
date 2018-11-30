@@ -1,5 +1,6 @@
 <!--页眉-->
 <rende-header></rende-header>
+<sus-box></sus-box>
 <div class="BG container-fluid text-center">
     欢迎来到积分商城，你想要的这里都有！！
 </div>
@@ -10,35 +11,7 @@
                 <span class=" ">积分筛选:
                     <span ng-click="vm.clearOthers()" class="opt1 ocp allOptions" id="all">全部</span>
                 </span>
-                <!--<select class=""-->
-                        <!--id="integral"-->
-                        <!--ng-change="vm.getintegral(vm.integral)"-->
-                        <!--ng-model="vm.integral">-->
-                    <!--<option value="">综合排序</option>-->
-                    <!--<option value="">积分值排序</option>-->
-                    <!--<option value="1">降序</option>-->
-                <!--</select>-->
-
             </div>
-
-            <!--<div class="hotOcp">-->
-                <!--<span class="underNav">职位: </span>-->
-                <!--<span class="job_type btn" ng-click="vm.clearType()">全部</span>-->
-                <!--<span class="job_type btn"-->
-                      <!--ng-click="vm.getJobType(x,$index+1)"-->
-                      <!--on-finish-render-filters-->
-                      <!--ng-repeat="x in vm.typeList |limitTo :6">{{x}}-->
-                <!--</span>-->
-                <!--<select class="underNav job_type typeSelect"-->
-                        <!--name="kind"-->
-                        <!--ng-change="vm.getType(vm.selectedType)"-->
-                        <!--ng-model="vm.selectedType" >-->
-                    <!--<option value="">更多</option>-->
-                    <!--<option value="{{x}}" ng-repeat="x in vm.otherTypes">{{x}}</option>-->
-                <!--</select>-->
-            <!--</div>-->
-
-
             <div class="productTitle">
                 <span ng-hide="vm.type==1">推荐商品</span>
                 <span ng-show="vm.type==1">我的兑换</span>
@@ -59,26 +32,27 @@
                     <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
-            <div class=" content1">
-                <div class="productTitle">
-                    <span>最新商品</span>
+            <div class="productTitle">
+                <span>最新商品</span>
+            </div>
+            <div class="blockCard">
+                <div class="cardUnit text-center" ng-repeat="time in vm.timeList" ui-sref="shop-detail({id:time.id})">
+                    <img src="{{time.img}}" alt="">
+                    <div class="productName">{{time.name}}</div>
+                    <div class="scoreNeed">
+                        所需积分: <span>{{time.integral}}</span>
+                    </div>
                 </div>
-                <div class="blockCard">
-                    <div class="cardUnit text-center" ng-repeat="time in vm.timeList" ui-sref="shop-detail({id:time.id})">
-                        <img src="{{time.img}}" alt="">
-                        <div class="productName">{{time.name}}</div>
-                        <div class="scoreNeed">
-                            所需积分: <span>{{time.integral}}</span>
-                        </div>
-                    </div>
-                    <div class="seeMorePng text-center" >
-                        <img src="image/home/seeMore.png" alt="">
-                    </div>
+                <div class="seeMorePng text-center" >
+                    <img src="image/home/seeMore.png" alt="">
                 </div>
             </div>
+            <!--<div class=" content1">-->
+               <!---->
+            <!--</div>-->
         </div>
 
-        <div class="col-lg-4">
+        <div class="col-lg-4" style="padding-right: 0;">
             <div class="user">
                 <div class="userInfo">
                     <img src="{{vm.userList.img}}" alt="">
@@ -116,8 +90,7 @@
             </div>
         </div>
 
-        </div>
     </div>
 </div>
-<div style="margin-top: -2.2rem;height: 100px;width: 100%"></div>
+<!--<div style="height: 100px;width: 100%"></div>-->
 <rd-footer></rd-footer>

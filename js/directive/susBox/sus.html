@@ -3,8 +3,9 @@
         <div class="toTop">
             TOP
         </div>
-        <div class="qrCode_home">
+        <div ng-mouseenter="showQR()" ng-mouseleave="hideQR()" class="qrCode_home">
             <img src="image/home/qrcodeIcon_home.png" alt="">
+            <img style="display: none" class="real_QRCode" src="image/home/qrcode_home.png" alt="">
         </div>
         <div class="mobile_home toBottom">
             <img src="image/home/mobileIcon_home.png" alt="">

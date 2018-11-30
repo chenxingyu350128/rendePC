@@ -26,6 +26,7 @@ angular.module('myApp')
         vm.salaryList=salaryList;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
+        vm.page=postData['page']=parseInt(vm.params.page)||1;
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
@@ -265,13 +266,17 @@ angular.module('myApp')
         }
         common.request(url,postData).then(function callback(res){
             console.log(postData);
+            console.log(res);
             if(res.data.code===200){
-                if(res.data.data.length){
-                    vm.dataList=res.data.data;
-                }
-                else{
-                    modalBox.alert('该关键词无搜索结果，请重试')
-                }
+                // if(res.data.data.length){
+                    vm.dataList=res.data.data[0].data;
+                    console.log(res.data.data);
+                    console.log('200');
+                    vm.total=res.data.data[1];
+                // }
+                // else{
+                //     modalBox.alert('该关键词无搜索结果，请重试')
+                // }
             }
             else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){

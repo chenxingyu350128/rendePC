@@ -20,6 +20,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'css/home.css',
                         'js/controller/home.js',
                         'js/directive/repeatEnd2.js'
@@ -36,6 +37,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'css/cityMap.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/controller/cityMap.js',
@@ -54,6 +57,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/resume.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/common_search/common_search.js',
@@ -63,7 +68,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType',
+                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType&page',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -73,6 +78,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/work.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/common_search/common_search.js',
@@ -89,12 +96,14 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/help.css',
                         'css/work.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/controller/help.js'
                     ])
                 }
             })//找人才
             .state('personel',{
-                url: '/personel?jobType1&id&keyword&salary1&boon1&nature1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1',
+                url: '/personel?jobType1&id&keyword&salary1&boon1&nature1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1&page',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -105,6 +114,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/personel.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/common_search/common_search.js',
@@ -157,7 +168,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                     loadMyFile: _ocLazy([
                         'css/hunt-position&position0.css',
                         'css/work.css',
-                        'js/controller/hunt-position&position0.js'
+                        'js/controller/hunt-position&position0.js',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                     ])
                 }
             })
@@ -203,7 +216,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//职场资讯列表
             .state('workplace-news',{
-                url: '/workplace-news',
+                url: '/workplace-news&page',
                 templateUrl: 'html/workplace-news.html',
                 controller: 'WorkplaceNewsCtrl',
                 controllerAs: 'vm',
@@ -231,7 +244,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找企业
             .state('enterprise',{
-                url: '/enterprise?nav0&idx00&idx01&idx02&jobType0&nature0&size0&boon0&selectedType0&selectedNature0&selectedBoon0',
+                url: '/enterprise?nav0&idx00&idx01&idx02&jobType0&nature0&size0&boon0&selectedType0&selectedNature0&selectedBoon0&page',
                 templateUrl: 'html/enterprise.html',
                 controller: 'enterprise',
                 controllerAs: 'vm',
@@ -243,6 +256,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/footer.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/common_search/common_search.js',
                         'css/lib/search_common.css'
                     ])
@@ -313,7 +328,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store?type?integral1?idx1',
+                url: '/store?type?integral1?idx1?page',
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -323,6 +338,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/store.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js'
                     ])
@@ -372,7 +389,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//职场资讯
             .state('WPInfo',{
-                url: '/wpInfo',
+                url: '/wpInfo&page',
                 templateUrl: 'html/workplace-news.html',
                 controller: 'wpInfo',
                 controllerAs: 'vm',
@@ -384,13 +401,15 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/header.css',
                         'css/lib/footer.css',
                         'css/work.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                     ])
                 }
             })//普工
             .state('GWorker',{
-                url: '/GWorker??navType&jobType&idx40&selectedType',
+                url: '/GWorker??navType&jobType&idx40&selectedType&page',
                 templateUrl: 'html/GWorker.html',
                 controller: 'GWorkerCtrl',
                 controllerAs: 'vm',
@@ -407,9 +426,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/lib/search_common.css'
                     ])
                 }
-            })//店铺/招普工
+            })//店铺/招普工i
             .state('recruit',{
-                url: '/recruit?navType&jobType&idx30&selectedType',
+                url: '/recruit?navType&jobType&idx30&selectedType&page',
                 templateUrl: 'html/recruit.html',
                 controller: 'recruitCtrl',
                 controllerAs: 'vm',
@@ -420,6 +439,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/recruit.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'js/directive/susBox/sus.js',
+                        'js/directive/susBox/sus.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/common_search/common_search.js',

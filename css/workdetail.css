@@ -163,7 +163,7 @@
     border-top:1px solid gainsboro ;
 }
 .position-hr-content div{
-    padding: .08rem 0;
+    padding: .28rem 0;
 }
 .hr-content-f{
     font-family: 黑体;
@@ -200,8 +200,11 @@
     font-size: 16px;
     color: black;
     display: inline-block;
-    margin: .2rem 0;
+    /*margin: .2rem 0;*/
     width: 100%;
+}
+.hr-content-other .other-jobs:hover{
+    border: 1px solid #f61111;
 }
 .hr-content-describe p{
     line-height: .4rem;
@@ -213,13 +216,13 @@
 }
 .hr-content-other{
     border-bottom: 1px solid gainsboro;
-    margin-bottom: .2rem;
+    margin: 0 0 .2rem 0;
     display: inline-block;
-    width: 95%;
-    padding: 0 10px;
+    /*width: 95%;*/
 }
-.hr-content-other:hover{
-    border: 1px solid #f61111;
+.hr-content-other .other-jobs{
+    padding: 0 .2rem;
+    border: 1px solid #fff;
 }
 .detail-right-company{
     width: 27%;

@@ -40,3 +40,10 @@ margin-bottom: 23px;
     display: flex;
     flex-direction: column;
 }
+.setinfo .Ecode{
+    position: relative;
+}
+.setinfo .Ecode button{
+    position: absolute;
+    right: 0;
+}

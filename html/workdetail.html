@@ -78,9 +78,9 @@
             </div>
             <!--其他职位-->
             <div class="detail-position-hr">
-                <div class="position-hr-top"><span>该公司的其TA职位</span></div>
+                <div style="margin-bottom: .2rem" class="position-hr-top"><span>该公司的其TA职位</span></div>
                 <div class="position-hr-content hr-content-other"  ui-sref="workDetail({id:vm.other.id})" ng-hide="vm.others.length==0">
-                    <div class="hr-content-describe" ng-repeat="other in  vm.others |limitTo :2" >
+                    <div class="hr-content-describe other-jobs" ng-repeat="other in  vm.others |limitTo :2" >
                         <div class="">
                             <span >{{ other.job_type}}</span>
                             <button class="detail-position-put-button fr " ng-click="vm.throwResum(other.id,$index)" >投递简历</button>

@@ -50,7 +50,7 @@
 /*}*/
 .getMore{
     padding: .05rem .1rem;
-    /*border: 1px solid #f00;*/
+    /*border: 1px solid #f61111;*/
 }
 .leftNav{
     background: #fff;
@@ -69,12 +69,16 @@
 }
 .enterNav .companyName{
     border-radius: .1rem;
+    padding: 1px;
+    margin-left: -1px;
+    overflow: hidden;
 }
 .enterNav .row1{
     position: relative;
     margin-bottom: 0;
     justify-content: flex-start;
     padding: 15px;
+    border: 1px solid #fff;
 }
 .enterNav .row1 .sec{
     margin-left: .25rem;
@@ -131,7 +135,7 @@
     border: none;
 }
 .checkedNav{
-    background: #f00;
+    background: #f61111;
     color: #fff;
 }
 .RHshell{
@@ -143,7 +147,7 @@
     font-size: 20px;
     font-weight: 600;
     padding: 0 .15rem;
-    border-left: 3px solid #f00;
+    border-left: 3px solid #f61111;
 }
 .recommend .companyName{
     width: 1.98rem;
@@ -153,9 +157,12 @@
     margin: .1rem auto 0rem
 }
 .recommend .occupation{
-    border: none;
     background: #fff;
     margin-bottom: 10px;
+    border: 1px solid transparent;
+}
+.recommend .occupation:hover{
+    border: 1px solid #f61111;
 }
 .enterName{
     background: #fff;

@@ -1,7 +1,8 @@
 <!--页眉-->
-<rende-header></rende-header>
+<rende-header id="header_top"></rende-header>
 <!--搜索-->
 <common-search></common-search>
+<sus-box></sus-box>
 <div class="container checkBox">
     <div>
         <div class="row optRow">
@@ -86,7 +87,7 @@
     border-bottom: 1px solid gainsboro;">
                 <div class="row1">
                     <div class="leftTwo">
-                        <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
+                        <img class="companyName company-logo" src="{{data.img}}" >
                         <div class="sec">
                             <div class="position">
                                 {{data.name}}
@@ -123,8 +124,8 @@
                 </div>
             </div>
             <div ui-sref="enterpriseInfo" class="occupation"  ng-repeat="data in vm.dataList|limitTo:3" >
-                <div class="row1">
-                    <img class="companyName company-logo" src="{{data.img}}" style="padding: 0">
+                <div class="row2">
+                    <img class="companyName company-logo" src="{{data.img}}" >
                 </div>
                 <div class="text-center" style="display: block">
                  <div style="margin-bottom: 10px;">{{data.name}}</div>

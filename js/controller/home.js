@@ -38,9 +38,12 @@ angular.module('myApp')
             vm.mouseLeave=function(index){
                 vm.showCates=false;
                 $('.type').removeClass('hoveredType');
-                // var a=index+1;
-                // vm.img="image/icon/icon"+a+".png";
-                // $(".changeImg")[index].src = vm.img;
+                let a=$('.type img');
+                for(let i=0;i<a.length;i++){
+                    a.eq(i).attr('src',"image/icon/icon"+(i+1)+".png");
+                }
+                // a.attr('src',"image/icon/icon"+(index+1)+".png");
+                // console.log(a);
             };
             vm.category=function(e){
 
@@ -73,7 +76,7 @@ angular.module('myApp')
                     }
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -107,7 +110,7 @@ angular.module('myApp')
                     vm.boon = res.data.data;
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -136,7 +139,7 @@ angular.module('myApp')
                     vm.comeJobList = res.data.data;
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -165,7 +168,7 @@ angular.module('myApp')
                     vm.expList = res.data.data;
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -196,7 +199,7 @@ angular.module('myApp')
                     vm.eduList = res.data.data;
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -227,7 +230,7 @@ angular.module('myApp')
                     vm.natureList = res.data.data;
                 }
                 else if(res.data.code===201){
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -258,7 +261,7 @@ angular.module('myApp')
                     vm.sizeList = res.data.data;
                 }
                 else if (res.data.code === 201) {
-                    if(modalAlert){
+                   if(!modalAlert){
                         $state.go('signPage')
                     }else{
                         sessionStorage.setItem('modalAlert','damn it');
@@ -290,7 +293,7 @@ angular.module('myApp')
                 vm.banner = res.data.data;
             }
             else if (res.data.code === 201) {
-                if(modalAlert){
+               if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');
@@ -315,7 +318,7 @@ angular.module('myApp')
                 vm.hotSearch = res.data.data;
             }
             else if (res.data.code === 201) {
-                if(modalAlert){
+               if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');
@@ -341,7 +344,7 @@ angular.module('myApp')
                 console.log(res.data.data);
             }
             else if(res.data.code===201){
-                if(modalAlert){
+               if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');
@@ -369,7 +372,7 @@ angular.module('myApp')
                 vm.famousEnter=res.data.data;
             }
             else if(res.data.code===201){
-                if(modalAlert){
+               if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');
@@ -394,7 +397,7 @@ angular.module('myApp')
                 vm.allResume=res.data.data;
             }
             else if(res.data.code===201){
-                if(modalAlert){
+               if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');

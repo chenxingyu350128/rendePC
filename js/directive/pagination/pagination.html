@@ -1,0 +1,32 @@
+<div style="display: flex;align-items: center" class="pageModel">
+    <!--<div class="bottomInput">-->
+        <!--单页显示-->
+        <!--<input type="text"-->
+               <!--class="text-center"-->
+               <!--style="width: 4em;padding: 6px 12px;outline: 0"-->
+               <!--ng-change="changeSize()"-->
+               <!--ng-model="size">-->
+        <!--条-->
+    <!--</div>-->
+    <ul uib-pagination
+        total-items="total"
+        ng-click="pageChange()"
+        ng-model="page"
+        max-size="5"
+        first-text="首页"
+        previous-text="上一页"
+        next-text="下一页"
+        last-text="末页"
+        boundary-links="true"
+        boundary-link-numbers="true">
+    </ul>
+    <div class="bottomInput">
+        去第
+        <input type="text"
+               style="width: 4em;padding: 6px 12px;outline: 0"
+               ng-model="setPage"
+               ng-change="changePage()">
+        页
+        <button class="btn btn-default" style="color: #3379b6;" ng-click="getNewPage()">确定</button>
+    </div>
+</div>
