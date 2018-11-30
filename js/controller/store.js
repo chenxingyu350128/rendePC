@@ -6,7 +6,8 @@ angular.module('myApp')
         vm.params=$stateParams;
         console.log(vm.params);
         let postData={};
-        vm.page=postData['page']=vm.params.page;
+        let shopdata={typeid:0,desc:vm.params.integral1};
+        vm.page=shopdata['page']=vm.params.page||1;
         let paramsData={};
         vm.type = $stateParams.type;
         vm.homePage=function(){
@@ -60,10 +61,11 @@ angular.module('myApp')
 
 
         vm.getList=function(url){
-            let shopdata={typeid:0,desc:vm.params.integral1};
             common.request(url,shopdata).then(function callback(res){
                 if(res.data.code===200){
-                    vm.shoppingList = res.data.data;
+                    vm.shoppingList=res.data.data[0].data;
+                    vm.total=res.data.data[1];
+                    vm.size=res.data.data[0].per_page;
                 }
                 else if(res.data.code===201){
                     modalBox.alert('未注册，登录已过期');

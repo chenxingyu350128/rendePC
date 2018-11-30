@@ -37,9 +37,11 @@
                     <!--<img src="image/no_data.png">-->
                     <div class="no-List">您目前还没有兑换列表~</div>
                 </div>
-                <div class="seeMorePng text-center" ng-hide="vm.shoppingList.length==0">
-                    <img src="image/home/seeMore.png" alt="">
-                </div>
+                <page-model style="float: left" ng-if="!vm.navType" page="vm.page" total="vm.total" size="vm.size"></page-model>
+
+                <!--<div class="seeMorePng text-center" ng-hide="vm.shoppingList.length==0">-->
+                    <!--<img src="image/home/seeMore.png" alt="">-->
+                <!--</div>-->
             </div>
             <div class="productTitle">
                 <span>最新商品</span>
@@ -97,8 +99,5 @@
         </div>
 
     </div>
-</div>
-<div class="container">
-    <page-model ng-if="!vm.navType" page="vm.page" total="vm.total" ></page-model>
 </div>
 <rd-footer></rd-footer>

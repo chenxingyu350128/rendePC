@@ -12,7 +12,7 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
-        vm.page=postData['page']=parseInt(vm.params.page);
+        vm.page=postData['page']=parseInt(vm.params.page)||1;
         let paramsData={};
         if(vm.nav){
             postData['time']='anything';
@@ -39,9 +39,10 @@ angular.module('myApp')
         };
         common.request('Boss/show_work',postData).then(function callback(res){
             if(res.data.code===200){
-                if(res.data.data.length){
-                    vm.cardData=res.data.data;
-                }else{
+                vm.cardData=res.data.data[0].data;
+                vm.total=res.data.data[1];
+                vm.size=res.data.data[0].per_page;
+                if(!res.data.data[0].data.length){
                     vm.noResult=true;
                 }
 

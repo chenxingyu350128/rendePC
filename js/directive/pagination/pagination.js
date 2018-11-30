@@ -1,3 +1,4 @@
+'use strict';
 app.directive('pageModel',function ($state,$stateParams) {
     return {
         restrict: 'EA',

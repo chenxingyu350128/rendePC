@@ -59,18 +59,18 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
-
-        let url='show_recruit_list';
+        //
+        // let url='show_recruit_list';
         let dataEmpty={};
-        common.request(url,dataEmpty).then(function callback(res){
-            if(res.data.code===200){
-                vm.recruitList=res.data.data;
-                // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
-            }
-            else if(res.data.code===404){
-                modalBox.alert(res.msg)
-            }
-        });
+        // common.request(url,dataEmpty).then(function callback(res){
+        //     if(res.data.code===200){
+        //         vm.recruitList=res.data.data;
+        //         // sessionStorage.setItem('homeMenu',JSON.stringify(res.data.data))
+        //     }
+        //     else if(res.data.code===404){
+        //         modalBox.alert(res.msg)
+        //     }
+        // });
 
         // 获取专职招聘列表
         let url1='boss/show_recruit_list';
