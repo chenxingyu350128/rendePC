@@ -27,12 +27,13 @@ angular.module('myApp')
         let postData={};
         postData['city']=sessionStorage.getItem('city');
         vm.page=postData['page']=vm.params.page||1;
+        // postData['page']=1;
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
         postData['jobType']=paramsData['jobType']=vm.params.jobType;
-        paramsData['idx0']=vm.params.idx0;
-        paramsData['idx1']=vm.params.idx1;
+        paramsData['idx0']=vm.params.idx0||0;
+        paramsData['idx1']=vm.params.idx1||0;
         postData['money']=paramsData['money']=vm.params.salary;
         vm.edu=postData['education']=paramsData['edu']=vm.params.edu;
         vm.nature=postData['nature']=paramsData['nature']=vm.params.nature;
@@ -268,9 +269,9 @@ angular.module('myApp')
             console.log(postData);
             if(res.data.code===200){
                     vm.dataList=res.data.data[0].data;
-                    vm.total=res.data.data[1];
-                    $('.inner-html').html(vm.total);
-                    vm.size=res.data.data[0].per_page;
+                    // vm.total=res.data.data[1];
+                    // $('.inner-html').html(vm.total);
+                    // vm.size=res.data.data[0].per_page;
             }
             else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){

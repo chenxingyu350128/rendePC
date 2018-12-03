@@ -4,21 +4,24 @@
 <div class="BG container-fluid text-center">
     欢迎来到积分商城，你想要的这里都有！！
 </div>
-<div class="main container">
+<div class="storeMain main container">
     <div class="row">
         <div class="col-lg-8 content1">
-            <span>积分筛选:</span>
-            <div class="storeSelect">
-
-                    <span ng-click="vm.clearOthers()" class="" id="all">全部</span>
-                    <span>0 - 5000</span>
-                    <span>5000 - 10000</span>
-                    <span>10000 - 50000</span>
-                    <span>50000 - 100000</span>
-                <span>
-                 <input type="text">
-                -
-                   <input type="text">
+            <div class=" optRow">
+                <span class="salaryBtn">
+                    薪资:
+                    <span ng-click="vm.clearSalary()" class="all Type allType choice choice1 btn opt" id="all">全部</span>
+                </span>
+                <span  ng-click='vm.getSalary(x,$index+1)'
+                       class="Type choice choice1 salaryBtn opt"
+                       ng-repeat="x in vm.salaryList" on-finish-render-filters>
+                    <span class="btn"> {{x}}</span>
+                </span>
+                <span class="salaryInput">
+                    <input ng-model="vm.low" type="number" class="" id="startPay">
+                     -
+                    <input ng-model="vm.high" type="number" class="" id="endPay">
+                    <button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>
                 </span>
             </div>
             <div class="productTitle">
@@ -38,11 +41,20 @@
                     <div class="no-List">您目前还没有兑换列表~</div>
                 </div>
                 <page-model style="float: left" ng-if="!vm.navType" page="vm.page" total="vm.total" size="vm.size"></page-model>
-
+                <uib-pagination total-items="vm.totalElements"
+                ng-change="vm.load(vm.currentPage-1,vm.pageSize,vm.totalElements,vm.searchConditions)"
+                max-size="10"
+                ng-model="vm.currentPage"
+                items-per-page="vm.pageSize"
+                first-text="首页"
+                last-text="最后一页"
+                next-text="下一页"
+                previous-text="上一页"></uib-pagination>
                 <!--<div class="seeMorePng text-center" ng-hide="vm.shoppingList.length==0">-->
                     <!--<img src="image/home/seeMore.png" alt="">-->
                 <!--</div>-->
             </div>
+
             <div class="productTitle">
                 <span>最新商品</span>
             </div>

@@ -23,7 +23,7 @@
     font-size:23px;
     font-family:MicrosoftYaHei-Bold;
     font-weight:bold;
-    padding: 20px 5px;
+    padding: 20px 8px;
 }
 .second{
     font-size:46px;
@@ -155,6 +155,10 @@
 }
 .list-intr{
     margin: 10px;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .last-intr{
     border-bottom: 1px solid whitesmoke;
@@ -190,4 +194,105 @@
 .topic-bg-img{
     width: 100%;
     height: 222px;
+}
+
+/*发布招聘会*/
+.addRecruit{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.Recruit-title{
+    color: #f61111;
+    font-size: 20px;
+    text-align: center;
+    margin: 20px;
+}
+.Recruit{
+    display: flex;
+    flex-direction: row;
+    margin: 14px 0;
+}
+.redtip{
+    color: red;
+}
+.Recruit input,.Recruit select{
+    border:1px solid gainsboro;
+    background:rgba(244,244,244,1);
+    border-radius:4px;
+    padding:10px;
+    outline: 0px;
+    height: 45px;
+}
+.normal1{
+    width:225px;
+}
+.normal2{
+    width:90px;
+}
+.Recruit div{
+    margin-right: 35px
+}
+.Recruit input:focus,.Recruit select:focus,Recruit textarea:focus{
+    border: 1px solid red;
+}
+.Recruit textarea{
+    width: 90%;
+    height:200px;
+    resize: none;
+    outline: 0px;
+    border:1px solid gainsboro;
+    background:rgba(244,244,244,1);
+    border-radius:4px;
+    padding: 10px;
+}
+.position-intr{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.Recruit ul li {
+    list-style: none;
+    padding: 10px;
+    font-size: 17px;
+    color: grey;
+}
+.Recruit ul li:hover{
+    background-color: wheat;
+}
+.Recruit ul{
+    height:300px;
+    overflow:auto;
+    width: 226px;
+    background: honeydew;
+    border: 1px solid gainsboro;
+    position: absolute;
+}
+.jobType{
+    margin-left: 84px;
+    display: none;
+}
+.typedetail{
+    margin-left: 308px;
+}
+.select-address{
+    margin-left: 91px;
+    margin-top: -28px;
+    display:flex;margin-right: 14px;
+}
+.Recruit-btn{
+    justify-content: center;
+}
+.Recruit-btn button{
+    width: 272px;
+    height: 56px;
+    background: #f61111;
+    border: 1px solid #f61111;
+    border-radius: 4px;
+    font-size: 20px;
+    font-family: 微软雅黑;
+    font-weight: 400;
+    color: rgba(255,254,254,1);
+    margin: 25px 0;
 }

@@ -90,6 +90,7 @@
     padding: 0 10px;
 }
 .intr-textarea{
+    resize: none;
     width:930px;
     height:400px;
     background:rgba(247,247,247,1);

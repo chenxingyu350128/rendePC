@@ -31,7 +31,7 @@
                     <!-- 轮播（Carousel）项目 -->
                     <div class="carousel-inner bannerImg">
                         <div ng-repeat="x in vm.banner" class="item" on-finish-render-filters2>
-                            <a href="{{x.html}}"> <img src="{{x.img}}" alt="First slide" style=" width: 100%;height: 400px;"></a>
+                            <a href="{{x.html}}"> <img src="{{x.img}}" alt="First slide" style=" width: 100%;height: 430px;"></a>
                         </div>
                     </div>
                     <!-- 轮播（Carousel）导航 -->
@@ -202,7 +202,9 @@
         <div class="row" style="background: white;">
             <div class="infoLeft col-lg-9 col-md-12 col-sm-12 col-xs-12">
                 <div class="info-content" ng-repeat="x in vm.newsList|limitTo:4"  ui-sref="new-detail({id:{{x.id}},index:$index})">
-                    <img src="{{x.img}}" alt="">
+                    <div style="width: 100%;height: 284px;border: 1px solid #fff">
+                        <img src="{{x.img}}" alt="">
+                    </div>
                     <div class="imgTitle">
                         {{x.title}}
                     </div>
@@ -221,7 +223,7 @@
             </div>
         </div>
     </div>
-    <div ui-sref="workplace-news" class="container seeMore text-center">
+    <div ui-sref="WPInfo" class="container seeMore text-center">
         <img src="image/home/seeMore.png" alt="">
     </div>
     <!--友情链接-->

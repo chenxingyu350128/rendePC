@@ -1,63 +1,67 @@
 <div class="container-fluid signPage">
     <img  ui-sref="home" src="image/home/logo.png" alt="">
     <div class="catchword">
-        <span ui-sref="home">仁德直聘，给你最好的人才招聘!</span>
+        <span ui-sref="home">仁德直聘，给您最好的人才招聘和就业服务!</span>
     </div>
     <div class="mainShell">
         <div ng-show="vm.choice" class="main text-center">
-            <h3 class="text-center">注册仁德直聘</h3>
+            <!--<h3 class="text-center">注册仁德直聘</h3>-->
             <div class="table">
                 <div class="pickers text-center">
                     <span ui-sref="signPage({clientId:1})" class="navSign">个人注册</span>
-                    <span ui-sref="signPage({clientId:1})" class="" style="width: 38%; border-bottom: 2px solid #C9C9C9;margin-top: 22px"></span>
+                    <span  class="" style="width: 38%; border-bottom: 4px solid #C9C9C9;margin-top: 22px"></span>
                     <span ui-sref="signPage({clientId:2})" class="navSign">企业注册</span>
                 </div>
                 <div class="inputs">
                     <label class="label1" for="mobile">
-                        <input id="mobile" type="text" ng-model="vm.phone" placeholder="手机号">
+                        <input id="mobile" type="text" ng-model="vm.registInfo.phone" placeholder="手机号">
                     </label>
                     <label class="label1" for="mobile">
-                        <input id="" type="text" ng-model="vm.phone" placeholder="密码">
+                        <input id="" type="text" ng-model="vm.registInfo.password" placeholder="密码">
                     </label>
                     <label class="label1" for="mobile">
-                        <input id="" type="text" ng-model="vm.phone" placeholder="重复密码">
+                        <input id="" type="text" ng-model="vm.registInfo.password2" placeholder="重复密码">
                     </label>
                     <label  class="label2" for="Ecode">
-                        <input id="Ecode" type="text" placeholder="验证码">
+                        <input id="Ecode" type="text" placeholder="验证码" ng-model="vm.registInfo.code">
                         <span>| 发送验证码</span>
                     </label>
                 </div>
                 <div class="deal text-center">
+                    <input class="read" type="checkbox">
                     <div class="readbox" data-toggle="modal" data-target="#agreerment">
-                        <div class="read"></div>
                         我接受
                         <div class="redPink"> 用户协议 </div>
                         和
                         <div  class="redPink">隐私政策</div>
                     </div>
                 </div>
-                <div ng-click="vm.getECode()" class="signBtn text-center">注册</div>
-                <div class="login text-center logintip">已有账号
+                <div ng-click="vm.getECode(vm.registInfo)" class="signBtn text-center">注册</div>
+                <div class="login text-center logintip">
+                    <span class="" >已有账号! </span>
                     <span class="redPink" ui-sref="signPage({choice:0})">直接登录</span>
                 </div>
             </div>
         </div>
         <div ng-show="!vm.choice" class="main text-center">
-            <h3 class="text-center">登录仁德直聘</h3>
+            <!--<h3 class="text-center">登录仁德直聘</h3>-->
             <!--<div style="visibility: hidden" class="tip1 text-center">使用手机号注册</div>-->
             <div class="table">
                 <!--<div class="pickers text-center" style="justify-content: center">-->
-                    <!--<span class="navLogin" ui-sref="signPage({method:2})" ng-click="vm.msgLogin()" >短信登录</span>-->
-                    <!--<span class="navLogin" ui-sref="signPage({method:1})" ng-click="vm.codeLogin()">密码登录</span>-->
+                <div class="pickers text-center">
+                    <span class="navLogin" ui-sref="signPage({method:1})" ng-click="vm.msgLogin()" >密码登入</span>
+                    <span  class="" style="width: 38%; border-bottom: 4px solid #C9C9C9;margin-top: 22px"></span>
+                    <span class="navLogin" ui-sref="signPage({method:2})" ng-click="vm.codeLogin()">短信登录</span>
+                </div>
                 <!--</div>-->
                 <div class="inputs">
                     <label class="label1" for="Lmobile">
                         <!--<img src="image/home/signIcon_gray.png" alt="">-->
-                        <input id="Lmobile" ng-model="vm.phone" type="text" placeholder="手机号" >
+                        <input id="Lmobile"  type="text" placeholder="手机号" ng-model="vm.loginInfo.phone" >
                     </label>
                     <label ng-if="vm.method==1" class="label2" for="Ecode2">
                         <!--<img src="image/home/signIcon_gray.png" alt="">-->
-                        <input id="Ecode2" type="text" placeholder="密码">
+                        <input id="Ecode2" type="text" placeholder="密码" ng-model="vm.loginInfo.password" >
                         <!--<span>|&emsp;发送验证码</span>-->
                     </label>
                     <label ng-if="vm.method==2" class="label2" for="LEcode">
@@ -66,9 +70,15 @@
                         <span>| 发送验证码</span>
                     </label>
                 </div>
-                <div ng-click="vm.getECode()" class="signBtn text-center">登录</div>
-                <div class="login text-center">
+                <div class="usertype">
+                    <label><input name="Fruit" type="radio" value="1" />会员用户 </label>
+                    <label><input name="Fruit" type="radio" value="" />企业用户 </label>
+                </div>
+                <div ng-click="vm.login(vm.loginInfo)" class="signBtn text-center">登录</div>
+                <div class="login ">
+                    <span class="" >没有账号？</span>
                     <span class="redPink" ui-sref="signPage({choice:1})">立即注册</span>
+                    <span class="redPink" ui-sref="" style="float: right;">忘记密码</span>
                 </div>
             </div>
 

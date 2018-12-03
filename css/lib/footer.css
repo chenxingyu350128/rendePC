@@ -25,10 +25,10 @@ footer li:first-child:hover{
     font-size: 16px;
     font-weight: 600;
 }
-.server img{
-    width: 1.19rem;
-    height: 1.04rem;
-}
+/*.server img{*/
+    /*width: 1.19rem;*/
+    /*height: 1.04rem;*/
+/*}*/
 .hotLine{
     margin: .36rem 0 .25rem;
 }

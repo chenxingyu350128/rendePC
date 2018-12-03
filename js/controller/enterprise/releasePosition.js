@@ -166,12 +166,12 @@ angular.module('myApp')
             })
         }
         //
-        // vm.test=function(a){
-        //     console.log('薪资：',a);
-        //     if(a<1000){
-        //         modalBox.alert("请输入四位数薪资")
-        //     }
-        // };
+        vm.test=function(a){
+            console.log('薪资：',a);
+            if(a<1000){
+                modalBox.alert("请输入四位数薪资")
+            }
+        };
         //重置按钮
         // vm.reset =function() {
         //     $("#addFrom").find('input[type=text],select,input[type=hidden]').each(function() {

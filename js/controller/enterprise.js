@@ -8,6 +8,7 @@ angular.module('myApp')
         let postData={};
         postData['city']=sessionStorage.getItem('city');
         vm.page=postData['page']=parseInt(vm.params.page)||1;
+        console.log('page值',vm.page);
         let paramsData={};
         // 获取福利待遇接口
         vm.lists=listsRequest.lists();
@@ -26,9 +27,9 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType0;
         vm.selectedNature=vm.params.selectedNature0;
         vm.selectedBoon=vm.params.selectedBoon0;
-        vm.idx0=vm.params.idx00;
-        vm.idx1=vm.params.idx01;
-        vm.idx2=vm.params.idx02;
+        vm.idx0=vm.params.idx00||0;
+        vm.idx1=vm.params.idx01||0;
+        vm.idx2=vm.params.idx02||0;
         postData['jobType']=vm.params.jobType0;
         postData['nature']=vm.params.nature0;
         postData['size']=vm.params.size0;

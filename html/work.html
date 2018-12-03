@@ -160,80 +160,73 @@
     </div>
 
 </div>
-<div>
-    <style type="text/css">
-        .pagination p{
-            margin:0;
-            cursor:pointer
-        }
-        .pagination{
-            height:40px;
-            padding:20px 0px;
-        }
-        .pagination a{
-            display:block;
-            float:left;
-            margin-right:10px;
-            padding:2px 12px;
-            height:24px;
-            border:1px #cccccc solid;
-            background:#fff;
-            text-decoration:none;
-            color:#808080;
-            font-size:12px;
-            line-height:24px;
-        }
-        .pagination a:hover{
-            color:#077ee3;
-            background: white;
-            border:1px #077ee3 solid;
-        }
-        .pagination a.cur{
-            border:none;
-            background:#077ee3;
-            color:#fff;
-        }
-        .pagination p{
-            float:left;
-            padding:2px 12px;
-            font-size:12px;
-            height:24px;
-            line-height:24px;
-            color:#bbb;
-            border:1px #ccc solid;
-            background:#fcfcfc;
-            margin-right:8px;
-
-        }
-        .pagination p.pageRemark{
-            border-style:none;
-            background:none;
-            margin-right:0px;
-            padding:4px 0px;
-            color:#666;
-        }
-        .pagination p.pageRemark b{
-            color:red;
-        }
-        .pagination p.pageEllipsis{
-            border-style:none;
-            background:none;
-            padding:4px 0px;
-            color:#808080;
-        }
-        .dates li {font-size: 14px;margin:20px 0}
-        .dates li span{float:right}
-    </style>
-</div>
 <div class="container">
     <page-model ng-show="!vm.navType" page="vm.page" total="vm.total" size="vm.size" ></page-model>
 </div>
-<!--<div class="inner-html">-->
-    <!--{{vm.total}}-->
+<!--<div>-->
+    <!--&lt;!&ndash;<style type="text/css">&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination p{&ndash;&gt;-->
+            <!--&lt;!&ndash;margin:0;&ndash;&gt;-->
+            <!--&lt;!&ndash;cursor:pointer&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination{&ndash;&gt;-->
+            <!--&lt;!&ndash;height:40px;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding:20px 0px;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination a{&ndash;&gt;-->
+            <!--&lt;!&ndash;display:block;&ndash;&gt;-->
+            <!--&lt;!&ndash;float:left;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin-right:10px;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding:2px 12px;&ndash;&gt;-->
+            <!--&lt;!&ndash;height:24px;&ndash;&gt;-->
+            <!--&lt;!&ndash;border:1px #cccccc solid;&ndash;&gt;-->
+            <!--&lt;!&ndash;background:#fff;&ndash;&gt;-->
+            <!--&lt;!&ndash;text-decoration:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#808080;&ndash;&gt;-->
+            <!--&lt;!&ndash;font-size:12px;&ndash;&gt;-->
+            <!--&lt;!&ndash;line-height:24px;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination a:hover{&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#077ee3;&ndash;&gt;-->
+            <!--&lt;!&ndash;background: white;&ndash;&gt;-->
+            <!--&lt;!&ndash;border:1px #077ee3 solid;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination a.cur{&ndash;&gt;-->
+            <!--&lt;!&ndash;border:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;background:#077ee3;&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#fff;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination p{&ndash;&gt;-->
+            <!--&lt;!&ndash;float:left;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding:2px 12px;&ndash;&gt;-->
+            <!--&lt;!&ndash;font-size:12px;&ndash;&gt;-->
+            <!--&lt;!&ndash;height:24px;&ndash;&gt;-->
+            <!--&lt;!&ndash;line-height:24px;&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#bbb;&ndash;&gt;-->
+            <!--&lt;!&ndash;border:1px #ccc solid;&ndash;&gt;-->
+            <!--&lt;!&ndash;background:#fcfcfc;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin-right:8px;&ndash;&gt;-->
+
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination p.pageRemark{&ndash;&gt;-->
+            <!--&lt;!&ndash;border-style:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;background:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;margin-right:0px;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding:4px 0px;&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#666;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination p.pageRemark b{&ndash;&gt;-->
+            <!--&lt;!&ndash;color:red;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.pagination p.pageEllipsis{&ndash;&gt;-->
+            <!--&lt;!&ndash;border-style:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;background:none;&ndash;&gt;-->
+            <!--&lt;!&ndash;padding:4px 0px;&ndash;&gt;-->
+            <!--&lt;!&ndash;color:#808080;&ndash;&gt;-->
+        <!--&lt;!&ndash;}&ndash;&gt;-->
+        <!--&lt;!&ndash;.dates li {font-size: 14px;margin:20px 0}&ndash;&gt;-->
+        <!--&lt;!&ndash;.dates li span{float:right}&ndash;&gt;-->
+    <!--&lt;!&ndash;</style>&ndash;&gt;-->
 <!--</div>-->
-<!--<form action="" method="post">-->
-    <!--<input type="text" value="{{vm.aa}}">-->
-    <!--<input type="text" value="{{vm.bb}}">-->
-    <!--<input type="text" value="{{vm.cc}}">-->
-<!--</form>-->
+
 <rd-footer></rd-footer>

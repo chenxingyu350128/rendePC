@@ -32,11 +32,11 @@
             <!--求职意向-->
             <div class="detail-position-hr">
                 <div class="detail-position top-flex">
-                    <div class="resume-num top-border">
+                    <div class="resume-num top-border" ui-sref="collection({navType:0})">
                         <div style="color: red">{{vm.cardData.length ||0}}</div>
                         <div>收到的简历</div>
                     </div>
-                    <div class="resume-num">
+                    <div class="resume-num" ui-sref="collection({navType:1})">
                         <div style="color: red">{{vm.faceData.length||0}}</div>
                         <div>被邀请面试</div>
                     </div>

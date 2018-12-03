@@ -31,6 +31,7 @@ angular.module('myApp')
         paramsData['idx10']=vm.params.idx10||0;
         paramsData['idx11']=vm.params.idx11||0;
         postData['money']=paramsData['money']=vm.params.salary1;
+        vm.idx12=vm.params.idx12;
         vm.edu=vm.params.edu1;
         vm.exp=vm.params.exp1;
         vm.nature=vm.params.nature1;
@@ -47,6 +48,12 @@ angular.module('myApp')
             })
         }else{
             $('.allBoon').css({
+                'background': '#f00',
+                'color': '#fff'
+            })
+        }
+        if(vm.idx12==0){
+            $('.allOptions').css({
                 'background': '#f00',
                 'color': '#fff'
             })
@@ -115,14 +122,17 @@ angular.module('myApp')
             paramsData['arrival1']='';
             paramsData['sex1']='';
             paramsData['nature1']='';
+            paramsData['idx12']=0;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getNature=function(e){
             paramsData['nature1']=e;
+            paramsData['idx12']=1;
             $state.go('.',paramsData,{reload:true})
         };
         vm.getEdu=function(e){
             vm.edu=postData['education']=paramsData['edu1']=e;
+            paramsData['idx12']=1;
             $state.go('personel',paramsData,{reload:true})
         };
         vm.getExp=function(e){
@@ -131,10 +141,12 @@ angular.module('myApp')
         };
         vm.getSex=function(e){
             vm.time=postData['sex']=paramsData['sex1']=e;
+            paramsData['idx12']=1;
             $state.go('personel',paramsData,{reload:true})
         };
         vm.getArrival=function(e){
             vm.time=postData['come_job']=paramsData['arrival1']=e;
+            paramsData['idx12']=1;
             $state.go('personel',paramsData,{reload:true});
         };
         $scope.$on('ngRepeatFinished', function () {

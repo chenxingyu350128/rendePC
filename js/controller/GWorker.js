@@ -21,7 +21,7 @@ angular.module('myApp')
         // let url='';
         // url=vm.nav?'Boss/show_work':'Boss/recommend_work';
         postData['job_type']=paramsData['jobType']=vm.params.jobType;
-        vm.idx=parseInt(vm.params.idx40);
+        vm.idx=parseInt(vm.params.idx40)||0;
         vm.clearType=function(){
             paramsData['jobType']='';
             paramsData['idx40']=0;
@@ -51,13 +51,15 @@ angular.module('myApp')
         });
         $('.leftNav div').eq(vm.nav).css({
             'background': '#f00',
-            'color': '#fff'
+            'color': '#fff',
+            'border-radius': '0'
         });
         $scope.$on('ngRepeatFinished', function () {
             //轮播图repeat完成后
             $('.job_type').eq(vm.idx).css({
                 'background': '#f00',
-                'color': '#fff'
+                'color': '#fff',
+                'border-radius': '0'
             });
             if(vm.idx){
                 $('.typeSelect').css({

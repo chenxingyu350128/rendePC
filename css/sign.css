@@ -12,12 +12,12 @@
 
 .signPage .catchword {
     display: block;
-    margin-top: .24rem;
+    margin-top: .1rem;
     letter-spacing: .5em;
-    color: #fff;
+    color: #000;
     font-size: 16px;
     padding-left: .43rem;
-    margin-bottom: .46rem;
+    margin-bottom: .46rem;;
 }
 
 .signPage .catchword span {
@@ -53,6 +53,7 @@
 .signPage .main .table {
     width: 2.32rem;
     margin: 0 auto;
+    padding-top: 61px;
 }
 
 .signPage .main .table .pickers {
@@ -65,13 +66,14 @@
     padding-bottom: .09rem;
     color: #000;
     font-size: 16px;
-    border-bottom: 2px solid #C9C9C9;
+    border-bottom: 4px solid #C9C9C9;
     width: 31%;
 }
 
 .readbox {
     display: flex;
     flex-direction: row;
+    margin-left: 10px;
 }
 
 .read {
@@ -146,17 +148,20 @@
 
 .signBtn {
     line-height: .42rem;
-    margin-bottom: .27rem;
+    margin: .1rem 0 .4rem 0;
     font-size: 20px;
     font-weight: 600;
     color: #fff;
     background: #ef4e4e;
     cursor: pointer;
+    height: 43px;
+    border-radius: 4px;
 }
-
 .deal {
     margin-bottom: .25rem;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
 }
 
 .deal span {
@@ -164,17 +169,29 @@
 }
 
 .login {
-    padding-bottom: .5rem;
+    padding-bottom: .6rem;
 }
 
 .login span {
     cursor: pointer;
+    float: left;
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: MicrosoftYaHei;
+    font-weight: 400;
 }
-
 .agreement {
     padding: 20px;
 }
 
 .redPink {
     color: #ef4e4e;
+}
+.usertype{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.usertype label{
+    margin-right: 20px;
 }

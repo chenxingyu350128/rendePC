@@ -34,7 +34,7 @@
     text-align: right;
 }
 .settitle div{
-margin-bottom: 23px;
+margin-bottom: 20px;
 }
 .setinfo{
     display: flex;
@@ -45,5 +45,11 @@ margin-bottom: 23px;
 }
 .setinfo .Ecode button{
     position: absolute;
-    right: 0;
+}
+.userSex{
+    padding: 3px 37px;
+    background-color: gainsboro;
+    border: 1px solid gainsboro;
+    border-radius: 4px;
+    margin-right: 10px;
 }

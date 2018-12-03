@@ -1,15 +1,42 @@
 'use strict';
 
 angular.module('myApp')
-    .controller('storeCtrl',function ($http,$state,$stateParams,common,$timeout,modalBox) {
+    .controller('storeCtrl',function ($scope,$http,$state,$stateParams,common,$timeout,modalBox) {
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
-        let postData={};
-        let shopdata={typeid:0,desc:vm.params.integral1};
-        vm.page=shopdata['page']=vm.params.page||1;
+        vm.salaryList= [
+            '0-2000',
+            '2000-8000',
+            '8000-10000',
+            '10000-20000',
+        ]
         let paramsData={};
+        let postData={};
+        postData['start']=vm.params.start;
+        postData['end']=vm.params.end;
+        postData['typeid']=0;
+        // let shopdata={typeid:0,desc:vm.params.integral1};
+        vm.page=postData['page']=vm.params.page||1;
         vm.type = $stateParams.type;
+        $scope.$on('ngRepeatFinished', function () {
+            vm.idx=vm.params.idx;
+            let salary=$('.salaryBtn span');
+            if(vm.idx==0){
+                $('#all').css({
+                    'background': '#f61111',
+                    'color': '#fff',
+                    'border-radius': '0px',
+                })
+            }
+            salary.eq(vm.idx).css({
+                'background': '#f00',
+                'color': '#fff',
+                'border-radius': '0px',
+            });
+        })
+
+
         vm.homePage=function(){
             $state.go('home')
         };
@@ -20,48 +47,35 @@ angular.module('myApp')
         navList.css({
             'border-bottom':'5px solid #e11c19'
         });
+        let salary=$('.salaryBtn span');
 
-        //清除筛选条件等
-        vm.clearOthers=function(){
-            paramsData['idx1']=0;
-            paramsData['integral1']='';
-            paramsData['time1']='';
+
+        //清空薪资
+        vm.clearSalary=function(){
+            paramsData['start']='';
+            paramsData['end']='';
+            paramsData['idx']=0;
             $state.go('store',paramsData,{reload:true})
         };
-        vm.getintegral=function(e){
-            vm.integral=postData['integral']=paramsData['integral1']=e;
-            console.log(e)
+        vm.getSalary=function(x,idx){
+            var arr =x.split("-")
+            console.log(arr)
+            paramsData['start']=arr[0];
+            paramsData['end']=arr[1];
+            paramsData['idx']=idx;
+            $state.go('store',paramsData,{reload:true})
+        };
+        vm.defSalary=function(x,y){
+            paramsData['start']=x;
+            paramsData['end']=y;
+            paramsData['idx']='';
             $state.go('store',paramsData,{reload:true})
         };
 
-        if(vm.params.integral1){
-            $('#integral').css({
-                'border': '1px solid #f61111',
-                'color': '#f61111'
-            })
-        }else{
-            $('#integral').css({
-                'border': '1px solid #000',
-                'color': '#000'
-            })
-        }
-
-        if(vm.params.idx1){
-            $('#all').css({
-                'background': ' #f61111',
-                'color': '#fff',
-                'border-radius': '10px'
-            })
-        }else{
-            $('#integral').css({
-                'background': ' #fff',
-                'color': '#000',
-            })
-        }
 
 
         vm.getList=function(url){
-            common.request(url,shopdata).then(function callback(res){
+            common.request(url,postData).then(function callback(res){
                 if(res.data.code===200){
                     vm.shoppingList=res.data.data[0].data;
                     vm.total=res.data.data[1];

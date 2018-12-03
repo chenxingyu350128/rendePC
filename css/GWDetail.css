@@ -52,7 +52,7 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    padding: 20px 15px 28px 15px;
+    padding:22px 25px 28px 25px;
     background: #fff;
     margin-bottom: .1rem;
 }
@@ -312,7 +312,7 @@
 }
 .resume-part1 input:focus,.resume-part1 textarea:focus,form-group select:focus{
     border:1px solid rgba(226,28,25,1);
-    box-shadow:1px 1px 6px 0px rgba(226,28,25,1), 1px 2px 5px 0px rgba(0, 0, 0, 0.35);
+    box-shadow:1px 1px 6px 0px rgba(226,28,25,1), 1px 2px 5px 0px rgba(0, 0, 0, 0.15);
 }
 .resume-part1 textarea{
     height: 165px;

@@ -7,14 +7,13 @@ app.directive('pageModel',function ($state,$stateParams) {
         scope: {
             total: '=',
             size: '=',
-            page: '='
         },
         link: function (scope) {
             //点击页码
-            scope.pageChange=function (e) {
-                console.log('model',e);
+            scope.ppp=$stateParams.page;
+            scope.pageChange=function () {
                 console.log("测试",scope.page);
-                $state.go('.', {page: scope.page},{reload: true});
+                $state.go('.', {page: scope.ppp},{reload: true});
             };
             //change size/page
             scope.changePage=function(){
