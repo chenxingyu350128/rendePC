@@ -27,7 +27,7 @@
                 </div>
             </div>
 
-            <!--//广告位1-->
+            <!--广告位-->
             <div  class="enterban">
                 <img src="image/enterban.png">
             </div>
@@ -50,7 +50,7 @@
                                 </div>
                             </div>
                             <div class="enter-resume-bt">
-                                <button class="detail-position-finish-button fr" ui-sref="personnel-detail({r_id:data.id})">查看简历</button>
+                                <button class="detail-position-finish-button fr" ui-sref="personnel-detail({r_id:data.r_id;g_id:data.g_id})">查看简历</button>
                                 <button class="detail-position-finish-button fr" ng-click="vm.finish(data.id)">完成招聘</button>
                             </div>
                         </div>
@@ -63,8 +63,6 @@
                     <img src="image/home/seeMore.png" alt="" ui-sref="positionManage">
                 </div>
             </div>
-
-
             <!--人才推荐-->
             <div class="detail-position-hr">
                 <div class="enterprise-top"><span>人才推荐</span></div>
@@ -190,18 +188,21 @@
             </div>
             <div class="prise-image">
                 <div class="message-icon">
-                    <img src="image/enterprise/icon1.jpg" alt="" class="prisr-icon">
-                    <div class="message-tip" ng-if=" vm.company.mail==null">邮箱已验证</div>
-                    <div class="message-tip" ng-if="vm.company.mail!=null">邮箱已验证</div>
+                    <img src="image/enterprise/icon1.jpg" alt="" class="prisr-icon" ng-if=" vm.company.mail!=null">
+                    <img src="image/enterprise/icon1-2.png" alt="" class="prisr-icon" ng-if=" vm.company.mail==null">
+                    <div class="message-tip" ng-if=" vm.company.mail!=null">邮箱已验证</div>
+                    <div class="message-tip" ng-if="vm.company.mail==null">邮箱已验证</div>
                     <div class="message-btn  {{vm.company.mail!=null? 'finsh_bc':'up_bc'}}"  ui-sref="accountManage">验证邮箱</div>
                 </div>
                 <div class="message-icon icon2">
                     <img src="image/enterprise/icon2.jpg" alt="" class="prisr-icon">
+                    <!--<img src="image/enterprise/icon2_2.png" alt="" class="prisr-icon">-->
                     <div class="message-tip">电话已验证</div>
-                    <div class="message-btn finsh_bc "    ui-sref="accountManage">验证电话</div>
+                    <div class="message-btn finsh_bc "ui-sref="accountManage">验证电话</div>
                 </div>
                 <div class="message-icon">
-                    <img src="image/enterprise/icon3.jpg" alt="" class="prisr-icon">
+                    <img src="image/enterprise/icon3.jpg" alt="" class="prisr-icon" ng-if="vm.company.usiness_license==null">
+                    <img src="image/enterprise/icon3_2.png" alt="" class="prisr-icon" ng-if="vm.company.usiness_license!=null">
                     <div class="message-tip" ng-if="vm.company.usiness_license==null">执照未验证</div>
                     <div class="message-tip" ng-if="vm.company.usiness_license!=null">执照已验证</div>
                     <div class="message-btn {{vm.company.usiness_license!=null ? 'finsh_bc':'up_bc'}}"  ui-sref="accountManage">上传执照</div>

@@ -17,12 +17,12 @@
                             <div class="personnel-detail-intr">
                                 <span>年龄：{{vm.userList.age||"信息未完善"}}</span><br>
                                 <span>学历：{{vm.x.education}}  {{vm.userList.name||"信息未完善"}}</span><br>
-                                <span>现居地： {{vm.userList.area||"信息未完善"}}</span>
+                                <span>现居地： {{vm.userList.address||"信息未完善"}}</span>
                             </div>
-                            <div class="personnel-detail-intr" style="padding-left: 1.2rem; width: 37%;">
+                            <div class="personnel-detail-intr" style="padding-left: 1.2rem; width: 65%;">
                                 <span>工作经验：{{vm.userList.years||"信息未完善"}}</span><br>
                                 <span>联系邮箱：{{vm.userList.email||"信息未完善"}}</span><br>
-                                <span>联系电话：{{vm.userList.hand_phone||"信息未完善"}}</span>
+                                <span>联系电话：{{vm.userList.phone||"信息未完善"}}</span>
                             </div>
                         </div>
 
@@ -87,7 +87,7 @@
                     <div>
                         <div class="username">{{vm.userList.name||"当前用户"}}</div>
                         <div class="userScore">
-                            可用积分: <span>{{vm.userList.integral}}</span>
+                            可用积分: <span>{{vm.baseList.integral}}</span>
                         </div>
                     </div>
                 </div>

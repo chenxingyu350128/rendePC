@@ -12,6 +12,7 @@ angular.module('myApp')
         vm.lists=listsRequest.lists();
         vm.bannerList=changed.bannerList();
         vm.hotSearchList=changed.hotSearchList();
+        vm.position = position;
         //先运行，否则后续页面不显示
         data['city']=sessionStorage.getItem('city');
         $scope.$on('ngRepeatFinished2', function () {
@@ -48,9 +49,6 @@ angular.module('myApp')
                 }
                 // a.attr('src',"image/icon/icon"+(index+1)+".png");
                 // console.log(a);
-            };
-            vm.category=function(e){
-
             };
         });
         if (!jobType) {
@@ -345,18 +343,18 @@ angular.module('myApp')
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
                 vm.newsList=res.data.data[0].data;
-                // console.log(res.data.data);
+                // vm.nextList=res.data.next_item[0].data;
             }
             else if(res.data.code===201){
                if(!modalAlert){
                     $state.go('signPage')
                 }else{
                     sessionStorage.setItem('modalAlert','damn it');
-                    // modalBox.alert(res.data.msg, function () {
-                    //     $timeout(function () {
-                    //         $state.go('signPage')
-                    //     }, 300)
-                    // });
+                    modalBox.alert(res.data.msg, function () {
+                        $timeout(function () {
+                            $state.go('signPage')
+                        }, 300)
+                    });
                 }
             }
             else {
@@ -371,8 +369,10 @@ angular.module('myApp')
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
                 vm.famousEnter=res.data.data[0].data;
+                console.log("名企招聘",vm.famousEnter)
                 for(let i=0;i<vm.famousEnter.length;i++){
                     vm.famousEnter[i].boonarr=JSON.parse(vm.famousEnter[i].boonarr);
+                    position( vm.famousEnter[i])
                 }
 
             }
@@ -395,6 +395,17 @@ angular.module('myApp')
                 }
             }
         });
+
+        // 查看公司岗位列表
+        function   position(id){
+            common.request('boss/company_job_list',{page:1,company_uid:id}).then(function callback(res) {
+                if (res.data.code === 200) {
+                    vm.position = res.data.data[0].data;
+
+                }
+            })
+        }
+
         //人才推荐-所有的简历
         common.request('boss/all_resume',{page:1}).then(function callback(res){
             if(res.data.code===200){
@@ -449,7 +460,7 @@ angular.module('myApp')
         common.request('boss/find_job',{page:1}).then(function callback(res){
             if(res.data.code===200){
                 sessionStorage.removeItem('modalAlert');
-                vm.workList = res.data.data;
+                vm.workList = res.data.data[0].data;
             }
         })
         // 滚动条监听事件

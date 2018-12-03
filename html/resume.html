@@ -81,6 +81,13 @@
                                         <div class="age">
                                             年龄: <input type="number" required ng-model="vm.resume.age">
                                         </div>
+                                        <div class="age">
+                                            性别:
+                                            <select type="number" required ng-model="vm.resume.sex">
+                                                 <option value="男">男</option>
+                                                 <option value="女">女</option>
+                                             </select>
+                                        </div>
                                         <div class="edu">
                                             学历:
                                             <select required ng-model="vm.resume.education">
@@ -111,7 +118,7 @@
                                 <button type="button"
                                         data-dismiss="modal"
                                         ng-click="vm.commit(vm.resume)"
-                                        ng-disabled="!vm.resume.img||!vm.resume.age||!vm.resume.education||!vm.resume.address||!vm.resume.years||!vm.resume.phone||!vm.resume.email"
+                                        ng-disabled="!vm.resume.img||!vm.resume.age||!vm.resume.education||!vm.resume.address||!vm.resume.years||!vm.resume.phone||!vm.resume.email||!vm.resume.sex"
                                         class="btn btn-danger">
                                     提交
                                 </button>

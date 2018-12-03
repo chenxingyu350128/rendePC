@@ -44,12 +44,14 @@
     margin: .3rem 0;
 }
 .news-detail-img{
-    width: 100%;
+    width: 50%;
     margin-bottom: .3rem;
-    height: 300px;
+    height: auto;
 }
 .news-detail-font{
     margin-bottom: .3rem;
+    line-height: 30px;
+    font-size: 16px;
 }
 .news-detail-font span{
     font-size: 19px;
@@ -108,4 +110,8 @@
     font-size: 14px;
     padding:.2rem 0 ;
     border-bottom: solid 1px gainsboro;
+}
+.news-img{
+    text-align: center;
+    margin-top: 20px;
 }

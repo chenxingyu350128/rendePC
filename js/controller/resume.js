@@ -177,7 +177,7 @@ angular.module('myApp')
             })
         };
         vm.deleteWork=function (e) {
-            // 修改用户信息
+            // 删除用户信息
             modalBox.confirm('确定删除改内容吗？',function(){
                 vm.resume.work_history.splice(e,1);
                 common.request('user/add_change_resume',{work_history:JSON.stringify( vm.resume.work_history)}).then(function callback(res) {

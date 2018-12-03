@@ -39,9 +39,13 @@ angular.module('myApp')
         });
 
         // 获取用户信息
-        common.request('user/get_userinfo',{network:1}).then(function callback(res) {
-            vm.userList = res.data.data
+        common.request('user/get_userinfo',{}).then(function callback(res) {
+            vm.baseList = res.data.data
             console.log("{userinfo}",vm.userList)
+        })
+        //获取用户简历简历
+        common.request('user/show_resume',{}).then(function callback(res) {
+            vm.userList = res.data.data
         })
 
         // 用户端查看发出简历 和被邀请

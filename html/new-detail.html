@@ -5,8 +5,11 @@
         <div class="news-detail pull-left fl">
             <div class="news-detail-title"><span>{{ vm.dataList.title}}</span></div>
             <div class="news-detail-content">
-                <div class="news-detail-auto"><span>{{vm.dataList.types}}</span> <span>{{vm.dataList.fromuser}}  · {{vm.dataList.time}}</span></div>
-                <div><img src="{{vm.dataList.img}}" alt="" class="news-detail-img"></div>
+                <div class="news-detail-auto">
+                    <span>{{vm.dataList.types}}</span>
+                    <span>{{vm.dataList.fromuser}}  · {{vm.dataList.time}}</span>
+                </div>
+                <div class="news-img"><img src="{{vm.dataList.img}}" alt="" class="news-detail-img"></div>
                 <div class="news-detail-font">
                     {{vm.dataList.content}}
                 </div>
