@@ -23,24 +23,52 @@ angular.module('myApp')
 
         vm.loginInfo={
             phone:'',
-            password:''
+            password:'',
+            code:''
         }
         vm.login=function(e){
-            vm.status = $("input[type=radio]:checked").val();
-            let loginData={phone:e.phone,password:e.password,status:vm.status}
-            common.request('reg/login',loginData).then(function callback(res){
+            vm.typeid = $("input[type=radio]:checked").val();
+            // 密码登入接口
+            // let loginData={phone:e.phone,password:e.password,status:vm.status}
+            // common.request('reg/login',loginData).then(function callback(res){
+            //     if(res.data.code===200){
+            //         modalBox.alert(res.data.msg)
+            //         sessionStorage.removeItem('modalAlert');
+            //         vm.success=res.data.data;
+            //         // sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
+            //         // sessionStorage.setItem('token',JSON.stringify(vm.success.token));
+            //         sessionStorage.setItem('client',vm.success.status);
+            //         sessionStorage.setItem('phone',JSON.stringify(vm.phone));
+            //         if(vm.success.status==1){
+            //             $state.go('home');
+            //         }else if(vm.success.status==''){
+            //             $state.go('enterpriseHome');
+            //         }
+            //     }else if(res.data.code===404){
+            //         modalBox.alert(res.data.msg +"账号或密码错误")
+            //     }
+            // });
+
+
+            // 验证码登入接口
+            let loginData={phone:e.phone,code:e.code,typeid:vm.typeid}
+            common.request('reg/reg',loginData).then(function callback(res){
                 if(res.data.code===200){
                     modalBox.alert(res.data.msg)
                     sessionStorage.removeItem('modalAlert');
                     vm.success=res.data.data;
-                    // sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
-                    // sessionStorage.setItem('token',JSON.stringify(vm.success.token));
-                    sessionStorage.setItem('client',vm.success.status);
-                    sessionStorage.setItem('phone',JSON.stringify(vm.phone));
-                    if(vm.success.status==1){
-                        $state.go('home');
-                    }else if(vm.success.status==''){
-                        $state.go('enterpriseHome');
+                    sessionStorage.setItem('client',vm.success.typeid);
+                    sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
+                    sessionStorage.setItem('token',JSON.stringify(vm.success.token));
+                    sessionStorage.setItem('phone',JSON.stringify(e.phone));
+                    switch(parseInt(vm.success.typeid)){
+                        case 1:
+                            // case 2:
+                            $state.go('home');
+                            break;
+                        case 2:
+                            $state.go('enterpriseHome');
+                            break;
                     }
                 }else if(res.data.code===404){
                     modalBox.alert(res.data.msg +"账号或密码错误")
@@ -74,20 +102,20 @@ angular.module('myApp')
                         if(res.data.code===200){
                             sessionStorage.removeItem('modalAlert');
                             modalBox.alert(res.data.msg);
-                            vm.success=res.data.data;
-                            sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
-                            sessionStorage.setItem('token',JSON.stringify(vm.success.token));
-                            sessionStorage.setItem('client',vm.success.typeid);
-                            sessionStorage.setItem('phone',JSON.stringify(e.phone));
-                            switch(parseInt(vm.success.typeid)){
-                                case 1:
-                                    // case 2:
-                                    $state.go('home');
-                                    break;
-                                case 2:
-                                    $state.go('enterpriseHome');
-                                    break;
-                            }
+                            // vm.success=res.data.data;
+                            // sessionStorage.setItem('uid',JSON.stringify(vm.success.uid));
+                            // sessionStorage.setItem('token',JSON.stringify(vm.success.token));
+                            // sessionStorage.setItem('client',vm.success.typeid);
+                            // sessionStorage.setItem('phone',JSON.stringify(e.phone));
+                            // switch(parseInt(vm.success.typeid)){
+                            //     case 1:
+                            //         // case 2:
+                            //         $state.go('home');
+                            //         break;
+                            //     case 2:
+                            //         $state.go('enterpriseHome');
+                            //         break;
+                            // }
                         }
                         else if(res.data.code===202) {
                             modalBox.alert(res);

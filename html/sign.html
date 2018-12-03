@@ -66,13 +66,13 @@
                     </label>
                     <label ng-if="vm.method==2" class="label2" for="LEcode">
                         <!--<img src="image/home/signIcon_gray.png" alt="">-->
-                        <input id="LEcode" type="text" placeholder="验证码">
+                        <input id="LEcode" type="text" placeholder="验证码" ng-model="vm.loginInfo.code">
                         <span>| 发送验证码</span>
                     </label>
                 </div>
                 <div class="usertype">
                     <label><input name="Fruit" type="radio" value="1" />会员用户 </label>
-                    <label><input name="Fruit" type="radio" value="" />企业用户 </label>
+                    <label><input name="Fruit" type="radio" value="2" />企业用户 </label>
                 </div>
                 <div ng-click="vm.login(vm.loginInfo)" class="signBtn text-center">登录</div>
                 <div class="login ">
