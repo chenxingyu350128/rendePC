@@ -35,8 +35,6 @@ angular.module('myApp')
                 'border-radius': '0px',
             });
         })
-
-
         vm.homePage=function(){
             $state.go('home')
         };
@@ -48,7 +46,6 @@ angular.module('myApp')
             'border-bottom':'5px solid #e11c19'
         });
         let salary=$('.salaryBtn span');
-
 
         //清空薪资
         vm.clearSalary=function(){

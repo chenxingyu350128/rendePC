@@ -97,3 +97,8 @@
 .positionManageinfo span{
     font-size: 14px;
 }
+.position-banner{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px solid gainsboro;
+}

@@ -16,7 +16,7 @@ angular.module('myApp')
             }
         };
         vm.client=sessionStorage.getItem('client');
-        vm.nav=parseInt($stateParams.nav);
+        vm.nav=parseInt($stateParams.nav)||0;
         vm.like = like;
         let data={};
         if(vm.nav){
@@ -50,16 +50,6 @@ angular.module('myApp')
                 }
         })
         }
-
-        //导航被选中高亮显示
-        $(document).ready(function(){
-            $('.work-position-l').eq(0).addClass('manage-active').siblings().removeClass('manage-active');
-            $('.work-position-l').click(function(){
-                var i = $(this).index();
-                $('.work-position-l').eq(i).addClass('manage-active').siblings().removeClass('manage-active');
-            });
-            positionList(1)
-        });
         //修改职位
         vm.modify=function(x,y){
             $state.go('releasePosition',{

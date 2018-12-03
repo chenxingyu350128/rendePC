@@ -37,7 +37,7 @@ angular.module('myApp')
         //搜索栏
         vm.search=function(e){
             if(e){
-                $state.go('resumeManage',{
+                $state.go('searchTalent',{
                     resumeType: 3,
                     keyword: e
                 },{reload:true});
@@ -109,7 +109,7 @@ angular.module('myApp')
                 vm.filterData['idx']=idx;
                 console.log(vm.filterData);
                 $state.go('searchTalent',vm.filterData,{reload:true});
-            };searchTalent
+            }
         });
         //学历筛选
         vm.eduFilter=function(e){

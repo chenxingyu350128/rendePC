@@ -43,7 +43,7 @@
                     ng-model="vm.exp"
                     class="ocp select">
                 <option value="">工作经验</option>
-                <option value="{{exp.years}}" ng-repeat="exp in vm.expbList">{{exp.years}}</option>
+                <option value="{{exp.years}}" ng-repeat="exp in vm.expList">{{exp.years}}</option>
             </select>
             <select class="ocp select"
                     ng-change="vm.sexFilter(vm.sex)"
@@ -109,13 +109,11 @@
                 <div class="onRight text-center">
                     <div class="updateAt">更新时间:{{x.time}}</div>
                     <div ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
-                         ng-disabled="x.look_type==1"
                          class="button {{x.look_type==1?'viewedResume':''}}">
                         查看简历
                     </div>
                     <div class="button {{x.status==2?'faced':''}}"
-                         ng-disabled="x.status==2"
-                         ng-click="vm.showmodel(x.id)">
+                         ng-click="vm.showmodel(x.r_id)">
                         邀请面试
                     </div>
                 </div>
@@ -149,13 +147,11 @@
                 <div class="onRight text-center">
                     <div class="updateAt">更新时间:{{x.time}}</div>
                     <div ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
-                         ng-disabled="x.look_type==1"
                          class="button {{x.look_type==1?'viewedResume':''}}">
                         查看简历
                     </div>
                     <div class="button {{x.status==2?'faced':''}}"
-                         ng-disabled="x.status==2"
-                         ng-click="vm.showmodel(x.id)">
+                         ng-click="vm.showmodel(x.r_id)">
                         邀请面试
                     </div>
                 </div>
@@ -180,11 +176,11 @@
             </div>
 
             <div class="cPart">
-                <div class="right1">
+                <div class="">
                     <span>面试信息:</span>
                     <div class="right1Info">
                         <div class="faceAt">面试时间:{{x.interview_time}}</div>
-                        <div class="contact">联系人:{{x.name}}</div>
+                        <div class="">联系人:{{x.name}}</div>
                         <div class="tel">联系电话:{{x.phone}}</div>
                     </div>
                 </div>
@@ -194,7 +190,7 @@
                 <div class="onRight text-center">
                     <div class="updateAt">更新时间:{{x.time}}</div>
                     <div class="button">打印简历</div>
-                    <div class="button" ng-click="vm.finish({x.id})">面试完成</div>
+                    <div class="button" ng-click="vm.finish(x.r_id)">面试完成</div>
                 </div>
             </div>
         </div>
@@ -220,7 +216,7 @@
                     <span>面试信息:</span>
                     <div class="right1Info">
                         <div class="faceAt">面试时间:{{x.interview_time}}</div>
-                        <div class="contact">联系人:{{x.name}}</div>
+                        <div class="">联系人:{{x.name}}</div>
                         <div class="tel">联系电话:{{x.phone}}</div>
                     </div>
                 </div>
@@ -230,7 +226,7 @@
                 <div class="onRight text-center">
                     <div class="updateAt">更新时间:{{x.time}}</div>
                     <div class="button">打印简历</div>
-                    <div class="button" ng-click="vm.finish({x.id})">面试完成</div>
+                    <div class="button" ng-click="vm.finish(x.r_id)">面试完成</div>
                 </div>
             </div>
         </div>

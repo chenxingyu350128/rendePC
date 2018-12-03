@@ -626,7 +626,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('superPosition',{
-                url: '/superPosition?resumeType&job_type&come_job&sex&education&years&idx&interview',
+                url: '/superPosition?resumeType&job_type&come_job&sex&education&years&idx&interview&idx2',
                 templateUrl: 'html/superPosition.html',
                 controller: 'superPosition',
                 controllerAs: 'vm',

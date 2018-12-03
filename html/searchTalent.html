@@ -68,7 +68,7 @@
     </div>
     <div class="{{vm.resumeType==1?'checkedResume':''}}"
          ng-click="vm.tabSwitch(1)">
-        <span class="text-center" ng-click="vm.cardDataList('')">收到的投递</span>
+        <span class="text-center" >收到的投递</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
     <div class="{{vm.resumeType==2?'checkedResume':''}}"
@@ -181,11 +181,11 @@
         </div>
 
         <div class="cPart">
-            <div class="right1">
+            <div>
                 <span>面试信息:</span>
                 <div class="right1Info">
                     <div class="faceAt">面试时间:{{x.interview_time}}</div>
-                    <div class="contact">联系人:{{x.name}}</div>
+                    <div class="">联系人:{{x.name}}</div>
                     <div class="tel">联系电话:{{x.phone}}</div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
                 <div class="button">打印简历</div>
-                <div class="button" ng-click="vm.finish(x.id)">面试完成</div>
+                <div class="button" ng-click="vm.finish(x.r_id)">面试完成</div>
             </div>
         </div>
     </div>

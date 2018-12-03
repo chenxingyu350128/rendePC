@@ -248,7 +248,7 @@ angular.module('myApp')
         }
         //完成招聘
         vm.finish =function (id) {
-            common.request('Boss/del_job',{j_id:id}).then(function callback(res) {
+            common.request('Boss/ok_interview',{r_id:id}).then(function callback(res) {
                 if (res.data.code === 200) {
                     modalBox.alert(res.data.msg)
                 }

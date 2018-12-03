@@ -108,13 +108,11 @@
            <div class="onRight text-center">
                <div class="updateAt">更新时间:{{x.time}}</div>
                <div ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
-                    ng-disabled="x.look_type==1"
                     class="button {{x.look_type==1?'viewedResume':''}}">
                    查看简历
                </div>
                <div class="button {{x.status==2?'faced':''}}"
-                    ng-disabled="x.status==2"
-                    ng-click="vm.showmodel(x.id)"
+                    ng-click="vm.showmodel(x.r_id)"
                >
                    邀请面试
                </div>
@@ -148,8 +146,7 @@
         <div class="rPart">
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
-                <div  ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})
-                     ng-disabled="x.look_type==1"
+                <div  ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
                      class="button {{x.look_type==1?'viewedResume':''}}">
                     查看简历
                 </div>

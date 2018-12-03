@@ -13,6 +13,7 @@ angular.module('myApp')
         vm.exp=vm.params.years;
         vm.sex=vm.params.sex;
         vm.idx=vm.params.idx||0;
+        vm.idx2=vm.params.idx2||0;
         vm.filterData={
             job_type: vm.params.job_type,
             come_job: vm.params.come_job,
@@ -63,7 +64,7 @@ angular.module('myApp')
             }
             vm.filterData['resumeType']=e;
             console.log('数值：',vm.filterData);
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         //正序倒序排列
         vm.orderBy=orderBy;
@@ -80,6 +81,13 @@ angular.module('myApp')
             }
         };
         //ng-repeat事件结束后（否则无法获取该区域dom节点）
+        if(vm.idx2==0){
+            console.log(123)
+            $(".allOptions").css({
+                'color': '#fff',
+                'background':'#31BEFF'
+            })
+        }
         $scope.$on('ngRepeatFinished2', function () {
             //tab切换效果
             let opts0=$('.position').find('.opt0');
@@ -108,29 +116,29 @@ angular.module('myApp')
                 vm.postData['job_type']=vm.filterData['job_type']=e;
                 vm.filterData['idx']=idx;
                 console.log(vm.filterData);
-                $state.go('resumeManage',vm.filterData,{reload:true});
+                $state.go('superPosition',vm.filterData,{reload:true});
             };
         });
         //学历筛选
         vm.eduFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['education']=vm.filterData['education']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//工作经验筛选
         vm.expFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['years']=vm.filterData['years']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//性别筛选
         vm.sexFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['sex']=vm.filterData['sex']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//到岗时间筛选
         vm.arrival=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['come_job']=vm.filterData['come_job']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         // 获取简历接口(全部简历/收到的简历)
         common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
@@ -166,7 +174,7 @@ angular.module('myApp')
                 idx2:0,
                 interview: ''
             };
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         // 邀请面试按钮接口
         vm.showmodel =function (id) {
@@ -205,7 +213,7 @@ angular.module('myApp')
                     if(res.data.code===200){
                         modalBox.alert(res.data.msg);
                         $timeout(function(){
-                            $state.go('resumeManage',vm.filterData,{reload:true})
+                            $state.go('superPosition',vm.filterData,{reload:true})
                         },300)
                     }
                     else if(res.data.code===201){
@@ -222,11 +230,15 @@ angular.module('myApp')
                 });
             }
         }
-        //完成招聘
+        //完成面试
         vm.finish =function (id) {
-            common.request('Boss/del_job',{j_id:id}).then(function callback(res) {
+            common.request('Boss/ok_interview',{r_id:id}).then(function callback(res) {
                 if (res.data.code === 200) {
-                    modalBox.alert(res.data.msg)
+                    modalBox.alert(res.data.msg,function () {
+                        $timeout(function () {
+                        history.go(0)
+                        }, 300);
+                    })
                 }
             })
         }
