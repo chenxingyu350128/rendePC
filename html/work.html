@@ -101,13 +101,13 @@
         </div>
     </div>
     <!--推荐最新职位-->
-    <div style="margin:10px;width: 100%;overflow: hidden">
+    <div style="margin:10px;width: 100%">
         <div class="positionLeft write">
             <ul>
-                <li class="work-position-l" ng-click="vm.tab()" ui-sref="WorkCtrl({navType:0})">推荐职位</li>
-                <li class="work-position-l" ng-click="vm.tab()" ui-sref="WorkCtrl({navType:1})">最新职位</li>
+                <li class="work-position-l" ui-sref="WorkCtrl({navType:0})">推荐职位</li>
+                <li class="work-position-l" ui-sref="WorkCtrl({navType:1})">最新职位</li>
             </ul>
-            <!--<div style="margin: .2rem 0;font-size: 18px;float:left" ng-if="vm.noResult" class="nothing text-center">无匹配结果</div>-->
+
             <div class="position-list" ng-repeat="data in vm.dataList" on-finish-render-filters2>
                 <div class="position-name" style="margin-top: 10px;" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
                     <img src="{{data.img}}" style="width: 86px;height: 83px; border: 1px solid gainsboro;">
@@ -145,7 +145,6 @@
                 <!--<img src="image/home/seeMore.png" alt="">-->
             <!--</div>-->
         </div>
-
         <div class="positionRight write">
             <div class="hot-position"><span >热门职位</span></div>
             <div class="hot-position-list" ng-repeat="data in vm.dataList |limitTo : 4" ui-sref="workDetail({id:data.id,index})" title="点击可查看职位详情">
@@ -157,7 +156,6 @@
                 <img src="image/home/seeMore.png" alt="">
             </div>
         </div>
-
 
     </div>
 

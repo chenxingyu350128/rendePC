@@ -7,17 +7,21 @@
 <div class="storeMain main container">
     <div class="row">
         <div class="col-lg-8 content1">
-            <div>积分筛选:</div>
-            <div class="storeSelect">
-                    <span class="priceState" ng-click="vm.clearOthers()" id="all">全部</span>
-                    <span class="priceState">5000以下</span>
-                    <span class="priceState">5000 - 9999</span>
-                    <span class="priceState">10000 - 49999</span>
-                    <span class="priceState">50000以上</span>
-                <span>
-                 <input type="text">
-                -
-                 <input type="text">
+            <div class=" optRow">
+                <span class="salaryBtn">
+                    薪资:
+                    <span ng-click="vm.clearSalary()" class="all Type allType choice choice1 btn opt" id="all">全部</span>
+                </span>
+                <span  ng-click='vm.getSalary(x,$index+1)'
+                       class="Type choice choice1 salaryBtn opt"
+                       ng-repeat="x in vm.salaryList" on-finish-render-filters>
+                    <span class="btn"> {{x}}</span>
+                </span>
+                <span class="salaryInput">
+                    <input ng-model="vm.low" type="number" class="" id="startPay">
+                     -
+                    <input ng-model="vm.high" type="number" class="" id="endPay">
+                    <button ng-disabled="!vm.low||!vm.high" ng-click="vm.defSalary(vm.low,vm.high)" class="work-input-button btn">确定</button>
                 </span>
             </div>
             <div class="productTitle">

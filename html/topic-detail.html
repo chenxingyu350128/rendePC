@@ -9,13 +9,13 @@
     </div>
     <div class="banner-top">
         <div class="prise-singup container">
-             <div class="singup">企业报名</div>
+            <div class="singup">企业报名</div>
             <div class="prise-intr">
                 仁德直聘第一期网络专场招聘会：本次线上招聘会活动所有企业用户均可免费报名参加，您可以在线点击报名，或者联系仁德直聘客服，欢迎您的参与。联系电话：
             </div>
             <div class="wantto">
                 <span>我是企业，我要</span>
-                <button >立即报名</button>
+                <button data-toggle="modal" data-target="#addRecruit">立即报名</button>
             </div>
         </div>
     </div>
@@ -26,25 +26,144 @@
     </div>
 </div>
 <div class="container down1">
-     <div class="detali-list" ng-repeat="data in vm.dataList" ui-sref="enterpriseInfo({id:data.id})">
-         <div class="list-content">
-             <div class="list-name"><span>{{data.c_name}}</span></div>
-             <img src="{{data.img}}" alt="">
-             <div class="list-intr">
-                 <span>{{data.area}}</span>
-                 <span>{{data.job_type}}</span>
-             </div>
-             <div class="list-intr last-intr">
-                 <span>{{data.nature}}</span>
-                 <span>{{data.size}}</span>
-             </div>
-             <div class="list-button">
-                 <button class="color-red">市场经理</button>
-                 <button class="color-wt">分校校长</button>
-             </div>
-         </div>
-     </div>
+    <div class="detali-list" ng-repeat="data in vm.dataList" ui-sref="enterpriseInfo({id:data.id})">
+        <div class="list-content">
+            <div class="list-name"><span>{{data.c_name}}</span></div>
+            <img src="{{data.img}}" alt="">
+            <div class="list-intr">
+                <span>{{data.area}}</span>
+                <span>{{data.job_type}}</span>
+            </div>
+            <div class="list-intr last-intr">
+                <span>{{data.nature}}</span>
+                <span>{{data.size}}</span>
+            </div>
+            <div class="list-button">
+                <button class="color-red">市场经理</button>
+                <button class="color-wt">分校校长</button>
+            </div>
+        </div>
+    </div>
 
 </div>
 
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="addRecruit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 63%;">
+        <div class="modal-content">
+            <div class="modal-body addRecruit ">
+                <div class="Recruit-title">报名招聘会</div>
+                <div class="Recruit">
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>职位名称：</span>
+                        <input type="text" placeholder="请输入职位名称~" class="normal1"  ng-model="vm.info.name">
+                    </div>
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>职位类别：</span>
+                        <input name="" id="jobtype"  placeholder="请选择职位类别"  class="normal1"  ng-model="vm.info.job_type">
+                        <ul class="jobType" >
+                            <li  ng-repeat="data in vm.jobType"
+                                 ng-mouseenter="vm.mouseEnter(data.id)"
+                            >{{data.name}}</li>
+                        </ul>
+                        <ul class="typedetail" ng-if="vm.showCates" ng-mouseleave="vm.mouseLeave()">
+                            <li ng-repeat="x in vm.typeDetail" ng-click="vm.setname(x.name)">{{x.name}}</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>公司性质：</span>
+                        <select name=""  class="normal1" ng-model="vm.info.nature">
+                            <option value="{{data.name}}" ng-repeat="data in vm.natureList">{{data.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="Recruit">
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>工作年限：</span>
+                        <select name=""  class="normal1" ng-model="vm.info.year">
+                            <option value="{{data.years}}" ng-repeat="data in vm.expList" >{{data.years}}</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>薪资范围：</span>
+                        <input name="" id="" class="normal2" ng-model="vm.info.starmoney">元 -  <input name="" id="" class="normal2" ng-model="vm.info.endmoney">元
+                    </div>
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>学历：</span>
+                        <select name="" class="normal1" ng-model="vm.info.educational">
+                            <option value="{{data.name}}" ng-repeat="data in vm.eduList">{{data.name}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="Recruit">
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>工作地址：</span>
+                        <div class="form-inline adress-select" >
+                            <div id="distpicker5"  class="select-address">
+                                <div class="form-group" style="margin-right: 10px;">
+                                    <label class="sr-only" for="province10">Province</label>
+                                    <select class="form-control" id="province10" ></select>
+                                </div>
+                                <div class="form-group" style="margin-right: 10px;">
+                                    <label class="sr-only" for="city10">City</label>
+                                    <select class="form-control" id="city10"></select>
+                                </div>
+                                <div class="form-group" style="margin-right: 10px;">
+                                    <label class="sr-only" for="district10">District</label>
+                                    <select class="form-control" id="district10"></select>
+                                </div>
+                                <input name="" id="" class="norma1" placeholder="请输入详细地址"ng-model="vm.info.detailaddress" >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Recruit">
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>联系邮箱：</span>
+                        <input name="" id="" class="normal1" ng-model="vm.info.email">
+                    </div>
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>招聘人数：</span>
+                        <input name="" id="" class="normal2"  ng-model="vm.info.num">
+                    </div>
+                </div>
+                <div class="Recruit">
+                    <div class="position-intr">
+                        <span class="redtip">*</span>
+                        <span>职位描述：</span>
+                        <textarea type="text" placeholder="请输入职位描述，吸引人才~" ng-model="vm.info.content"></textarea>
+                    </div>
+                </div>
+                <div class="Recruit">
+                    <div>
+                        <span class="redtip">*</span>
+                        <span>公司亮点：</span>
+                        <label ng-repeat="data in vm.baseBoon" style="margin-right: 16px;">
+                            <input name="boon" type="checkbox" value="{{data.name}}" style="width: 30px; height: 20px;" />
+                            <span>{{data.name}}</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="Recruit Recruit-btn">
+                    <button class="" ng-click="vm.Recruit(vm.info)">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <rd-footer></rd-footer>
+
+<script src="js/adresspicker/distpicker.data.js"></script>
+<script src="js/adresspicker/distpicker.js"></script>
+<script src="js/adresspicker/main.js"></script>

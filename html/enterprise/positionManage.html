@@ -15,53 +15,53 @@
 
     <!--职位管理-->
     <div class="work-position">
-        <ul>
-            <li class="work-position-l" ui-sref="positionManage({nav:0})">正在招聘</li>
-            <li class="work-position-l" ui-sref="positionManage({nav:1})">完成招聘</li>
+        <ul class="position-banner">
+            <li class="work-position-l {{vm.nav==0 ? 'manage-active':''}}" ui-sref="positionManage({nav:0})">正在招聘</li>
+            <li class="work-position-l {{vm.nav==1?'manage-active':''}}" ui-sref="positionManage({nav:1})">完成招聘</li>
         </ul>
-        <div class="manage-list border-bottom" ng-repeat="list in vm.position">
-            <div ui-sref="workDetail({id:list.id})" class="position-list-right flex-column">
-                <div>
-                    <div class="positionname fl">{{list.job_type}}</div>
-                    <div class="worksalary redF fl">￥{{list.start_money}}-{{list.end_money}}</div><br>
+        <div class="manage-list" ng-repeat="list in vm.position">
+            <div ui-sref="workDetail({id:list.id})" class="position-list-right flex-column" style="width: 33.3333%">
+                <div class="positionManagename fl">
+                    <span>{{list.job_type}}</span>
+                    <span class="worksalary redF">￥{{list.start_money}}-{{list.end_money}}</span>
                 </div>
-                <div class="demand grayF workdemand ">
-                    <span>{{list.experience}}|</span>
-                    <span>{{list.education}}|</span>
+                <div class=" grayF positionManageinfo ">
+                    <span>{{list.experience}} | </span>
+                    <span>{{list.education}} | </span>
                     <span>{{list.area}}</span>
                 </div>
-                <div class="demand grayF workdemand">
-                    <span>更新时间</span>
+                <div class=" grayF workdemand">
+                    <span>更新时间: </span>
                     <span>{{list.time}}</span>
                 </div>
             </div>
-            <div class="position-list-center flex-row">
-               <!--<div class="total border-left">-->
-                   <!--<div>999</div>-->
-                   <!--<div>被查看</div>-->
-               <!--</div>-->
-                <!--<div class="total border-left">-->
-                    <!--<div>999</div>-->
-                    <!--<div>收到简历</div>-->
-                <!--</div>-->
+            <div class=" flex-row positionManageLook">
+               <div class="total border-left">
+                   <div>{{list.look_num}}</div>
+                   <div>被查看</div>
+               </div>
+                <div class="total border-left">
+                    <div>{{list.get_resume}}</div>
+                    <div>收到简历</div>
+                </div>
                 <div class="total" ng-hide="list.look_num==null">
-                    <div>{{list.look_num}}</div>
-                    <div>被查看</div>
+                    <div>{{list.likejob}}</div>
+                    <div>被收藏</div>
                 </div>
             </div>
-            <div style="width: 33.3333%;float: right;">
+            <div style="width: 33.3333%;float: left;">
                 <div class=" fr flex-row">
-                    <button ng-click="vm.modify(list.id,$index)" class="manage-btn white-bc">修改职位</button>
-                    <button class="manage-btn red-bc">完成招聘</button>
+                    <button ng-click="vm.modify(list.id,$index)" class="manage-btn white-bc" >修改职位</button>
+                    <button class="manage-btn white-bc" ng-click="vm.finish(list.id)">完成招聘</button>
                 </div>
                 <div class=" fr flex-row">
-                    <button class="manage-btn white-bc">分享职位</button>
-                    <button class="manage-btn white-bc">刷新职位</button>
+                    <button class="manage-btn white-bc" ng-click="vm.show()">分享职位</button>
+                    <button class="manage-btn white-bc" ng-click="vm.updata()">刷新职位</button>
                 </div>
             </div>
 
         </div>
-         <div class="container noList" ng-show="vm.position==0">暂无数据</div>
+         <div class="container noList" ng-show="vm.position.length==0">暂无数据</div>
         <!--查看更多-->
         <div class="container seeMore text-center workmore" ng-hide=" vm.position==0">
             <img src="image/home/seeMore.png" alt="" >

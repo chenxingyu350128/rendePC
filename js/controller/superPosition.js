@@ -13,6 +13,7 @@ angular.module('myApp')
         vm.exp=vm.params.years;
         vm.sex=vm.params.sex;
         vm.idx=vm.params.idx||0;
+        vm.idx2=vm.params.idx2||0;
         vm.filterData={
             job_type: vm.params.job_type,
             come_job: vm.params.come_job,
@@ -63,7 +64,7 @@ angular.module('myApp')
             }
             vm.filterData['resumeType']=e;
             console.log('数值：',vm.filterData);
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         //正序倒序排列
         vm.orderBy=orderBy;
@@ -80,6 +81,13 @@ angular.module('myApp')
             }
         };
         //ng-repeat事件结束后（否则无法获取该区域dom节点）
+        if(vm.idx2==0){
+            console.log(123)
+            $(".allOptions").css({
+                'color': '#fff',
+                'background':'#31BEFF'
+            })
+        }
         $scope.$on('ngRepeatFinished2', function () {
             //tab切换效果
             let opts0=$('.position').find('.opt0');
@@ -108,29 +116,29 @@ angular.module('myApp')
                 vm.postData['job_type']=vm.filterData['job_type']=e;
                 vm.filterData['idx']=idx;
                 console.log(vm.filterData);
-                $state.go('resumeManage',vm.filterData,{reload:true});
+                $state.go('superPosition',vm.filterData,{reload:true});
             };
         });
         //学历筛选
         vm.eduFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['education']=vm.filterData['education']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//工作经验筛选
         vm.expFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['years']=vm.filterData['years']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//性别筛选
         vm.sexFilter=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['sex']=vm.filterData['sex']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };//到岗时间筛选
         vm.arrival=function(e){
-            console.log(e);
+            vm.filterData['idx2']=1;
             vm.postData['come_job']=vm.filterData['come_job']=e;
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         // 获取简历接口(全部简历/收到的简历)
         common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
@@ -150,7 +158,6 @@ angular.module('myApp')
 
         });
 //**************************获取各个列表************************
-        // 获取行业类型接口
         vm.lists=listsRequest.lists();
         vm.typeList=vm.lists.jobType;
         vm.comeJobList=vm.lists.arrival;
@@ -164,35 +171,77 @@ angular.module('myApp')
                 sex: '',
                 education: '',
                 years: '',
-                idx: '',
+                idx2:0,
                 interview: ''
             };
-            $state.go('resumeManage',vm.filterData,{reload:true});
+            $state.go('superPosition',vm.filterData,{reload:true});
         };
         // 邀请面试按钮接口
-        vm.inviteFace=function(id){
-            let data={r_id:id};
-            common.request('Boss/resume_interview',data).then(function callback(res){
-                console.log(res);
-                if(res.data.code===200){
-                    modalBox.alert(res.data.msg);
-                    $timeout(function(){
-                        $state.go('resumeManage',vm.filterData,{reload:true})
-                    },300)
-                }
-                else if(res.data.code===201){
-                    modalBox.alert(res.data.msg,function(){
-                        $timeout(function(){
-                            $state.go('signPage',{login:1})
-                        },300)
-                    });
-                }
-                else{
-                    modalBox.alert(res.data.msg)
-                }
+        vm.showmodel =function (id) {
+            $("#invitation").modal('show');
+            $("#rid").val(id)
+        }
 
-            });
-        };
+        //面试邀请
+        vm.info={
+            name:'',
+            phone: '',
+            time:''
+        }
+        vm.inviteFace=function(info){
+            if(info.name==""){
+                modalBox.alert("请输入联系人姓名");
+            }else if(info.phone==""){
+                modalBox.alert("请输入联系人电话");
+            }else if(info.time==""){
+                modalBox.alert("请输入面试时间");
+            }else {
+                var telReg = !!info.phone.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[0-9]|18[0-9]|14[57])[0-9]{8}$/);
+                if (telReg == false) {
+                    modalBox.alert("手机号格式不对");
+                    return false
+                }
+                //获取到的时间
+                var thisTime = info.time;
+                thisTime = thisTime.replace(/-/g, '/');
+                var time = new Date(thisTime);
+                var time2 = time.getTime().toString();
+                var time3 = time2.substring(0,time2.length-3);
+                var id =$("#rid").val();
+                common.request('Boss/resume_interview',{r_id:id,name:info.name,phone:info.phone,time:time3}).then(function callback(res){
+                    console.log(res);
+                    if(res.data.code===200){
+                        modalBox.alert(res.data.msg);
+                        $timeout(function(){
+                            $state.go('superPosition',vm.filterData,{reload:true})
+                        },300)
+                    }
+                    else if(res.data.code===201){
+                        modalBox.alert(res.data.msg,function(){
+                            $timeout(function(){
+                                $state.go('signPage',{login:1})
+                            },300)
+                        });
+                    }
+                    else{
+                        modalBox.alert(res.data.msg)
+                    }
+
+                });
+            }
+        }
+        //完成面试
+        vm.finish =function (id) {
+            common.request('Boss/ok_interview',{r_id:id}).then(function callback(res) {
+                if (res.data.code === 200) {
+                    modalBox.alert(res.data.msg,function () {
+                        $timeout(function () {
+                        history.go(0)
+                        }, 300);
+                    })
+                }
+            })
+        }
         vm.ifSuper=function(){
             if(vm.mask){
                 $('.theMask').show();

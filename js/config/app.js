@@ -68,7 +68,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType&page&href',
+                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType&page',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -88,7 +88,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//帮助页
             .state('help',{
-                url: '/help',
+                url: '/help?url',
                 templateUrl: 'html/help.html',
                 controller: 'HelpCtrl',
                 controllerAs: 'vm',
@@ -103,7 +103,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//找人才
             .state('personel',{
-                url: '/personel?jobType1&id&keyword&salary1&boon1&nature1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1&page',
+                url: '/personel?jobType1&id&keyword&salary1&boon1&nature1&edu1&exp1&sex1&arrival1&idx10&idx11&selectedType1&navType1&page&idx12',
                 templateUrl: 'html/personel.html',
                 controller: 'PersonelCtrl',
                 controllerAs: 'vm',
@@ -332,7 +332,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//积分商城
             .state('store',{
-                url: '/store?type?integral1?idx1?page',
+                url: '/store?type?start&end&idx?page',
                 templateUrl: 'html/store.html',
                 controller: 'storeCtrl',
                 controllerAs: 'vm',
@@ -532,7 +532,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             // 专题招聘详情
             .state('topic-detail',{
-                url: '/topic-detail',
+                url: '/topic-detail?id',
                 templateUrl: 'html/topic-detail.html',
                 controller: 'TopicDetail',
                 controllerAs: 'vm',
@@ -550,8 +550,9 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //**********************************企业端****************
             .state('enterpriseHome',{
-                url: '/enterpriseHome',
-                templateUrl: 'html/enterprise/enterpriseHome.html',
+                url: '/enterpriseHome?position0',
+                // params:{position0:1},
+                templateUrl: 'html/enterprise/home.html',
                 controller: 'enterpriseHome',
                 controllerAs: 'vm',
                 resolve: {
@@ -560,8 +561,11 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'css/home.css',
                         'js/controller/enterprise/home.js',
                         'css/work.css',
+                        'css/home.css',
+                        'css/store.css',
                         'css/proxy.css',
                         'css/personel.css',
+                        'css/personnel-detail.css',
                         'css/workdetail.css',
                         'css/position-modify.css',
                         'css/lib/header.css',
@@ -572,7 +576,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('resumeManage',{
-                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview&keyword&j_id',
+                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview&keyword&idx2',
                 templateUrl: 'html/resumeManage.html',
                 controller: 'resumeManage',
                 controllerAs: 'vm',
@@ -582,6 +586,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                         'js/controller/resumeManage.js',
                         'css/lib/header.css',
                         'css/lib/footer.css',
+                        'css/personnel-detail.css',
                         'js/directive/rendeHeader/header.js',
                         'js/directive/rendeFooter/footer.js',
                         'js/directive/repeatEnd2.js'
@@ -621,7 +626,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('superPosition',{
-                url: '/superPosition?resumeType&job_type&come_job&sex&education&years&idx&interview',
+                url: '/superPosition?resumeType&job_type&come_job&sex&education&years&idx&interview&idx2',
                 templateUrl: 'html/superPosition.html',
                 controller: 'superPosition',
                 controllerAs: 'vm',

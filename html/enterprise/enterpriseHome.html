@@ -5,18 +5,23 @@
     <div class="work-search">
         <div class="search-content">
             <input type="text" placeholder="关键词搜索简历 " ng-model="vm.keyword">
-            <button ng-disabled="{{!vm.keyword}}" class="btn" ng-click="vm.search(vm.keyword)" style="background-color: #1db5cc;border: 1px solid #1db5cc;margin-top: 1px;">搜索</button>
+            <button ng-disabled="{{!vm.keyword}}" class="btn" ng-click="vm.search(vm.keyword)"
+                    style=" background-color: #31bdfd;
+                            border: 1px solid #1db5cc;
+                            margin-top: 1px;
+                            margin-left: 0px;
+                            border-radius: 0;">搜索</button>
         </div>
     </div>
     <!--职位管理-->
     <div class="workdetail-body">
         <div class="detail-left">
             <div class="detail-position top-flex">
-               <div class="resume-num top-border">
+               <div class="resume-num top-border" ui-sref="resumeManage({resumeType:1})">
                    <div>{{vm.cardData.length}}</div>
                    <div>收到的简历</div>
                </div>
-                <div class="resume-num">
+                <div class="resume-num" ui-sref="resumeManage({resumeType:2,interview:hello})">
                     <div>{{vm.faceData.length}}</div>
                     <div>邀请面试</div>
                 </div>
@@ -26,12 +31,12 @@
             <div  class="enterban">
                 <img src="image/enterban.png">
             </div>
-            <!--求职人才-->
+            <!--职位管理-->
             <div class="detail-position-hr">
                 <div class="enterprise-top">
                     <span > 职位管理</span>
                     <div style="margin-top: 10px">
-                        <div class=" bc prise-resume" ng-click="vm.occupation(data.id)"  ng-repeat="data in vm.jobData">
+                        <div class=" bc prise-resume"  ng-repeat="data in vm.jobData">
                             <div class=" enter-resume-info" >
                                 <div>
                                     <div class="info-name fl">{{data.job_type}} </div>
@@ -45,17 +50,17 @@
                                 </div>
                             </div>
                             <div class="enter-resume-bt">
-                                <button ng-click=vm.rusumeOfIt(data.id)" class="detail-position-finish-button fr">查看简历</button>
-                                <button class="detail-position-finish-button fr">完成招聘</button>
+                                <button class="detail-position-finish-button fr" ui-sref="personnel-detail({r_id:data.id})">查看简历</button>
+                                <button class="detail-position-finish-button fr" ng-click="vm.finish(data.id)">完成招聘</button>
                             </div>
                         </div>
                         <div ng-show="vm.jobData.length==0" style="text-align: center">
-                            <img src="image/no_data.png" alt="" style="height: 400px;margin-bottom: 20px;">
+                            <img src="image/no_data.png" alt="" style="height: 400px;margin-bottom: 20px;" >
                         </div>
                     </div>
                 </div>
                 <div class=" seeMore text-center workmore" ng-hide="vm.jobData.length==0">
-                    <img src="image/home/seeMore.png" alt="">
+                    <img src="image/home/seeMore.png" alt="" ui-sref="positionManage">
                 </div>
             </div>
 
@@ -64,20 +69,55 @@
             <div class="detail-position-hr">
                 <div class="enterprise-top"><span>人才推荐</span></div>
                 <div class="position-content">
-                    <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4">
+                    <div ng-click="" class="wantedBlock" ng-repeat="data in vm.otherData|limitTo:4" ui-sref="personnel-detail({r_id:data.r_id,g_id:data.g_id})">
                         <div class="outstandings talentlist">
                             <img src="{{data.img}}" alt="" style="width: .82rem;height: .82rem;">
                             <span class="p_name">{{data.name}}</span>
                             <span class="P_margin">{{data.years}}工作经验|{{data.education}}学历</span>
                             <span class="P_margin redF">{{data.want_job}}</span>
-                            <button class="meeting" ng-click="vm.companyjob(data.id)">邀请面试</button>
+                            <button class="meeting" data-toggle="modal" ng-click="vm.showmodel(data.id)" ng-if="data.c_id==null" id="face">邀请面试</button>
+                            <button class="meeting" ng-if="data.c_id!=null" disabled="disabled">已邀面试</button>
                         </div>
                     </div>
                     <div class=" seeMore text-center workmore">
-                        <img src="image/home/seeMore.png" alt="">
+                        <img src="image/home/seeMore.png" alt="" ui-sref="personel">
                     </div>
                 </div>
             </div>
+
+            <!--邀请面试模态框-->
+            <div class="modal fade" id="invitation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" style="width: 23%;">
+                    <div class="modal-content">
+                        <div class="modal-body ">
+                            <div class="invitation-title">邀请面试</div>
+                            <div class="invitation">
+                                <div class="invitation-name">
+                                    <span>联系人：</span>
+                                    <span>联系电话：</span>
+                                    <span>面试时间：</span>
+                                </div>
+                                <div>
+                                    <input type="hidden" id="rid">
+                                    <input type="text" placeholder="请输入联系人~" ng-model="vm.info.name">
+                                    <input type="text" placeholder="请输入联系电话~" ng-model="vm.info.phone" >
+                                    <input type="text"
+                                           value="2017-07-31 17:58"
+                                           id="datetimepicker"
+                                           class="form_datetime"
+                                           data-date-format="yyyy-mm-dd hh:ii"
+                                           ng-model="vm.info.time">
+                                </div>
+                            </div>
+                            <div class="invitation-btn">
+                                <button  ng-click="vm.face(vm.info)" >确认邀请</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--积分兑换-->
             <div class="detail-position-hr">
                 <div class="enterprise-top"><span>积分兑换</span></div>
@@ -91,7 +131,7 @@
                     </div>
                 </div>
                 <div class=" seeMore text-center workmore"  style="margin-bottom: 35px">
-                    <img src="image/home/seeMore.png" alt="">
+                    <img src="image/home/seeMore.png" alt="" ui-sref="store">
                 </div>
             </div>
             <!--//广告位-->
@@ -145,28 +185,99 @@
                     <span>{{vm.company.job_type}}</span>
                 </div>
                 <div class="prise-intr">
-                    <span>{{vm.company.nature}}</span>| <span>{{vm.company.size}}</span>| <span>{{vm.company.area}}</span>
+                    <span>{{vm.company.nature}}</span> | <span>{{vm.company.size}}</span> | <span>{{vm.company.area}}</span>
                 </div>
             </div>
             <div class="prise-image">
                 <div class="message-icon">
                     <img src="image/enterprise/icon1.jpg" alt="" class="prisr-icon">
-                    <div class="message-tip">邮箱已验证</div>
-                    <div class="message-btn  {{vm.company.network=!null? 'finsh_bc':'up_bc'}}">验证邮箱</div>
+                    <div class="message-tip" ng-if=" vm.company.mail==null">邮箱已验证</div>
+                    <div class="message-tip" ng-if="vm.company.mail!=null">邮箱已验证</div>
+                    <div class="message-btn  {{vm.company.mail!=null? 'finsh_bc':'up_bc'}}"  ui-sref="accountManage">验证邮箱</div>
                 </div>
-                <!--<div class="message-icon icon2">-->
-                    <!--<img src="image/enterprise/icon2.jpg" alt="" class="prisr-icon">-->
-                    <!--<div class="message-tip">电话已验证</div>-->
-                    <!--<div class="message-btn finsh_bc">验证电话</div>-->
-                <!--</div>-->
+                <div class="message-icon icon2">
+                    <img src="image/enterprise/icon2.jpg" alt="" class="prisr-icon">
+                    <div class="message-tip">电话已验证</div>
+                    <div class="message-btn finsh_bc "    ui-sref="accountManage">验证电话</div>
+                </div>
                 <div class="message-icon">
                     <img src="image/enterprise/icon3.jpg" alt="" class="prisr-icon">
-                    <div class="message-tip">执照未验证</div>
-                    <div class="message-btn {{vm.company.usiness_license==null ? 'finsh_bc':'up_bc'}}">上传执照</div>
+                    <div class="message-tip" ng-if="vm.company.usiness_license==null">执照未验证</div>
+                    <div class="message-tip" ng-if="vm.company.usiness_license!=null">执照已验证</div>
+                    <div class="message-btn {{vm.company.usiness_license!=null ? 'finsh_bc':'up_bc'}}"  ui-sref="accountManage">上传执照</div>
                 </div>
 
             </div>
         </div>
+        <div class=" enter-bg" style="margin: 0">
+             <div class="enter-home1">
+                 <h3>如何提高招聘效果？</h3>
+                 <div>想提升刷新效果？你发现TA了吗？</div>
+                 <div>想要招聘省心省力，效果有保障？</div>
+                 <div>HR必备招聘款~</div>
+                 <div>做校招，用对工具选对人！</div>
+                 <div>想提升刷新效果？你发现TA了吗？</div>
+                 <div>想要招聘省心省力，效果有保障？</div>
+             </div>
+            <div class="lookmore"  ui-sref="WPInfo">
+                查看更多
+            </div>
+        </div>
+        <div class="enter-bg">
+           <div class="prise-info">
+               <img src="{{vm.company.img}}" alt="" >
+               <div >{{vm.company.name}}</div>
+           </div>
+            <div class="prise-process" >
+                <div class="process-num">
+                    <span>资料完整度</span>
+                    <span>40%</span>
+                </div>
+                <div class="progress"style="height: 8px" >
+                    <div class="progress-bar" role="progressbar" aria-valuenow="60"
+                         aria-valuemin="0" aria-valuemax="100" style="width: 40%;background-color: #E40000;height: 8px">
+                        <span class="sr-only">40% 完成</span>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="midify" ui-sref="accountManage">去修改</button>
+            </div>
+        </div>
+            <div class="user enter-bg">
+                <div class="userInfo">
+                    <img src="{{vm.userList.img}}" alt="">
+                    <div>
+                        <div class="username">{{vm.userList.name ||"暂无用户名"}}</div>
+                        <div class="userScore">
+                            可用积分: <span>{{vm.userList.integral}}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="instructor">
+                    <div class="text-center leftIntro" ui-sref="help">
+                        <img src="image/store/instuctor.png" alt=""> <br>
+                        <span>积分说明</span>
+                    </div>
+                    <div class="text-center" ui-sref="store({type:1})">
+                        <img src="image/store/exchange.png" alt=""> <br>
+                        <span>我的兑换</span>
+                    </div>
+                </div>
+            </div>
+            <div class="enter-bg">
+                <div ui-sref="workplace-news" class="listHeader text-center">
+                    <div class="listTitle">职场咨询</div>
+                    <div class="list_disc">排忧解难，带你就业带你飞</div>
+                    <div class="triangle"></div>
+                </div>
+                <ul class="enter-news">
+                    <li class="article" ui-sref="new-detail({id:{{x.id}},index:$index})" ng-repeat="x in vm.newsList|limitTo:7">{{x.content}}</li>
+                </ul>
+                <div class="text-center">
+                    <button class="midify" ui-sref="WPInfo">查看更多</button>
+                </div>
+            </div>
     </div>
 </div>
 <rd-footer></rd-footer>

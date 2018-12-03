@@ -144,7 +144,7 @@
 }
 .header1 .signed{
     text-align: center;
-    position: relative;
+    /*position: relative;*/
 }
 .signed span{
     padding: .1rem;
@@ -214,10 +214,17 @@
 .usercenter{
     position: absolute;
     z-index: 2;
-    right: 14%;
-    border: 1px solid red;
     border-radius: 5px;
     background: white
+}
+.user1{
+    right: 14%;
+    border: 1px solid red;
+}
+.user2{
+    right: 0;
+    top: 23px;
+    border: 1px solid gainsboro;
 }
 .username{
     overflow: hidden;

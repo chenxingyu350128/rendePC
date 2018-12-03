@@ -1,4 +1,4 @@
-<div class="container-fluid {{client?'enterpriseHome':''}} box-bg" >
+<div class="container-fluid {{client?'enterpriseHome':''}} " >
     <!--个人端-->
     <div ng-show="client==0" class="header">
         <div class="container" style="margin: 20px auto;">
@@ -12,7 +12,7 @@
                 <div ng-if="!cclient" class="btnGroup col-lg-6 col-md-6 col-sm-6 col-xs-12 text-right">
                     <span class="loginIn" ui-sref="signPage({choice:0})">登录</span><span class="sign" ui-sref="signPage({choice:1})">注册</span>
                 </div>
-                <div ng-if="cclient" class="signed  text-right usercenter" ng-mouseleave="mouseLeave()" >
+                <div ng-if="cclient" class="signed  text-right usercenter user1" ng-mouseleave="mouseLeave()" >
                     <div class="user-box">
                         <div ng-mouseenter="mouseEnter()" class="username">欢迎您！{{username}}</div>
                         <div class="loginInfo "  ng-if="showCates">
@@ -48,24 +48,19 @@
                      class="navItem0"
                      ng-click="nav1(x.id)"
                      ng-bind="x.name"
+                     style="color: #fff;"
                      on-finish-render-filters>
-                    <!--{{x.name}}-->
                 </div>
-                <!--<div class="navItem0" ui-sref="enterpriseHome({position0: 1})">首页</div>-->
-                <!--<div class="navItem0" ui-sref="resumeManage({position0: 2})">简历管理</div>-->
-                <!--<div class="navItem0" ui-sref="positionManage({position0: 3})">职位管理</div>-->
-                <!--<div class="navItem0" ui-sref="searchTalent({position0: 4})">搜人才</div>-->
-                <!--<div class="navItem0" ui-sref="accountManage({position0: 5})">账户管理</div>-->
-                <!--<div class="navItem0" ui-sref="superPosition({position0: 6})">高端职位</div>-->
             </div>
             <div ng-if="!cclient" class="btnGroup col-lg-2 col-md-6 col-sm-6 col-xs-12 text-right">
                 <span class="loginIn" ui-sref="signPage({login:1,sign:0})">登录</span><span class="sign" ui-sref="signPage({sign:1,login:0})">注册</span>
             </div>
-            <div ng-if="cclient" class="signed  text-right usercenter" ng-mouseleave="mouseLeave()" >
+            <div ng-if="cclient" class="signed  text-right usercenter user2" ng-mouseleave="mouseLeave()" >
                 <div class="user-box">
                     <div ng-mouseenter="mouseEnter()" class="username">欢迎您！{{username}}</div>
-                    <div class="loginInfo "  ng-if="showCates">
-                        <span ui-sref="setting">账号设置</span>
+                    <div class="loginInfo " ng-if="showCates" >
+                        <!--ng-if="showCates"-->
+                        <span ui-sref="accountManage">账号设置</span>
                         <span ng-click="Exit()">退出登录</span>
                     </div>
                 </div>

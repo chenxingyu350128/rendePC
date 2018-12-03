@@ -452,4 +452,16 @@ angular.module('myApp')
                 vm.workList = res.data.data;
             }
         })
+        // 滚动条监听事件
+        window.onscroll= function(){
+            //变量t是滚动条滚动时，距离顶部的距离
+            var t = document.documentElement.scrollTop||document.body.scrollTop;
+            var scrollup = document.getElementById('rightFix');
+            //当滚动到距离顶部200px时，返回顶部的锚点显示
+            if(t>=400){
+                scrollup.style.display="block";
+            }else{          //恢复正常
+                scrollup.style.display="none";
+            }
+        }
     });

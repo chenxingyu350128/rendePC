@@ -22,7 +22,7 @@
         <div class="hot-news pull-left fl">
             <div>
                 <div class="hot-new-title"><span>热门新闻</span></div>
-                <div class="hot-news-content" ng-repeat="hotnew in vm.show_hot_news" ui-sref="new-detail({id:hotnew.id,index:$index+1})">
+                <div class="hot-news-content" ng-repeat="hotnew in vm.show_hot_news" ui-sref="new-detail({id:hotnew.id,index:$index+1,page:vm.page})">
                     <div>{{hotnew.title}}</div>
                     <div><span>{{hotnew.types}}</span><span class="fr">{{hotnew.time}}</span></div>
                 </div>

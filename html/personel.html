@@ -141,13 +141,13 @@
                     <button class="position-btn" >查看简历</button>
                 </div>
             </div>
-            <div class="seeMore text-center workmore fr">
-                <img src="image/home/seeMore.png" alt="">
-            </div>
+            <!--<div class="seeMore text-center workmore fr">-->
+                <!--<img src="image/home/seeMore.png" alt="">-->
+            <!--</div>-->
         </div>
         <div class="positionRight write" >
             <div class="hot-position"><span >推荐精英</span></div>
-            <div class="hot-position-list tc" style="text-align: center;" title="点击可查看职位详情" ng-repeat="data in vm.dataList|limitTo:6"  ui-sref="personnel-detail({r_id:data.id})">
+            <div class="hot-position-list tc" style="text-align: center;" title="点击可查看职位详情" ng-repeat="data in vm.dataList|limitTo:6"  ui-sref="personnel-detail({r_id:data.r_id,g_id:data.g_id})">
                 <div class="">
                     <img src="{{data.img}}" alt="" class ="headImg">
                 </div>
@@ -155,9 +155,9 @@
                 <div>{{data.age||"暂无"}}岁 | {{data.education||"暂无"}}工作经验  | {{data.education ||"暂无"}}学历</div>
                 <div>{{data.job_type}} | 考虑换工作</div>
             </div>
-            <div class=" seeMore text-center workmore">
-                <img src="image/home/seeMore.png" alt="">
-            </div>
+            <!--<div class=" seeMore text-center workmore">-->
+                <!--<img src="image/home/seeMore.png" alt="">-->
+            <!--</div>-->
         </div>
     </div>
 </div>

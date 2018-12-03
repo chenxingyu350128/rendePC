@@ -1,4 +1,4 @@
-<div style="display: flex;align-items: center" class="pageModel">
+<div style="display: flex;justify-content: center;" class="pageModel">
     <!--<div class="bottomInput">-->
         <!--单页显示-->
         <!--<input type="text"-->
@@ -11,7 +11,7 @@
     <ul uib-pagination
         total-items="total"
         ng-click="pageChange()"
-        ng-model="page"
+        ng-model="ppp"
         max-size="5"
         items-per-page="size"
         first-text="首页"
@@ -21,13 +21,13 @@
         boundary-links="true"
         boundary-link-numbers="true">
     </ul>
-    <div class="bottomInput">
+    <div class="bottomInput" style="margin-left: 20px;display: flex;align-items: center">
         去第
         <input type="text"
-               style="width: 4em;padding: 6px 12px;outline: 0"
+               style="margin: 10px;width: 4em;padding: 6px 12px;outline: 0"
                ng-model="setPage"
                ng-change="changePage()">
         页
-        <button class="btn btn-default" style="color: #3379b6;" ng-click="getNewPage()">确定</button>
+        <button class="btn btn-default" style="color: #3379b6; margin: 10px;" ng-click="getNewPage()">确定</button>
     </div>
 </div>

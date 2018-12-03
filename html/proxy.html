@@ -26,9 +26,9 @@
                     <li data-target="#myCarousel" data-slide-to="2"></li>
                 </ol>
                 <!-- 轮播（Carousel）项目 -->
-                <div class="carousel-inner">
+                <div class="carousel-inner bannerImg">
                     <div ng-repeat="x in vm.banner" class="item" on-finish-render-filters2>
-                        <img src="{{x.img}}" alt="First slide">
+                        <a href="{{x.html}}" target="view_window"> <img src="{{x.img}}" alt="First slide"  style=" width: 100%;height: 430px;"></a>
                     </div>
                 </div>
                 <!-- 轮播（Carousel）导航 -->
@@ -52,7 +52,9 @@
             </div>
         </div>
         <div class="topDiv rightImg col-md-3 col-lg-3 col-sm-12 col-xs-12">
-            <img ng-repeat="x in vm.banner" src="{{x.img}}" alt="">
+            <div ng-repeat="x in vm.banner" >
+                <a href="{{x.html}}" target="view_window"><img src="{{x.img}}" alt=""></a>
+            </div>
         </div>
         <!--</div>-->
     </div>

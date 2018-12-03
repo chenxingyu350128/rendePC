@@ -157,21 +157,21 @@
     .cPart{
       width: 40%;
       padding-left: 100px;
-      border-left: 1px solid #ccc;
       .right1{
+        margin-top: 55px;
         span{
           padding-left: .42rem;
           margin-bottom: .21rem;
         }
-        .right1Info{
-          padding-left: .86rem;
-          div{
-            margin-top: .15rem;
-          }
-        }
       }
       .like{
         margin-bottom: .24rem;
+      }
+    }
+    .right1Info{
+      padding-left: .86rem;
+      div{
+        margin-top: .11rem;
       }
     }
     .rPart{

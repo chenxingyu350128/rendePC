@@ -331,8 +331,8 @@
             <div class="info eduShell"  ng-repeat="x in vm.resume.allshool track by $index">
                 <div class="eduExp">
                     <div class="major">
-                        <div class="duration">
-                            <span>{{x.time}}</span>
+                        <div class="">
+                            <span style="font-weight: 600;">{{x.time}}</span>
                         </div>
                         <div class="campName quarter">{{x.School }}</div>
                         <div class="education quarter">学历&nbsp;:&nbsp;{{x.education }}</div>
@@ -360,7 +360,7 @@
                                                 <input type="text"
                                                        class="form-control"
                                                        uib-datepicker-popup="yyyy-MM-dd"
-                                                       ng-model="vm.eduTime"
+                                                       ng-model="vm.edustartTime"
                                                        is-open="vm.popup2.opened"
                                                        datepicker-options={showWeeks:false}
                                                        ng-required="true"
@@ -370,6 +370,23 @@
                                                        alt-input-formats="vm.format"
                                                        ng-blur="vm.showData(vm.eduTime)"
                                                        ng-click="vm.open2()"/>                                            </div>
+                                        </div>
+                                        <div class="">
+                                            结束时间:
+                                            <div>
+                                                <input type="text"
+                                                       class="form-control"
+                                                       uib-datepicker-popup="yyyy-MM-dd"
+                                                       ng-model="vm.eduendTime"
+                                                       is-open="vm.popup3.opened"
+                                                       datepicker-options={showWeeks:false}
+                                                       ng-required="true"
+                                                       close-text="关闭"
+                                                       clear-text="清空"
+                                                       current-text="今天"
+                                                       alt-input-formats="vm.format"
+                                                       ng-blur="vm.showData(vm.eduTime)"
+                                                       ng-click="vm.open3()"/>                                            </div>
                                         </div>
                                         <div class="campName">
                                             学校名称: <input type="text" required="" ng-model="vm.eduSchool  ">
@@ -391,7 +408,7 @@
                                 <button ng-click="vm.education_history_add()"
                                         type="button"
                                         data-dismiss="modal"
-                                        ng-disabled="!vm.eduTime||!vm.eduSchool||!vm.EDU||!vm.eduMajor"
+                                        ng-disabled="!vm.edustartTime||!vm.eduendTime||!vm.eduSchool||!vm.EDU||!vm.eduMajor"
                                         class="btn btn-danger">
                                     提交
                                 </button>

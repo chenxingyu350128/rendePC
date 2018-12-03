@@ -65,15 +65,17 @@ angular.module('myApp')
         });
         $('.leftNav div').eq(vm.nav).css({
             'background': '#f00',
-            'color': '#fff'
+            'color': '#fff',
+            'border-radius': '0'
         });
         $scope.$on('ngRepeatFinished', function () {
             //轮播图repeat完成后
            $('.job_type').eq(vm.idx).css({
                'background': '#f00',
-               'color': '#fff'
+               'color': '#fff',
+               'border-radius': '0'
            });
-           if(vm.idx){
+           if(vm.idx==0){
                $('.typeSelect').css({
                    'background': '#fff',
                    'color': '#000'
@@ -86,7 +88,8 @@ angular.module('myApp')
                });
                $('.typeSelect').css({
                    'border': '1px solid #f61111',
-                   'color': '#f61111'
+                   'color': '#f61111',
+                   'border-radius': '0'
                });
            }
            else{

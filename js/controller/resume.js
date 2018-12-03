@@ -50,6 +50,7 @@ angular.module('myApp')
         vm.popup = {opened: false};
         vm.popup1 = {opened: false};
         vm.popup2 = {opened: false};
+        vm.popup3 = {opened: false};
         vm.open = function () {
             vm.popup.opened = true
         };
@@ -58,6 +59,9 @@ angular.module('myApp')
         };
         vm.open2 = function () {
             vm.popup2.opened = true;
+        };
+        vm.open3= function () {
+            vm.popup3.opened = true;
         };
         vm.baseinfo= [];
         vm.lists=listsRequest.lists();
@@ -188,11 +192,12 @@ angular.module('myApp')
         // 添加教育经历
         vm.education_history_add=function(){
             $('.modal-backdrop').remove();
-            vm.eduTime=vm.dateFormat(vm.eduTime);
+            vm.edustartTime=vm.dateFormat(vm.edustartTime);
+            vm.eduendTime=vm.dateFormat(vm.eduendTime);
             // vm.eduTime=new Date().toLocaleDateString().replace('/','-').replace('/','-');
             console.log(vm.eduTime);
             let newEdu={
-                time: vm.eduTime,
+                time: vm.edustartTime+"-"+vm.eduendTime,
                 School: vm.eduSchool,
                 education: vm.EDU,
                 major: vm.eduMajor,
@@ -212,11 +217,11 @@ angular.module('myApp')
             })
         };
         vm.deleteEdu=function(e){
-            modalBox.confirm('确定删除改内容吗？',function(){
+            modalBox.confirm('确定删除改内容吗？', function (delta){
                 vm.resume.allshool.splice(e,1);
                 common.request('user/add_change_resume',{allshool:JSON.stringify( vm.resume.allshool)}).then(function callback(res) {
                     if(res.data.code===200){
-                       $state.go('.',{},{reload:true});
+                       $state.go('.', {}, {reload: true});
                         modalBox.alert(res.data.msg)
                     }
                 })

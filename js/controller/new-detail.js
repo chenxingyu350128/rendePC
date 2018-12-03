@@ -31,9 +31,9 @@ angular.module('myApp')
         })
 
         //获取下一篇新闻
-        let url2='boss/show_news';
-        common.request(url2,data).then(function callback(res){
-            vm.newsList = res.data.data
+        vm.page=$stateParams.page||1;
+        common.request('boss/show_news',{page:vm.page}).then(function callback(res){
+            vm.newsList =res.data.data[0].data;
             console.log("新闻列表:",vm.newsList)
            for(var i=0;i<vm.newsList.length;i++){
                if(i==index){
@@ -41,6 +41,5 @@ angular.module('myApp')
                }
            }
         })
-
 
     });

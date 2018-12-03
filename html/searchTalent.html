@@ -24,7 +24,7 @@
     </div>
     <div class="demand">
         <span class="ocp ">更多:</span>
-        <span ng-click="vm.clearMatch()" class="opt1 ocp allOptions">全部</span>
+        <span ng-click="vm.clearMatch()" class="opt1 ocp allOptions" id="all">全部</span>
         <select class="ocp select"
                 id="timeSelect"
                 ng-model="vm.select"
@@ -68,7 +68,7 @@
     </div>
     <div class="{{vm.resumeType==1?'checkedResume':''}}"
          ng-click="vm.tabSwitch(1)">
-        <span class="text-center" ng-click="vm.cardDataList('')">收到的投递</span>
+        <span class="text-center" >收到的投递</span>
         <img src="image/home/arrowBottom_white.png" alt="">
     </div>
     <div class="{{vm.resumeType==2?'checkedResume':''}}"
@@ -99,7 +99,7 @@
             </div>
         </div>
         <div class="cPart">
-            <div class="right1">
+            <div class="right1" style="margin-top: 55px">
                 <div class="like">{{x.want_job}}</div>
                 <div class="status">{{x.job_type}}</div>
             </div>
@@ -107,19 +107,18 @@
         <div class="rPart">
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
-                <div ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+                <div ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
                      ng-disabled="x.look_type==1"
                      class="button {{x.look_type==1?'viewedResume':''}}">
                     查看简历
                 </div>
                 <div class="button {{x.status==2?'faced':''}}"
                      ng-disabled="x.status==2"
-                     ng-click="vm.inviteFace(x.r_id)">
+                     ng-click="vm.showmodel(x.id)">
                     邀请面试
                 </div>
             </div>
         </div>
-
 
     </div>
 
@@ -148,14 +147,15 @@
         <div class="rPart">
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
-                <div ui-sref="personnel-detail({r_id:{{x.r_id}},g_id:{{x.id}}})"
+                <div  ui-sref="personnel-detail({r_id:x.r_id,g_id:x.g_id})"
                      ng-disabled="x.look_type==1"
-                     class="button {{x.look_type==1?'viewedResume':''}}">
+                      class="button {{x.look_type==1?'viewedResume':''}}">
                     查看简历
                 </div>
                 <div class="button {{x.status==2?'faced':''}}"
                      ng-disabled="x.status==2"
-                     ng-click="vm.inviteFace(x.r_id)">
+                     ng-click="vm.showmodel(x.id)"
+                >
                     邀请面试
                 </div>
             </div>
@@ -181,11 +181,11 @@
         </div>
 
         <div class="cPart">
-            <div class="right1">
+            <div>
                 <span>面试信息:</span>
                 <div class="right1Info">
                     <div class="faceAt">面试时间:{{x.interview_time}}</div>
-                    <div class="contact">联系人:{{x.name}}</div>
+                    <div class="">联系人:{{x.name}}</div>
                     <div class="tel">联系电话:{{x.phone}}</div>
                 </div>
             </div>
@@ -195,7 +195,7 @@
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
                 <div class="button">打印简历</div>
-                <div class="button">面试完成</div>
+                <div class="button" ng-click="vm.finish(x.r_id)">面试完成</div>
             </div>
         </div>
     </div>
@@ -218,7 +218,7 @@
         </div>
 
         <div class="cPart">
-            <div class="right1">
+            <div>
                 <span>面试信息:</span>
                 <div class="right1Info">
                     <div class="faceAt">面试时间:{{x.interview_time}}</div>
@@ -232,7 +232,7 @@
             <div class="onRight text-center">
                 <div class="updateAt">更新时间:{{x.time}}</div>
                 <div class="button">打印简历</div>
-                <div class="button">面试完成</div>
+                <div class="button" ng-click="vm.finish({x.id})">面试完成</div>
             </div>
         </div>
     </div>
@@ -240,6 +240,39 @@
 <div style="font-size: 20px;margin-bottom: .25rem" class="text-center" ng-if="vm.result&&!vm.result.length" class="noResult">无搜索结果</div>
 <rd-footer></rd-footer>
 
+
+<!--邀请面试模态框-->
+<div class="modal fade" id="invitation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 23%;">
+        <div class="modal-content">
+            <div class="modal-body ">
+                <div class="invitation-title">邀请面试</div>
+                <div class="invitation">
+                    <div class="invitation-name">
+                        <span>联系人：</span>
+                        <span>联系电话：</span>
+                        <span>面试时间：</span>
+                    </div>
+                    <div>
+                        <input type="hidden" id="rid">
+                        <input type="text" placeholder="请输入联系人~" ng-model="vm.info.name">
+                        <input type="text" placeholder="请输入联系电话~" ng-model="vm.info.phone" >
+                        <input type="text"
+                               value="2017-07-31 17:58"
+                               id="datetimepicker"
+                               class="form_datetime"
+                               data-date-format="yyyy-mm-dd hh:ii"
+                               ng-model="vm.info.time">
+                    </div>
+                </div>
+                <div class="invitation-btn">
+                    <button  ng-click="vm.inviteFace(vm.info)" >确认邀请</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

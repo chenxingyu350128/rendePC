@@ -4,17 +4,6 @@ angular.module('myApp')
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
-        // $(function(){
-        //     $(".pagination a").on('click',function(){
-        //         var href = $(this).attr("href");
-        //         let a=$("#real_form").serialize();
-        //         console.log(a);
-        //         $("#real_form").attr("action", href).submit();
-        //         console.log($('form'));
-        //         return false;
-        //     });
-        // });
-
         //获取所需列表
         vm.lists=listsRequest.lists();
         console.log(vm.lists);
@@ -43,8 +32,8 @@ angular.module('myApp')
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
         postData['jobType']=paramsData['jobType']=vm.params.jobType;
-        paramsData['idx0']=vm.params.idx0;
-        paramsData['idx1']=vm.params.idx1;
+        paramsData['idx0']=vm.params.idx0||0;
+        paramsData['idx1']=vm.params.idx1||0;
         postData['money']=paramsData['money']=vm.params.salary;
         vm.edu=postData['education']=paramsData['edu']=vm.params.edu;
         vm.nature=postData['nature']=paramsData['nature']=vm.params.nature;
@@ -161,8 +150,8 @@ angular.module('myApp')
             let typeList=$('.Type span');
             let salary=$('.salaryBtn span');
             let boon=$('.boonOpt span');
-            let idx0=paramsData['idx0']||0;
-            let idx1=paramsData['idx1']||0;
+            let idx0=paramsData['idx0'];
+            let idx1=paramsData['idx1'];
             let boonOnlyName=[];
             for(let i=0;i<vm.boon.length;i++){//css点亮已选项
                 boonOnlyName[i]=vm.boon[i].name;
@@ -320,12 +309,6 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
-
-
-
-        // if(!vm.dataList.length){
-        //
-        // }
 
         //投递简历
         $scope.$on('ngRepeatFinished2', function () {
