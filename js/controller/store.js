@@ -16,7 +16,7 @@ angular.module('myApp')
         postData['start']=vm.params.start;
         postData['end']=vm.params.end;
         postData['typeid']=0;
-        // let shopdata={typeid:0,desc:vm.params.integral1};
+        // let postData={typeid:0,desc:vm.params.integral1};
         vm.page=postData['page']=vm.params.page||1;
         vm.type = $stateParams.type;
         $scope.$on('ngRepeatFinished', function () {
@@ -55,8 +55,8 @@ angular.module('myApp')
             $state.go('store',paramsData,{reload:true})
         };
         vm.getSalary=function(x,idx){
-            var arr =x.split("-")
-            console.log(arr)
+            var arr =x.split("-");
+            console.log(arr);
             paramsData['start']=arr[0];
             paramsData['end']=arr[1];
             paramsData['idx']=idx;
@@ -76,7 +76,7 @@ angular.module('myApp')
         }else {
             url='boss/shopping_list';  // 获取商品列表接口
         }
-        common.request(url,shopdata).then(function callback(res){
+        common.request(url,postData).then(function callback(res){
             if(res.data.code===200){
                 vm.shoppingList=res.data.data[0].data;
                 vm.total=res.data.data[1];
@@ -84,7 +84,7 @@ angular.module('myApp')
                 $('.pageFromBase').html(vm.total);
                 $(".pagination button").on("click",function(){
                     let href = $(this).attr("class");
-                    common.pageRequest(shopdata,href).then(function callback(res){
+                    common.pageRequest(postData,href).then(function callback(res){
                         console.log(res);
                         if(res.data.code===200){
                             console.log('YO!');
@@ -105,14 +105,13 @@ angular.module('myApp')
             } else if(res.data.code===404){
                 modalBox.alert(res.data.msg)
             }
-        });
-        // 获取最新商品列表
+        });        // 获取最新商品列表
         let timeurl='boss/Guess_like_shop';
         let timedata={typeid:0,desc:'',time:1};
         common.request(timeurl,timedata).then(function callback(res){
             vm.timeList = res.data.data
             console.log("最新商品",vm.timeList)
-        })
+        });
 
         // 获取猜你喜欢商品列表
         let likeurl='boss/Guess_like_shop';
@@ -120,7 +119,7 @@ angular.module('myApp')
         common.request(likeurl,likedata).then(function callback(res){
             vm.likeList = res.data.data
             // console.log(vm.likeList)
-        })
+        });
 
         // 获取用户信息
         let userurl='user/get_userinfo';

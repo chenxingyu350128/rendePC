@@ -41,19 +41,20 @@ a:active {
   line-height: .37rem;
   background: #fff; }
 
-.proxy_contactontact {
+.proxy_contact {
   font-size: 20px;
   padding: .2rem .31rem .38rem;
   margin-bottom: .22rem;
   display: flex;
+  align-items: center;
   background: #fff; }
-  .proxy_contactontact > div {
+  .proxy_contact > div {
     display: flex;
     align-items: center; }
-  .proxy_contactontact .mobile image {
+  .proxy_contact .mobile image {
     width: .15rem;
     height: .21rem; }
-  .proxy_contactontact .qq image {
+  .proxy_contact .qq image {
     width: .24rem;
     height: .24rem; }
 
