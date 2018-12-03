@@ -1,7 +1,8 @@
 'use strict';//模态框和签名、请求
-var aa;
-var bb;
-var cc;
+var value1;
+var value2;
+var value3;
+var value4;
 angular.module('myApp')
     .factory('modalBox', function () {
         return {
@@ -80,13 +81,32 @@ angular.module('myApp')
                 if(!sessionStorage.getItem('uid')){
                     $state.go('signPage')
                 }else{
-                    aa=data['uid']=JSON.parse(sessionStorage.getItem('uid'));
-                    bb=data['token']=JSON.parse(sessionStorage.getItem('token'));
+                    data['uid']=JSON.parse(sessionStorage.getItem('uid'));
+                    data['token']=JSON.parse(sessionStorage.getItem('token'));
                 }
                 postData['app_id'] = appid;
                 postData['data'] = JSON.stringify(data);
                 postData['timestrap'] = Date.parse(new Date()) / 1000;
-                cc=postData['sign'] = that.sign(postData,appsecret);
+                postData['sign'] = that.sign(postData,appsecret);
+                return $http({
+                    method: 'POST',
+                    url: real_url,
+                    data: postData,
+                })
+            },
+            pageRequest: function(data,href){
+                let that=this;
+                let appid = 'apprende';
+                let appsecret ='fdfc8fede5c0bea035215dfbf1e33f5f';// require('sign.js')//加载签名功能
+                let real_url=href;
+                let postData={};
+                data['uid']=JSON.parse(sessionStorage.getItem('uid'));
+                data['token']=JSON.parse(sessionStorage.getItem('token'));
+                // data['page']=1;
+                postData['app_id'] = appid;
+                postData['data'] = JSON.stringify(data);
+                postData['timestrap'] = Date.parse(new Date()) / 1000;
+                postData['sign'] = that.sign(postData,appsecret);
                 return $http({
                     method: 'POST',
                     url: real_url,

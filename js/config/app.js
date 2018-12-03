@@ -68,7 +68,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //找工作
             .state('WorkCtrl',{
-                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType&page',
+                url: '/workCtrl?jobType&id&keyword&salary&boon&nature&edu&exp&sex&arrival&idx0&idx1&selectedType&navType&page&href',
                 templateUrl: 'html/work.html',
                 controller: 'WorkCtrl',
                 controllerAs: 'vm',
@@ -393,7 +393,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })//职场资讯
             .state('WPInfo',{
-                url: '/wpInfo&page',
+                url: '/wpInfo?page',
                 templateUrl: 'html/workplace-news.html',
                 controller: 'wpInfo',
                 controllerAs: 'vm',
@@ -550,9 +550,8 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
             })
             //**********************************企业端****************
             .state('enterpriseHome',{
-                url: '/enterpriseHome?position0',
-                // params:{position0:1},
-                templateUrl: 'html/enterprise/home.html',
+                url: '/enterpriseHome',
+                templateUrl: 'html/enterprise/enterpriseHome.html',
                 controller: 'enterpriseHome',
                 controllerAs: 'vm',
                 resolve: {
@@ -573,7 +572,7 @@ let app=angular.module('myApp',['ui.router','ngMessages','ui.bootstrap','oc.lazy
                 }
             })
             .state('resumeManage',{
-                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview&keyword',
+                url: '/resumeManage?resumeType&job_type&come_job&sex&education&years&idx&interview&keyword&j_id',
                 templateUrl: 'html/resumeManage.html',
                 controller: 'resumeManage',
                 controllerAs: 'vm',

@@ -4,6 +4,17 @@ angular.module('myApp')
         let vm=this;
         vm.params=$stateParams;
         console.log(vm.params);
+        // $(function(){
+        //     $(".pagination a").on('click',function(){
+        //         var href = $(this).attr("href");
+        //         let a=$("#real_form").serialize();
+        //         console.log(a);
+        //         $("#real_form").attr("action", href).submit();
+        //         console.log($('form'));
+        //         return false;
+        //     });
+        // });
+
         //获取所需列表
         vm.lists=listsRequest.lists();
         console.log(vm.lists);
@@ -26,7 +37,8 @@ angular.module('myApp')
         vm.salaryList=salaryList;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
-        vm.page=postData['page']=vm.params.page||1;
+        // vm.page=postData['page']=vm.params.page||1;
+        postData['page']=1;
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType)||0;
@@ -149,8 +161,8 @@ angular.module('myApp')
             let typeList=$('.Type span');
             let salary=$('.salaryBtn span');
             let boon=$('.boonOpt span');
-            let idx0=paramsData['idx0'];
-            let idx1=paramsData['idx1'];
+            let idx0=paramsData['idx0']||0;
+            let idx1=paramsData['idx1']||0;
             let boonOnlyName=[];
             for(let i=0;i<vm.boon.length;i++){//css点亮已选项
                 boonOnlyName[i]=vm.boon[i].name;
@@ -197,7 +209,14 @@ angular.module('myApp')
         });
         let url='';
         // vm.navType=0;
-
+        let judge=!vm.nature&&!vm.edu&&!vm.exp&&!vm.sex&&!vm.time;
+        console.log(judge);
+        if(judge){
+            $('.allOptions').css({
+                'background': '#fff',
+                'color': '#000'
+            });
+        }
         if(vm.navType==0){
             url='Boss/find_job';
         }else if(vm.navType==1){
@@ -267,10 +286,28 @@ angular.module('myApp')
         common.request(url,postData).then(function callback(res){
             console.log(postData);
             if(res.data.code===200){
-                    vm.dataList=res.data.data[0].data;
-                    vm.total=res.data.data[1];
-                    $('.inner-html').html(vm.total);
-                    vm.size=res.data.data[0].per_page;
+                vm.dataList=res.data.data[0].data;
+                vm.total=res.data.data[1];
+                if(!vm.dataList.length){
+                    vm.noResult=true;
+                }
+                postData['page']=res.data.data[0].current_page;
+                $('.pageFromBase').html(vm.total);
+                $(".pagination button").on("click",function(){
+                    let href = $(this).attr("class");
+                    common.pageRequest(postData,href).then(function callback(res){
+                        console.log(postData);
+                        console.log(res);
+                        if(res.data.code===200){
+                            console.log('YO!');
+                            console.log('YO!');
+                            vm.dataList=res.data.data[0].data;
+                            vm.total=res.data.data[1];
+                            console.log(vm.dataList);
+                            $state.go('.')
+                        }
+                    });
+                });
             }
             else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){
@@ -283,6 +320,12 @@ angular.module('myApp')
                 modalBox.alert(res.data.msg)
             }
         });
+
+
+
+        // if(!vm.dataList.length){
+        //
+        // }
 
         //投递简历
         $scope.$on('ngRepeatFinished2', function () {

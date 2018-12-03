@@ -12,7 +12,7 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
-        vm.page=postData['page']=parseInt(vm.params.page)||1;
+        postData['page']=parseInt(vm.params.page)||1;
         let paramsData={};
         if(vm.nav){
             postData['time']='anything';
@@ -20,7 +20,7 @@ angular.module('myApp')
         // let url='';
         // url=vm.nav?'Boss/show_work':'Boss/recommend_work';
         postData['job_type']=paramsData['jobType']=vm.params.jobType;
-        vm.idx=parseInt(vm.params.idx30);
+        vm.idx=parseInt(vm.params.idx30)||0;
         vm.clearType=function(){
             paramsData['jobType']='';
             paramsData['idx30']=0;
@@ -41,11 +41,26 @@ angular.module('myApp')
             if(res.data.code===200){
                 vm.cardData=res.data.data[0].data;
                 vm.total=res.data.data[1];
-                vm.size=res.data.data[0].per_page;
+                postData['page']=res.data.data[0].current_page;
                 if(!res.data.data[0].data.length){
                     vm.noResult=true;
                 }
-
+                $('.pageFromBase').html(vm.total);
+                $(".pagination button").on("click",function(){
+                    let href = $(this).attr("class");
+                    common.pageRequest(postData,href).then(function callback(res){
+                        console.log(postData);
+                        console.log(res);
+                        if(res.data.code===200){
+                            console.log('YO!');
+                            console.log('YO!');
+                            vm.dataList=res.data.data[0].data;
+                            vm.total=res.data.data[1];
+                            console.log(vm.dataList);
+                            $state.go('.')
+                        }
+                    });
+                });
             }
         });
         $('.leftNav div').eq(vm.nav).css({

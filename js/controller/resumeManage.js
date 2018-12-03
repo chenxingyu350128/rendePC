@@ -31,6 +31,9 @@ angular.module('myApp')
             years: vm.params.years,
             interview: vm.params.interview
         };
+        if($stateParams.j_id){
+            vm.postData['j_id']=$stateParams.j_id;
+        }
         vm.searchData={find: vm.keyword};
         //搜索栏
         vm.search=function(e){
@@ -122,7 +125,7 @@ angular.module('myApp')
             $state.go('resumeManage',vm.filterData,{reload:true});
         };
         // 获取简历接口(全部简历/收到的简历)
-        if(vm.resumeType!==3){
+        // if(vm.resumeType!==2){
             common.request('Boss/show_resumelist',vm.postData).then(function callback(res) {
                 if(res.data.code===200){
                     vm.cardData = res.data.data;
@@ -140,7 +143,7 @@ angular.module('myApp')
                 }
 
             });
-        }
+        // }
         if(vm.resumeType===3){
             common.request('Boss/find_job',vm.searchData).then(function callback(res) {
                 if(res.data.code===200){

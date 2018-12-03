@@ -23,7 +23,7 @@ angular.module('myApp')
         vm.salaryList=salaryList;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
-        vm.page=postData['page']=parseInt(vm.params.page);
+        postData['page']=parseInt(vm.params.page);
         let paramsData={};
         //接受默认信息from$stateParams
         vm.navType=parseInt(vm.params.navType1)||0;
@@ -188,6 +188,13 @@ angular.module('myApp')
             });
 
         });
+        let judge=!vm.nature&&!vm.edu&&!vm.exp&&!vm.sex&&!vm.time;
+        if(!judge){
+            $('.allOptions').css({
+                'background': '#fff',
+                'color': '#000'
+            });
+        }
         let url='';
         if(!vm.navType){
             url='boss/all_resume';
@@ -253,8 +260,24 @@ angular.module('myApp')
             if(res.data.code===200){
                 vm.dataList=res.data.data[0].data;
                 vm.total=res.data.data[1];
-                vm.size=res.data.data[0].per_page;
+                postData['page']=res.data.data[0].current_page;
                 nickname.request(vm.dataList);
+                $('.pageFromBase').html(vm.total);
+                $(".pagination button").on("click",function(){
+                    let href = $(this).attr("class");
+                    common.pageRequest(postData,href).then(function callback(res){
+                        console.log(postData);
+                        console.log(res);
+                        if(res.data.code===200){
+                            console.log('YO!');
+                            console.log('YO!');
+                            vm.dataList=res.data.data[0].data;
+                            vm.total=res.data.data[1];
+                            console.log(vm.dataList);
+                            $state.go('.')
+                        }
+                    });
+                });
             }
             else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){

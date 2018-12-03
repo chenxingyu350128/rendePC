@@ -7,7 +7,8 @@ angular.module('myApp')
         vm.nav=parseInt(vm.params.nav0)||0;
         let postData={};
         postData['city']=sessionStorage.getItem('city');
-        vm.page=postData['page']=parseInt(vm.params.page)||1;
+        postData['page']=1;
+        console.log('page值',vm.page);
         let paramsData={};
         // 获取福利待遇接口
         vm.lists=listsRequest.lists();
@@ -26,9 +27,9 @@ angular.module('myApp')
         vm.selectedType=vm.params.selectedType0;
         vm.selectedNature=vm.params.selectedNature0;
         vm.selectedBoon=vm.params.selectedBoon0;
-        vm.idx0=vm.params.idx00;
-        vm.idx1=vm.params.idx01;
-        vm.idx2=vm.params.idx02;
+        vm.idx0=vm.params.idx00||0;
+        vm.idx1=vm.params.idx01||0;
+        vm.idx2=vm.params.idx02||0;
         postData['jobType']=vm.params.jobType0;
         postData['nature']=vm.params.nature0;
         postData['size']=vm.params.size0;
@@ -207,10 +208,46 @@ angular.module('myApp')
             if(res.data.code===200){
                 vm.dataList=res.data.data[0].data;
                 vm.total=res.data.data[1];
-                vm.size=res.data.data[0].per_page;
+                postData['page']=res.data.data[0].current_page;
+                $('.pageFromBase').html(vm.total);
                 for(let i=0;i<vm.dataList.length;i++){
                     vm.dataList[i].boonarr=JSON.parse(vm.dataList[i].boonarr);
                 }
+                $(".pagination button").on("click",function(){
+                    let href = $(this).attr("class");
+                    common.pageRequest(postData,href).then(function callback(res){
+                        console.log(res);
+                        if(res.data.code===200){
+                            console.log('YO!');
+                            console.log('YO!');
+                            vm.dataList=res.data.data[0].data;
+                            vm.total=res.data.data[1];
+                            for(let i=0;i<vm.dataList.length;i++){
+                                vm.dataList[i].boonarr=JSON.parse(vm.dataList[i].boonarr);
+                            }
+                            console.log(vm.dataList);
+                            $state.go('.')
+                        }
+                    });
+                    // $.ajax({
+                    //     type: "POST", // 使用post方式
+                    //     url: href,
+                    //     contentType:"application/json",
+                    //     data: JSON.stringify({app_id:value1, timestrap:value2, sign: value3, data: value4}), // 参数列表，stringify()方法用于将JS对象序列化为json字符串
+                    //     dataType:"json",
+                    //     success: function(res){
+                    //         vm.dataList=res.data[0].data;
+                    //         vm.total=res.data[1];
+                    //         console.log(vm.dataList);
+                    //         $state.go('.')
+                    //         // $('.pageFromBase').html(vm.total);
+                    //         // console.log(vm.total);
+                    //     },
+                    //     error: function(result){
+                    //         // 请求失败后的操作
+                    //     }
+                    // });
+                });
             }else if(res.data.code===201){
                 modalBox.alert(res.data.msg,function(){
                     $timeout(function(){

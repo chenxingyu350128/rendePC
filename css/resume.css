@@ -136,7 +136,6 @@
 
 .eduShell .eduExp {
   width: 100%;
-  padding: .3rem 0;
   font-size: 16px;
   background: #fff;
   position: relative;
@@ -146,8 +145,7 @@
   justify-content: space-between;
   align-items: center;
   font-size: 18px;
-  margin-bottom: .27rem;
-  padding-top: .2rem; }
+  margin-bottom: .47rem; }
   .eduShell .major > .quarter {
     width: 25%;
     text-align: center; }

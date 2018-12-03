@@ -32,34 +32,32 @@ a:active {
 .cardContent {
   text-indent: 3em;
   box-sizing: border-box;
-  height: 4.5rem;
-  padding: 22px 13px 22px  21px;
+  height: 4.05rem;
+  padding: 31px 27px;
   font-size: 14px;
   letter-spacing: .5em;
-  font-family: 微软雅黑;
+  font-family: "microsoft yahei";
   font-weight: 400;
   line-height: .37rem;
   background: #fff; }
 
-.contact {
+.proxy_contactontact {
   font-size: 20px;
   padding: .2rem .31rem .38rem;
   margin-bottom: .22rem;
   display: flex;
   background: #fff; }
-  .contact > div {
+  .proxy_contactontact > div {
     display: flex;
     align-items: center; }
-  .contact .mobile image {
+  .proxy_contactontact .mobile image {
     width: .15rem;
     height: .21rem; }
-  .contact .qq image {
+  .proxy_contactontact .qq image {
     width: .24rem;
     height: .24rem; }
 
 .inIt + .inIt {
   margin-left: 2.53rem; }
-.inIt img{
-  margin-right: 20px;
-}
+
 /*# sourceMappingURL=proxy.css.map */

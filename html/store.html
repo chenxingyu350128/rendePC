@@ -4,21 +4,20 @@
 <div class="BG container-fluid text-center">
     欢迎来到积分商城，你想要的这里都有！！
 </div>
-<div class="main container">
+<div class="storeMain main container">
     <div class="row">
         <div class="col-lg-8 content1">
-            <span>积分筛选:</span>
+            <div>积分筛选:</div>
             <div class="storeSelect">
-
-                    <span ng-click="vm.clearOthers()" class="" id="all">全部</span>
-                    <span>0 - 5000</span>
-                    <span>5000 - 10000</span>
-                    <span>10000 - 50000</span>
-                    <span>50000 - 100000</span>
+                    <span class="priceState" ng-click="vm.clearOthers()" id="all">全部</span>
+                    <span class="priceState">5000以下</span>
+                    <span class="priceState">5000 - 9999</span>
+                    <span class="priceState">10000 - 49999</span>
+                    <span class="priceState">50000以上</span>
                 <span>
                  <input type="text">
                 -
-                   <input type="text">
+                 <input type="text">
                 </span>
             </div>
             <div class="productTitle">
@@ -37,12 +36,10 @@
                     <!--<img src="image/no_data.png">-->
                     <div class="no-List">您目前还没有兑换列表~</div>
                 </div>
-                <page-model style="float: left" ng-if="!vm.navType" page="vm.page" total="vm.total" size="vm.size"></page-model>
-
-                <!--<div class="seeMorePng text-center" ng-hide="vm.shoppingList.length==0">-->
-                    <!--<img src="image/home/seeMore.png" alt="">-->
-                <!--</div>-->
+                <!--<page-model style="float: left" ng-if="!vm.navType" page="vm.page" total="vm.total" size="vm.size"></page-model>-->
+                <div class="pageFromBase"></div>
             </div>
+
             <div class="productTitle">
                 <span>最新商品</span>
             </div>

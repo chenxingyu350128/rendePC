@@ -52,6 +52,10 @@
 .personnel-list-div{
     width: 33.3333%;
 }
+.allOptions{
+    background: #f61111;
+    color: #fff;
+}
 .person-list-btn{
     float: right;
     text-align: right;

@@ -1,5 +1,5 @@
 'use strict';
-app.directive('pageModel',function ($state,$stateParams) {
+app.directive('pageModel',function ($state) {
     return {
         restrict: 'EA',
         replace: true,
@@ -11,8 +11,7 @@ app.directive('pageModel',function ($state,$stateParams) {
         },
         link: function (scope) {
             //点击页码
-            scope.pageChange=function (e) {
-                console.log('model',e);
+            scope.pageChange=function () {
                 console.log("测试",scope.page);
                 $state.go('.', {page: scope.page},{reload: true});
             };
